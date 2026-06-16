@@ -1,0 +1,15 @@
+.od-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-overline);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  color: var(--ember-600);
+}
+.od-eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.od-eyebrow--harbor { color: var(--harbor-600); }
+.od-eyebrow--muted { color: var(--ink-500); }
+.od-eyebrow--on-dark { color: var(--ember-400); }

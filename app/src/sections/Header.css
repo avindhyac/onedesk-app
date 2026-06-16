@@ -1,0 +1,22 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(252, 250, 246, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.header__logo { height: 44px; width: auto; display: block; }
+.header__nav { display: flex; align-items: center; gap: 30px; }
+.header__link { font-size: 14px; font-weight: 500; color: var(--ink-700); text-decoration: none; }
+.header__actions { display: flex; align-items: center; gap: 14px; }

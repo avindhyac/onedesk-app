@@ -1,0 +1,78 @@
+.hero {
+  position: relative;
+  background: var(--paper-50);
+  overflow: hidden;
+}
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(720px 520px at 98% -4%, rgba(111, 156, 169, 0.24), transparent 62%),
+    radial-gradient(500px 400px at 2% 100%, rgba(238, 118, 50, 0.13), transparent 60%);
+}
+.hero__inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(52px, 6vw, 88px) 32px clamp(60px, 6vw, 96px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+.hero__title {
+  margin: 20px 0 0;
+  font-size: clamp(38px, 4.4vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+.hero__title .dot { color: #ee7632; }
+.hero__lede {
+  margin: 22px 0 0;
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-600);
+}
+.hero__lede strong { color: var(--ink-800); font-weight: 600; }
+.hero__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 34px; }
+.hero__team { display: flex; align-items: center; gap: 9px; margin-top: 36px; flex-wrap: wrap; }
+.hero__team-label {
+  font-size: 11.5px; font-weight: 600; color: var(--ink-400);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-right: 4px;
+}
+.hero__team-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+}
+.hero__team-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+.hero__grid { display: flex; gap: 12px; align-items: flex-start; padding: 4px 0; }
+.hero__col { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.hero__card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero__card:hover { transform: translateY(-6px); box-shadow: var(--hover-shadow); }
+.hero__card-art {
+  display: flex; justify-content: center; align-items: flex-end;
+  height: 148px; padding-top: 12px;
+}
+.hero__card-art img { height: 148px; width: auto; display: block; object-fit: contain; }
+.hero__card-label {
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid;
+  padding: 9px 0;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1fr; }
+}
