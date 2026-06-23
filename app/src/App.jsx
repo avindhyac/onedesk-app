@@ -1,34 +1,24 @@
-import Header from "./sections/Header";
-import Hero from "./sections/Hero";
-import Problem from "./sections/Problem";
-import Solution from "./sections/Solution";
-import Services from "./sections/Services";
-import Benefits from "./sections/Benefits";
-import Audience from "./sections/Audience";
-import Marketplace from "./sections/Marketplace";
-import Process from "./sections/Process";
-import Stats from "./sections/Stats";
-import Testimonials from "./sections/Testimonials";
-import FinalCta from "./sections/FinalCta";
-import Footer from "./sections/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
+import MarketplacePage from "./pages/MarketplacePage";
 
 function App() {
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif", background: "var(--paper-100)", color: "var(--text-body)", overflowX: "hidden" }}>
-      <Header />
-      <Hero />
-      <Problem />
-      <Solution />
-      <Services />
-      <Benefits />
-      <Audience />
-      <Marketplace />
-      <Process />
-      <Stats />
-      <Testimonials />
-      <FinalCta />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/marketplace" element={<MarketplacePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

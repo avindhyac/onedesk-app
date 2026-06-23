@@ -17,6 +17,7 @@
 }
 .footer__grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .footer__grid ul a { font-size: 13.5px; color: rgba(255, 255, 255, 0.68); text-decoration: none; }
+.footer__contact a { color: rgba(255, 255, 255, 0.68); text-decoration: none; }
 .footer__contact { gap: 9px; }
 .footer__contact li { font-size: 13.5px; color: rgba(255, 255, 255, 0.68); }
 .footer__book { margin-top: 18px; }

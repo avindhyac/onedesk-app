@@ -22,7 +22,7 @@ export default function Stats() {
           <img src={characters.hr} alt="" />
         </div>
         <div>
-          <Eyebrow tone="on-dark">By the numbers</Eyebrow>
+          <Eyebrow tone="on-light">By the numbers</Eyebrow>
           <h2 className="stats__title">
             The compounding advantage of one connected partner<span className="dot">.</span>
           </h2>

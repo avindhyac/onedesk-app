@@ -1,0 +1,291 @@
+/* =============================================================================
+   Dark Theme Variations — design lab page
+   Each .dv__panel uses CSS custom props set inline, so all variants share
+   one set of rules with zero class duplication.
+   ============================================================================= */
+
+/* --- Wrapper --------------------------------------------------------------- */
+.dv { font-family: inherit; }
+
+/* --- Header ---------------------------------------------------------------- */
+#dv-header,
+.dv__header {
+  background: var(--paper-100);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 80px 32px 64px;
+}
+.dv__header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.dv__header-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ember-500);
+  margin: 0 0 14px;
+}
+.dv__header-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-heading);
+  margin: 0 0 16px;
+}
+.dv__header-sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 40px;
+  max-width: 56ch;
+}
+
+/* --- TOC / jump links ------------------------------------------------------ */
+.dv__toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.dv__toc-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 10px;
+  background: var(--paper-50);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.dv__toc-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+.dv__toc-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid;
+  flex-shrink: 0;
+}
+.dv__toc-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+/* --- Panel ----------------------------------------------------------------- */
+.dv__panel {
+  background: var(--dv-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Badge (top-right label) ----------------------------------------------- */
+.dv__badge {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2;
+}
+.dv__badge-num {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.06em;
+}
+.dv__badge-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dv-accent);
+  letter-spacing: 0.01em;
+}
+
+/* --- Inner layout ---------------------------------------------------------- */
+.dv__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(80px, 9vw, 120px) 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* --- Copy ------------------------------------------------------------------ */
+.dv__eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dv-accent);
+  margin-bottom: 16px;
+}
+.dv__title {
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.dv__dot { color: var(--dv-accent); }
+.dv__lede {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--dv-muted);
+  margin: 0 0 14px;
+  max-width: 46ch;
+}
+.dv__desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--dv-accent);
+  opacity: 0.85;
+  font-style: italic;
+  margin: 0 0 18px;
+}
+
+/* --- Swatch row ------------------------------------------------------------ */
+.dv__swatches {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.dv__swatch-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dv__swatch-dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dv__swatch-item code {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+}
+
+/* --- CTAs ------------------------------------------------------------------ */
+.dv__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.dv__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 22px;
+  background: var(--dv-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.dv__btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.dv__btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 22px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.16);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.dv__btn-ghost:hover { background: rgba(255,255,255,0.13); transform: translateY(-1px); }
+
+/* --- Card grid ------------------------------------------------------------- */
+.dv__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.dv__card {
+  background: var(--dv-card);
+  border: 1px solid var(--dv-card-border);
+  border-radius: 22px;
+  padding: 26px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.dv__card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.28); }
+.dv__icon {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
+  background: var(--dv-accent-soft);
+  color: var(--dv-accent);
+  margin-bottom: 12px;
+}
+.dv__card h3 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 5px;
+}
+.dv__card p {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--dv-muted);
+  margin: 0;
+}
+.dv__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 11px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--dv-accent);
+}
+
+/* --- Divider between panels ------------------------------------------------ */
+.dv__panel + .dv__panel { border-top: 1px solid rgba(255,255,255,0.04); }
+
+/* --- Footer ---------------------------------------------------------------- */
+.dv__footer {
+  background: #0a0a0a;
+  padding: 40px 32px;
+  text-align: center;
+}
+.dv__back {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.dv__back:hover { color: rgba(255,255,255,0.75); }
+
+/* --- Responsive ------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .dv__inner { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 560px) {
+  .dv__grid { grid-template-columns: 1fr; }
+  .dv__toc { gap: 8px; }
+}

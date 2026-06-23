@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Eyebrow from "../components/Eyebrow";
 import "./FinalCta.css";
@@ -20,8 +21,8 @@ export default function FinalCta({ title = "Let's build what matters — togethe
             <h2>{title}</h2>
             <p>Tell us where you are today. We&apos;ll show you what one connected partner can take off your plate.</p>
             <div className="final-cta__ctas">
-              <Button variant="primary" size="lg" dot as="a" href="#contact">Talk to OneDesk</Button>
-              <Button variant="on-dark" size="lg" as="a" href="#marketplace">Explore the Marketplace</Button>
+              <Button variant="primary" size="lg" dot as={Link} to="/contact">Talk to OneDesk</Button>
+              <Button variant="on-dark" size="lg" as={Link} to="/marketplace">Explore the Marketplace</Button>
             </div>
           </div>
         </div>

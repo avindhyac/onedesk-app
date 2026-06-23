@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Eyebrow from "../components/Eyebrow";
 import "./Marketplace.css";
@@ -40,8 +41,8 @@ export default function Marketplace() {
             need them — and gives every member access to a wider network of opportunity.
           </p>
           <div className="marketplace__ctas">
-            <Button variant="primary" size="lg" dot as="a" href="#contact">Become a partner</Button>
-            <Button variant="on-dark" size="lg" as="a" href="#contact">Explore partners</Button>
+            <Button variant="primary" size="lg" dot as={Link} to="/contact">Become a partner</Button>
+            <Button variant="on-dark" size="lg" as={Link} to="/marketplace">Explore partners</Button>
           </div>
         </div>
         <div className="marketplace__grid">
@@ -50,9 +51,9 @@ export default function Marketplace() {
               <span className="marketplace__icon" style={{ background: c.iconBg, color: c.iconStroke, stroke: c.iconStroke }}>{c.icon}</span>
               <h3>{c.title}</h3>
               <p>{c.text}</p>
-              <a href="#contact" className="marketplace__link" style={{ color: c.border }}>
+              <Link to="/contact" className="marketplace__link" style={{ color: c.border }}>
                 Learn more <span aria-hidden="true">&rsaquo;</span>
-              </a>
+              </Link>
             </div>
           ))}
         </div>

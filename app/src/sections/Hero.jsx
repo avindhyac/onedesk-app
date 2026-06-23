@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Eyebrow from "../components/Eyebrow";
 import { characters } from "../data/characters";
-import { PILLARS, TEAM_ORDER } from "../data/pillars";
+import { PILLARS } from "../data/pillars";
+import { CLIENT_LOGOS } from "../data/clientLogos";
 import "./Hero.css";
 
 const COLUMNS = [
-  { offset: 0, cards: ["secretarial", "tax"] },
-  { offset: 28, cards: ["accounting", "hr"] },
-  { offset: 52, cards: ["legal", "marketing"] },
+  { cards: ["secretarial", "tax"], rot: -7, tx: 10, ty: 14, scale: 0.96, z: 10 },
+  { cards: ["accounting", "hr"], rot: 0, tx: 0, ty: -10, scale: 1.05, z: 30 },
+  { cards: ["legal", "marketing"], rot: 7, tx: -10, ty: 14, scale: 0.96, z: 10 },
 ];
 
 export default function Hero() {
@@ -25,26 +27,24 @@ export default function Hero() {
             together — under one structured, trusted partner.
           </p>
           <div className="hero__ctas">
-            <Button variant="primary" size="lg" dot as="a" href="#contact">Get started</Button>
-            <Button variant="outline" size="lg" as="a" href="#services">Explore services</Button>
-          </div>
-          <div className="hero__team">
-            <span className="hero__team-label">Your team:</span>
-            {TEAM_ORDER.map((key) => {
-              const p = PILLARS[key];
-              return (
-                <span key={key} className="hero__team-pill" style={{ background: `var(--c-${p.var}-l)`, color: `var(--c-${p.var})` }}>
-                  <span className="hero__team-dot" style={{ background: `var(--c-${p.var})` }} />
-                  {p.short}
-                </span>
-              );
-            })}
+            <Button variant="primary" size="lg" dot as={Link} to="/contact">Get started</Button>
+            <Button variant="outline" size="lg" as={Link} to="/services">Explore services</Button>
           </div>
         </div>
 
-        <div className="hero__grid">
+        <div className="hero__fan">
           {COLUMNS.map((col, i) => (
-            <div key={i} className="hero__col" style={{ marginTop: col.offset }}>
+            <div
+              key={i}
+              className="hero__col"
+              style={{
+                "--rot": `${col.rot}deg`,
+                "--tx": `${col.tx}px`,
+                "--ty": `${col.ty}px`,
+                "--scale": col.scale,
+                zIndex: col.z,
+              }}
+            >
               {col.cards.map((key) => {
                 const p = PILLARS[key];
                 return (
@@ -65,6 +65,18 @@ export default function Hero() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="hero__trust">
+        <h3 className="hero__trust-heading">Trusted by the best</h3>
+        <div className="hero__trust-track" data-track>
+          {CLIENT_LOGOS.map((c) => (
+            <span key={c.name} className="hero__trust-logo">{c.name}</span>
+          ))}
+        </div>
+        <p className="hero__trust-caption">
+          OneDesk is trusted by teams at {CLIENT_LOGOS.map((c) => c.name).join(", ")}.
+        </p>
       </div>
     </section>
   );
