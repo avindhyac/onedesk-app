@@ -1,0 +1,196 @@
+/* ── Pricing section ──────────────────────────────────────────── */
+.pricing { background: var(--paper-100); }
+.pricing__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 112px) 32px;
+}
+
+/* ── Section head ─────────────────────────────────────────────── */
+.pricing__head {
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 72px;
+}
+.pricing__title {
+  margin: 16px 0 0;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+.pricing__title .dot { color: var(--ember-500); }
+.pricing__lede {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-600);
+}
+
+/* ── Grid ─────────────────────────────────────────────────────── */
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  /* Extra bottom padding so the elevated center card doesn't clip */
+  padding-bottom: 14px;
+}
+
+.pricing__wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Card base ────────────────────────────────────────────────── */
+.pricing__card {
+  background: var(--paper-50);
+  border-radius: 28px;
+  border: 1.5px solid var(--border-subtle);
+  padding: 32px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: default;
+}
+
+/* ── Featured card ────────────────────────────────────────────── */
+.pricing__card--featured {
+  border-color: transparent;
+  border-top: 3px solid var(--ember-500);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.11);
+  /* Visually elevate above sibling cards; framer-motion y handles hover from here */
+  margin-top: -14px;
+}
+
+/* ── "Most popular" badge ─────────────────────────────────────── */
+.pricing__badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ember-500);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ── Tier name ────────────────────────────────────────────────── */
+.pricing__tier-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* ── Price ────────────────────────────────────────────────────── */
+.pricing__price {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+.pricing__currency {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-400);
+  letter-spacing: 0.02em;
+  margin-right: 1px;
+}
+.pricing__amount {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.6vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink-900);
+  line-height: 1;
+}
+.pricing__period {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-400);
+  margin-left: 1px;
+}
+
+/* ── Description ──────────────────────────────────────────────── */
+.pricing__desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink-500);
+  margin: 0 0 20px;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+.pricing__divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin-bottom: 22px;
+}
+
+/* ── Feature list ─────────────────────────────────────────────── */
+.pricing__features {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex: 1;
+}
+.pricing__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-700);
+}
+.pricing__check {
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+}
+
+/* ── CTA ──────────────────────────────────────────────────────── */
+.pricing__cta { margin-top: auto; }
+
+/* ── Footer note ──────────────────────────────────────────────── */
+.pricing__note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-400);
+  margin-top: 52px;
+  line-height: 1.65;
+}
+.pricing__note a {
+  color: var(--text-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+  .pricing__card--featured {
+    margin-top: 0;
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.09);
+  }
+}
+@media (max-width: 600px) {
+  .pricing__grid { max-width: 100%; }
+  .pricing__inner { padding-left: 20px; padding-right: 20px; }
+}

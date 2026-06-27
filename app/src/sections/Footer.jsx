@@ -16,6 +16,7 @@ const SERVICE_LINKS = [
 
 const COMPANY_LINKS = [
   { to: "/about",       label: "About us" },
+  { to: "/pricing",     label: "Pricing" },
   { href: "/#solution", label: "How it works" },
   { to: "/marketplace", label: "Marketplace" },
   { href: "/#process",  label: "Process" },

@@ -79,47 +79,56 @@
   background: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  padding: clamp(40px, 5vw, 56px) 0;
+  padding: clamp(32px, 4vw, 48px) 0;
   text-align: center;
+  overflow: hidden;
 }
 .hero__trust-heading {
-  margin: 0 0 32px;
-  font-size: clamp(20px, 2vw, 26px);
+  margin: 0 0 24px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink-900);
-}
-.hero__trust-track {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: clamp(20px, 4vw, 48px);
-  flex-wrap: nowrap;
-  width: 100%;
-  padding: 0 clamp(24px, 5vw, 64px);
-}
-.hero__trust-logo {
-  flex: 1;
-  font-size: clamp(16px, 2.2vw, 26px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink-700);
-  opacity: 0.55;
-  white-space: nowrap;
-}
-.hero__trust-caption {
-  margin: 28px 0 0;
-  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--ink-400);
-  padding: 0 32px;
 }
 
-@media (max-width: 700px) {
-  .hero__trust-track {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .hero__trust-logo { flex: none; }
+/* Full-width scrolling track */
+.hero__trust-track {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.hero__trust-inner {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: odScrollL 24s linear infinite;
+}
+
+.hero__trust-inner:hover { animation-play-state: paused; }
+
+.hero__trust-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(17px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink-700);
+  opacity: 0.5;
+  white-space: nowrap;
+  padding: 0 4px;
+  transition: opacity 0.2s;
+}
+
+.hero__trust-sep {
+  font-size: 10px;
+  opacity: 0.4;
+  color: var(--ink-400);
+  font-weight: 400;
+  margin-left: 20px;
 }
 
 @media (max-width: 900px) {

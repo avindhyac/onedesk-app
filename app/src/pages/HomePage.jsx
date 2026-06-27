@@ -1,3 +1,4 @@
+import PageTransition from "../components/PageTransition";
 import Hero from "../sections/Hero";
 import Problem from "../sections/Problem";
 import Solution from "../sections/Solution";
@@ -9,11 +10,11 @@ import Process from "../sections/Process";
 import Stats from "../sections/Stats";
 import Testimonials from "../sections/Testimonials";
 import FinalCta from "../sections/FinalCta";
-import DarkVariants from "../sections/DarkVariants";
+// import DarkVariants from "../sections/DarkVariants";
 
 export default function HomePage() {
   return (
-    <>
+    <PageTransition>
       <Hero />
       <Problem />
       <Solution />
@@ -25,7 +26,6 @@ export default function HomePage() {
       <Stats />
       <Testimonials />
       <FinalCta />
-      <DarkVariants />
-    </>
+    </PageTransition>
   );
 }

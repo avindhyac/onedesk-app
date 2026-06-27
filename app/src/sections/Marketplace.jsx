@@ -29,7 +29,6 @@ const CARDS = [
 export default function Marketplace() {
   return (
     <section id="marketplace" className="marketplace">
-      <div className="marketplace__glow" />
       <div className="marketplace__inner">
         <div>
           <Eyebrow tone="on-dark">OneDesk Marketplace</Eyebrow>

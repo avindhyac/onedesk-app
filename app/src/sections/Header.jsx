@@ -5,10 +5,10 @@ import { logos } from "../data/logos";
 import "./Header.css";
 
 const NAV_LINKS = [
-  { to: "/services",    label: "Services" },
-  { to: "/marketplace", label: "Marketplace" },
   { to: "/about",       label: "About us" },
-  { to: "/contact",     label: "Contact" },
+  { to: "/services",    label: "Services" },
+  { to: "/pricing",     label: "Pricing" },
+  { to: "/marketplace", label: "Marketplace" },
 ];
 
 export default function Header() {
@@ -35,9 +35,8 @@ export default function Header() {
         </nav>
 
         <div className="header__actions">
-          <Link to="/contact" className="header__link header__link--quiet">Sign in</Link>
           <Button variant="primary" size="md" dot as={Link} to="/contact">
-            Get started
+            Contact us
           </Button>
         </div>
 
@@ -64,9 +63,8 @@ export default function Header() {
             {link.label}
           </NavLink>
         ))}
-        <Link to="/contact" className="header__sheet-link" onClick={close}>Sign in</Link>
         <Button variant="primary" size="md" dot as={Link} to="/contact" block onClick={close}>
-          Get started
+          Contact us
         </Button>
       </div>
     </header>

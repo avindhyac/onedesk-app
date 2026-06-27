@@ -1,10 +1,4 @@
-.marketplace { background: var(--ink-900); position: relative; overflow: hidden; }
-.marketplace__glow {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(600px 400px at 85% 15%, rgba(238, 118, 50, 0.16), transparent 60%),
-    radial-gradient(560px 420px at 10% 90%, rgba(111, 156, 169, 0.20), transparent 60%);
-}
+.marketplace { background: #111827; position: relative; overflow: hidden; }
 .marketplace__inner {
   position: relative; max-width: 1200px; margin: 0 auto; padding: clamp(88px, 10vw, 136px) 32px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
@@ -18,8 +12,9 @@
 .marketplace__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 .marketplace__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .marketplace__card {
-  background: var(--ink-800); border-radius: 24px;
+  background: #1a2236; border-radius: 24px;
   padding: 28px; transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255,255,255,0.07);
 }
 .marketplace__card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0, 0, 0, 0.30); }
 .marketplace__icon {

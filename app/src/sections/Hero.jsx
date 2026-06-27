@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
           <div className="hero__ctas">
             <Button variant="primary" size="lg" dot as={Link} to="/contact">Get started</Button>
-            <Button variant="outline" size="lg" as={Link} to="/services">Explore services</Button>
+            <Button variant="outline" size="lg" as={Link} to="/pricing">See pricing</Button>
           </div>
         </div>
 
@@ -68,15 +68,17 @@ export default function Hero() {
       </div>
 
       <div className="hero__trust">
-        <h3 className="hero__trust-heading">Trusted by the best</h3>
-        <div className="hero__trust-track" data-track>
-          {CLIENT_LOGOS.map((c) => (
-            <span key={c.name} className="hero__trust-logo">{c.name}</span>
-          ))}
+        <p className="hero__trust-heading">Trusted by the best</p>
+        <div className="hero__trust-track">
+          <div className="hero__trust-inner" aria-hidden="true">
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((c, i) => (
+              <span key={i} className="hero__trust-logo">
+                {c.name}
+                <span className="hero__trust-sep">·</span>
+              </span>
+            ))}
+          </div>
         </div>
-        <p className="hero__trust-caption">
-          OneDesk is trusted by teams at {CLIENT_LOGOS.map((c) => c.name).join(", ")}.
-        </p>
       </div>
     </section>
   );
