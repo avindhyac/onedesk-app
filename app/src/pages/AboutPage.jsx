@@ -5,6 +5,7 @@ import CountUp from "../components/CountUp";
 import Eyebrow from "../components/Eyebrow";
 import PageTransition from "../components/PageTransition";
 import RevealOnScroll from "../components/RevealOnScroll";
+import Seo from "../components/Seo";
 import FinalCta from "../sections/FinalCta";
 import "./AboutPage.css";
 
@@ -60,6 +61,11 @@ const TEAM = [
 export default function AboutPage() {
   return (
     <PageTransition>
+      <Seo
+        title="About us"
+        description="One team, every function. OneDesk was founded to give Sri Lankan businesses one trusted partner for legal, tax, accounting, HR, secretarial and marketing."
+        path="/about"
+      />
 
       {/* Hero */}
       <section className="about-hero">

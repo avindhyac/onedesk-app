@@ -1,4 +1,5 @@
 import PageTransition from "../components/PageTransition";
+import Seo from "../components/Seo";
 import Hero from "../sections/Hero";
 import Problem from "../sections/Problem";
 import Solution from "../sections/Solution";
@@ -15,6 +16,7 @@ import FinalCta from "../sections/FinalCta";
 export default function HomePage() {
   return (
     <PageTransition>
+      <Seo path="/" />
       <Hero />
       <Problem />
       <Solution />

@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Eyebrow from "../components/Eyebrow";
 import PageTransition from "../components/PageTransition";
 import RevealOnScroll from "../components/RevealOnScroll";
+import Seo from "../components/Seo";
 import "./MarketplacePage.css";
 
 const FEATURE_CARDS = [
@@ -81,6 +82,11 @@ const PARTNER_TYPES = [
 export default function MarketplacePage() {
   return (
     <PageTransition>
+      <Seo
+        title="Marketplace"
+        description="Join the OneDesk Marketplace — a vetted network of partners with built-in cross-referrals across legal, tax, HR, accounting and marketing."
+        path="/marketplace"
+      />
       <div className="mkt-page">
 
         {/* Hero */}

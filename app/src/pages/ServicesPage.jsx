@@ -5,6 +5,7 @@ import Eyebrow from "../components/Eyebrow";
 import PageHero from "../components/PageHero";
 import PageTransition from "../components/PageTransition";
 import RevealOnScroll from "../components/RevealOnScroll";
+import Seo from "../components/Seo";
 import FinalCta from "../sections/FinalCta";
 import { characters } from "../data/characters";
 import "./ServicesPage.css";
@@ -58,6 +59,11 @@ const PROCESS_STEPS = [
 export default function ServicesPage() {
   return (
     <PageTransition>
+      <Seo
+        title="Services"
+        description="Six pillars, one partner: legal, tax, accounting, HR & payroll, company secretarial, and marketing — coordinated under one roof."
+        path="/services"
+      />
       <PageHero
         eyebrow="Our services"
         title="Six pillars. One partner"

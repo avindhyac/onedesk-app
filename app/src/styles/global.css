@@ -52,6 +52,15 @@ p { margin: 0; }
 
 a { color: var(--text-link); text-decoration: none; }
 
+/* Visible keyboard focus for all interactive elements. Mouse clicks don't
+   trigger :focus-visible, so this only shows for keyboard/AT users. Low
+   specificity via :where() so components can still override intentionally. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--ember-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 img { max-width: 100%; }
 
 ::selection { background: var(--ember-200); color: var(--ink-900); }

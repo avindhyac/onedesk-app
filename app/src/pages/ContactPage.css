@@ -138,7 +138,7 @@
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 960px) {
   .contact-body__inner { grid-template-columns: 1fr; gap: 40px; }
-  .contact-body__inner > *:last-child { order: -1; }
+  /* Form is the primary action — keep it first (source order) on mobile. */
   .contact-panel__socials { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 640px) {
