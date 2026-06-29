@@ -67,7 +67,7 @@ export default function AboutPage() {
           <RevealOnScroll>
             <Eyebrow>About OneDesk</Eyebrow>
             <h1 className="about-hero__title">
-              One team. Every function<br />that matters<span className="dot">.</span>
+              One team.<br />Every function<span className="dot">.</span>
             </h1>
             <p className="about-hero__lede">
               We started OneDesk because great businesses shouldn't be slowed down by the complexity of staying compliant, structured and protected.

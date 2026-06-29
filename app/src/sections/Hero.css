@@ -76,9 +76,6 @@
 .hero__trust {
   position: relative;
   width: 100%;
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
   padding: clamp(32px, 4vw, 48px) 0;
   text-align: center;
   overflow: hidden;

@@ -28,7 +28,7 @@ export default function Solution() {
         <div>
           <Eyebrow tone="harbor">One connected ecosystem</Eyebrow>
           <h2 className="solution__title">
-            One team. Every function. All in step<span className="dot">.</span>
+            One team. Every function<span className="dot">.</span>
           </h2>
           <p className="solution__lede">
             OneDesk isn&apos;t a list of services — it&apos;s a single operating layer. Your legal position informs

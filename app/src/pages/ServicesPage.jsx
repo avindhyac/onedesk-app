@@ -26,7 +26,7 @@ const SERVICES = [
     key: "accounting", color: "acc", num: "03",
     title: "Accounting",
     tagline: "A clear picture of your finances, always.",
-    chips: ["Bookkeeping", "Financial Reports", "Bank Reconciliations", "Management Accounts"],
+    chips: ["Bookkeeping", "Financial Reports", "Bank Reconciliations", "Internal Audits"],
   },
   {
     key: "hr", color: "hr", num: "04",

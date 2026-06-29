@@ -41,7 +41,7 @@ const TIERS = [
     accentVar: "ember-500",
     features: [
       "Everything in Starter",
-      "Full monthly bookkeeping & management accounts",
+      "Full monthly bookkeeping & internal audits",
       "Payroll for up to 15 employees",
       "Legal advisory — 2 hours/month",
       "Quarterly tax filing & planning",

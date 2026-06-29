@@ -6,7 +6,7 @@
 
 :root {
   --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
-  --font-body:    "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Open Sans", "Helvetica Neue", Arial, sans-serif;
   --font-mono:    "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Weights */ /* @kind font */
