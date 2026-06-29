@@ -11,9 +11,17 @@ const MIN_SNAP_WIDTH = 768;
 /**
  * Gently "frames" the section nearest to where the user stops scrolling, using
  * Lenis' Snap module in proximity mode (free scroll; only nudges near a
- * boundary). Sections that fit the viewport settle optically centered; taller
- * sections are framed at their top so the user can read straight through them
- * before the smooth-scroll carries on to the next one.
+ * boundary). Sections that fit the viewport settle optically centered.
+ *
+ * Sections TALLER than the viewport get NO snap point: a single point at their
+ * top turns the whole upper half into a magnet (distanceThreshold is relative
+ * to viewport height), which on debounce yanks the reader back to the section
+ * start and hides lower content (e.g. the second row of service cards). These
+ * are read-through sections, so we let them scroll freely.
+ *
+ * `distanceThreshold` is tightened from the 50% default to 20% so the remaining
+ * (fitting) sections only nudge near a real boundary, and an adjacent fitting
+ * section can't grab you as you scroll into a tall one.
  *
  * Snap points are recomputed per route and on resize, accounting for the
  * sticky header height (`--header-h`).
@@ -52,18 +60,19 @@ export default function SectionSnap() {
       const sections = document.querySelectorAll("section");
       if (!sections.length) return;
 
-      snap = new Snap(lenis, { type: "proximity" });
+      snap = new Snap(lenis, { type: "proximity", distanceThreshold: "20%" });
 
       sections.forEach((el) => {
-        const top = el.getBoundingClientRect().top + scrollY;
         const h = el.offsetHeight;
         const fitsViewport = h <= vh - headerH;
 
+        // Taller-than-viewport sections scroll freely — no snap point, so the
+        // reader is never pulled back to the top mid-section.
+        if (!fitsViewport) return;
+
         // Fits: center within the visible area below the sticky header.
-        // Taller: frame the top just below the header, then scroll through.
-        const target = fitsViewport
-          ? top + h / 2 - (vh + headerH) / 2
-          : top - headerH;
+        const top = el.getBoundingClientRect().top + scrollY;
+        const target = top + h / 2 - (vh + headerH) / 2;
 
         snap.add(Math.max(0, Math.round(target)));
       });
