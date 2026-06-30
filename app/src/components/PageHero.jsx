@@ -1,9 +1,9 @@
 import Eyebrow from "./Eyebrow";
 import "./PageHero.css";
 
-export default function PageHero({ eyebrow, eyebrowTone = "ember", title, titleDot = true, subtitle, dark = false, children }) {
+export default function PageHero({ eyebrow, eyebrowTone = "ember", title, titleDot = true, subtitle, dark = false, seamless = false, children }) {
   return (
-    <section className={`page-hero${dark ? " page-hero--dark" : ""}`}>
+    <section className={`page-hero${dark ? " page-hero--dark" : ""}${seamless ? " page-hero--seamless" : ""}`}>
       {dark && <div className="page-hero__glow" />}
       <div className="page-hero__inner">
         {eyebrow && <Eyebrow tone={dark ? "on-dark" : eyebrowTone}>{eyebrow}</Eyebrow>}

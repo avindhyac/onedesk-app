@@ -16,6 +16,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Simple, transparent pricing"
         subtitle="One monthly engagement - no hidden retainers, no surprise invoices. Pick the tier that fits where your business is and move up as you grow."
+        seamless
       />
       <Pricing />
       <FinalCta title="Not sure which plan fits? Let's figure it out together." />

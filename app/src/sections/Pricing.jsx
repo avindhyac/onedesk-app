@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Button from "../components/Button";
-import Eyebrow from "../components/Eyebrow";
 import RevealOnScroll from "../components/RevealOnScroll";
 import "./Pricing.css";
 
@@ -75,19 +74,6 @@ export default function Pricing() {
   return (
     <section className="pricing">
       <div className="pricing__inner">
-        <RevealOnScroll>
-          <div className="pricing__head">
-            <Eyebrow>Pricing</Eyebrow>
-            <h2 className="pricing__title">
-              Transparent pricing for every stage<span className="dot">.</span>
-            </h2>
-            <p className="pricing__lede">
-              One monthly engagement - no hidden retainers, no surprise invoices. Pick the tier that
-              fits where your business is today and move up as you grow.
-            </p>
-          </div>
-        </RevealOnScroll>
-
         <div className="pricing__grid">
           {TIERS.map((tier, i) => (
             <RevealOnScroll key={tier.id} delay={i * 0.1} className="pricing__wrap">
