@@ -1,12 +1,12 @@
 export const ROW_1 = [
   {
-    quote: "One relationship for everything from incorporation to advisory — structured, secure and genuinely in our corner.",
+    quote: "One relationship for everything from incorporation to advisory - structured, secure and genuinely in our corner.",
     name: "Ashan P.", role: "Founder, growth-stage startup", initial: "A",
     bg: "#fff", border: "var(--border-subtle)", top: "var(--c-sec)", quoteColor: "var(--c-sec-m)",
     text: "var(--ink-700)", avatarBg: "var(--c-sec-l)", avatarFg: "var(--c-sec)", nameColor: "var(--ink-900)", roleColor: "var(--ink-400)",
   },
   {
-    quote: "We stopped juggling three firms overnight. Books, taxes and compliance — and they all actually talk to each other.",
+    quote: "We stopped juggling three firms overnight. Books, taxes and compliance - and they all actually talk to each other.",
     name: "Nadeesha K.", role: "CEO, Colombo-based SME", initial: "N",
     bg: "var(--c-acc-l)", border: "rgba(104,126,116,0.16)", top: "var(--c-acc)", quoteColor: "var(--c-acc-m)",
     text: "var(--ink-700)", avatarBg: "var(--c-acc-m)", avatarFg: "#fff", nameColor: "var(--ink-900)", roleColor: "var(--ink-400)",
@@ -33,7 +33,7 @@ export const ROW_1 = [
 
 export const ROW_2 = [
   {
-    quote: "Genuinely feels like a single back office. One message and everything moves — no hand-holding required.",
+    quote: "Genuinely feels like a single back office. One message and everything moves - no hand-holding required.",
     name: "Tharuka B.", role: "Founder, early-stage startup", initial: "T",
     bg: "var(--c-hr-l)", border: "rgba(217,107,94,0.16)", top: "var(--c-hr)", quoteColor: "var(--c-hr-m)",
     text: "var(--ink-700)", avatarBg: "var(--c-hr-m)", avatarFg: "#fff", nameColor: "var(--ink-900)", roleColor: "var(--ink-400)",

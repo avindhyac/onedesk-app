@@ -29,7 +29,7 @@ const FEATURE_CARDS = [
   {
     border: "#ffc269", iconBg: "rgba(255,194,105,0.15)", iconStroke: "#ffc269",
     title: "Cross-referrals",
-    text: "Work flows across legal, tax, HR, accounting and marketing — all within the OneDesk network.",
+    text: "Work flows across legal, tax, HR, accounting and marketing - all within the OneDesk network.",
     icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8" /></svg>,
   },
 ];
@@ -48,7 +48,7 @@ const JOIN_STEPS = [
   {
     num: "03", color: "#dbb7f7",
     title: "Get connected",
-    text: "Start receiving qualified referrals from OneDesk clients — matched to your expertise.",
+    text: "Start receiving qualified referrals from OneDesk clients - matched to your expertise.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function MarketplacePage() {
     <PageTransition>
       <Seo
         title="Marketplace"
-        description="Join the OneDesk Marketplace — a vetted network of partners with built-in cross-referrals across legal, tax, HR, accounting and marketing."
+        description="Join the OneDesk Marketplace - a vetted network of partners with built-in cross-referrals across legal, tax, HR, accounting and marketing."
         path="/marketplace"
       />
       <div className="mkt-page">
@@ -104,7 +104,7 @@ export default function MarketplacePage() {
               </h1>
               <p className="mkt-hero__lede">
                 Beyond core services, the OneDesk Marketplace connects vetted partners with the businesses that
-                need them — and gives every member access to a wider network of opportunity.
+                need them - and gives every member access to a wider network of opportunity.
               </p>
               <div className="mkt-hero__ctas">
                 <Button variant="primary" size="lg" dot as={Link} to="/contact">Become a partner</Button>
@@ -141,7 +141,7 @@ export default function MarketplacePage() {
               <div className="mkt-join__head">
                 <Eyebrow tone="on-dark">Become a partner</Eyebrow>
                 <h2 className="mkt-join__title">Three steps to the network<span className="mkt-dot">.</span></h2>
-                <p className="mkt-join__lede">Joining is straightforward. We vet every partner to keep quality high — so your referrals arrive pre-qualified.</p>
+                <p className="mkt-join__lede">Joining is straightforward. We vet every partner to keep quality high - so your referrals arrive pre-qualified.</p>
               </div>
             </RevealOnScroll>
             <div className="mkt-join__steps">
@@ -197,7 +197,7 @@ export default function MarketplacePage() {
               <div className="mkt-cta__content">
                 <Eyebrow tone="on-dark">Ready to plug in?</Eyebrow>
                 <h2>Join a network built on credibility and cross-referrals<span className="mkt-dot">.</span></h2>
-                <p>Apply to become a OneDesk Marketplace partner — or explore the partners already in the network.</p>
+                <p>Apply to become a OneDesk Marketplace partner - or explore the partners already in the network.</p>
                 <div className="mkt-cta__buttons">
                   <Button variant="primary" size="lg" dot as={Link} to="/contact">Apply to join</Button>
                   <Button variant="on-dark" size="lg" as={Link} to="/contact">Talk to us</Button>

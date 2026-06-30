@@ -24,7 +24,7 @@ const TIERS = [
     features: [
       "Company incorporation & secretarial",
       "Annual statutory filings",
-      "Basic bookkeeping — up to 50 transactions/mo",
+      "Basic bookkeeping - up to 50 transactions/mo",
       "1 employment contract template",
       "Quarterly tax advisory",
       "Email support",
@@ -43,9 +43,9 @@ const TIERS = [
       "Everything in Starter",
       "Full monthly bookkeeping & internal audits",
       "Payroll for up to 15 employees",
-      "Legal advisory — 2 hours/month",
+      "Legal advisory - 2 hours/month",
       "Quarterly tax filing & planning",
-      "Marketing consultation — 1 session/month",
+      "Marketing consultation - 1 session/month",
       "Priority support",
     ],
     cta: "Start with Growth",
@@ -61,8 +61,8 @@ const TIERS = [
     features: [
       "Everything in Growth",
       "Dedicated account manager",
-      "HR & payroll — unlimited employees",
-      "Legal retainer — 5 hours/month",
+      "HR & payroll - unlimited employees",
+      "Legal retainer - 5 hours/month",
       "Advanced tax & cross-border structuring",
       "Marketing strategy & campaign execution",
       "24/7 priority support",
@@ -82,7 +82,7 @@ export default function Pricing() {
               Transparent pricing for every stage<span className="dot">.</span>
             </h2>
             <p className="pricing__lede">
-              One monthly engagement — no hidden retainers, no surprise invoices. Pick the tier that
+              One monthly engagement - no hidden retainers, no surprise invoices. Pick the tier that
               fits where your business is today and move up as you grow.
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function Pricing() {
 
         <RevealOnScroll delay={0.35}>
           <p className="pricing__note">
-            All plans billed monthly in LKR. Prices are indicative — final scope is confirmed during
+            All plans billed monthly in LKR. Prices are indicative - final scope is confirmed during
             onboarding. <Link to="/contact">Talk to us</Link> if you need something custom.
           </p>
         </RevealOnScroll>

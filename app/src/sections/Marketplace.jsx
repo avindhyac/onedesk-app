@@ -37,7 +37,7 @@ export default function Marketplace() {
           </h2>
           <p className="marketplace__lede">
             Beyond core services, the OneDesk Marketplace connects vetted partners with the businesses that
-            need them — and gives every member access to a wider network of opportunity.
+            need them - and gives every member access to a wider network of opportunity.
           </p>
           <div className="marketplace__ctas">
             <Button variant="primary" size="lg" dot as={Link} to="/contact">Become a partner</Button>

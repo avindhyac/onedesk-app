@@ -31,7 +31,7 @@ export default function Solution() {
             One team. Every function<span className="dot">.</span>
           </h2>
           <p className="solution__lede">
-            OneDesk isn&apos;t a list of services — it&apos;s a single operating layer. Your legal position informs
+            OneDesk isn&apos;t a list of services - it&apos;s a single operating layer. Your legal position informs
             your tax, your compliance calendar informs your filings, your HR setup informs your payroll. One
             team holds it all.
           </p>

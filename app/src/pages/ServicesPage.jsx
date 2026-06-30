@@ -38,7 +38,7 @@ const SERVICES = [
   {
     key: "secretarial", color: "sec", num: "05",
     title: "Company Secretarial",
-    tagline: "From first filing to last — nothing missed.",
+    tagline: "From first filing to last - nothing missed.",
     chips: ["Incorporation", "Annual Returns", "Board Resolutions", "Share Transfers", "Statutory Registers"],
   },
   {
@@ -52,7 +52,7 @@ const SERVICES = [
 const PROCESS_STEPS = [
   { num: "01", color: "sec", title: "Understand", text: "We learn your business needs, structure and goals." },
   { num: "02", color: "acc", title: "Structure", text: "We set up the right legal and operational foundations." },
-  { num: "03", color: "leg", title: "Manage", text: "Ongoing compliance handled — every obligation met." },
+  { num: "03", color: "leg", title: "Manage", text: "Ongoing compliance handled - every obligation met." },
   { num: "04", color: "mkt", title: "Scale", text: "Your support structure grows with every milestone." },
 ];
 
@@ -61,13 +61,13 @@ export default function ServicesPage() {
     <PageTransition>
       <Seo
         title="Services"
-        description="Six pillars, one partner: legal, tax, accounting, HR & payroll, company secretarial, and marketing — coordinated under one roof."
+        description="Six pillars, one partner: legal, tax, accounting, HR & payroll, company secretarial, and marketing - coordinated under one roof."
         path="/services"
       />
       <PageHero
         eyebrow="Our services"
         title="Six pillars. One partner"
-        subtitle="From first incorporation to ongoing compliance — every function your business needs, coordinated under one roof."
+        subtitle="From first incorporation to ongoing compliance - every function your business needs, coordinated under one roof."
       />
 
       <section className="svc-bento">
@@ -116,7 +116,7 @@ export default function ServicesPage() {
             <div className="svc-process__head">
               <Eyebrow tone="harbor">How we work</Eyebrow>
               <h2 className="svc-process__title">From first conversation to scale<span className="dot">.</span></h2>
-              <p className="svc-process__lede">A four-stage approach that adapts to where your business is — and where it's going.</p>
+              <p className="svc-process__lede">A four-stage approach that adapts to where your business is - and where it's going.</p>
             </div>
           </RevealOnScroll>
           <div className="svc-process__steps">

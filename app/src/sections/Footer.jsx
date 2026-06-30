@@ -52,7 +52,7 @@ export default function Footer() {
           <div>
             <img src={logos.whiteTrim} alt="OneDesk" className="footer__logo" />
             <p className="footer__blurb">
-              Everything your business needs, in one place — six pillars, one trusted partner.
+              Everything your business needs, in one place - six pillars, one trusted partner.
             </p>
             <div className="footer__dots">
               {DOT_COLORS.map((c) => (

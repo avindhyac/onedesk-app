@@ -20,7 +20,7 @@ export default function Services() {
           <Eyebrow>Our services</Eyebrow>
           <h2 className="services__title">Six pillars. One partner<span className="dot">.</span></h2>
           <p className="services__lede">
-            From the first incorporation document to the next board advisory call — all from one coordinated team.
+            From the first incorporation document to the next board advisory call - all from one coordinated team.
           </p>
         </div>
         <div className="services__grid">

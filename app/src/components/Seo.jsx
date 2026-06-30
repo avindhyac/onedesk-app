@@ -8,7 +8,7 @@ const DEFAULT_DESC =
   "OneDesk brings legal, tax, accounting, HR, company secretarial and marketing support together under one trusted partner.";
 
 export default function Seo({ title, description = DEFAULT_DESC, path = "" }) {
-  const fullTitle = title ? `${title} — ${SITE_NAME}` : `${SITE_NAME} — Everything your business needs, in one place`;
+  const fullTitle = title ? `${title} - ${SITE_NAME}` : `${SITE_NAME} - Everything your business needs, in one place`;
   const url = `${SITE_URL}${path}`;
 
   return (

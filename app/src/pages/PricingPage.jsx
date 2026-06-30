@@ -9,13 +9,13 @@ export default function PricingPage() {
     <PageTransition>
       <Seo
         title="Pricing"
-        description="Simple, transparent monthly pricing — no hidden retainers or surprise invoices. Pick the tier that fits your business and scale as you grow."
+        description="Simple, transparent monthly pricing - no hidden retainers or surprise invoices. Pick the tier that fits your business and scale as you grow."
         path="/pricing"
       />
       <PageHero
         eyebrow="Pricing"
         title="Simple, transparent pricing"
-        subtitle="One monthly engagement — no hidden retainers, no surprise invoices. Pick the tier that fits where your business is and move up as you grow."
+        subtitle="One monthly engagement - no hidden retainers, no surprise invoices. Pick the tier that fits where your business is and move up as you grow."
       />
       <Pricing />
       <FinalCta title="Not sure which plan fits? Let's figure it out together." />

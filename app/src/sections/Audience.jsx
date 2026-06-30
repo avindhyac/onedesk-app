@@ -26,7 +26,7 @@ export default function Audience() {
             Built for businesses at every stage<span className="dot">.</span>
           </h2>
           <p className="audience__lede">
-            Whether you&apos;re setting up for the first time or scaling across markets — OneDesk gives you
+            Whether you&apos;re setting up for the first time or scaling across markets - OneDesk gives you
             the operational backbone to move with confidence.
           </p>
           <div className="audience__tags">

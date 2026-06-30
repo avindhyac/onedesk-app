@@ -84,7 +84,7 @@ function ContactForm() {
           </svg>
         </div>
         <h3>Message sent.</h3>
-        <p>Thanks for reaching out — we'll be in touch within one business day.</p>
+        <p>Thanks for reaching out - we'll be in touch within one business day.</p>
       </motion.div>
     );
   }
@@ -209,7 +209,7 @@ export default function ContactPage() {
 
                 <div className="contact-panel__section">
                   <span className="contact-panel__label">Office hours</span>
-                  <p className="contact-panel__hours">Monday – Friday<br />9:00 AM – 6:00 PM (IST)</p>
+                  <p className="contact-panel__hours">Monday - Friday<br />9:00 AM - 6:00 PM (IST)</p>
                   <p className="contact-panel__note">We respond to all enquiries within one business day.</p>
                 </div>
 

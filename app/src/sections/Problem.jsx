@@ -5,7 +5,7 @@ const CARDS = [
   {
     color: "sec",
     title: "Fragmented providers",
-    text: "A separate firm for each function — none of them talking to each other.",
+    text: "A separate firm for each function - none of them talking to each other.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d2d44" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" />
@@ -26,7 +26,7 @@ const CARDS = [
   {
     color: "leg",
     title: "Compliance gaps",
-    text: "Filings slip between providers — and the risk lands squarely on you.",
+    text: "Filings slip between providers - and the risk lands squarely on you.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4b3862" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z" />
@@ -59,7 +59,7 @@ export default function Problem() {
             </h2>
           </div>
           <p className="problem__lede">
-            Most companies stitch together a different firm for every function — the result is fragmentation,
+            Most companies stitch together a different firm for every function - the result is fragmentation,
             duplicated effort and decisions made in isolation with no one seeing the whole picture.
           </p>
         </div>

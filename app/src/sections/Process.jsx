@@ -6,7 +6,7 @@ const STEPS = [
   { num: "02", color: "acc", title: "Connect", text: "Matched with one dedicated team." },
   { num: "03", color: "leg", title: "Diagnose", text: "We map gaps across all six functions." },
   { num: "04", color: "tax", title: "Coordinate", text: "Functions aligned into one plan." },
-  { num: "05", color: "hr", title: "Deliver", text: "Work done — on time and on the record." },
+  { num: "05", color: "hr", title: "Deliver", text: "Work done - on time and on the record." },
   { num: "06", color: "mkt", title: "Scale", text: "Structure grows with every milestone.", filled: true },
 ];
 

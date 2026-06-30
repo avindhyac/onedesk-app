@@ -5,7 +5,7 @@ import "./FinalCta.css";
 
 const DOT_COLORS = ["sec", "acc", "leg", "tax", "hr", "mkt"];
 
-export default function FinalCta({ title = "Let's build what matters — together." }) {
+export default function FinalCta({ title = "Let's build what matters, together." }) {
   return (
     <section id="contact" className="final-cta">
       <div className="final-cta__inner">

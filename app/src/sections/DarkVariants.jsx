@@ -4,7 +4,7 @@ const THEMES = [
   {
     slug: "obsidian",
     name: "Obsidian",
-    desc: "Current base color, gradient removed — pure flat dark",
+    desc: "Current base color, gradient removed - pure flat dark",
     bg: "#15211F",
     card: "#1C2A2A",
     cardBorder: "rgba(255,255,255,0.07)",
@@ -15,7 +15,7 @@ const THEMES = [
   {
     slug: "navy",
     name: "Midnight Navy",
-    desc: "Deep cool blue-black — shifts the warmth out entirely",
+    desc: "Deep cool blue-black - shifts the warmth out entirely",
     bg: "#0E1825",
     card: "#162031",
     cardBorder: "rgba(111,156,169,0.14)",
@@ -26,7 +26,7 @@ const THEMES = [
   {
     slug: "carbon",
     name: "Carbon",
-    desc: "True neutral near-black — no hue, just depth",
+    desc: "True neutral near-black - no hue, just depth",
     bg: "#111111",
     card: "#1A1A1A",
     cardBorder: "rgba(255,255,255,0.07)",
@@ -37,7 +37,7 @@ const THEMES = [
   {
     slug: "plum",
     name: "Deep Plum",
-    desc: "Dark with a purple undertone — premium and editorial",
+    desc: "Dark with a purple undertone - premium and editorial",
     bg: "#130F1E",
     card: "#1C1628",
     cardBorder: "rgba(192,132,252,0.14)",
@@ -48,7 +48,7 @@ const THEMES = [
   {
     slug: "forest",
     name: "Forest Night",
-    desc: "Deep green-black — organic and grounded",
+    desc: "Deep green-black - organic and grounded",
     bg: "#0B1A14",
     card: "#112219",
     cardBorder: "rgba(74,222,128,0.12)",
@@ -59,7 +59,7 @@ const THEMES = [
   {
     slug: "slate",
     name: "Slate Storm",
-    desc: "Cool grey-blue — industrial and technical",
+    desc: "Cool grey-blue - industrial and technical",
     bg: "#111827",
     card: "#1F2937",
     cardBorder: "rgba(56,189,248,0.12)",
@@ -70,7 +70,7 @@ const THEMES = [
   {
     slug: "volcanic",
     name: "Volcanic",
-    desc: "Warm near-black with red-orange undertone — energetic",
+    desc: "Warm near-black with red-orange undertone - energetic",
     bg: "#1A0F0A",
     card: "#251510",
     cardBorder: "rgba(255,107,53,0.12)",
@@ -81,7 +81,7 @@ const THEMES = [
   {
     slug: "indigo",
     name: "Deep Indigo",
-    desc: "Dark with a blue-violet cast — futuristic and clean",
+    desc: "Dark with a blue-violet cast - futuristic and clean",
     bg: "#0D0F1F",
     card: "#141628",
     cardBorder: "rgba(129,140,248,0.14)",
@@ -139,7 +139,7 @@ export default function DarkVariants() {
           <p className="dv__header-label">Design Lab</p>
           <h1 className="dv__header-title">Dark Theme Variations</h1>
           <p className="dv__header-sub">
-            8 flat dark variants — gradient removed, only background color and accent change.
+            8 flat dark variants - gradient removed, only background color and accent change.
             Scroll to compare.
           </p>
           <div className="dv__toc">
@@ -180,7 +180,7 @@ export default function DarkVariants() {
               </h2>
               <p className="dv__lede">
                 Beyond core services, the OneDesk Marketplace connects vetted partners with the businesses
-                that need them — and gives every member access to a wider network of opportunity.
+                that need them - and gives every member access to a wider network of opportunity.
               </p>
               <p className="dv__desc">{t.desc}</p>
               <div className="dv__swatches">

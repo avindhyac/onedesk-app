@@ -19,7 +19,7 @@ const BENEFITS = [
     icon: <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#c46a3a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z" /><path d="M9 12l2 2 4-4" /></svg>,
   },
   {
-    color: "hr", title: "Aligned decisions", text: "Legal, tax, HR and finance move in step — never against each other.",
+    color: "hr", title: "Aligned decisions", text: "Legal, tax, HR and finance move in step - never against each other.",
     icon: <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#d96b5e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="6" r="2.4" /><circle cx="18" cy="6" r="2.4" /><circle cx="12" cy="18" r="2.4" /><path d="M7.6 7.6L11 16M16.4 7.6L13 16M8 6h8" /></svg>,
   },
   {
@@ -40,7 +40,7 @@ export default function Benefits() {
             </h2>
           </div>
           <p className="benefits__lede">
-            The compounding advantage of one connected partner — less to manage, more clarity, decisions that
+            The compounding advantage of one connected partner - less to manage, more clarity, decisions that
             finally pull in the same direction.
           </p>
         </div>

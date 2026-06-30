@@ -24,12 +24,12 @@ const VALUES = [
   },
   {
     color: "acc", title: "Precision",
-    text: "Every detail in your compliance calendar, filing, or contract matters — and we treat it that way.",
+    text: "Every detail in your compliance calendar, filing, or contract matters - and we treat it that way.",
     icon: <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>,
   },
   {
     color: "leg", title: "Protection",
-    text: "We spot the issues before they become problems — keeping you covered before the call comes.",
+    text: "We spot the issues before they become problems - keeping you covered before the call comes.",
     icon: <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>,
   },
   {
@@ -39,12 +39,12 @@ const VALUES = [
   },
   {
     color: "hr", title: "Partnership",
-    text: "We grow alongside you. Your milestones are our milestones — your success is what we're built for.",
+    text: "We grow alongside you. Your milestones are our milestones - your success is what we're built for.",
     icon: <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="6" r="2.4" /><circle cx="18" cy="6" r="2.4" /><circle cx="12" cy="18" r="2.4" /><path d="M7.6 7.6L11 16M16.4 7.6L13 16M8 6h8" /></svg>,
   },
   {
     color: "mkt", title: "Clarity",
-    text: "We explain complex things simply. No jargon, no surprises — just clear advice you can act on.",
+    text: "We explain complex things simply. No jargon, no surprises - just clear advice you can act on.",
     icon: <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>,
   },
 ];
@@ -105,13 +105,13 @@ export default function AboutPage() {
               One point of contact. Every function<span className="dot">.</span>
             </h2>
             <p className="about-story__text">
-              OneDesk was founded on a simple observation: businesses in Sri Lanka were spending more time coordinating between advisors than actually running their operations. Legal, tax, accounting, HR, secretarial and marketing — each function managed by a different firm, on a different invoice, with a different point of contact.
+              OneDesk was founded on a simple observation: businesses in Sri Lanka were spending more time coordinating between advisors than actually running their operations. Legal, tax, accounting, HR, secretarial and marketing - each function managed by a different firm, on a different invoice, with a different point of contact.
             </p>
             <p className="about-story__text">
-              We built OneDesk to change that. A single, integrated team that understands your whole business — not just one part of it. One relationship that moves every function forward, together.
+              We built OneDesk to change that. A single, integrated team that understands your whole business - not just one part of it. One relationship that moves every function forward, together.
             </p>
             <p className="about-story__text">
-              Today, OneDesk serves startups, SMEs, corporates and foreign investors building in Sri Lanka. And through the OneDesk Marketplace, we connect vetted partners with the businesses that need them — expanding the ecosystem for everyone.
+              Today, OneDesk serves startups, SMEs, corporates and foreign investors building in Sri Lanka. And through the OneDesk Marketplace, we connect vetted partners with the businesses that need them - expanding the ecosystem for everyone.
             </p>
             <div className="about-story__ctas">
               <Button variant="primary" size="lg" dot as={Link} to="/contact">Work with us</Button>
@@ -145,7 +145,7 @@ export default function AboutPage() {
                   Where we're headed
                 </span>
                 <p className="about-belief-card__text">
-                  A business landscape where structure is a strength, not a burden — where every founder has the infrastructure to focus on building what actually matters.
+                  A business landscape where structure is a strength, not a burden - where every founder has the infrastructure to focus on building what actually matters.
                 </p>
               </motion.div>
             </div>
@@ -191,7 +191,7 @@ export default function AboutPage() {
             <div className="about-team__head">
               <Eyebrow tone="harbor">The team</Eyebrow>
               <h2 className="about-team__title">Specialists who know your business<span className="dot">.</span></h2>
-              <p className="about-team__lede">Every function at OneDesk is led by a domain specialist. You get expert-level advice across the board — through one coordinated relationship.</p>
+              <p className="about-team__lede">Every function at OneDesk is led by a domain specialist. You get expert-level advice across the board - through one coordinated relationship.</p>
             </div>
           </RevealOnScroll>
           <div className="about-team__grid">

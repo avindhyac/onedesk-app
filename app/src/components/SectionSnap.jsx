@@ -66,7 +66,7 @@ export default function SectionSnap() {
         const h = el.offsetHeight;
         const fitsViewport = h <= vh - headerH;
 
-        // Taller-than-viewport sections scroll freely — no snap point, so the
+        // Taller-than-viewport sections scroll freely - no snap point, so the
         // reader is never pulled back to the top mid-section.
         if (!fitsViewport) return;
 

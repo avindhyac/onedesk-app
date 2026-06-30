@@ -1,7 +1,7 @@
 /* ===========================================================================
-   OneDesk · Social + contact links — single source of truth.
+   OneDesk · Social + contact links - single source of truth.
    Footer and ContactPage both read from here, so a URL changes in one place.
-   WhatsApp is a placeholder until the Business account exists — swap `href`
+   WhatsApp is a placeholder until the Business account exists - swap `href`
    for a wa.me link (e.g. https://wa.me/94770000000) and set external: true.
    =========================================================================== */
 

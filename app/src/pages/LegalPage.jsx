@@ -15,7 +15,7 @@ const CONTENT = {
     sections: [
       {
         h: "Information we collect",
-        p: "When you contact us or request a service, we collect the details you provide — such as your name, email address, phone number, and the nature of your enquiry. We also collect basic, non-identifying usage data to understand how the site is used.",
+        p: "When you contact us or request a service, we collect the details you provide - such as your name, email address, phone number, and the nature of your enquiry. We also collect basic, non-identifying usage data to understand how the site is used.",
       },
       {
         h: "How we use your information",
@@ -52,7 +52,7 @@ const CONTENT = {
       },
       {
         h: "Intellectual property",
-        p: "All content on this site — including text, graphics, logos, and illustrations — belongs to OneDesk or its licensors and may not be reproduced without permission.",
+        p: "All content on this site - including text, graphics, logos, and illustrations - belongs to OneDesk or its licensors and may not be reproduced without permission.",
       },
       {
         h: "Limitation of liability",
