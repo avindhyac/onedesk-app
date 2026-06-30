@@ -34,7 +34,7 @@
 
 /* ── Art section ──────────────────────────────────────────────── */
 .svc-card__art {
-  height: 160px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,13 @@
   overflow: hidden;
 }
 
-.svc-card__art img { height: 120px; width: auto; object-fit: contain; }
+.svc-card__art img {
+  height: 185px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
 /* ── Body ─────────────────────────────────────────────────────── */
 .svc-card__body {
