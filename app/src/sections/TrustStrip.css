@@ -1,0 +1,16 @@
+.trust-strip {
+  background: var(--od-white);
+  border-top: 1px solid var(--od-line);
+  border-bottom: 1px solid var(--od-line);
+}
+.trust-strip__inner {
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: 44px var(--od-gutter);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 700px) {
+  .trust-strip__inner { grid-template-columns: 1fr 1fr; }
+}

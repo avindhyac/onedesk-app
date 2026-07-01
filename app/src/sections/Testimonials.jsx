@@ -1,4 +1,4 @@
-import Eyebrow from "../components/Eyebrow";
+import SectionHeading from "../components/SectionHeading";
 import { ROW_1, ROW_2 } from "../data/testimonials";
 import "./Testimonials.css";
 
@@ -24,8 +24,8 @@ function Card({ t }) {
 function Row({ items, animation, duration }) {
   const doubled = [...items, ...items];
   return (
-    <div className="testimonials__carousel" data-carousel>
-      <div className="testimonials__track" data-track style={{ animation: `${animation} ${duration}s linear infinite` }}>
+    <div className="testimonials__carousel">
+      <div className="testimonials__track" style={{ animation: `${animation} ${duration}s linear infinite` }}>
         {doubled.map((t, i) => (
           <Card key={`${t.name}-${i}`} t={t} />
         ))}
@@ -38,8 +38,10 @@ export default function Testimonials() {
   return (
     <section className="testimonials">
       <div className="testimonials__head">
-        <Eyebrow>What clients say</Eyebrow>
-        <h2>Real businesses. Real clarity<span className="dot">.</span></h2>
+        <SectionHeading
+          eyebrow="What clients say"
+          title={<>Real businesses. Real clarity.</>}
+        />
       </div>
       <Row items={ROW_1} animation="odScrollL" duration={36} />
       <div style={{ marginTop: 16 }}>

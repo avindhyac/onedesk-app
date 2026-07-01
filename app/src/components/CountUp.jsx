@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 export default function CountUp({ to, suffix = "" }) {
   const ref = useRef(null);
   const [value, setValue] = useState(0);
@@ -8,6 +12,12 @@ export default function CountUp({ to, suffix = "" }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (prefersReducedMotion()) {
+      setValue(to);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,7 +42,7 @@ export default function CountUp({ to, suffix = "" }) {
 
   return (
     <span ref={ref}>
-      {value}
+      {value.toLocaleString()}
       {suffix}
     </span>
   );

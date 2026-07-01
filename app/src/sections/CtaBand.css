@@ -1,0 +1,35 @@
+.cta-band { background: var(--od-orange); }
+.cta-band__inner {
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: 64px var(--od-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.cta-band__title {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: var(--od-display-1);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.cta-band__sub {
+  margin: 12px 0 0;
+  font-size: var(--od-text-lg);
+  color: rgba(255,255,255,0.88);
+}
+
+@media (max-width: 600px) {
+  .cta-band__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 44px var(--od-gutter);
+    gap: 20px;
+  }
+  .cta-band__title { font-size: var(--od-display-2); }
+  .cta-band__inner .od-btn { width: 100%; justify-content: center; }
+}

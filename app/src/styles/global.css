@@ -4,6 +4,7 @@
 @import "./tokens/spacing.css";
 @import "./tokens/effects.css";
 @import "./tokens/motion.css";
+@import "./tokens/od.css";
 
 :root {
   --c-sec: #1d2d44; --c-sec-l: #e8f0f9; --c-sec-m: #74a9e8;
@@ -27,12 +28,12 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: var(--fs-body-md);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-regular);
-  color: var(--text-body);
-  background: var(--paper-100);
+  font-family: var(--od-font-body);
+  font-size: var(--od-text-base);
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--od-ink-2);
+  background: var(--od-paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -41,11 +42,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: var(--font-display);
-  color: var(--text-heading);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--ls-tight);
-  font-weight: var(--fw-semibold);
+  font-family: var(--od-font-display);
+  color: var(--od-ink);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }
 
 p { margin: 0; }

@@ -1,0 +1,15 @@
+.od-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.od-avatar--sec { background: var(--od-sec-tint);  color: var(--od-sec); }
+.od-avatar--acc { background: var(--od-acc-tint);  color: var(--od-acc); }
+.od-avatar--leg { background: var(--od-leg-tint);  color: var(--od-leg); }
+.od-avatar--tax { background: var(--od-tax-tint);  color: var(--od-tax); }
+.od-avatar--hr  { background: var(--od-hr-tint);   color: var(--od-hr);  }
+.od-avatar--mkt { background: var(--od-mkt-tint);  color: var(--od-mkt); }

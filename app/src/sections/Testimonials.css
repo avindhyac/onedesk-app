@@ -1,25 +1,57 @@
-.testimonials { background: var(--paper-100); overflow: hidden; padding: clamp(88px, 10vw, 136px) 0; }
-.testimonials__head { max-width: 1200px; margin: 0 auto 56px; padding: 0 32px; text-align: center; }
-.testimonials__head h2 {
-  margin: 18px 0 0; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1;
-  letter-spacing: -0.025em; font-weight: 700; color: var(--ink-900);
+.testimonials {
+  background: var(--od-paper);
+  overflow: hidden;
+  padding: var(--od-section-y) 0;
 }
-.testimonials__head h2 .dot { color: #ee7632; }
+.testimonials__head {
+  max-width: var(--od-container);
+  margin: 0 auto 52px;
+  padding: 0 var(--od-gutter);
+}
 
 .testimonials__carousel { overflow: hidden; }
 .testimonials__carousel:hover .testimonials__track { animation-play-state: paused; }
 .testimonials__track { display: flex; gap: 20px; width: max-content; }
 
 .testimonial-card {
-  width: 336px; flex: none; border: 1px solid; border-radius: 26px;
-  padding: 30px 32px; border-top: 3px solid;
+  width: min(320px, calc(100vw - 56px));
+  flex: none;
+  border: 1px solid;
+  border-radius: var(--od-radius-lg);
+  padding: 30px 32px;
+  border-top: 3px solid;
+  box-shadow: var(--od-shadow-sm);
 }
-.testimonial-card__quote { font-size: 32px; margin-bottom: 10px; font-family: Georgia, serif; line-height: 1; }
-.testimonial-card p { font-size: 14.5px; line-height: 1.65; margin: 0 0 18px; }
+.testimonial-card__quote {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+@media (max-width: 480px) {
+  .testimonial-card { padding: 22px 22px; }
+}
+.testimonial-card p {
+  font-size: var(--od-text-sm);
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
 .testimonial-card__person { display: flex; align-items: center; gap: 10px; }
 .testimonial-card__avatar {
-  width: 34px; height: 34px; border-radius: 50%; display: flex;
-  align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--od-font-display);
+  font-size: 13px;
+  font-weight: 700;
+  flex: none;
 }
-.testimonial-card__name { font-size: 12.5px; font-weight: 700; }
-.testimonial-card__role { font-size: 11.5px; }
+.testimonial-card__name {
+  font-family: var(--od-font-display);
+  font-size: var(--od-text-xs);
+  font-weight: 700;
+}
+.testimonial-card__role { font-size: 12px; margin-top: 2px; }

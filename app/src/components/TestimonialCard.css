@@ -1,0 +1,59 @@
+.tcard {
+  background: var(--od-white);
+  border: 1px solid var(--od-line);
+  border-radius: var(--od-radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--od-shadow-sm);
+  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease);
+}
+.tcard:hover { transform: translateY(-3px); box-shadow: var(--od-shadow-md); }
+
+.tcard__quote {
+  margin: 0;
+  font-size: var(--od-text-base);
+  line-height: 1.7;
+  color: var(--od-ink-2);
+  flex: 1;
+}
+
+.tcard__person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tcard__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.tcard__name {
+  font-family: var(--od-font-display);
+  font-weight: 700;
+  font-size: var(--od-text-sm);
+  color: var(--od-ink);
+}
+.tcard__role {
+  font-size: var(--od-text-xs);
+  color: var(--od-slate);
+  margin-top: 2px;
+}
+
+/* Per-service avatar theming */
+.od-tcard--sec .tcard__avatar { background: var(--od-sec-tint);  color: var(--od-sec); }
+.od-tcard--acc .tcard__avatar { background: var(--od-acc-tint);  color: var(--od-acc); }
+.od-tcard--leg .tcard__avatar { background: var(--od-leg-tint);  color: var(--od-leg); }
+.od-tcard--tax .tcard__avatar { background: var(--od-tax-tint);  color: var(--od-tax); }
+.od-tcard--hr  .tcard__avatar { background: var(--od-hr-tint);   color: var(--od-hr);  }
+.od-tcard--mkt .tcard__avatar { background: var(--od-mkt-tint);  color: var(--od-mkt); }

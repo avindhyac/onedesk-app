@@ -1,0 +1,16 @@
+.od-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: var(--od-radius-pill);
+  font-family: var(--od-font-body);
+  font-size: var(--od-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.od-tag--sec { background: var(--od-sec-tint);  color: var(--od-sec); }
+.od-tag--acc { background: var(--od-acc-tint);  color: var(--od-acc); }
+.od-tag--leg { background: var(--od-leg-tint);  color: var(--od-leg); }
+.od-tag--tax { background: var(--od-tax-tint);  color: var(--od-tax); }
+.od-tag--hr  { background: var(--od-hr-tint);   color: var(--od-hr);  }
+.od-tag--mkt { background: var(--od-mkt-tint);  color: var(--od-mkt); }

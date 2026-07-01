@@ -1,0 +1,25 @@
+.od-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--od-radius-pill);
+  font-family: var(--od-font-body);
+  font-size: var(--od-text-xs);
+  font-weight: 700;
+  line-height: 1;
+}
+.od-badge__icon { font-size: 14px; }
+
+.od-badge--orange {
+  background: var(--od-orange-100);
+  color: var(--od-orange-600);
+}
+.od-badge--teal {
+  background: var(--od-teal-100);
+  color: var(--od-teal-600);
+}
+.od-badge--warning {
+  background: var(--od-warning-tint);
+  color: var(--od-tax);
+}

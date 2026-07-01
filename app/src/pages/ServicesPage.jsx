@@ -1,59 +1,56 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import Button from "../components/Button";
-import Eyebrow from "../components/Eyebrow";
-import PageHero from "../components/PageHero";
 import PageTransition from "../components/PageTransition";
-import RevealOnScroll from "../components/RevealOnScroll";
 import Seo from "../components/Seo";
-import FinalCta from "../sections/FinalCta";
+import SectionHeading from "../components/SectionHeading";
+import Tag from "../components/Tag";
+import Button from "../components/Button";
+import CtaBand from "../sections/CtaBand";
 import { characters } from "../data/characters";
 import "./ServicesPage.css";
 
 const SERVICES = [
   {
-    key: "legal", color: "leg", num: "01",
-    title: "Legal & Regulatory",
-    tagline: "Protection before the problem finds you.",
-    chips: ["Contract Drafting", "Regulatory Licensing", "Corporate Governance", "Risk Advisory", "Employment Law"],
+    key: "sec", char: "secretarial", icon: "lucide:building-2",
+    title: "Corporate Secretarial",
+    tagline: "Stay in good standing, effortlessly.",
+    desc: "From formation to annual reports, we keep your entity compliant in every state you operate. Registered agent, filings and reminders — all handled.",
+    points: ["Company formation & EIN", "Registered agent in all 50 states", "Annual reports & state filings", "Cap table & board minutes"],
   },
   {
-    key: "tax", color: "tax", num: "02",
-    title: "Tax Advisory",
-    tagline: "Efficient, accurate, always ahead.",
-    chips: ["Tax Registration", "Corporate Filing", "Tax Structuring", "Cross-border"],
-  },
-  {
-    key: "accounting", color: "acc", num: "03",
+    key: "acc", char: "accounting", icon: "lucide:calculator",
     title: "Accounting",
-    tagline: "A clear picture of your finances, always.",
-    chips: ["Bookkeeping", "Financial Reports", "Bank Reconciliations", "Internal Audits"],
+    tagline: "Books you can actually trust.",
+    desc: "Real accountants keep your books clean and your reports current, so you always know where you stand — and so does your investor.",
+    points: ["Monthly bookkeeping", "Payroll & expense management", "Investor-ready financials", "Dedicated accountant"],
   },
   {
-    key: "hr", color: "hr", num: "04",
-    title: "HR & Payroll",
-    tagline: "Your people, managed with precision.",
-    chips: ["Payroll Processing", "Employment Contracts", "Statutory Filings", "HR Compliance", "Record Management"],
+    key: "leg", char: "legal", icon: "lucide:scale",
+    title: "Legal",
+    tagline: "Counsel on call, not on the clock.",
+    desc: "Contracts reviewed, compliance covered and questions answered — without surprise invoices. Your legal team, on a flat subscription.",
+    points: ["Contract drafting & review", "Compliance & policies", "Trademark & IP basics", "On-demand legal Q&A"],
   },
   {
-    key: "secretarial", color: "sec", num: "05",
-    title: "Company Secretarial",
-    tagline: "From first filing to last - nothing missed.",
-    chips: ["Incorporation", "Annual Returns", "Board Resolutions", "Share Transfers", "Statutory Registers"],
+    key: "tax", char: "tax", icon: "lucide:percent",
+    title: "Tax",
+    tagline: "Every filing, every deduction.",
+    desc: "Federal, state and sales tax prepared and filed on time, with proactive planning to keep more money in the business.",
+    points: ["Federal & state returns", "Sales tax & nexus", "Quarterly estimates", "Year-round tax planning"],
   },
   {
-    key: "marketing", color: "mkt", num: "06",
-    title: "Marketing & Brand",
-    tagline: "Make the right people find you.",
-    chips: ["Brand Strategy", "Digital Marketing", "Social Media", "Growth Campaigns"],
+    key: "hr", char: "hr", icon: "lucide:users",
+    title: "HR",
+    tagline: "Take care of your team.",
+    desc: "Hiring, onboarding, benefits and policies — set up properly from day one, so your people feel supported and you stay compliant.",
+    points: ["Hiring & onboarding", "Benefits administration", "Handbooks & policies", "PTO & compliance"],
   },
-];
-
-const PROCESS_STEPS = [
-  { num: "01", color: "sec", title: "Understand", text: "We learn your business needs, structure and goals." },
-  { num: "02", color: "acc", title: "Structure", text: "We set up the right legal and operational foundations." },
-  { num: "03", color: "leg", title: "Manage", text: "Ongoing compliance handled - every obligation met." },
-  { num: "04", color: "mkt", title: "Scale", text: "Your support structure grows with every milestone." },
+  {
+    key: "mkt", char: "marketing", icon: "lucide:megaphone",
+    title: "Marketing",
+    tagline: "Growth that compounds.",
+    desc: "Brand, content and campaigns run by specialists who treat your numbers like their own. Less guesswork, more pipeline.",
+    points: ["Brand & messaging", "Content & SEO", "Paid & email campaigns", "Monthly growth reporting"],
+  },
 ];
 
 export default function ServicesPage() {
@@ -61,84 +58,61 @@ export default function ServicesPage() {
     <PageTransition>
       <Seo
         title="Services"
-        description="Six pillars, one partner: legal, tax, accounting, HR & payroll, company secretarial, and marketing - coordinated under one roof."
+        description="Six specialist teams, fully coordinated — corporate secretarial, accounting, legal, tax, HR and marketing under one roof."
         path="/services"
       />
-      <PageHero
-        eyebrow="Our services"
-        title="Six pillars. One partner"
-        subtitle="From first incorporation to ongoing compliance - every function your business needs, coordinated under one roof."
-      />
 
-      <section className="svc-bento">
-        <div className="svc-bento__inner">
-          <div className="svc-bento__grid">
-            {SERVICES.map((s, i) => (
-              <RevealOnScroll
-                key={s.key}
-                delay={i * 0.07}
-                className="svc-wrap"
-              >
-                <motion.div
-                  className="svc-card"
-                  style={{
-                    "--pillar": `var(--c-${s.color})`,
-                    "--pillar-l": `var(--c-${s.color}-l)`,
-                    "--pillar-m": `var(--c-${s.color}-m)`,
-                  }}
-                  whileHover={{ y: -6, boxShadow: "0 24px 60px rgba(0,0,0,0.10)" }}
-                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                >
-                  <div className="svc-card__art">
-                    <img src={characters[s.key]} alt={s.title} />
-                  </div>
-                  <div className="svc-card__body">
-                    <span className="svc-card__num">{s.num}</span>
-                    <h3 className="svc-card__title">{s.title}</h3>
-                    <p className="svc-card__tagline">{s.tagline}</p>
-                    <div className="svc-card__chips">
-                      {s.chips.map((chip) => (
-                        <span key={chip} className="svc-card__chip">{chip}</span>
-                      ))}
-                    </div>
-                    <Button variant="primary" size="md" dot as={Link} to="/contact">Get in touch</Button>
-                  </div>
-                </motion.div>
-              </RevealOnScroll>
-            ))}
-          </div>
+      <section className="svcp-hero">
+        <div className="svcp-hero__inner">
+          <SectionHeading
+            eyebrow="Our services"
+            title="Six specialist teams, fully coordinated."
+            subtitle="Each service is run by experts and themed in its own color — so you always know who's doing what."
+          />
         </div>
       </section>
 
-      <section className="svc-process">
-        <div className="svc-process__inner">
-          <RevealOnScroll>
-            <div className="svc-process__head">
-              <Eyebrow tone="harbor">How we work</Eyebrow>
-              <h2 className="svc-process__title">From first conversation to scale<span className="dot">.</span></h2>
-              <p className="svc-process__lede">A four-stage approach that adapts to where your business is - and where it's going.</p>
+      {SERVICES.map((s, i) => {
+        const flip = i % 2 === 1;
+        return (
+          <section key={s.key} className={`svcp-row ${flip ? "svcp-row--white" : "svcp-row--paper"}`}>
+            <div className="svcp-row__inner">
+              <div className={`svcp-row__art ${flip ? "svcp-row__art--right" : ""}`}>
+                <div className={`svcp-row__blob svcp-blob--${s.key}`} />
+                <span className={`svcp-row__icon-badge svcp-icon-badge--${s.key}`}>
+                  <iconify-icon icon={s.icon} />
+                </span>
+                <img src={characters[s.char]} alt={s.title} className="svcp-row__char" />
+              </div>
+              <div className="svcp-row__copy">
+                <Tag service={s.key} />
+                <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>{s.tagline}</h2>
+                <p className="svcp-row__desc">{s.desc}</p>
+                <ul className="svcp-row__points">
+                  {s.points.map((p) => (
+                    <li key={p} className="svcp-row__point">
+                      <iconify-icon icon="lucide:check-circle-2" className={`svcp-row__check svcp-check--${s.key}`} />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+                <div className="svcp-row__cta">
+                  <Button variant="primary" size="md" iconRight="lucide:arrow-right" as={Link} to="/contact">
+                    Talk to {s.title}
+                  </Button>
+                </div>
+              </div>
             </div>
-          </RevealOnScroll>
-          <div className="svc-process__steps">
-            {PROCESS_STEPS.map((s, i) => (
-              <RevealOnScroll key={s.num} delay={i * 0.09}>
-                <motion.div
-                  className="svc-process__step"
-                  style={{ "--pillar": `var(--c-${s.color})`, "--pillar-l": `var(--c-${s.color}-l)` }}
-                  whileHover={{ y: -5, boxShadow: "0 18px 44px rgba(0,0,0,0.09)" }}
-                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                >
-                  <div className="svc-process__bullet">{s.num}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                </motion.div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })}
 
-      <FinalCta title="Ready to bring everything under one roof?" />
+      <CtaBand
+        title="Bundle them and save."
+        subtitle="Most founders combine three or more services. The more you bundle, the more you save."
+        ctaLabel="See pricing"
+        ctaTo="/pricing"
+      />
     </PageTransition>
   );
 }

@@ -1,134 +1,287 @@
-/* ── Page shell ───────────────────────────────────────────────── */
-.mkt-page { background: #111827; }
-.mkt-dot  { color: var(--ember-500); }
+/* ── Shared dark-page palette ──────────────────────────────────────────
+   All marketplace sections live on a navy continuum so the page reads
+   as a single dark environment, not alternating light/dark stripes.
+   --mkt-bg-deep  : deepest shade, used for the "How it works" trough
+   --mkt-bg-mid   : main navy, used for hero + directory
+   ─────────────────────────────────────────────────────────────────── */
+.mkt-hero,
+.mkt-how,
+.mkt-dir {
+  --mkt-text:       #ffffff;
+  --mkt-text-2:     rgba(255,255,255,0.78);
+  --mkt-muted:      rgba(255,255,255,0.52);
+  --mkt-line:       rgba(255,255,255,0.10);
+  --mkt-glass-bg:   rgba(255,255,255,0.07);
+  --mkt-glass-border: rgba(255,255,255,0.12);
+}
 
-/* ── Hero ─────────────────────────────────────────────────────── */
-.mkt-hero { background: #111827; }
+/* ── Hero ──────────────────────────────────────────────────────────── */
+.mkt-hero { position: relative; background: var(--od-sec); overflow: hidden; }
+
+.mkt-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 560px at 94% -6%,  rgba(95,135,193,0.13), transparent 65%),
+    radial-gradient(600px 500px at -4% 94%,  rgba(238,118,50,0.11), transparent 65%),
+    radial-gradient(380px 300px at 50%  52%,  rgba(95,135,193,0.05), transparent 70%);
+  animation: mktGlowPulse 10s ease-in-out infinite;
+}
+
+@keyframes mktGlowPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.58; }
+}
+
 .mkt-hero__inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: clamp(88px, 10vw, 136px) 32px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: 72px var(--od-gutter);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
 }
 .mkt-hero__title {
-  margin: 18px 0 0; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.1;
-  letter-spacing: -0.025em; font-weight: 700; color: #fff;
+  margin: 18px 0 0;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: var(--od-display-hero);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--mkt-text);
 }
+.mkt-hero__accent { color: var(--od-orange); }
 .mkt-hero__lede {
-  margin: 22px 0 0; font-size: 17px; line-height: 1.7;
-  color: rgba(255,255,255,0.68); max-width: 48ch;
+  margin: 20px 0 0;
+  font-size: var(--od-text-lg);
+  line-height: 1.6;
+  color: var(--mkt-text-2);
+  max-width: 500px;
 }
-.mkt-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+.mkt-hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
-/* Feature cards grid */
-.mkt-hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.mkt-card {
-  background: #1a2236; border-radius: 22px; padding: 26px;
-  border: 1px solid rgba(255,255,255,0.07);
-  cursor: default;
+.mkt-hero__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
-.mkt-card__icon {
-  display: inline-flex; width: 36px; height: 36px; border-radius: 9px;
-  align-items: center; justify-content: center; margin-bottom: 14px;
+.mkt-hero__stat {
+  background: var(--mkt-glass-bg);
+  border: 1px solid var(--mkt-glass-border);
+  border-radius: var(--od-radius-lg);
+  padding: 22px;
 }
-.mkt-card h3 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 6px; }
-.mkt-card p  { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
-.mkt-card__link {
-  display: inline-flex; align-items: center; gap: 3px; margin-top: 12px;
-  font-size: 12.5px; font-weight: 700; text-decoration: none;
+.mkt-hero__stat-icon { font-size: 26px; color: var(--od-orange); }
+.mkt-hero__stat-value {
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--mkt-text);
+  margin-top: 8px;
+  line-height: 1;
 }
-.mkt-card__link span { font-size: 15px; line-height: 1; }
+.mkt-hero__stat-label { font-size: var(--od-text-sm); color: var(--mkt-muted); margin-top: 4px; }
 
-/* ── How to join ──────────────────────────────────────────────── */
-.mkt-join { background: #0f1622; border-top: 1px solid rgba(255,255,255,0.06); }
-.mkt-join__inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: clamp(80px, 9vw, 120px) 32px;
+/* ── How it works — one shade deeper for depth ─────────────────────── */
+.mkt-how { background: #162540; }
+.mkt-how__inner {
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: var(--od-section-y) var(--od-gutter);
 }
-.mkt-join__head { text-align: center; max-width: 560px; margin: 0 auto 60px; }
-.mkt-join__title {
-  margin: 18px 0 0; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1;
-  letter-spacing: -0.025em; font-weight: 700; color: #fff;
-}
-.mkt-join__lede {
-  margin: 16px 0 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.58);
-}
-.mkt-join__steps {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-}
-
-/* RevealOnScroll wrappers must stretch */
-.mkt-join__steps > * { display: flex; }
-
-.mkt-step {
-  background: #1a2236; border-radius: 22px; padding: 32px 28px;
-  border: 1px solid rgba(255,255,255,0.07);
-  display: flex; flex-direction: column; flex: 1; cursor: default;
-}
-.mkt-step__num {
-  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
-  letter-spacing: 0.1em; width: 40px; height: 40px; border-radius: 50%;
-  border: 1.5px solid; display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px; background: rgba(255,255,255,0.04);
-}
-.mkt-step h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 0 0 8px; }
-.mkt-step p  { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.58); margin: 0; }
-
-/* ── Partner types ────────────────────────────────────────────── */
-.mkt-types { background: #111827; border-top: 1px solid rgba(255,255,255,0.06); }
-.mkt-types__inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: clamp(80px, 9vw, 120px) 32px;
-}
-.mkt-types__head { text-align: center; max-width: 560px; margin: 0 auto 52px; }
-.mkt-types__title {
-  margin: 18px 0 0; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1;
-  letter-spacing: -0.025em; font-weight: 700; color: #fff;
-}
-.mkt-types__grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+.mkt-how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 44px;
 }
 
-/* RevealOnScroll wrappers must stretch */
-.mkt-types__grid > * { display: flex; }
+/* Section heading overrides — dark context */
+.mkt-how .section-heading__eyebrow,
+.mkt-dir .section-heading__eyebrow { color: var(--od-orange); }
 
-.mkt-type-card {
-  background: #1a2236; border-radius: 22px; padding: 26px 22px;
-  border: 1px solid rgba(255,255,255,0.07);
-  border-top: 2px solid var(--type-border);
-  display: flex; flex-direction: column; flex: 1; cursor: default;
-}
-.mkt-type-card__icon { display: flex; margin-bottom: 16px; }
-.mkt-type-card h3 { font-size: 14.5px; font-weight: 700; color: #fff; margin: 0 0 8px; }
-.mkt-type-card p  { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
+.mkt-how .section-heading__title,
+.mkt-dir .section-heading__title { color: var(--mkt-text); }
 
-/* ── CTA banner ───────────────────────────────────────────────── */
-.mkt-cta {
-  background: #0f1622;
-  border-top: 1px solid rgba(255,255,255,0.06);
+.mkt-how .section-heading__subtitle,
+.mkt-dir .section-heading__subtitle { color: var(--mkt-text-2); }
+
+/* FeatureItem overrides — solid icon badges, white text */
+.mkt-how .od-feature__icon {
+  background: rgba(238,118,50,0.18) !important;
+  color: var(--od-orange) !important;
 }
+.mkt-how .od-feature__title { color: var(--mkt-text); }
+.mkt-how .od-feature__body  { color: var(--mkt-text-2); }
+
+/* ── Directory ─────────────────────────────────────────────────────── */
+.mkt-dir { background: var(--od-sec); }
+.mkt-dir__inner {
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: var(--od-section-y) var(--od-gutter);
+}
+.mkt-dir__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.mkt-dir__filters { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Filter tags on dark */
+.mkt-dir__filters .od-tag {
+  background: var(--mkt-glass-bg);
+  color: var(--mkt-text-2);
+  border: 1px solid var(--mkt-glass-border);
+}
+
+.mkt-dir__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+
+/* ── Partner card — dark glass ─────────────────────────────────────── */
+.mkt-partner {
+  background: var(--mkt-glass-bg);
+  border: 1px solid var(--mkt-glass-border);
+  border-radius: var(--od-radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform var(--od-dur) var(--od-ease), background var(--od-dur) var(--od-ease);
+}
+.mkt-partner:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.11);
+}
+
+.mkt-partner__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mkt-partner__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--od-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Avatars: use solid service color as bg, white initials — pops on dark */
+.mkt-partner-av--sec { background: var(--od-sec-accent); color: #fff; }
+.mkt-partner-av--acc { background: var(--od-acc);        color: #fff; }
+.mkt-partner-av--leg { background: var(--od-leg-accent); color: #fff; }
+.mkt-partner-av--tax { background: var(--od-tax);        color: #fff; }
+.mkt-partner-av--hr  { background: var(--od-hr);         color: #fff; }
+.mkt-partner-av--mkt { background: var(--od-mkt);        color: var(--od-ink); }
+
+.mkt-partner__name {
+  font-family: var(--od-font-display);
+  font-weight: 700;
+  font-size: var(--od-text-xl);
+  color: var(--mkt-text);
+}
+
+.mkt-partner__loc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--od-text-sm);
+  color: var(--mkt-muted);
+}
+.mkt-partner__pin { font-size: 14px; }
+
+.mkt-partner__tags { display: flex; gap: 7px; flex-wrap: wrap; }
+.mkt-partner__tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mkt-text-2);
+  background: rgba(255,255,255,0.10);
+  padding: 4px 10px;
+  border-radius: var(--od-radius-pill);
+}
+
+/* Service "view profile" button — semi-transparent service tints on dark */
+.mkt-partner__btn {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: var(--od-radius-pill);
+  font-family: var(--od-font-body);
+  font-weight: 700;
+  font-size: var(--od-text-sm);
+  text-decoration: none;
+  margin-top: 6px;
+  transition: opacity var(--od-dur) var(--od-ease);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mkt-partner__btn:hover { opacity: 0.82; }
+.mkt-partner-btn--sec { background: rgba(95,135,193,0.25);  color: var(--od-sec-light); }
+.mkt-partner-btn--acc { background: rgba(121,155,145,0.25); color: var(--od-acc-light); }
+.mkt-partner-btn--leg { background: rgba(155,127,173,0.25); color: var(--od-leg-light); }
+.mkt-partner-btn--tax { background: rgba(232,131,75,0.25);  color: var(--od-tax-light); }
+.mkt-partner-btn--hr  { background: rgba(252,164,149,0.25); color: var(--od-hr-light); }
+.mkt-partner-btn--mkt { background: rgba(228,167,71,0.25);  color: var(--od-mkt-light); }
+
+/* ── CTA band — warm gold, stands apart from the navy body ─────────── */
+.mkt-cta { background: var(--od-mkt); }
 .mkt-cta__inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: clamp(72px, 9vw, 112px) 32px;
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: 60px var(--od-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
 }
-.mkt-cta__content { max-width: 600px; margin: 0 auto; text-align: center; }
-.mkt-cta__content h2 {
-  margin: 18px 0 0; font-size: clamp(26px, 3vw, 40px); line-height: 1.1;
-  letter-spacing: -0.025em; font-weight: 700; color: #fff;
+.mkt-cta__title {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: var(--od-display-1);
+  letter-spacing: -0.02em;
+  color: var(--od-ink);
 }
-.mkt-cta__content p {
-  margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.62);
+.mkt-cta__sub {
+  margin: 12px 0 0;
+  font-size: var(--od-text-lg);
+  color: rgba(29,35,48,0.72);
 }
-.mkt-cta__buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 
-/* ── Responsive ───────────────────────────────────────────────── */
-@media (max-width: 1000px) {
-  .mkt-types__grid { grid-template-columns: repeat(2, 1fr); }
+/* ── Responsive ────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .mkt-hero__inner  { grid-template-columns: 1fr; gap: 32px; padding: 48px var(--od-gutter); }
+  .mkt-how__steps   { grid-template-columns: 1fr; }
+  .mkt-dir__grid    { grid-template-columns: 1fr 1fr; }
+  .mkt-cta__inner   { flex-direction: column; align-items: flex-start; padding: 44px var(--od-gutter); gap: 20px; }
+  .mkt-cta__inner .od-btn { width: 100%; justify-content: center; }
 }
-@media (max-width: 900px) {
-  .mkt-hero__inner { grid-template-columns: 1fr; }
-  .mkt-join__steps { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .mkt-hero__grid { grid-template-columns: 1fr; }
-  .mkt-types__grid { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .mkt-dir__grid        { grid-template-columns: 1fr; }
+  .mkt-hero__stats      { grid-template-columns: 1fr 1fr; }
+  .mkt-hero__title      { font-size: var(--od-display-1); }
+  .mkt-dir__head        { flex-direction: column; align-items: flex-start; }
+  .mkt-cta__title       { font-size: var(--od-display-2); }
 }

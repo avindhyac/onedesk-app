@@ -1,213 +1,145 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import Button from "../components/Button";
-import Eyebrow from "../components/Eyebrow";
+import Badge from "../components/Badge";
+import SectionHeading from "../components/SectionHeading";
+import Tag from "../components/Tag";
+import FeatureItem from "../components/FeatureItem";
 import PageTransition from "../components/PageTransition";
-import RevealOnScroll from "../components/RevealOnScroll";
 import Seo from "../components/Seo";
 import "./MarketplacePage.css";
 
-const FEATURE_CARDS = [
-  {
-    border: "#74a9e8", iconBg: "rgba(116,169,232,0.15)", iconStroke: "#74a9e8",
-    title: "Reach the right clients",
-    text: "Access startups, SMEs, corporates and foreign investors looking for your services.",
-    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3" /><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6" /><path d="M16 8h5M18.5 5.5v5" /></svg>,
-  },
-  {
-    border: "#abc9bd", iconBg: "rgba(171,201,189,0.15)", iconStroke: "#abc9bd",
-    title: "Plug into the network",
-    text: "A broader service ecosystem with real momentum and active referral flows.",
-    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1" /><path d="M15 13a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1" /></svg>,
-  },
-  {
-    border: "#dbb7f7", iconBg: "rgba(219,183,247,0.15)", iconStroke: "#dbb7f7",
-    title: "Borrow our credibility",
-    text: "Stronger trust through association with the OneDesk brand and vetting process.",
-    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z" /><path d="M9 12l2 2 4-4" /></svg>,
-  },
-  {
-    border: "#ffc269", iconBg: "rgba(255,194,105,0.15)", iconStroke: "#ffc269",
-    title: "Cross-referrals",
-    text: "Work flows across legal, tax, HR, accounting and marketing - all within the OneDesk network.",
-    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8" /></svg>,
-  },
+const HERO_STATS = [
+  ["lucide:badge-check", "600+",  "Vetted firms"],
+  ["lucide:briefcase",   "12k",   "Jobs matched"],
+  ["lucide:globe",       "40",    "States"],
+  ["lucide:star",        "4.9",   "Avg. rating"],
 ];
 
-const JOIN_STEPS = [
-  {
-    num: "01", color: "#74a9e8",
-    title: "Apply as a partner",
-    text: "Tell us about your business, what you offer, and the clients you serve best.",
-  },
-  {
-    num: "02", color: "#abc9bd",
-    title: "Get vetted",
-    text: "We review your services, credentials and track record to ensure quality across the network.",
-  },
-  {
-    num: "03", color: "#dbb7f7",
-    title: "Get connected",
-    text: "Start receiving qualified referrals from OneDesk clients - matched to your expertise.",
-  },
+const HOW_STEPS = [
+  { icon: "lucide:file-check-2",  title: "1 · Apply & get vetted",   service: "sec", body: "Tell us about your firm and specialties. We verify credentials, reviews and capacity." },
+  { icon: "lucide:git-merge",     title: "2 · Get matched",           service: "acc", body: "We route businesses to you based on service, location and workload — no cold outreach." },
+  { icon: "lucide:line-chart",    title: "3 · Deliver in tandem",     service: "mkt", body: "Collaborate inside the OneDesk dashboard. We handle billing; you handle the craft." },
 ];
 
-const PARTNER_TYPES = [
-  {
-    border: "#74a9e8",
-    title: "Legal & Professional Services",
-    text: "Solicitors, barristers, notaries, legal consultants and regulatory advisory firms.",
-    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18M3 12h18M3 18h18" /></svg>,
-  },
-  {
-    border: "#ffc269",
-    title: "Financial & Accounting Firms",
-    text: "Auditors, management accountants, CFOs-for-hire and financial advisory practices.",
-    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>,
-  },
-  {
-    border: "#dbb7f7",
-    title: "Technology & SaaS Providers",
-    text: "Software platforms, fintech tools, HR systems and productivity solutions for businesses.",
-    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M2 20h20" /></svg>,
-  },
-  {
-    border: "#abc9bd",
-    title: "Marketing & Creative Agencies",
-    text: "Digital agencies, branding studios, PR firms and content creators serving business clients.",
-    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" /></svg>,
-  },
+const PARTNERS = [
+  { name: "Meridian Books",      service: "acc", loc: "Accounting · Colombo",    rating: "4.9", tags: ["Bookkeeping", "CFO advisory"] },
+  { name: "Brightline Legal",    service: "leg", loc: "Legal · Kandy",           rating: "5.0", tags: ["Contracts", "IP & trademark"] },
+  { name: "Summit Tax Group",    service: "tax", loc: "Tax · Gampaha",           rating: "4.8", tags: ["R&D credits", "Multi-state"] },
+  { name: "Anchor People Co.",   service: "hr",  loc: "HR · Remote",             rating: "4.9", tags: ["Payroll", "Benefits"] },
+  { name: "Northstar Studio",    service: "mkt", loc: "Marketing · Colombo",     rating: "4.7", tags: ["Brand", "Performance"] },
+  { name: "Capitol Compliance",  service: "sec", loc: "Secretarial · Colombo",   rating: "5.0", tags: ["Entity ops", "Filings"] },
 ];
+
+function initials(name) {
+  return name.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+}
 
 export default function MarketplacePage() {
   return (
     <PageTransition>
       <Seo
         title="Marketplace"
-        description="Join the OneDesk Marketplace - a vetted network of partners with built-in cross-referrals across legal, tax, HR, accounting and marketing."
+        description="A B2B hub where vetted accounting, legal, tax, HR and marketing firms connect with OneDesk clients."
         path="/marketplace"
       />
-      <div className="mkt-page">
 
-        {/* Hero */}
-        <section className="mkt-hero">
-          <div className="mkt-hero__inner">
-            <motion.div
-              className="mkt-hero__copy"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Eyebrow tone="on-dark">OneDesk Marketplace</Eyebrow>
-              <h1 className="mkt-hero__title">
-                A broader ecosystem your business can plug into<span className="mkt-dot">.</span>
-              </h1>
-              <p className="mkt-hero__lede">
-                Beyond core services, the OneDesk Marketplace connects vetted partners with the businesses that
-                need them - and gives every member access to a wider network of opportunity.
-              </p>
-              <div className="mkt-hero__ctas">
-                <Button variant="primary" size="lg" dot as={Link} to="/contact">Become a partner</Button>
-                <Button variant="on-dark" size="lg" as={Link} to="/contact">Explore partners</Button>
-              </div>
-            </motion.div>
-
-            <div className="mkt-hero__grid">
-              {FEATURE_CARDS.map((c, i) => (
-                <motion.div
-                  key={c.title}
-                  className="mkt-card"
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.18 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6, boxShadow: "0 20px 48px rgba(0,0,0,0.35)" }}
-                >
-                  <span className="mkt-card__icon" style={{ background: c.iconBg, color: c.iconStroke }}>{c.icon}</span>
-                  <h3>{c.title}</h3>
-                  <p>{c.text}</p>
-                  <a href="#mkt-join" className="mkt-card__link" style={{ color: c.border }}>
-                    Learn more <span aria-hidden="true">&rsaquo;</span>
-                  </a>
-                </motion.div>
-              ))}
+      {/* Hero — dark sec background */}
+      <section className="mkt-hero">
+        <div className="mkt-hero__inner">
+          <div className="mkt-hero__copy">
+            <Badge tone="teal" icon="lucide:handshake">For partner firms</Badge>
+            <h1 className="mkt-hero__title">
+              The OneDesk <span className="mkt-hero__accent">Marketplace.</span>
+            </h1>
+            <p className="mkt-hero__lede">
+              A B2B hub where vetted accounting, legal, tax, HR and marketing firms connect with OneDesk — and work in tandem to serve thousands of growing businesses.
+            </p>
+            <div className="mkt-hero__ctas">
+              <Button variant="primary" size="lg" iconRight="lucide:arrow-right" as={Link} to="/contact">Become a partner</Button>
+              <Button variant="on-dark" size="lg" as={Link} to="/contact">Explore partners</Button>
             </div>
           </div>
-        </section>
-
-        {/* How to join */}
-        <section id="mkt-join" className="mkt-join">
-          <div className="mkt-join__inner">
-            <RevealOnScroll>
-              <div className="mkt-join__head">
-                <Eyebrow tone="on-dark">Become a partner</Eyebrow>
-                <h2 className="mkt-join__title">Three steps to the network<span className="mkt-dot">.</span></h2>
-                <p className="mkt-join__lede">Joining is straightforward. We vet every partner to keep quality high - so your referrals arrive pre-qualified.</p>
+          <div className="mkt-hero__stats">
+            {HERO_STATS.map(([icon, value, label]) => (
+              <div key={label} className="mkt-hero__stat">
+                <iconify-icon icon={icon} className="mkt-hero__stat-icon" />
+                <div className="mkt-hero__stat-value">{value}</div>
+                <div className="mkt-hero__stat-label">{label}</div>
               </div>
-            </RevealOnScroll>
-            <div className="mkt-join__steps">
-              {JOIN_STEPS.map((s, i) => (
-                <RevealOnScroll key={s.num} delay={i * 0.1}>
-                  <motion.div
-                    className="mkt-step"
-                    whileHover={{ y: -6, boxShadow: "0 18px 44px rgba(0,0,0,0.28)" }}
-                    transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                  >
-                    <div className="mkt-step__num" style={{ color: s.color, borderColor: s.color }}>{s.num}</div>
-                    <h3>{s.title}</h3>
-                    <p>{s.text}</p>
-                  </motion.div>
-                </RevealOnScroll>
-              ))}
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="mkt-how">
+        <div className="mkt-how__inner">
+          <SectionHeading
+            eyebrow="How partnering works"
+            title="Grow your firm without growing your sales team."
+          />
+          <div className="mkt-how__steps">
+            {HOW_STEPS.map((s) => (
+              <FeatureItem key={s.title} icon={s.icon} title={s.title} service={s.service} layout="col">
+                {s.body}
+              </FeatureItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Directory */}
+      <section className="mkt-dir">
+        <div className="mkt-dir__inner">
+          <div className="mkt-dir__head">
+            <SectionHeading
+              eyebrow="Featured partners"
+              title="Firms already on the desk"
+              align="left"
+            />
+            <div className="mkt-dir__filters">
+              <Tag service="acc" /><Tag service="leg" /><Tag service="tax" /><Tag service="hr" />
             </div>
           </div>
-        </section>
-
-        {/* Partner types */}
-        <section className="mkt-types">
-          <div className="mkt-types__inner">
-            <RevealOnScroll>
-              <div className="mkt-types__head">
-                <Eyebrow tone="on-dark">Who can join</Eyebrow>
-                <h2 className="mkt-types__title">Built for service businesses of every kind<span className="mkt-dot">.</span></h2>
-              </div>
-            </RevealOnScroll>
-            <div className="mkt-types__grid">
-              {PARTNER_TYPES.map((t, i) => (
-                <RevealOnScroll key={t.title} delay={i * 0.08}>
-                  <motion.div
-                    className="mkt-type-card"
-                    style={{ "--type-border": t.border }}
-                    whileHover={{ y: -6, boxShadow: "0 18px 44px rgba(0,0,0,0.28)" }}
-                    transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                  >
-                    <span className="mkt-type-card__icon" style={{ color: t.border }}>{t.icon}</span>
-                    <h3>{t.title}</h3>
-                    <p>{t.text}</p>
-                  </motion.div>
-                </RevealOnScroll>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="mkt-cta">
-          <div className="mkt-cta__inner">
-            <RevealOnScroll>
-              <div className="mkt-cta__content">
-                <Eyebrow tone="on-dark">Ready to plug in?</Eyebrow>
-                <h2>Join a network built on credibility and cross-referrals<span className="mkt-dot">.</span></h2>
-                <p>Apply to become a OneDesk Marketplace partner - or explore the partners already in the network.</p>
-                <div className="mkt-cta__buttons">
-                  <Button variant="primary" size="lg" dot as={Link} to="/contact">Apply to join</Button>
-                  <Button variant="on-dark" size="lg" as={Link} to="/contact">Talk to us</Button>
+          <div className="mkt-dir__grid">
+            {PARTNERS.map((p) => (
+              <div key={p.name} className="mkt-partner">
+                <div className="mkt-partner__head">
+                  <span className={`mkt-partner__avatar mkt-partner-av--${p.service}`}>
+                    {initials(p.name)}
+                  </span>
+                  <Badge tone="warning" icon="lucide:star">{p.rating}</Badge>
                 </div>
+                <div className={`mkt-partner__name`}>{p.name}</div>
+                <div className="mkt-partner__loc">
+                  <iconify-icon icon="lucide:map-pin" className="mkt-partner__pin" />{p.loc}
+                </div>
+                <div className="mkt-partner__tags">
+                  {p.tags.map((t) => (
+                    <span key={t} className="mkt-partner__tag">{t}</span>
+                  ))}
+                </div>
+                <Link to="/contact" className={`mkt-partner__btn mkt-partner-btn--${p.service}`}>
+                  View profile
+                </Link>
               </div>
-            </RevealOnScroll>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* CTA */}
+      <section className="mkt-cta">
+        <div className="mkt-cta__inner">
+          <div>
+            <h2 className="mkt-cta__title">List your firm on OneDesk.</h2>
+            <p className="mkt-cta__sub">Join 600+ partners getting matched with ready-to-hire businesses every week.</p>
+          </div>
+          <Button variant="dark" size="lg" iconRight="lucide:arrow-right" as={Link} to="/contact">
+            Apply to partner
+          </Button>
+        </div>
+      </section>
     </PageTransition>
   );
 }

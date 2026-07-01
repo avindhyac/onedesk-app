@@ -1,33 +1,24 @@
 import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
 import Hero from "../sections/Hero";
-import Problem from "../sections/Problem";
-import Solution from "../sections/Solution";
-import Services from "../sections/Services";
-import Benefits from "../sections/Benefits";
-import Audience from "../sections/Audience";
-import Marketplace from "../sections/Marketplace";
-import Process from "../sections/Process";
-import Stats from "../sections/Stats";
+import TrustStrip from "../sections/TrustStrip";
+import ServicesGrid from "../sections/ServicesGrid";
+import HowItWorks from "../sections/HowItWorks";
 import Testimonials from "../sections/Testimonials";
-import FinalCta from "../sections/FinalCta";
-// import DarkVariants from "../sections/DarkVariants";
+import Faq from "../sections/Faq";
+import CtaBand from "../sections/CtaBand";
 
 export default function HomePage() {
   return (
     <PageTransition>
       <Seo path="/" />
       <Hero />
-      <Problem />
-      <Solution />
-      <Services />
-      <Benefits />
-      <Audience />
-      <Marketplace />
-      <Process />
-      <Stats />
+      <TrustStrip />
+      <ServicesGrid />
+      <HowItWorks />
       <Testimonials />
-      <FinalCta />
+      <Faq />
+      <CtaBand />
     </PageTransition>
   );
 }

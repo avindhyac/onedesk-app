@@ -6,6 +6,7 @@ export default function Button({
   size = "md",
   block = false,
   dot = false,
+  icon = null,
   iconLeft = null,
   iconRight = null,
   as = "button",
@@ -23,12 +24,18 @@ export default function Button({
     .filter(Boolean)
     .join(" ");
 
+  const renderIcon = (src) => {
+    if (!src) return null;
+    if (typeof src === "string") return <iconify-icon icon={src} style={{ fontSize: "1.1em" }} />;
+    return <span className="od-btn__icon">{src}</span>;
+  };
+
   return (
     <Tag className={cls} {...rest}>
-      {iconLeft ? <span className="od-btn__icon">{iconLeft}</span> : null}
+      {renderIcon(icon || iconLeft)}
       <span>{children}</span>
-      {dot ? <span className="od-btn__dot" /> : null}
-      {iconRight ? <span className="od-btn__icon">{iconRight}</span> : null}
+      {dot && <span className="od-btn__dot" />}
+      {renderIcon(iconRight)}
     </Tag>
   );
 }

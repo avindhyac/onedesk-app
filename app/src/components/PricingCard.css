@@ -1,0 +1,98 @@
+.pricing-card {
+  background: var(--od-white);
+  border: 1px solid var(--od-line);
+  border-radius: var(--od-radius-xl);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: var(--od-shadow-sm);
+  position: relative;
+  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease);
+}
+.pricing-card:hover { transform: translateY(-4px); box-shadow: var(--od-shadow-lg); }
+
+.pricing-card--featured {
+  border-color: var(--od-orange);
+  box-shadow: var(--od-shadow-brand);
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--od-orange);
+  color: #fff;
+  font-size: var(--od-text-xs);
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: var(--od-radius-pill);
+  white-space: nowrap;
+  box-shadow: var(--od-shadow-brand);
+}
+
+.pricing-card__name {
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: var(--od-text-2xl);
+  color: var(--od-ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.pricing-card__tagline {
+  margin: 6px 0 0;
+  font-size: var(--od-text-sm);
+  color: var(--od-slate);
+}
+
+.pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--od-line);
+}
+.pricing-card__amount {
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--od-ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.pricing-card--featured .pricing-card__amount { color: var(--od-orange); }
+.pricing-card__period {
+  font-size: var(--od-text-sm);
+  color: var(--od-slate);
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.pricing-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--od-text-sm);
+  color: var(--od-ink-2);
+  line-height: 1.5;
+}
+.pricing-card__check {
+  color: var(--od-teal);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.pricing-card--featured .pricing-card__check { color: var(--od-orange); }
+
+@media (max-width: 480px) {
+  .pricing-card { padding: 24px 20px; }
+  .pricing-card__amount { font-size: 2.25rem; }
+}
