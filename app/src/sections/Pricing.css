@@ -55,7 +55,7 @@
   text-align: center;
 }
 .pricing-table__th--label { text-align: left; color: transparent; }
-.pricing-table__th--featured { color: var(--od-orange); }
+.pricing-table__th--featured { color: var(--od-orange-700); }
 
 .pricing-table__row:hover td { background: var(--od-paper); }
 .pricing-table__td {
@@ -83,7 +83,7 @@
   font-size: var(--od-text-sm);
   color: var(--od-slate);
 }
-.pricing-faq__link { color: var(--od-orange); text-decoration: underline; }
+.pricing-faq__link { color: var(--od-orange-700); text-decoration: underline; }
 
 @media (max-width: 700px) {
   .pricing-cards__grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }

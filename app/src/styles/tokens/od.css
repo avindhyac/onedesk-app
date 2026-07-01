@@ -59,6 +59,22 @@
   --od-mkt-light:     #fcd7a7;
   --od-mkt-tint:      #fdf2e0;
 
+  /* ---- Readable per-service TEXT shades ----
+     Darker step of each service hue, tuned to clear WCAG AA (≥4.5:1 for
+     small text) on white and on the pale service tints. Use these for any
+     text/icon/link that carries meaning; the base --od-<svc> above stays for
+     fills, blobs, and large decorative art. */
+  --od-sec-text:      #1c314f;
+  --od-acc-text:      #46615a;
+  --od-leg-text:      #584361;
+  --od-tax-text:      #9a4f22;
+  --od-hr-text:       #a8402f;
+  --od-mkt-text:      #8a6111;
+
+  /* Readable brand shades for small text/links/eyebrows on light bg */
+  --od-orange-700:    #b54c18;
+  --od-teal-700:      #3f5f68;
+
   /* ---- Status ---- */
   --od-success:       #3f9d6d;
   --od-success-tint:  #e7f3ec;

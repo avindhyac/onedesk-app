@@ -12,14 +12,14 @@
 .od-badge__icon { font-size: 14px; }
 
 .od-badge--orange {
-  background: var(--od-orange-100);
-  color: var(--od-orange-600);
+  background: var(--od-orange-tint);
+  color: var(--od-orange-700);
 }
 .od-badge--teal {
   background: var(--od-teal-100);
-  color: var(--od-teal-600);
+  color: var(--od-teal-700);
 }
 .od-badge--warning {
   background: var(--od-warning-tint);
-  color: var(--od-tax);
+  color: var(--od-tax-text);
 }

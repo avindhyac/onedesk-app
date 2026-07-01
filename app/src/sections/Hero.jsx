@@ -77,7 +77,7 @@ export default function Hero() {
                     </div>
                     <div
                       className="hero__card-label"
-                      style={{ borderTopColor: `var(--od-${svc}-light)`, color: `var(--od-${svc})` }}
+                      style={{ borderTopColor: `var(--od-${svc}-light)`, color: `var(--od-${svc}-text)` }}
                     >
                       {p?.label || key}
                     </div>

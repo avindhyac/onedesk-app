@@ -6,6 +6,21 @@
   padding: 72px var(--od-gutter) 8px;
 }
 
+/* Proof band — framed figures panel between hero and the service rows */
+.svcp-proof { background: var(--od-paper); }
+.svcp-proof__inner {
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: 12px var(--od-gutter) 8px;
+}
+.svcp-proof .od-ledger {
+  background: var(--od-white);
+  border: 1px solid var(--od-line);
+  border-radius: var(--od-radius-xl);
+  box-shadow: var(--od-shadow-sm);
+  padding: 30px 32px;
+}
+
 /* Service rows */
 .svcp-row--paper { background: var(--od-paper); }
 .svcp-row--white { background: var(--od-white); }
@@ -83,12 +98,12 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
-.svcp-tagline--sec { color: var(--od-sec); }
-.svcp-tagline--acc { color: var(--od-acc); }
-.svcp-tagline--leg { color: var(--od-leg); }
-.svcp-tagline--tax { color: var(--od-tax); }
-.svcp-tagline--hr  { color: var(--od-hr);  }
-.svcp-tagline--mkt { color: var(--od-mkt); }
+.svcp-tagline--sec { color: var(--od-sec-text); }
+.svcp-tagline--acc { color: var(--od-acc-text); }
+.svcp-tagline--leg { color: var(--od-leg-text); }
+.svcp-tagline--tax { color: var(--od-tax-text); }
+.svcp-tagline--hr  { color: var(--od-hr-text);  }
+.svcp-tagline--mkt { color: var(--od-mkt-text); }
 
 .svcp-row__desc {
   margin: 16px 0 0;

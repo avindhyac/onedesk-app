@@ -1,19 +1,7 @@
 @import "./tokens/fonts.css";
-@import "./tokens/colors.css";
-@import "./tokens/typography.css";
-@import "./tokens/spacing.css";
-@import "./tokens/effects.css";
-@import "./tokens/motion.css";
 @import "./tokens/od.css";
 
 :root {
-  --c-sec: #1d2d44; --c-sec-l: #e8f0f9; --c-sec-m: #74a9e8;
-  --c-acc: #687e74; --c-acc-l: #eef6f2; --c-acc-m: #c8e8da;
-  --c-leg: #4b3862; --c-leg-l: #f3edfa; --c-leg-m: #dbb7f7;
-  --c-tax: #c46a3a; --c-tax-l: #fdf0e8; --c-tax-m: #ffac83;
-  --c-hr: #d96b5e;  --c-hr-l: #fdf2f1;  --c-hr-m: #fccec8;
-  --c-mkt: #c9982a; --c-mkt-l: #fdfaed; --c-mkt-m: #fcd7a7;
-
   /* Sticky header height — shared by Lenis anchor offset + section snapping */
   --header-h: 72px;
 }
@@ -51,20 +39,20 @@ h1, h2, h3, h4, h5, h6 {
 
 p { margin: 0; }
 
-a { color: var(--text-link); text-decoration: none; }
+a { color: var(--od-teal-600); text-decoration: none; }
 
 /* Visible keyboard focus for all interactive elements. Mouse clicks don't
    trigger :focus-visible, so this only shows for keyboard/AT users. Low
    specificity via :where() so components can still override intentionally. */
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
-  outline: 2px solid var(--ember-500);
+  outline: 2px solid var(--od-orange);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 img { max-width: 100%; }
 
-::selection { background: var(--ember-200); color: var(--ink-900); }
+::selection { background: var(--od-orange-300); color: var(--od-ink); }
 
 @keyframes odFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 @keyframes odScrollL { from { transform: translateX(0); } to { transform: translateX(-50%); } }

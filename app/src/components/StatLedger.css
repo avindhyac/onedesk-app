@@ -1,0 +1,137 @@
+/* ============================================================
+   StatLedger — editorial "figures strip". Hairline-separated
+   oversized numerals with tabular figures + a per-service accent
+   tick. Row / column / grid layouts; light + dark surfaces.
+   ============================================================ */
+.od-ledger {
+  --ledger-divider: var(--od-line);
+  --ledger-value:   var(--od-ink);
+  --ledger-label:   var(--od-slate);
+  --ledger-context: var(--od-slate-2);
+}
+.od-ledger--dark {
+  --ledger-divider: rgba(255, 255, 255, 0.14);
+  --ledger-value:   #ffffff;
+  --ledger-label:   rgba(255, 255, 255, 0.74);
+  --ledger-context: rgba(255, 255, 255, 0.52);
+}
+
+/* ── Cell ─────────────────────────────────────────────── */
+.od-ledger__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.od-ledger__tick {
+  display: block;
+  width: 30px;
+  height: 3px;
+  border-radius: 999px;
+}
+
+.od-ledger__value {
+  display: inline-block;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 1.6rem + 2.9vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--ledger-value);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.od-ledger__label {
+  font-family: var(--od-font-body);
+  font-size: var(--od-text-sm);
+  font-weight: 600;
+  color: var(--ledger-label);
+  line-height: 1.35;
+}
+.od-ledger__context {
+  font-size: var(--od-text-xs);
+  color: var(--ledger-context);
+  line-height: 1.4;
+  max-width: 24ch;
+}
+
+/* ── Row layout (horizontal rail with vertical hairlines) ── */
+.od-ledger--row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.od-ledger--row .od-ledger__cell {
+  flex: 1 1 0;
+  min-width: 150px;
+  padding: 4px 32px;
+}
+.od-ledger--row .od-ledger__cell + .od-ledger__cell {
+  border-left: 1px solid var(--ledger-divider);
+}
+.od-ledger--row .od-ledger__cell:first-child { padding-left: 0; }
+
+/* ── Column layout (stacked rows with baseline hairlines) ── */
+.od-ledger--column {
+  display: flex;
+  flex-direction: column;
+}
+.od-ledger--column .od-ledger__cell {
+  padding: 22px 0;
+  gap: 8px;
+}
+.od-ledger--column .od-ledger__cell + .od-ledger__cell {
+  border-top: 1px solid var(--ledger-divider);
+}
+.od-ledger--column .od-ledger__cell:first-child { padding-top: 0; }
+.od-ledger--column .od-ledger__cell:last-child { padding-bottom: 0; }
+
+/* ── Grid layout (2×2 with a hairline cross) ── */
+.od-ledger--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.od-ledger--grid .od-ledger__cell {
+  padding: 22px 24px;
+}
+.od-ledger--grid .od-ledger__cell:nth-child(2n) {
+  border-left: 1px solid var(--ledger-divider);
+}
+.od-ledger--grid .od-ledger__cell:nth-child(n + 3) {
+  border-top: 1px solid var(--ledger-divider);
+}
+
+/* ── Responsive: row → 2×2 grid on narrow screens (4-item rails) ── */
+@media (max-width: 720px) {
+  .od-ledger--row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4px;
+  }
+  .od-ledger--row .od-ledger__cell {
+    padding: 20px 22px;
+    min-width: 0;
+  }
+  .od-ledger--row .od-ledger__cell:first-child { padding-left: 22px; }
+  .od-ledger--row .od-ledger__cell + .od-ledger__cell { border-left: none; }
+  .od-ledger--row .od-ledger__cell:nth-child(2n) {
+    border-left: 1px solid var(--ledger-divider);
+  }
+  .od-ledger--row .od-ledger__cell:nth-child(n + 3) {
+    border-top: 1px solid var(--ledger-divider);
+  }
+}
+
+@media (max-width: 360px) {
+  .od-ledger--grid,
+  .od-ledger--row {
+    grid-template-columns: 1fr;
+  }
+  .od-ledger--row .od-ledger__cell:nth-child(2n),
+  .od-ledger--grid .od-ledger__cell:nth-child(2n) { border-left: none; }
+  .od-ledger--row .od-ledger__cell + .od-ledger__cell,
+  .od-ledger--grid .od-ledger__cell + .od-ledger__cell {
+    border-top: 1px solid var(--ledger-divider);
+  }
+}

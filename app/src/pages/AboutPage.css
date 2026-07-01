@@ -52,19 +52,11 @@
 }
 .about-story__ctas { margin-top: 28px; }
 
-.about-story__stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+/* Story ledger sits in the right column of the split; vertical rule anchors it. */
+.about-story__ledger {
+  padding-left: 32px;
+  border-left: 1px solid var(--od-line);
 }
-.about-story__stat-card {
-  border-radius: var(--od-radius-lg);
-  padding: 26px;
-}
-.about-story__stat-card--orange { background: var(--od-orange-tint); }
-.about-story__stat-card--teal   { background: var(--od-teal-100);    }
-.about-story__stat-card--acc    { background: var(--od-acc-tint);    }
-.about-story__stat-card--leg    { background: var(--od-leg-tint);    }
 
 /* Values */
 .about-values { background: var(--od-paper); }
@@ -103,32 +95,46 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  background: var(--od-paper);
+  background: var(--od-white);
   border: 1px solid var(--od-line);
   border-radius: var(--od-radius-lg);
-  padding: 20px 22px;
+  padding: 22px 24px;
+  box-shadow: var(--od-shadow-xs);
+  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease);
 }
-.about-team__name {
+.about-team__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--od-shadow-md);
+}
+.about-team__meta { min-width: 0; }
+.about-team__role-title {
   font-family: var(--od-font-display);
   font-weight: 700;
   font-size: var(--od-text-base);
+  letter-spacing: -0.01em;
   color: var(--od-ink);
+  line-height: 1.2;
 }
-.about-team__role {
-  margin-top: 3px;
+.about-team__member {
+  margin-top: 4px;
   font-size: var(--od-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--od-slate);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-team__card { transition: none; }
+  .about-team__card:hover { transform: none; }
 }
 
 @media (max-width: 860px) {
   .about-story__inner { grid-template-columns: 1fr; gap: 32px; }
+  .about-story__ledger { padding-left: 0; border-left: none; }
   .about-values__grid { grid-template-columns: 1fr; }
   .about-team__grid   { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
   .about-team__grid { grid-template-columns: 1fr; }
-  .about-story__stats { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 400px) {
-  .about-story__stats { grid-template-columns: 1fr; }
 }

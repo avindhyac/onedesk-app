@@ -65,27 +65,13 @@
 }
 .mkt-hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
-.mkt-hero__stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.mkt-hero__stat {
-  background: var(--mkt-glass-bg);
+/* Figures ledger — framed 2×2 panel with a hairline cross on the dark hero. */
+.mkt-hero__ledger {
   border: 1px solid var(--mkt-glass-border);
   border-radius: var(--od-radius-lg);
-  padding: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
 }
-.mkt-hero__stat-icon { font-size: 26px; color: var(--od-orange); }
-.mkt-hero__stat-value {
-  font-family: var(--od-font-display);
-  font-weight: 800;
-  font-size: 2rem;
-  color: var(--mkt-text);
-  margin-top: 8px;
-  line-height: 1;
-}
-.mkt-hero__stat-label { font-size: var(--od-text-sm); color: var(--mkt-muted); margin-top: 4px; }
 
 /* ── How it works — one shade deeper for depth ─────────────────────── */
 .mkt-how { background: #162540; }
@@ -111,10 +97,11 @@
 .mkt-how .section-heading__subtitle,
 .mkt-dir .section-heading__subtitle { color: var(--mkt-text-2); }
 
-/* FeatureItem overrides — solid icon badges, white text */
+/* FeatureItem overrides — visible icon badges on the dark surface, white text */
 .mkt-how .od-feature__icon {
-  background: rgba(238,118,50,0.18) !important;
+  background: rgba(255,255,255,0.07) !important;
   color: var(--od-orange) !important;
+  border: 1px solid rgba(255,255,255,0.14);
 }
 .mkt-how .od-feature__title { color: var(--mkt-text); }
 .mkt-how .od-feature__body  { color: var(--mkt-text-2); }
@@ -149,30 +136,43 @@
   margin-top: 40px;
 }
 
-/* ── Partner card — dark glass ─────────────────────────────────────── */
+/* ── Partner card — elevated dark surface with a service accent ────── */
 .mkt-partner {
-  background: var(--mkt-glass-bg);
+  position: relative;
+  background: rgba(255, 255, 255, 0.045);
   border: 1px solid var(--mkt-glass-border);
   border-radius: var(--od-radius-lg);
-  padding: 24px;
+  padding: 26px 24px 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: transform var(--od-dur) var(--od-ease), background var(--od-dur) var(--od-ease);
+  gap: 12px;
+  overflow: hidden;
+  transition: transform var(--od-dur) var(--od-ease), background var(--od-dur) var(--od-ease), border-color var(--od-dur) var(--od-ease);
 }
 .mkt-partner:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.11);
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Top accent rule keyed to the firm's service */
+.mkt-partner__rule {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.od-partner--sec .mkt-partner__rule { background: var(--od-sec-accent); }
+.od-partner--acc .mkt-partner__rule { background: var(--od-acc-accent); }
+.od-partner--leg .mkt-partner__rule { background: var(--od-leg-accent); }
+.od-partner--tax .mkt-partner__rule { background: var(--od-tax-accent); }
+.od-partner--hr  .mkt-partner__rule { background: var(--od-hr-accent); }
+.od-partner--mkt .mkt-partner__rule { background: var(--od-mkt-accent); }
 
 .mkt-partner__head {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .mkt-partner__avatar {
   width: 52px;
   height: 52px;
@@ -184,8 +184,7 @@
   font-weight: 800;
   font-size: 18px;
 }
-
-/* Avatars: use solid service color as bg, white initials — pops on dark */
+/* Avatars: solid service color as bg, white initials — pops on dark */
 .mkt-partner-av--sec { background: var(--od-sec-accent); color: #fff; }
 .mkt-partner-av--acc { background: var(--od-acc);        color: #fff; }
 .mkt-partner-av--leg { background: var(--od-leg-accent); color: #fff; }
@@ -193,19 +192,31 @@
 .mkt-partner-av--hr  { background: var(--od-hr);         color: #fff; }
 .mkt-partner-av--mkt { background: var(--od-mkt);        color: var(--od-ink); }
 
+.mkt-partner__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--od-font-display);
+  font-weight: 700;
+  font-size: var(--od-text-sm);
+  color: var(--mkt-text);
+}
+.mkt-partner__star { color: var(--od-mkt-accent); font-size: 15px; }
+
 .mkt-partner__name {
+  margin: 0;
   font-family: var(--od-font-display);
   font-weight: 700;
   font-size: var(--od-text-xl);
+  letter-spacing: -0.01em;
   color: var(--mkt-text);
 }
-
 .mkt-partner__loc {
   display: flex;
   align-items: center;
   gap: 5px;
   font-size: var(--od-text-sm);
-  color: var(--mkt-muted);
+  color: var(--mkt-text-2);
 }
 .mkt-partner__pin { font-size: 14px; }
 
@@ -214,35 +225,58 @@
   font-size: 12px;
   font-weight: 600;
   color: var(--mkt-text-2);
-  background: rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.09);
   padding: 4px 10px;
   border-radius: var(--od-radius-pill);
 }
 
-/* Service "view profile" button — semi-transparent service tints on dark */
-.mkt-partner__btn {
-  display: block;
-  text-align: center;
-  padding: 10px;
-  border-radius: var(--od-radius-pill);
-  font-family: var(--od-font-body);
+/* Footer — member-rate cue + enquire, above a hairline */
+.mkt-partner__footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--mkt-line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mkt-partner__rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--od-text-xs);
   font-weight: 700;
-  font-size: var(--od-text-sm);
-  text-decoration: none;
-  margin-top: 6px;
-  transition: opacity var(--od-dur) var(--od-ease);
-  min-height: 40px;
+  letter-spacing: 0.02em;
+  color: var(--od-teal-300);
+}
+.mkt-partner__rate iconify-icon { font-size: 15px; }
+
+.mkt-partner__btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--od-radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--mkt-text);
+  font-family: var(--od-font-body);
+  font-weight: 700;
+  font-size: var(--od-text-sm);
+  cursor: pointer;
+  transition: background var(--od-dur) var(--od-ease), border-color var(--od-dur) var(--od-ease);
 }
-.mkt-partner__btn:hover { opacity: 0.82; }
-.mkt-partner-btn--sec { background: rgba(95,135,193,0.25);  color: var(--od-sec-light); }
-.mkt-partner-btn--acc { background: rgba(121,155,145,0.25); color: var(--od-acc-light); }
-.mkt-partner-btn--leg { background: rgba(155,127,173,0.25); color: var(--od-leg-light); }
-.mkt-partner-btn--tax { background: rgba(232,131,75,0.25);  color: var(--od-tax-light); }
-.mkt-partner-btn--hr  { background: rgba(252,164,149,0.25); color: var(--od-hr-light); }
-.mkt-partner-btn--mkt { background: rgba(228,167,71,0.25);  color: var(--od-mkt-light); }
+.mkt-partner__btn:hover { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.34); }
+.mkt-partner__btn-arrow { font-size: 15px; transition: transform var(--od-dur) var(--od-ease); }
+.mkt-partner:hover .mkt-partner__btn-arrow { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mkt-partner, .mkt-partner__btn-arrow { transition: none; }
+  .mkt-partner:hover { transform: none; }
+  .mkt-partner:hover .mkt-partner__btn-arrow { transform: none; }
+}
 
 /* ── CTA band — warm gold, stands apart from the navy body ─────────── */
 .mkt-cta { background: var(--od-mkt); }
@@ -280,7 +314,6 @@
 }
 @media (max-width: 560px) {
   .mkt-dir__grid        { grid-template-columns: 1fr; }
-  .mkt-hero__stats      { grid-template-columns: 1fr 1fr; }
   .mkt-hero__title      { font-size: var(--od-display-1); }
   .mkt-dir__head        { flex-direction: column; align-items: flex-start; }
   .mkt-cta__title       { font-size: var(--od-display-2); }

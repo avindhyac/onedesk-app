@@ -1,22 +1,40 @@
 .svc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--od-white);
   border: 1px solid var(--od-line);
   border-radius: var(--od-radius-xl);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  text-decoration: none;
   box-shadow: var(--od-shadow-xs);
-  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease);
+  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease), border-color var(--od-dur) var(--od-ease);
 }
 .svc-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: var(--od-shadow-lg);
+  border-color: transparent;
 }
+
+/* Top accent rule — the service color, drawn in on hover from the left */
+.svc-card__rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--od-dur-slow) var(--od-ease);
+  z-index: 1;
+}
+.svc-card:hover .svc-card__rule,
+.svc-card:focus-visible .svc-card__rule { transform: scaleX(1); }
 
 /* Art area */
 .svc-card__art {
   position: relative;
-  height: 180px;
+  height: 176px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -24,93 +42,130 @@
 }
 .svc-card__blob {
   position: absolute;
-  inset: 8% 14% 6%;
+  inset: 10% 16% 8%;
   border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+  transition: transform var(--od-dur-slow) var(--od-ease);
 }
+.svc-card:hover .svc-card__blob { transform: scale(1.06); }
 .svc-card__char {
   position: relative;
-  height: 170px;
+  height: 168px;
   object-fit: contain;
   transition: transform var(--od-dur-slow) var(--od-ease);
 }
-.svc-card:hover .svc-card__char { transform: scale(1.04); }
+.svc-card:hover .svc-card__char { transform: translateY(-4px) scale(1.05); }
 
 /* Body */
 .svc-card__body {
-  padding: 20px 22px 24px;
   display: flex;
   flex-direction: column;
-  flex: 1;
   gap: 10px;
+  padding: 22px 24px 24px;
+  flex: 1;
 }
-
 .svc-card__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--od-radius-sm);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--od-radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
+  margin-bottom: 2px;
 }
-
 .svc-card__title {
   margin: 0;
   font-family: var(--od-font-display);
   font-weight: 700;
-  font-size: var(--od-text-xl);
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--od-ink);
-  letter-spacing: -0.01em;
 }
-
 .svc-card__desc {
   margin: 0;
   font-size: var(--od-text-sm);
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--od-slate);
   flex: 1;
 }
 
-.svc-card__link {
+/* Explore cue with circular arrow */
+.svc-card__cue {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  margin-top: 8px;
+  font-family: var(--od-font-body);
   font-size: var(--od-text-sm);
   font-weight: 700;
-  text-decoration: none;
-  margin-top: 4px;
-  transition: gap var(--od-dur) var(--od-ease);
+  letter-spacing: 0.01em;
 }
-.svc-card:hover .svc-card__link { gap: 8px; }
-.svc-card__arrow { font-size: 14px; transition: transform var(--od-dur) var(--od-ease); }
+.svc-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: background var(--od-dur) var(--od-ease), color var(--od-dur) var(--od-ease), transform var(--od-dur) var(--od-ease);
+}
+.svc-card:hover .svc-card__arrow { transform: translateX(3px); }
 
 @media (max-width: 560px) {
   .svc-card__art { height: 150px; }
-  .svc-card__char { height: 140px; }
-  .svc-card__body { padding: 16px 18px 20px; }
+  .svc-card__char { height: 142px; }
+  .svc-card__body { padding: 18px 20px 20px; }
+  .svc-card__title { font-size: 1.375rem; }
 }
 
 /* Per-service theming */
-.od-svc--sec .svc-card__blob   { background: var(--od-sec-tint); }
-.od-svc--sec .svc-card__icon   { background: var(--od-sec-tint); color: var(--od-sec); }
-.od-svc--sec .svc-card__link   { color: var(--od-sec); }
+.od-svc--sec .svc-card__blob  { background: var(--od-sec-tint); }
+.od-svc--sec .svc-card__rule  { background: var(--od-sec); }
+.od-svc--sec .svc-card__icon  { background: var(--od-sec-tint); color: var(--od-sec-text); }
+.od-svc--sec .svc-card__cue   { color: var(--od-sec-text); }
+.od-svc--sec .svc-card__arrow { background: var(--od-sec-tint); color: var(--od-sec-text); }
+.od-svc--sec:hover .svc-card__arrow { background: var(--od-sec); color: #fff; }
 
-.od-svc--acc .svc-card__blob   { background: var(--od-acc-tint); }
-.od-svc--acc .svc-card__icon   { background: var(--od-acc-tint); color: var(--od-acc); }
-.od-svc--acc .svc-card__link   { color: var(--od-acc); }
+.od-svc--acc .svc-card__blob  { background: var(--od-acc-tint); }
+.od-svc--acc .svc-card__rule  { background: var(--od-acc); }
+.od-svc--acc .svc-card__icon  { background: var(--od-acc-tint); color: var(--od-acc-text); }
+.od-svc--acc .svc-card__cue   { color: var(--od-acc-text); }
+.od-svc--acc .svc-card__arrow { background: var(--od-acc-tint); color: var(--od-acc-text); }
+.od-svc--acc:hover .svc-card__arrow { background: var(--od-acc); color: #fff; }
 
-.od-svc--leg .svc-card__blob   { background: var(--od-leg-tint); }
-.od-svc--leg .svc-card__icon   { background: var(--od-leg-tint); color: var(--od-leg); }
-.od-svc--leg .svc-card__link   { color: var(--od-leg); }
+.od-svc--leg .svc-card__blob  { background: var(--od-leg-tint); }
+.od-svc--leg .svc-card__rule  { background: var(--od-leg); }
+.od-svc--leg .svc-card__icon  { background: var(--od-leg-tint); color: var(--od-leg-text); }
+.od-svc--leg .svc-card__cue   { color: var(--od-leg-text); }
+.od-svc--leg .svc-card__arrow { background: var(--od-leg-tint); color: var(--od-leg-text); }
+.od-svc--leg:hover .svc-card__arrow { background: var(--od-leg); color: #fff; }
 
-.od-svc--tax .svc-card__blob   { background: var(--od-tax-tint); }
-.od-svc--tax .svc-card__icon   { background: var(--od-tax-tint); color: var(--od-tax); }
-.od-svc--tax .svc-card__link   { color: var(--od-tax); }
+.od-svc--tax .svc-card__blob  { background: var(--od-tax-tint); }
+.od-svc--tax .svc-card__rule  { background: var(--od-tax); }
+.od-svc--tax .svc-card__icon  { background: var(--od-tax-tint); color: var(--od-tax-text); }
+.od-svc--tax .svc-card__cue   { color: var(--od-tax-text); }
+.od-svc--tax .svc-card__arrow { background: var(--od-tax-tint); color: var(--od-tax-text); }
+.od-svc--tax:hover .svc-card__arrow { background: var(--od-tax); color: #fff; }
 
-.od-svc--hr  .svc-card__blob   { background: var(--od-hr-tint);  }
-.od-svc--hr  .svc-card__icon   { background: var(--od-hr-tint);  color: var(--od-hr);  }
-.od-svc--hr  .svc-card__link   { color: var(--od-hr);  }
+.od-svc--hr  .svc-card__blob  { background: var(--od-hr-tint); }
+.od-svc--hr  .svc-card__rule  { background: var(--od-hr); }
+.od-svc--hr  .svc-card__icon  { background: var(--od-hr-tint); color: var(--od-hr-text); }
+.od-svc--hr  .svc-card__cue   { color: var(--od-hr-text); }
+.od-svc--hr  .svc-card__arrow { background: var(--od-hr-tint); color: var(--od-hr-text); }
+.od-svc--hr:hover  .svc-card__arrow { background: var(--od-hr); color: #fff; }
 
-.od-svc--mkt .svc-card__blob   { background: var(--od-mkt-tint); }
-.od-svc--mkt .svc-card__icon   { background: var(--od-mkt-tint); color: var(--od-mkt); }
-.od-svc--mkt .svc-card__link   { color: var(--od-mkt); }
+.od-svc--mkt .svc-card__blob  { background: var(--od-mkt-tint); }
+.od-svc--mkt .svc-card__rule  { background: var(--od-mkt); }
+.od-svc--mkt .svc-card__icon  { background: var(--od-mkt-tint); color: var(--od-mkt-text); }
+.od-svc--mkt .svc-card__cue   { color: var(--od-mkt-text); }
+.od-svc--mkt .svc-card__arrow { background: var(--od-mkt-tint); color: var(--od-mkt-text); }
+.od-svc--mkt:hover .svc-card__arrow { background: var(--od-mkt); color: var(--od-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-card, .svc-card__blob, .svc-card__char, .svc-card__rule, .svc-card__arrow { transition: none; }
+  .svc-card:hover { transform: none; }
+  .svc-card:hover .svc-card__char, .svc-card:hover .svc-card__blob { transform: none; }
+  .svc-card__rule { transform: scaleX(1); }
+}

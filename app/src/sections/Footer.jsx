@@ -27,11 +27,6 @@ const COMPANY_LINKS = [
   { to: "/contact",     label: "Contact" },
 ];
 
-const RESOURCE_LINKS = [
-  { to: "/pricing",  label: "Pricing" },
-  { to: "/contact",  label: "Help center" },
-];
-
 function Wordmark() {
   return (
     <span className="footer__wordmark">

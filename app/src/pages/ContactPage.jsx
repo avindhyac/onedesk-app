@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import SectionHeading from "../components/SectionHeading";
 import { Input, Textarea, Select, Checkbox } from "../components/FormField";
@@ -69,14 +68,23 @@ export default function ContactPage() {
 
       <section className="contact-page">
         <div className="contact-page__inner">
-          {/* Left — info */}
-          <div className="contact-info">
+          {/* Intro — heading (stays on top at every width) */}
+          <div className="contact-intro">
             <SectionHeading
               eyebrow="Contact"
               title="Let's get your desk set up."
               subtitle="Tell us what you need handled. A real person replies within one business day — no bots, no phone trees."
               align="left"
             />
+          </div>
+
+          {/* Form card — the primary action; sits second on mobile, right on desktop */}
+          <div className="contact-form-card">
+            <ContactForm />
+          </div>
+
+          {/* Meta — contact details + reassurance; below the form on mobile */}
+          <div className="contact-meta">
             <div className="contact-details">
               {DETAILS.map((d) => (
                 <div key={d.title} className="contact-detail">
@@ -94,11 +102,6 @@ export default function ContactPage() {
               <iconify-icon icon="lucide:shield-check" className="contact-security__icon" />
               Your information is encrypted and never shared.
             </div>
-          </div>
-
-          {/* Right — form card */}
-          <div className="contact-form-card">
-            <ContactForm />
           </div>
         </div>
       </section>

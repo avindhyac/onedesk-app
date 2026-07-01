@@ -29,7 +29,7 @@ export default function HowItWorks() {
       <div className="how-it-works__inner">
         <SectionHeading
           eyebrow="How it works"
-          eyebrowColor="var(--od-teal)"
+          eyebrowColor="var(--od-teal-700)"
           title="Up and running in a week."
           align="left"
         />

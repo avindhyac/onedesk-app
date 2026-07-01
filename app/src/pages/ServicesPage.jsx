@@ -4,6 +4,7 @@ import Seo from "../components/Seo";
 import SectionHeading from "../components/SectionHeading";
 import Tag from "../components/Tag";
 import Button from "../components/Button";
+import StatLedger from "../components/StatLedger";
 import CtaBand from "../sections/CtaBand";
 import { characters } from "../data/characters";
 import "./ServicesPage.css";
@@ -68,6 +69,21 @@ export default function ServicesPage() {
             eyebrow="Our services"
             title="Six specialist teams, fully coordinated."
             subtitle="Each service is run by experts and themed in its own color — so you always know who's doing what."
+          />
+        </div>
+      </section>
+
+      <section className="svcp-proof">
+        <div className="svcp-proof__inner">
+          <StatLedger
+            layout="row"
+            variant="light"
+            items={[
+              { to: 6,                label: "Specialist teams",  accent: "sec" },
+              { to: 50,               label: "Industries served", accent: "acc" },
+              { to: 1,                label: "Monthly bill",      accent: "tax" },
+              { to: 100, suffix: "%", label: "In-house experts",  accent: "mkt" },
+            ]}
           />
         </div>
       </section>

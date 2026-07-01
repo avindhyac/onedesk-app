@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import Avatar from "../components/Avatar";
 import FeatureItem from "../components/FeatureItem";
 import SectionHeading from "../components/SectionHeading";
-import Stat from "../components/Stat";
+import StatLedger from "../components/StatLedger";
 import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
 import CtaBand from "../sections/CtaBand";
@@ -62,20 +62,17 @@ export default function AboutPage() {
               </Button>
             </div>
           </div>
-          <div className="about-story__stats">
-            <div className="about-story__stat-card about-story__stat-card--orange">
-              <Stat value="2021" label="Founded" color="var(--od-orange)" />
-            </div>
-            <div className="about-story__stat-card about-story__stat-card--teal">
-              <Stat to={8000} suffix="+" label="Companies served" color="var(--od-teal-600)" />
-            </div>
-            <div className="about-story__stat-card about-story__stat-card--acc">
-              <Stat to={120} suffix="+" label="Specialists on staff" color="var(--od-acc)" />
-            </div>
-            <div className="about-story__stat-card about-story__stat-card--leg">
-              <Stat to={40} label="States covered" color="var(--od-leg)" />
-            </div>
-          </div>
+          <StatLedger
+            className="about-story__ledger"
+            layout="column"
+            variant="light"
+            items={[
+              { value: "2021",              label: "Founded",               accent: "ember" },
+              { to: 8000, suffix: "+",      label: "Companies served",      accent: "teal" },
+              { to: 120,  suffix: "+",      label: "Specialists on staff",  accent: "acc" },
+              { to: 40,                      label: "Industries served",     accent: "leg" },
+            ]}
+          />
         </div>
       </section>
 
@@ -102,10 +99,10 @@ export default function AboutPage() {
           <div className="about-team__grid">
             {TEAM.map((m) => (
               <div key={m.name} className="about-team__card">
-                <Avatar name={m.name} service={m.service} size={56} />
-                <div>
-                  <div className="about-team__name">Team Member</div>
-                  <div className="about-team__role">{m.name}</div>
+                <Avatar name={m.name} service={m.service} size={54} />
+                <div className="about-team__meta">
+                  <div className="about-team__role-title">{m.name}</div>
+                  <div className="about-team__member">Team Member</div>
                 </div>
               </div>
             ))}

@@ -1,30 +1,32 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import Button from "../components/Button";
 import Badge from "../components/Badge";
 import SectionHeading from "../components/SectionHeading";
 import Tag from "../components/Tag";
 import FeatureItem from "../components/FeatureItem";
+import StatLedger from "../components/StatLedger";
+import EnquiryModal from "../components/EnquiryModal";
 import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
 import "./MarketplacePage.css";
 
 const HERO_STATS = [
-  ["lucide:badge-check", "600+",  "Vetted firms"],
-  ["lucide:briefcase",   "12k",   "Jobs matched"],
-  ["lucide:globe",       "40",    "States"],
-  ["lucide:star",        "4.9",   "Avg. rating"],
+  { to: 600, suffix: "+", label: "Vetted firms",  accent: "ember" },
+  { value: "12k",         label: "Intros made",   accent: "teal" },
+  { to: 40,               label: "Industries",    accent: "sec" },
+  { value: "4.9",         label: "Avg. rating",   accent: "mkt" },
 ];
 
 const HOW_STEPS = [
-  { icon: "lucide:file-check-2",  title: "1 · Apply & get vetted",   service: "sec", body: "Tell us about your firm and specialties. We verify credentials, reviews and capacity." },
-  { icon: "lucide:git-merge",     title: "2 · Get matched",           service: "acc", body: "We route businesses to you based on service, location and workload — no cold outreach." },
-  { icon: "lucide:line-chart",    title: "3 · Deliver in tandem",     service: "mkt", body: "Collaborate inside the OneDesk dashboard. We handle billing; you handle the craft." },
+  { icon: "lucide:search",     title: "1 · Browse the network", service: "sec", body: "Every firm is pre-screened by OneDesk — credentials, track record and capacity checked before it makes the list." },
+  { icon: "lucide:send",       title: "2 · Send one enquiry",   service: "acc", body: "Tell us what you need. No cold outreach and no sales gauntlet — just one short form to the OneDesk desk." },
+  { icon: "lucide:handshake",  title: "3 · We make the intro",  service: "mkt", body: "We connect you with the right specialist at a OneDesk member rate, and stay in the loop until you're set up." },
 ];
 
 const PARTNERS = [
   { name: "Meridian Books",      service: "acc", loc: "Accounting · Colombo",    rating: "4.9", tags: ["Bookkeeping", "CFO advisory"] },
   { name: "Brightline Legal",    service: "leg", loc: "Legal · Kandy",           rating: "5.0", tags: ["Contracts", "IP & trademark"] },
-  { name: "Summit Tax Group",    service: "tax", loc: "Tax · Gampaha",           rating: "4.8", tags: ["R&D credits", "Multi-state"] },
+  { name: "Summit Tax Group",    service: "tax", loc: "Tax · Gampaha",           rating: "4.8", tags: ["R&D credits", "Multi-region"] },
   { name: "Anchor People Co.",   service: "hr",  loc: "HR · Remote",             rating: "4.9", tags: ["Payroll", "Benefits"] },
   { name: "Northstar Studio",    service: "mkt", loc: "Marketing · Colombo",     rating: "4.7", tags: ["Brand", "Performance"] },
   { name: "Capitol Compliance",  service: "sec", loc: "Secretarial · Colombo",   rating: "5.0", tags: ["Entity ops", "Filings"] },
@@ -35,11 +37,15 @@ function initials(name) {
 }
 
 export default function MarketplacePage() {
+  const [enquiry, setEnquiry] = useState({ open: false, firm: null, key: 0 });
+  const openEnquiry = (firm) => setEnquiry((e) => ({ open: true, firm, key: e.key + 1 }));
+  const closeEnquiry = () => setEnquiry((e) => ({ ...e, open: false }));
+
   return (
     <PageTransition>
       <Seo
         title="Marketplace"
-        description="A B2B hub where vetted accounting, legal, tax, HR and marketing firms connect with OneDesk clients."
+        description="Hand-picked specialist firms — accounting, legal, tax, HR, marketing and secretarial — available to OneDesk clients at member rates."
         path="/marketplace"
       />
 
@@ -47,36 +53,35 @@ export default function MarketplacePage() {
       <section className="mkt-hero">
         <div className="mkt-hero__inner">
           <div className="mkt-hero__copy">
-            <Badge tone="teal" icon="lucide:handshake">For partner firms</Badge>
+            <Badge tone="teal" icon="lucide:sparkles">Curated specialist network</Badge>
             <h1 className="mkt-hero__title">
-              The OneDesk <span className="mkt-hero__accent">Marketplace.</span>
+              Specialists, <span className="mkt-hero__accent">at member rates.</span>
             </h1>
             <p className="mkt-hero__lede">
-              A B2B hub where vetted accounting, legal, tax, HR and marketing firms connect with OneDesk — and work in tandem to serve thousands of growing businesses.
+              A hand-picked network of vetted accounting, legal, tax, HR, marketing and secretarial firms —
+              available to OneDesk clients at preferred rates. Tell us what you need and we'll make the intro.
             </p>
             <div className="mkt-hero__ctas">
-              <Button variant="primary" size="lg" iconRight="lucide:arrow-right" as={Link} to="/contact">Become a partner</Button>
-              <Button variant="on-dark" size="lg" as={Link} to="/contact">Explore partners</Button>
+              <Button variant="primary" size="lg" iconRight="lucide:arrow-down" as="a" href="#network">Explore the network</Button>
+              <Button variant="on-dark" size="lg" as="a" href="#how">How it works</Button>
             </div>
           </div>
-          <div className="mkt-hero__stats">
-            {HERO_STATS.map(([icon, value, label]) => (
-              <div key={label} className="mkt-hero__stat">
-                <iconify-icon icon={icon} className="mkt-hero__stat-icon" />
-                <div className="mkt-hero__stat-value">{value}</div>
-                <div className="mkt-hero__stat-label">{label}</div>
-              </div>
-            ))}
-          </div>
+          <StatLedger
+            className="mkt-hero__ledger"
+            layout="grid"
+            variant="dark"
+            items={HERO_STATS}
+          />
         </div>
       </section>
 
       {/* How it works */}
-      <section className="mkt-how">
+      <section className="mkt-how" id="how">
         <div className="mkt-how__inner">
           <SectionHeading
-            eyebrow="How partnering works"
-            title="Grow your firm without growing your sales team."
+            eyebrow="How it works"
+            title="Vetted specialists, without the vetting."
+            eyebrowColor="var(--od-teal-300)"
           />
           <div className="mkt-how__steps">
             {HOW_STEPS.map((s) => (
@@ -89,13 +94,14 @@ export default function MarketplacePage() {
       </section>
 
       {/* Directory */}
-      <section className="mkt-dir">
+      <section className="mkt-dir" id="network">
         <div className="mkt-dir__inner">
           <div className="mkt-dir__head">
             <SectionHeading
-              eyebrow="Featured partners"
-              title="Firms already on the desk"
+              eyebrow="The network"
+              title="Specialists you can bring on today"
               align="left"
+              eyebrowColor="var(--od-teal-300)"
             />
             <div className="mkt-dir__filters">
               <Tag service="acc" /><Tag service="leg" /><Tag service="tax" /><Tag service="hr" />
@@ -103,14 +109,18 @@ export default function MarketplacePage() {
           </div>
           <div className="mkt-dir__grid">
             {PARTNERS.map((p) => (
-              <div key={p.name} className="mkt-partner">
+              <article key={p.name} className={`mkt-partner od-partner--${p.service}`}>
+                <span className="mkt-partner__rule" aria-hidden="true" />
                 <div className="mkt-partner__head">
                   <span className={`mkt-partner__avatar mkt-partner-av--${p.service}`}>
                     {initials(p.name)}
                   </span>
-                  <Badge tone="warning" icon="lucide:star">{p.rating}</Badge>
+                  <span className="mkt-partner__rating">
+                    <iconify-icon icon="lucide:star" className="mkt-partner__star" />
+                    {p.rating}
+                  </span>
                 </div>
-                <div className={`mkt-partner__name`}>{p.name}</div>
+                <h3 className="mkt-partner__name">{p.name}</h3>
                 <div className="mkt-partner__loc">
                   <iconify-icon icon="lucide:map-pin" className="mkt-partner__pin" />{p.loc}
                 </div>
@@ -119,10 +129,21 @@ export default function MarketplacePage() {
                     <span key={t} className="mkt-partner__tag">{t}</span>
                   ))}
                 </div>
-                <Link to="/contact" className={`mkt-partner__btn mkt-partner-btn--${p.service}`}>
-                  View profile
-                </Link>
-              </div>
+                <div className="mkt-partner__footer">
+                  <span className="mkt-partner__rate">
+                    <iconify-icon icon="lucide:badge-percent" />
+                    OneDesk member rate
+                  </span>
+                  <button
+                    type="button"
+                    className="mkt-partner__btn"
+                    onClick={() => openEnquiry(p)}
+                  >
+                    Enquire
+                    <iconify-icon icon="lucide:arrow-right" className="mkt-partner__btn-arrow" />
+                  </button>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -132,14 +153,16 @@ export default function MarketplacePage() {
       <section className="mkt-cta">
         <div className="mkt-cta__inner">
           <div>
-            <h2 className="mkt-cta__title">List your firm on OneDesk.</h2>
-            <p className="mkt-cta__sub">Join 600+ partners getting matched with ready-to-hire businesses every week.</p>
+            <h2 className="mkt-cta__title">Not sure who you need?</h2>
+            <p className="mkt-cta__sub">Tell us what you're trying to get done — we'll match you with the right specialist at a OneDesk member rate.</p>
           </div>
-          <Button variant="dark" size="lg" iconRight="lucide:arrow-right" as={Link} to="/contact">
-            Apply to partner
+          <Button variant="dark" size="lg" iconRight="lucide:arrow-right" onClick={() => openEnquiry(null)}>
+            Talk to OneDesk
           </Button>
         </div>
       </section>
+
+      <EnquiryModal key={enquiry.key} firm={enquiry.firm} open={enquiry.open} onClose={closeEnquiry} />
     </PageTransition>
   );
 }

@@ -23,7 +23,7 @@
   left: 50%;
   transform: translateX(-50%);
   background: var(--od-orange);
-  color: #fff;
+  color: var(--od-ink);
   font-size: var(--od-text-xs);
   font-weight: 700;
   padding: 5px 16px;
@@ -61,7 +61,7 @@
   letter-spacing: -0.04em;
   line-height: 1;
 }
-.pricing-card--featured .pricing-card__amount { color: var(--od-orange); }
+.pricing-card--featured .pricing-card__amount { color: var(--od-orange-700); }
 .pricing-card__period {
   font-size: var(--od-text-sm);
   color: var(--od-slate);
@@ -90,7 +90,7 @@
   flex-shrink: 0;
   margin-top: 1px;
 }
-.pricing-card--featured .pricing-card__check { color: var(--od-orange); }
+.pricing-card--featured .pricing-card__check { color: var(--od-orange-700); }
 
 @media (max-width: 480px) {
   .pricing-card { padding: 24px 20px; }

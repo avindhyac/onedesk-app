@@ -31,11 +31,15 @@
 .od-btn--block { display: flex; width: 100%; }
 
 /* Variants */
-.od-btn--primary  { background: var(--od-orange); color: #fff; box-shadow: var(--od-shadow-brand); }
-.od-btn--primary:hover:not([disabled])  { background: var(--od-orange-600); }
+.od-btn--primary  { background: var(--od-orange); color: var(--od-ink); box-shadow: var(--od-shadow-brand); }
+/* Keep the bright Ember fill on hover so the dark-ink label stays ≥4.5:1 (AA);
+   feedback comes from the lift (base .od-btn:hover) + a stronger glow. */
+.od-btn--primary:hover:not([disabled])  { box-shadow: 0 18px 40px rgba(238,118,50,0.42); }
 
-.od-btn--secondary { background: var(--od-teal);  color: #fff; box-shadow: var(--od-shadow-sm); }
-.od-btn--secondary:hover:not([disabled]) { background: var(--od-teal-600); }
+/* Teal is a light fill like Ember, so it carries a dark-ink label (≥4.5:1, AA);
+   hover keeps the fill and leans on the lift + shadow rather than darkening. */
+.od-btn--secondary { background: var(--od-teal);  color: var(--od-ink); box-shadow: var(--od-shadow-sm); }
+.od-btn--secondary:hover:not([disabled]) { box-shadow: var(--od-shadow-md); }
 
 .od-btn--dark     { background: var(--od-ink);    color: #fff; box-shadow: var(--od-shadow-sm); }
 .od-btn--dark:hover:not([disabled]) { background: var(--od-ink-2); }

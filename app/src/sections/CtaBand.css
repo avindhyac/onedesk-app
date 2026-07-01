@@ -15,12 +15,12 @@
   font-weight: 800;
   font-size: var(--od-display-1);
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--od-ink);
 }
 .cta-band__sub {
   margin: 12px 0 0;
   font-size: var(--od-text-lg);
-  color: rgba(255,255,255,0.88);
+  color: var(--od-ink);
 }
 
 @media (max-width: 600px) {
