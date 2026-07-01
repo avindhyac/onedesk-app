@@ -35,7 +35,7 @@ export default function Hero() {
           </h1>
           <p className="hero__lede">
             OneDesk brings <strong>legal, tax, accounting, HR, secretarial and marketing</strong> support
-            together — under one structured, trusted partner.
+            together, under one structured, trusted partner.
           </p>
           <div className="hero__ctas">
             <Button variant="primary" size="lg" iconRight="lucide:arrow-right" as={Link} to="/contact">

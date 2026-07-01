@@ -21,7 +21,7 @@ export default function EnquiryModal({ firm, open, onClose }) {
 
   const heading = firm ? `Enquire about ${firm.name}` : "Tell us what you need";
   const intro = firm
-    ? `Share a few details and a OneDesk specialist will introduce you to ${firm.name} — at your OneDesk member rate — within one business day.`
+    ? `Share a few details and a OneDesk specialist will introduce you to ${firm.name}, at your OneDesk member rate - within one business day.`
     : "Tell us what you're trying to get done and we'll match you with the right specialist at a OneDesk member rate.";
 
   return (

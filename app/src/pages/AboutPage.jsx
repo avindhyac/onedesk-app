@@ -12,7 +12,7 @@ import "./AboutPage.css";
 const VALUES = [
   { icon: "lucide:hand-heart",   title: "People over paperwork",  service: "hr",  body: "Behind every filing is a founder with better things to do. We exist to give them their time back." },
   { icon: "lucide:eye",          title: "Radical clarity",         service: "sec", body: "No jargon, no hidden fees, no surprise invoices. You always know what we are doing and what it costs." },
-  { icon: "lucide:shield-check", title: "Earned trust",            service: "leg", body: "We handle sensitive things — money, contracts, people. We treat that responsibility like it is our own company." },
+  { icon: "lucide:shield-check", title: "Earned trust",            service: "leg", body: "We handle sensitive things - money, contracts, people. We treat that responsibility like it is our own company." },
   { icon: "lucide:infinity",     title: "One desk, forever",       service: "acc", body: "As you grow, the desk grows with you. New services slot in without new logins or new headaches." },
 ];
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
           <div className="about-story__copy">
             <h2 className="about-story__heading">From paperwork to peace of mind.</h2>
             <p className="about-story__text">
-              Our founders were on their third startup and tired of the same problem: the back office was a patchwork of vendors, spreadsheets and missed deadlines. So they built the thing they wished existed — one team, one dashboard, one bill.
+              Our founders were on their third startup and tired of the same problem: the back office was a patchwork of vendors, spreadsheets and missed deadlines. So they built the thing they wished existed, one team, one dashboard, one bill.
             </p>
             <p className="about-story__text">
               Today OneDesk supports companies across the country, handling the unglamorous work that keeps a business alive and compliant.

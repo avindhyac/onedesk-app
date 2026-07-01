@@ -5,7 +5,7 @@ import "./Faq.css";
 const FAQS = [
   {
     q: "What exactly is OneDesk?",
-    a: "OneDesk is a subscription that bundles your back-office services — corporate secretarial, accounting, legal, tax, HR and marketing — under one team and one login.",
+    a: "OneDesk is a subscription that bundles your back-office services - corporate secretarial, accounting, legal, tax, HR and marketing - under one team.",
     defaultOpen: true,
   },
   {

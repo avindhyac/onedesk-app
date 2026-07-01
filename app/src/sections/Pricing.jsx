@@ -41,9 +41,9 @@ const COMPARE_ROWS = [
 ];
 
 const PRICING_FAQS = [
-  { q: "Are there any setup fees?",    a: "None. Your monthly price is all-in — state filing fees are passed through at cost with no markup." },
+  { q: "Are there any setup fees?",    a: "None. Your monthly price is all-in, state filing fees are passed through at cost with no markup." },
   { q: "Can I change plans later?",    a: "Anytime. Upgrades take effect immediately; downgrades apply next billing cycle." },
-  { q: "What if I only need one service?", a: "Reach out — we offer standalone service pricing for teams that aren't ready to bundle yet." },
+  { q: "What if I only need one service?", a: "Reach out, we offer standalone service pricing for teams that aren't ready to bundle yet." },
 ];
 
 export default function Pricing() {
@@ -61,7 +61,7 @@ export default function Pricing() {
           <SectionHeading
             eyebrow="Pricing"
             title="One subscription. No surprises."
-            subtitle="Flat monthly pricing that scales with your business. Cancel anytime — keep your data forever."
+            subtitle="Flat monthly pricing that scales with your business. Cancel anytime."
           />
           <div className="pricing-cards__grid">
             {PLANS.map((p) => (

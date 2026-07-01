@@ -21,7 +21,7 @@ function ContactForm() {
         <span className="contact-success__icon">
           <iconify-icon icon="lucide:check" />
         </span>
-        <h3 className="contact-success__title">Thanks — we're on it.</h3>
+        <h3 className="contact-success__title">Thanks - we're on it!</h3>
         <p className="contact-success__body">A OneDesk specialist will email you within one business day.</p>
         <Button variant="outline" onClick={() => setSent(false)}>Send another</Button>
       </div>

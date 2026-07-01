@@ -8,7 +8,7 @@ export default function PricingPage() {
     <PageTransition>
       <Seo
         title="Pricing"
-        description="Simple, transparent monthly pricing — no hidden retainers or surprise invoices. Pick the tier that fits your business and scale as you grow."
+        description="Simple, transparent monthly pricing - no hidden retainers or surprise invoices. Pick the tier that fits your business and scale as you grow."
         path="/pricing"
       />
       <Pricing />

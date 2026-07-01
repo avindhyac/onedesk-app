@@ -18,8 +18,8 @@ const HERO_STATS = [
 ];
 
 const HOW_STEPS = [
-  { icon: "lucide:search",     title: "1 · Browse the network", service: "sec", body: "Every firm is pre-screened by OneDesk — credentials, track record and capacity checked before it makes the list." },
-  { icon: "lucide:send",       title: "2 · Send one enquiry",   service: "acc", body: "Tell us what you need. No cold outreach and no sales gauntlet — just one short form to the OneDesk desk." },
+  { icon: "lucide:search",     title: "1 · Browse the network", service: "sec", body: "Every firm is pre-screened by OneDesk - credentials, track record and capacity checked before it makes the list." },
+  { icon: "lucide:send",       title: "2 · Send one enquiry",   service: "acc", body: "Tell us what you need. No cold outreach and no sales gauntlet, just one short form to the OneDesk desk." },
   { icon: "lucide:handshake",  title: "3 · We make the intro",  service: "mkt", body: "We connect you with the right specialist at a OneDesk member rate, and stay in the loop until you're set up." },
 ];
 
@@ -45,7 +45,7 @@ export default function MarketplacePage() {
     <PageTransition>
       <Seo
         title="Marketplace"
-        description="Hand-picked specialist firms — accounting, legal, tax, HR, marketing and secretarial — available to OneDesk clients at member rates."
+        description="Hand-picked specialist firms available to OneDesk clients at member rates."
         path="/marketplace"
       />
 
@@ -58,7 +58,7 @@ export default function MarketplacePage() {
               Specialists, <span className="mkt-hero__accent">at member rates.</span>
             </h1>
             <p className="mkt-hero__lede">
-              A hand-picked network of vetted accounting, legal, tax, HR, marketing and secretarial firms —
+              A hand-picked network of vetted accounting, legal, tax, HR, marketing and secretarial firms
               available to OneDesk clients at preferred rates. Tell us what you need and we'll make the intro.
             </p>
             <div className="mkt-hero__ctas">
@@ -154,7 +154,7 @@ export default function MarketplacePage() {
         <div className="mkt-cta__inner">
           <div>
             <h2 className="mkt-cta__title">Not sure who you need?</h2>
-            <p className="mkt-cta__sub">Tell us what you're trying to get done — we'll match you with the right specialist at a OneDesk member rate.</p>
+            <p className="mkt-cta__sub">Tell us what you're trying to get done and we'll match you with the right specialist at a OneDesk member rate.</p>
           </div>
           <Button variant="dark" size="lg" iconRight="lucide:arrow-right" onClick={() => openEnquiry(null)}>
             Talk to OneDesk

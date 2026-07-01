@@ -14,21 +14,21 @@ const SERVICES = [
     key: "sec", char: "secretarial", icon: "lucide:building-2",
     title: "Corporate Secretarial",
     tagline: "Stay in good standing, effortlessly.",
-    desc: "From formation to annual reports, we keep your entity compliant in every state you operate. Registered agent, filings and reminders — all handled.",
+    desc: "From formation to annual reports, we keep your entity compliant in every state you operate. Registered agent, filings and reminders - all handled.",
     points: ["Company formation & EIN", "Registered agent in all 50 states", "Annual reports & state filings", "Cap table & board minutes"],
   },
   {
     key: "acc", char: "accounting", icon: "lucide:calculator",
     title: "Accounting",
     tagline: "Books you can actually trust.",
-    desc: "Real accountants keep your books clean and your reports current, so you always know where you stand — and so does your investor.",
+    desc: "Real accountants keep your books clean and your reports current, so you always know where you stand - and so does your investor.",
     points: ["Monthly bookkeeping", "Payroll & expense management", "Investor-ready financials", "Dedicated accountant"],
   },
   {
     key: "leg", char: "legal", icon: "lucide:scale",
     title: "Legal",
     tagline: "Counsel on call, not on the clock.",
-    desc: "Contracts reviewed, compliance covered and questions answered — without surprise invoices. Your legal team, on a flat subscription.",
+    desc: "Contracts reviewed, compliance covered and questions answered, without surprise invoices. Your legal team, on a flat subscription.",
     points: ["Contract drafting & review", "Compliance & policies", "Trademark & IP basics", "On-demand legal Q&A"],
   },
   {
@@ -42,7 +42,7 @@ const SERVICES = [
     key: "hr", char: "hr", icon: "lucide:users",
     title: "HR",
     tagline: "Take care of your team.",
-    desc: "Hiring, onboarding, benefits and policies — set up properly from day one, so your people feel supported and you stay compliant.",
+    desc: "Hiring, onboarding, benefits and policies set up properly from day one, so your people feel supported and you stay compliant.",
     points: ["Hiring & onboarding", "Benefits administration", "Handbooks & policies", "PTO & compliance"],
   },
   {
@@ -59,7 +59,7 @@ export default function ServicesPage() {
     <PageTransition>
       <Seo
         title="Services"
-        description="Six specialist teams, fully coordinated — corporate secretarial, accounting, legal, tax, HR and marketing under one roof."
+        description="Six specialist teams, fully coordinated corporate secretarial, accounting, legal, tax, HR and marketing under one roof."
         path="/services"
       />
 
@@ -68,7 +68,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Our services"
             title="Six specialist teams, fully coordinated."
-            subtitle="Each service is run by experts and themed in its own color — so you always know who's doing what."
+            subtitle="Each service is run by experts and are simply polarizing, so you always know who's doing what."
           />
         </div>
       </section>
