@@ -2,7 +2,7 @@
   position: relative;
   background: linear-gradient(160deg, #fdf9f0 0%, var(--od-white) 45%, #fbf3e9 100%);
   overflow: hidden;
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
 }
