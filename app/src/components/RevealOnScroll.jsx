@@ -1,24 +1,45 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function RevealOnScroll({ children, delay = 0, className, y = 24 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px 0px" });
-  const shouldReduce = useReducedMotion();
 
-  if (shouldReduce) {
-    return <div className={className}>{children}</div>;
-  }
+  useGSAP(
+    () => {
+      if (!ref.current) return;
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          ref.current,
+          { opacity: 0, y },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ref.current,
+              start: "top bottom-=60",
+              once: true,
+            },
+          }
+        );
+      });
+
+      return () => mm.revert();
+    },
+    { scope: ref, dependencies: [delay, y] }
+  );
 
   return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={{ opacity: 0, y }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

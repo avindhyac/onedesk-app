@@ -1,25 +1,28 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useLenis } from "lenis/react";
-import Snap from "lenis/snap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 // Below this width the layout collapses to a single tall column where most
 // sections already exceed the viewport. Snapping there adds nothing and fights
-// native touch scrolling, so mobile stays on plain (Lenis-smoothed) scrolling.
+// native touch scrolling, so mobile stays on plain (smoothed) scrolling.
 const MIN_SNAP_WIDTH = 768;
 
+// How long scrolling must be quiet before we treat it as "stopped".
+const SETTLE_MS = 140;
+
 /**
- * Gently "frames" the section nearest to where the user stops scrolling, using
- * Lenis' Snap module in proximity mode (free scroll; only nudges near a
- * boundary). Sections that fit the viewport settle optically centered.
+ * Gently "frames" the section nearest to where the user stops scrolling: on
+ * scroll-settle, nudges to the closest snap point only if it's within
+ * `thresholdPx` (proximity mode; free scroll otherwise). Sections that fit
+ * the viewport settle optically centered.
  *
  * Sections TALLER than the viewport get NO snap point: a single point at their
- * top turns the whole upper half into a magnet (distanceThreshold is relative
- * to viewport height), which on debounce yanks the reader back to the section
+ * top turns the whole upper half into a magnet (the threshold is relative to
+ * viewport height), which on settle yanks the reader back to the section
  * start and hides lower content (e.g. the second row of service cards). These
  * are read-through sections, so we let them scroll freely.
  *
- * `distanceThreshold` is tightened from the 50% default to 20% so the remaining
+ * The threshold is tightened to 20% of viewport height so the remaining
  * (fitting) sections only nudge near a real boundary, and an adjacent fitting
  * section can't grab you as you scroll into a tall one.
  *
@@ -27,27 +30,20 @@ const MIN_SNAP_WIDTH = 768;
  * sticky header height (`--header-h`).
  */
 export default function SectionSnap() {
-  const lenis = useLenis();
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (!lenis) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let snap;
+    let targets = [];
+    let thresholdPx = 0;
     let rafId;
     let resizeTimer;
+    let settleTimer;
     const timeouts = [];
 
-    const teardown = () => {
-      if (snap) {
-        (snap.destroy ?? snap.stop)?.call(snap);
-        snap = undefined;
-      }
-    };
-
     const build = () => {
-      teardown();
+      targets = [];
       if (window.innerWidth < MIN_SNAP_WIDTH) return;
 
       const headerH =
@@ -59,8 +55,6 @@ export default function SectionSnap() {
       const scrollY = window.scrollY;
       const sections = document.querySelectorAll("section");
       if (!sections.length) return;
-
-      snap = new Snap(lenis, { type: "proximity", distanceThreshold: "20%" });
 
       sections.forEach((el) => {
         const h = el.offsetHeight;
@@ -74,8 +68,39 @@ export default function SectionSnap() {
         const top = el.getBoundingClientRect().top + scrollY;
         const target = top + h / 2 - (vh + headerH) / 2;
 
-        snap.add(Math.max(0, Math.round(target)));
+        targets.push(Math.max(0, Math.round(target)));
       });
+
+      thresholdPx = vh * 0.2;
+    };
+
+    const onScroll = () => {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        if (!targets.length || window.innerWidth < MIN_SNAP_WIDTH) return;
+
+        // Native scrollY, not smoother.scrollTop() - the latter reflects the
+        // rendered (lerped) position, which can still be catching up to the
+        // real target this soon after the wheel/touch input stops.
+        const y = window.scrollY;
+
+        let closest = targets[0];
+        let closestDist = Math.abs(targets[0] - y);
+        for (let i = 1; i < targets.length; i++) {
+          const d = Math.abs(targets[i] - y);
+          if (d < closestDist) {
+            closestDist = d;
+            closest = targets[i];
+          }
+        }
+
+        // Already there (or too far to count as "settled near a boundary").
+        if (closestDist <= 1 || closestDist > thresholdPx) return;
+
+        const smoother = ScrollSmoother.get();
+        if (smoother) smoother.scrollTo(closest, true);
+        else window.scrollTo({ top: closest, behavior: "smooth" });
+      }, SETTLE_MS);
     };
 
     const scheduleBuild = () => {
@@ -95,16 +120,18 @@ export default function SectionSnap() {
     };
     window.addEventListener("resize", onResize);
     window.addEventListener("load", build);
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
       cancelAnimationFrame(rafId);
       clearTimeout(resizeTimer);
+      clearTimeout(settleTimer);
       timeouts.forEach(clearTimeout);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("load", build);
-      teardown();
+      window.removeEventListener("scroll", onScroll);
     };
-  }, [lenis, pathname]);
+  }, [pathname]);
 
   return null;
 }

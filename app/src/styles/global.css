@@ -2,7 +2,8 @@
 @import "./tokens/od.css";
 
 :root {
-  /* Sticky header height — shared by Lenis anchor offset + section snapping */
+  /* Fixed header height — shared by the content top-offset, in-page anchor
+     scroll-margin, and section snapping */
   --header-h: 72px;
 }
 
@@ -10,8 +11,15 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  /* Smooth scrolling is owned by Lenis (see Layout.jsx). A native
+  /* Smooth scrolling is owned by ScrollSmoother (see Layout.jsx). A native
      `scroll-behavior: smooth` here would double up and cause jank. */
+}
+
+/* Header is fixed and lives outside #smooth-content (ScrollSmoother's
+   transformed wrapper breaks position:sticky), so content needs an explicit
+   top offset to avoid sliding underneath it. */
+#smooth-content {
+  padding-top: var(--header-h);
 }
 
 body {

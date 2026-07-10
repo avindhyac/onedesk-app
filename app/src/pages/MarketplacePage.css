@@ -4,6 +4,12 @@
    --mkt-bg-deep  : deepest shade, used for the "How it works" trough
    --mkt-bg-mid   : main navy, used for hero + directory
    ─────────────────────────────────────────────────────────────────── */
+.mkt-how,
+.mkt-dir {
+  /* In-page anchor targets (#how, #network) - land below the fixed header. */
+  scroll-margin-top: var(--header-h);
+}
+
 .mkt-hero,
 .mkt-how,
 .mkt-dir {
