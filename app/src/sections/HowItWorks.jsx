@@ -1,25 +1,27 @@
 import SectionHeading from "../components/SectionHeading";
-import FeatureItem from "../components/FeatureItem";
+import step1Img from "../assets/char/Home/OD-Web-23.webp";
+import step2Img from "../assets/char/Home/OD-Web-24.webp";
+import step3Img from "../assets/char/Home/OD-Web-25.webp";
 import "./HowItWorks.css";
 
 const STEPS = [
   {
-    icon: "lucide:clipboard-list",
-    title: "1 · Tell us about your business",
-    service: "sec",
+    step: "01",
+    titleLines: ["Tell us about", "your business."],
     body: "A 10-minute onboarding. Pick the services you need; skip the ones you don't.",
+    image: step1Img,
   },
   {
-    icon: "lucide:users-round",
-    title: "2 · Meet your team",
-    service: "acc",
+    step: "02",
+    titleLines: ["Meet", "your team."],
     body: "We match you with a dedicated pod of experts across each function.",
+    image: step2Img,
   },
   {
-    icon: "lucide:rocket",
-    title: "3 · Get back to building",
-    service: "mkt",
+    step: "03",
+    titleLines: ["Get back", "to building."],
     body: "We handle the filings, books and admin. You get a single dashboard and one bill.",
+    image: step3Img,
   },
 ];
 
@@ -29,15 +31,24 @@ export default function HowItWorks() {
       <div className="how-it-works__inner">
         <SectionHeading
           eyebrow="How it works"
-          eyebrowColor="var(--od-teal-700)"
+          eyebrowColor="var(--od-orange)"
           title="Up and running in a week."
-          align="left"
+          align="center"
         />
         <div className="how-it-works__steps">
           {STEPS.map((s) => (
-            <FeatureItem key={s.title} icon={s.icon} title={s.title} service={s.service} layout="col">
-              {s.body}
-            </FeatureItem>
+            <div className="how-it-works__card" key={s.step}>
+              <div className="how-it-works__content">
+                <p className="how-it-works__step">Step {s.step}</p>
+                <h3 className="how-it-works__title">
+                  {s.titleLines[0]}
+                  <br />
+                  {s.titleLines[1]}
+                </h3>
+                <p className="how-it-works__body">{s.body}</p>
+              </div>
+              <img className="how-it-works__img" src={s.image} alt="" />
+            </div>
           ))}
         </div>
       </div>
