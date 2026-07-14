@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Badge from "../components/Badge";
 import { CLIENT_LOGOS } from "../data/clientLogos";
-import { HERO_DESK_SEATS } from "../data/heroDeskCharacters";
-import deskImg from "../assets/char/Home/OD-Web-22-desk.webp";
+import { HERO_TABLE_SEATS } from "../data/heroTableCharacters";
+import tableImg from "../assets/char/Home/OD-Web-39.webp";
 // import useSplitTextReveal from "../hooks/useSplitTextReveal";
 import useDropDot from "../hooks/useDropDot";
-import useDeskCharacterCycle from "../hooks/useDeskCharacterCycle";
+import useTableCharacterCycle from "../hooks/useTableCharacterCycle";
 import "./Hero.css";
 
 const TITLE_REVEAL_DELAY = 0.15;
@@ -15,12 +15,12 @@ const TITLE_REVEAL_DURATION = 0.9;
 
 export default function Hero() {
   const titleRef = useRef(null);
-  const deskSceneRef = useRef(null);
+  const tableSceneRef = useRef(null);
 
   // useSplitTextReveal(titleRef, { duration: TITLE_REVEAL_DURATION, stagger: 0.12, delay: TITLE_REVEAL_DELAY, ease: "expo.out" });
   useDropDot(titleRef, { delay: TITLE_REVEAL_DELAY + TITLE_REVEAL_DURATION + 0.05 });
-  const registerLeft = useDeskCharacterCycle(deskSceneRef, { offset: 0 });
-  const registerRight = useDeskCharacterCycle(deskSceneRef, { offset: 1.4 });
+  const registerLeft = useTableCharacterCycle(tableSceneRef, { offset: 0, direction: -1 });
+  const registerRight = useTableCharacterCycle(tableSceneRef, { offset: 1.4, direction: 1 });
 
   return (
     <section id="top" className="hero">
@@ -47,16 +47,32 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__desk-scene" ref={deskSceneRef} aria-hidden="true">
-          <img className="hero__desk" src={deskImg} alt="" />
-          <div className="hero__seat hero__seat--left">
-            {HERO_DESK_SEATS.left.map((c) => (
-              <img key={c.key} ref={registerLeft} src={c.src} alt="" className="hero__seat-char" />
+        <div className="hero__table-scene" ref={tableSceneRef} aria-hidden="true">
+          <img className="hero__table" src={tableImg} alt="" decoding="async" fetchPriority="high" />
+          <div className="hero__table-seat hero__table-seat--left">
+            {HERO_TABLE_SEATS.left.map((c, i) => (
+              <img
+                key={c.key}
+                ref={registerLeft(i)}
+                src={c.src}
+                alt=""
+                className="hero__table-char"
+                decoding="async"
+                fetchPriority={i === 0 ? "high" : "low"}
+              />
             ))}
           </div>
-          <div className="hero__seat hero__seat--right">
-            {HERO_DESK_SEATS.right.map((c) => (
-              <img key={c.key} ref={registerRight} src={c.src} alt="" className="hero__seat-char" />
+          <div className="hero__table-seat hero__table-seat--right">
+            {HERO_TABLE_SEATS.right.map((c, i) => (
+              <img
+                key={c.key}
+                ref={registerRight(i)}
+                src={c.src}
+                alt=""
+                className="hero__table-char"
+                decoding="async"
+                fetchPriority={i === 0 ? "high" : "low"}
+              />
             ))}
           </div>
         </div>
