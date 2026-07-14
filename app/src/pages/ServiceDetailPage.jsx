@@ -3,6 +3,7 @@ import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
 import Eyebrow from "../components/Eyebrow";
 import Button from "../components/Button";
+import CharacterPair from "../components/CharacterPair";
 import CtaBand from "../sections/CtaBand";
 import { characters } from "../data/characters";
 import { SERVICES, getServiceBySlug } from "../data/services";
@@ -50,7 +51,7 @@ export default function ServiceDetailPage() {
               </div>
             </div>
             <div className="svcd-hero__art">
-              <img src={characters[service.char]} alt="" className="svcd-hero__char" loading="lazy" />
+              <CharacterPair character={characters[service.char]} className="svcd-hero__char" imgClassName="svcd-hero__char-img" />
             </div>
           </div>
         </div>

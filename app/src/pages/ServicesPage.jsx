@@ -5,8 +5,9 @@ import SectionHeading from "../components/SectionHeading";
 import Tag from "../components/Tag";
 import Button from "../components/Button";
 import StatLedger from "../components/StatLedger";
+import ServiceFanCards from "../components/ServiceFanCards";
 import CtaBand from "../sections/CtaBand";
-import { characters } from "../data/characters";
+import { SERVICE_FAN_CHARACTERS } from "../data/serviceFanCharacters";
 import { SERVICES } from "../data/services";
 import "./ServicesPage.css";
 
@@ -49,33 +50,29 @@ export default function ServicesPage() {
         return (
           <section key={s.key} className={`svcp-row ${flip ? "svcp-row--white" : "svcp-row--paper"}`}>
             <div className="svcp-row__inner">
-              <Link to={`/services/${s.slug}`} className={`svcp-row__art ${flip ? "svcp-row__art--right" : ""}`} aria-label={`View ${s.title} service details`}>
-                <div className={`svcp-row__blob svcp-blob--${s.key}`} />
-                <span className={`svcp-row__icon-badge svcp-icon-badge--${s.key}`}>
-                  <iconify-icon icon={s.icon} />
-                </span>
-                <img src={characters[s.char]} alt={s.title} className="svcp-row__char" />
-              </Link>
+              <div className={`svcp-row__art ${flip ? "svcp-row__art--right" : ""}`}>
+                <ServiceFanCards
+                  service={s.key}
+                  title={s.title}
+                  points={s.points}
+                  character={SERVICE_FAN_CHARACTERS[s.key]}
+                  supportingCards="services"
+                  services={SERVICES}
+                  characters={SERVICE_FAN_CHARACTERS}
+                />
+              </div>
               <div className="svcp-row__copy">
                 <Tag service={s.key} />
                 <Link to={`/services/${s.slug}`} className="svcp-row__tagline-link">
                   <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>{s.tagline}</h2>
                 </Link>
                 <p className="svcp-row__desc">{s.desc}</p>
-                <ul className="svcp-row__points">
-                  {s.points.map((p) => (
-                    <li key={p} className="svcp-row__point">
-                      <iconify-icon icon="lucide:check-circle-2" className={`svcp-row__check svcp-check--${s.key}`} />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
                 <div className="svcp-row__cta">
-                  <Button variant="primary" size="md" iconRight="lucide:arrow-right" as={Link} to="/contact">
-                    Talk to {s.title}
+                  <Button variant="primary" size="md" iconRight="lucide:arrow-right" as={Link} to={`/services/${s.slug}`}>
+                    Learn more
                   </Button>
-                  <Button variant="outline" size="md" as={Link} to={`/services/${s.slug}`}>
-                    See full details
+                  <Button variant="outline" size="md" as={Link} to='/contact'>
+                    Talk to {s.title}
                   </Button>
                 </div>
               </div>

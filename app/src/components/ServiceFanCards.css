@@ -1,0 +1,159 @@
+.service-fan {
+  --fan-accent: var(--od-orange);
+  position: relative;
+  width: min(100%, 520px);
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  outline: none;
+}
+
+.service-fan__card {
+  position: absolute;
+  width: clamp(230px, 24vw, 310px);
+  height: clamp(300px, 30vw, 380px);
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(29, 33, 45, 0.12);
+  overflow: hidden;
+  transform-origin: 50% 88%;
+  will-change: transform;
+}
+
+.service-fan__card--hero {
+  z-index: 8;
+  display: grid;
+  background: color-mix(in srgb, var(--fan-accent) 12%, #fff);
+  border: 1px solid color-mix(in srgb, var(--fan-accent) 22%, var(--od-line));
+  padding: 0;
+}
+
+.service-fan__card--point {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--fan-accent) 18%, #fff);
+  border: 1px solid color-mix(in srgb, var(--fan-accent) 30%, transparent);
+  padding: 22px;
+}
+
+.service-fan__label,
+.service-fan__point-index {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--fan-accent) 76%, var(--od-ink));
+}
+
+.service-fan__character {
+  position: relative;
+  display: grid;
+  place-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+
+.service-fan__character-img {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  pointer-events: none;
+  user-select: none;
+  will-change: opacity, transform;
+}
+
+.service-fan__character-img--active {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.service-fan__point-text {
+  font-family: var(--od-font-display);
+  font-size: clamp(1.65rem, 1rem + 2.2vw, 2.55rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--fan-accent) 58%, var(--od-ink));
+  text-wrap: balance;
+}
+
+.service-fan__card--service {
+  z-index: 1;
+  display: grid;
+  background: color-mix(in srgb, var(--fan-accent) 13%, #fff);
+  border: 1px solid color-mix(in srgb, var(--fan-accent) 24%, transparent);
+  padding: 0;
+}
+
+.service-fan__service-title {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 2;
+  max-width: calc(100% - 36px);
+  font-family: var(--od-font-display);
+  font-size: clamp(1.35rem, 1rem + 1vw, 1.9rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--od-ink);
+}
+
+.service-fan__service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  pointer-events: none;
+  user-select: none;
+}
+
+.service-fan__card--sec { background: var(--od-sec-tint); }
+.service-fan__card--leg { background: var(--od-leg-tint); }
+.service-fan__card--tax { background: var(--od-tax-tint); }
+.service-fan__card--acc { background: var(--od-acc-tint); }
+.service-fan__card--hr { background: var(--od-hr-tint); }
+.service-fan__card--mkt { background: var(--od-mkt-tint); }
+
+.service-fan--sec { --fan-accent: var(--od-sec); }
+.service-fan--leg { --fan-accent: var(--od-leg); }
+.service-fan--tax { --fan-accent: var(--od-tax); }
+.service-fan--acc { --fan-accent: var(--od-acc); }
+.service-fan--hr { --fan-accent: var(--od-hr); }
+.service-fan--mkt { --fan-accent: var(--od-mkt); }
+
+@media (max-width: 860px) {
+  .service-fan {
+    min-height: 350px;
+    width: 100%;
+  }
+  .service-fan__card {
+    width: clamp(205px, 56vw, 270px);
+    height: clamp(260px, 68vw, 330px);
+    border-radius: 24px;
+  }
+  .service-fan__card--point { padding: 18px; }
+  .service-fan__point-text { font-size: clamp(1.35rem, 7vw, 2rem); }
+}
+
+@media (max-width: 520px) {
+  .service-fan { min-height: 315px; }
+  .service-fan__card {
+    width: min(220px, 58vw);
+    height: 285px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-fan__card,
+  .service-fan__character-img {
+    transition: none !important;
+    will-change: auto;
+  }
+}

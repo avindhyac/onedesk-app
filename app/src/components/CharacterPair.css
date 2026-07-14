@@ -1,0 +1,26 @@
+.char-pair {
+  position: relative;
+  display: inline-grid;
+  place-items: end center;
+}
+
+.char-pair__img {
+  grid-area: 1 / 1;
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+.char-pair__img--stand {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char-pair__img {
+    transition: none !important;
+  }
+}

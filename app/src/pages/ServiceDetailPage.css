@@ -100,14 +100,18 @@
 }
 .svcd-hero__char {
   height: 340px;
+  width: 100%;
   max-width: 100%;
-  object-fit: contain;
+}
+.svcd-hero__char-img {
+  height: 340px;
 }
 
 @media (max-width: 860px) {
   .svcd-hero__grid { grid-template-columns: 1fr; gap: 24px; padding-bottom: 2.5rem; }
   .svcd-hero__art { order: -1; min-height: 220px; }
   .svcd-hero__char { height: 220px; }
+  .svcd-hero__char-img { height: 220px; }
 }
 
 /* Body sections — big alternating image/copy rows, tint alternating for rhythm ---- */
