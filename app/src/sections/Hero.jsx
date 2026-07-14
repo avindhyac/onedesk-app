@@ -20,7 +20,7 @@ export default function Hero() {
   // useSplitTextReveal(titleRef, { duration: TITLE_REVEAL_DURATION, stagger: 0.12, delay: TITLE_REVEAL_DELAY, ease: "expo.out" });
   useDropDot(titleRef, { delay: TITLE_REVEAL_DELAY + TITLE_REVEAL_DURATION + 0.05 });
   const registerLeft = useTableCharacterCycle(tableSceneRef, { offset: 0, direction: -1 });
-  const registerRight = useTableCharacterCycle(tableSceneRef, { offset: 1.4, direction: 1 });
+  const registerRight = useTableCharacterCycle(tableSceneRef, { offset: 1, direction: 1 });
 
   return (
     <section id="top" className="hero">

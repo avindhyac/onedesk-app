@@ -4,10 +4,9 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-const HOLD = 2.6;
 const ENTER = 1.5;
-const FLIP = 1;
 const EXIT = 1.5;
+const HOLD = 2;
 const OFFSET_X = 56;
 
 // Loops a fixed stack of characters at one seat, forever: the active one
@@ -39,12 +38,11 @@ export default function useTableCharacterCycle(scopeRef, { offset = 0, direction
         gsap.set(items, { opacity: 0, x: direction * OFFSET_X, rotateY: 0, transformPerspective: 700 });
         gsap.set(items[0], { opacity: 1, x: 0 });
 
-        const tl = gsap.timeline({ repeat: -1, delay: offset });
+        const tl = gsap.timeline({ repeat: -1, delay: 2 + offset });
 
         items.forEach((_, i) => {
           const next = (i + 1) % items.length;
-          tl.to(items[i], { rotateY: 180, duration: FLIP, ease: "power1.inOut" }, `+=${HOLD}`)
-            .to(items[i], { x: direction * OFFSET_X, opacity: 0, duration: EXIT, ease: "power1.in" })
+          tl.to(items[i], { x: direction * OFFSET_X, opacity: 0, duration: EXIT, ease: "power1.in" }, `+=${HOLD}`)
             .set(items[i], { rotateY: 0 })
             .fromTo(
               items[next],
