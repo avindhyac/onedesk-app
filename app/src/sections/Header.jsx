@@ -59,7 +59,7 @@ export default function Header() {
         </button>
       </div>
 
-      <div className={`header__sheet ${open ? "is-open" : ""}`} inert={!open ? "" : undefined}>
+      <div className={`header__sheet ${open ? "is-open" : ""}`} inert={!open}>
         {NAV_LINKS.map((link) => (
           <NavLink
             key={link.to}
