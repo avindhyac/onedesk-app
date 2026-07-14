@@ -1,10 +1,16 @@
-/* About hero */
-.about-hero {
+/* ============================================================
+   About page
+   ============================================================ */
+
+/* ── Shared gradient background ───────────────────────────── */
+.about-hero,
+.about-story {
   position: relative;
   background: linear-gradient(160deg, #fdf9f0 0%, var(--od-white) 45%, #fbf3e9 100%);
   overflow: hidden;
 }
-.about-hero::before {
+.about-hero::before,
+.about-story::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -18,68 +24,180 @@
     radial-gradient(440px 380px at 34%  102%, rgba(200,232,218,0.36), transparent 60%),
     radial-gradient(420px 360px at 70%  104%, rgba(116,169,232,0.30), transparent 60%);
 }
+
+/* ── Hero ─────────────────────────────────────────────────── */
 .about-hero__inner {
   position: relative;
-  max-width: var(--od-container-narrow);
-  margin: 0 auto;
-  padding: 72px var(--od-gutter);
-}
-
-/* Story + stats */
-.about-story { background: var(--od-white); }
-.about-story__inner {
   max-width: var(--od-container);
   margin: 0 auto;
-  padding: var(--od-section-y) var(--od-gutter);
+  padding: 80px var(--od-gutter) 64px;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.about-hero__title {
+  margin: 16px 0 0;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 1.2rem + 2.6vw, 3.25rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--od-ink);
+}
+
+.about-hero__sub {
+  margin: 20px 0 0;
+  font-size: var(--od-text-lg);
+  line-height: 1.65;
+  color: var(--od-slate);
+  max-width: 46ch;
+}
+
+.about-hero__ctas {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.about-hero__illo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.about-hero__illo img {
+  width: 100%;
+  max-width: 520px;
+  object-fit: contain;
+}
+
+/* ── Story ─────────────────────────────────────────────────── */
+.about-story__inner {
+  position: relative;
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: var(--od-section-y) var(--od-gutter) 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
 }
+
 .about-story__heading {
   margin: 0;
   font-family: var(--od-font-display);
   font-weight: 800;
-  font-size: var(--od-display-2);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 1rem + 2.4vw, 2.75rem);
+  letter-spacing: -0.025em;
   color: var(--od-ink);
 }
+
 .about-story__text {
   margin: 18px 0 0;
   font-size: var(--od-text-base);
   line-height: 1.7;
   color: var(--od-slate);
 }
+
 .about-story__ctas { margin-top: 28px; }
 
-/* Story ledger sits in the right column of the split; vertical rule anchors it. */
-.about-story__ledger {
-  padding-left: 32px;
-  border-left: 1px solid var(--od-line);
+.about-story__illo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-story__illo img {
+  width: 100%;
+  max-width: 460px;
+  object-fit: contain;
 }
 
-/* Values */
-.about-values { background: var(--od-paper); }
+/* Stats row — full width below the two-column story */
+.about-story__stats-row {
+  position: relative;
+  max-width: var(--od-container);
+  margin: 0 auto;
+  padding: 0 var(--od-gutter) var(--od-section-y);
+  border-top: 1px solid var(--od-line);
+}
+
+.about-story__ledger { padding-top: 40px; }
+
+/* Round tick override — matches the orange dot style in the design */
+.about-story__ledger .od-ledger__tick {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* ── Values ─────────────────────────────────────────────────── */
+.about-values { background: var(--od-white); }
 .about-values__inner {
   max-width: var(--od-container);
   margin: 0 auto;
   padding: var(--od-section-y) var(--od-gutter);
 }
+
 .about-values__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 20px;
   margin-top: 44px;
 }
+
 .about-values__card {
-  background: var(--od-white);
-  border: 1px solid var(--od-line);
-  border-radius: var(--od-radius-lg);
-  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--od-orange);
+  border-radius: 24px;
+  padding: 28px 28px 28px 20px;
+  overflow: hidden;
 }
 
-/* Team */
-.about-team { background: var(--od-white); }
+.about-values__card-img {
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: bottom center;
+  align-self: flex-end;
+}
+
+.about-values__card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-values__card-title {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  font-size: var(--od-text-xl);
+  letter-spacing: -0.02em;
+  color: var(--od-ink);
+  line-height: 1.2;
+}
+
+.about-values__card-text {
+  margin: 10px 0 0;
+  font-size: var(--od-text-sm);
+  line-height: 1.6;
+  color: var(--od-ink);
+  opacity: 0.85;
+}
+
+/* ── Team ─────────────────────────────────────────────────── */
+.about-team { background: var(--od-paper); }
 .about-team__inner {
   max-width: var(--od-container);
   margin: 0 auto;
@@ -124,17 +242,36 @@
   color: var(--od-slate);
 }
 
+/* ── Reduced motion ──────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .about-team__card { transition: none; }
   .about-team__card:hover { transform: none; }
 }
 
-@media (max-width: 860px) {
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-hero__inner {
+    grid-template-columns: 1fr;
+    padding-bottom: 0;
+  }
+  .about-hero__illo {
+    justify-content: center;
+    padding-bottom: 32px;
+  }
+  .about-hero__illo img { max-width: 360px; }
+
   .about-story__inner { grid-template-columns: 1fr; gap: 32px; }
-  .about-story__ledger { padding-left: 0; border-left: none; }
+  .about-story__illo { order: -1; }
+  .about-story__illo img { max-width: 320px; }
+
   .about-values__grid { grid-template-columns: 1fr; }
   .about-team__grid   { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 560px) {
+
+@media (max-width: 600px) {
+  .about-hero__ctas { flex-direction: column; }
+  .about-hero__ctas .od-btn { width: 100%; justify-content: center; }
+  .about-values__card { flex-direction: column; align-items: flex-start; }
+  .about-values__card-img { width: 100px; height: 100px; align-self: flex-start; }
   .about-team__grid { grid-template-columns: 1fr; }
 }

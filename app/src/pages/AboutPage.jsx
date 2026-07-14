@@ -1,28 +1,36 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Avatar from "../components/Avatar";
-import FeatureItem from "../components/FeatureItem";
 import SectionHeading from "../components/SectionHeading";
 import StatLedger from "../components/StatLedger";
+import Eyebrow from "../components/Eyebrow";
 import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
 import CtaBand from "../sections/CtaBand";
+
+import illoHero   from "../assets/char/About/OD_Web_AboutUs-10.webp";
+import illoTeam   from "../assets/char/About/OD_Web_AboutUs-11.webp";
+import illoPeople from "../assets/char/About/OD_Web_AboutUs-12.webp";
+import illoClarity from "../assets/char/About/OD_Web_AboutUs-13.webp";
+import illoTrust  from "../assets/char/About/OD_Web_AboutUs-14.webp";
+import illoDesk   from "../assets/char/About/OD_Web_AboutUs-15.webp";
+
 import "./AboutPage.css";
 
 const VALUES = [
-  { icon: "lucide:hand-heart",   title: "People over paperwork",  service: "hr",  body: "Behind every filing is a founder with better things to do. We exist to give them their time back." },
-  { icon: "lucide:eye",          title: "Radical clarity",         service: "sec", body: "No jargon, no hidden fees, no surprise invoices. You always know what we are doing and what it costs." },
-  { icon: "lucide:shield-check", title: "Earned trust",            service: "leg", body: "We handle sensitive things - money, contracts, people. We treat that responsibility like it is our own company." },
-  { icon: "lucide:infinity",     title: "One desk, forever",       service: "acc", body: "As you grow, the desk grows with you. New services slot in without new logins or new headaches." },
+  { img: illoPeople,  title: "People over paperwork",  body: "Behind every filing is a founder with better things to do. We exist to give them their time back." },
+  { img: illoClarity, title: "Radical clarity",        body: "No jargon, no hidden fees, no surprise invoices. You always know what we are doing and what it costs." },
+  { img: illoTrust,   title: "Earned trust",           body: "We handle sensitive things — money, contracts, people. We treat that responsibility like it is our own." },
+  { img: illoDesk,    title: "One desk, forever",      body: "As you grow, the desk grows with you. New services slot in without new logins or new headaches." },
 ];
 
 const TEAM = [
-  { name: "Co-founder & CEO",         service: "sec" },
-  { name: "Co-founder & COO",         service: "acc" },
-  { name: "Head of Legal",            service: "leg" },
-  { name: "Head of Tax",              service: "tax" },
-  { name: "Head of People",           service: "hr"  },
-  { name: "Head of Growth",           service: "mkt" },
+  { name: "Co-founder & CEO",   service: "sec" },
+  { name: "Co-founder & COO",   service: "acc" },
+  { name: "Head of Legal",      service: "leg" },
+  { name: "Head of Tax",        service: "tax" },
+  { name: "Head of People",     service: "hr"  },
+  { name: "Head of Growth",     service: "mkt" },
 ];
 
 export default function AboutPage() {
@@ -37,11 +45,22 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="about-hero">
         <div className="about-hero__inner">
-          <SectionHeading
-            eyebrow="About us"
-            title="We started OneDesk because running a company shouldn't mean running six."
-            subtitle="Founders were stitching together an accountant here, a lawyer there, a payroll tool somewhere else. We brought it all onto one desk."
-          />
+          <div className="about-hero__content">
+            <Eyebrow tone="ember">About us</Eyebrow>
+            <h1 className="about-hero__title">
+              We started OneDesk because running a company shouldn't mean running six.
+            </h1>
+            <p className="about-hero__sub">
+              Founders were stitching together an accountant here, a lawyer there, a payroll tool somewhere else. We brought it all onto one desk.
+            </p>
+            <div className="about-hero__ctas">
+              <Button variant="primary" size="lg" as={Link} to="/">Get Started</Button>
+              <Button variant="outline" size="lg" as={Link} to="/pricing">See Pricing</Button>
+            </div>
+          </div>
+          <div className="about-hero__illo" aria-hidden="true">
+            <img src={illoHero} alt="" />
+          </div>
         </div>
       </section>
 
@@ -57,20 +76,25 @@ export default function AboutPage() {
               Today OneDesk supports companies across the country, handling the unglamorous work that keeps a business alive and compliant.
             </p>
             <div className="about-story__ctas">
-              <Button variant="outline" size="md" iconRight="lucide:arrow-right" as={Link} to="/marketplace">
+              <Button variant="outline" size="md" as={Link} to="/marketplace">
                 Partner with us
               </Button>
             </div>
           </div>
+          <div className="about-story__illo" aria-hidden="true">
+            <img src={illoTeam} alt="" />
+          </div>
+        </div>
+        <div className="about-story__stats-row">
           <StatLedger
-            className="about-story__ledger"
-            layout="column"
+            layout="row"
             variant="light"
+            className="about-story__ledger"
             items={[
-              { value: "2021",              label: "Founded",               accent: "ember" },
-              { to: 8000, suffix: "+",      label: "Companies served",      accent: "teal" },
-              { to: 120,  suffix: "+",      label: "Specialists on staff",  accent: "acc" },
-              { to: 40,                      label: "Industries served",     accent: "leg" },
+              { value: "2021", label: "Founded",              accent: "ember" },
+              { to: 8000, suffix: "+", label: "Companies served",     accent: "ember" },
+              { to: 120,  suffix: "+", label: "Specialists on staff", accent: "ember" },
+              { to: 40,               label: "Industries served",    accent: "ember" },
             ]}
           />
         </div>
@@ -83,9 +107,11 @@ export default function AboutPage() {
           <div className="about-values__grid">
             {VALUES.map((v) => (
               <div key={v.title} className="about-values__card">
-                <FeatureItem icon={v.icon} title={v.title} service={v.service}>
-                  {v.body}
-                </FeatureItem>
+                <img className="about-values__card-img" src={v.img} alt="" aria-hidden="true" />
+                <div className="about-values__card-body">
+                  <h3 className="about-values__card-title">{v.title}</h3>
+                  <p className="about-values__card-text">{v.body}</p>
+                </div>
               </div>
             ))}
           </div>
