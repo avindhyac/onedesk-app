@@ -31,7 +31,7 @@ export default function Hero() {
             <Badge tone="orange" icon="lucide:sparkles">Trusted by founders everywhere</Badge>
           </div>
           <h1 className="hero__title" ref={titleRef}>
-            Everything your business needs,<br className="hero__title-break" /> <span className="hero__title-tail">in one place<span className="dot">.<span className="hero__dot-ripple" aria-hidden="true" /></span></span>
+            Everything your business<br className="hero__title-break" /> <span className="hero__title-tail"> needs, in one place<span className="dot">.<span className="hero__dot-ripple" aria-hidden="true" /></span></span>
           </h1>
           <p className="hero__lede">
             OneDesk brings <strong>legal, tax, accounting, HR, secretarial and marketing</strong> support

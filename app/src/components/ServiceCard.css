@@ -39,6 +39,7 @@
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+  margin-top: 18px;
 }
 .svc-card__blob {
   position: absolute;

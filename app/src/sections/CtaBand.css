@@ -1,4 +1,6 @@
-.cta-band { background: var(--od-orange); }
+.cta-band {
+  background: url('../assets/OD-Footer-Texture.webp') center / cover no-repeat;
+}
 .cta-band__inner {
   max-width: var(--od-container);
   margin: 0 auto;

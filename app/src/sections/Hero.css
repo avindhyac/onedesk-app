@@ -49,7 +49,7 @@
   margin: 0;
   font-family: var(--od-font-display);
   font-size: clamp(2.2rem, 5.4vw, 4.7rem);
-  line-height: 1.04;
+  line-height: 1.2;
   letter-spacing: -0.04em;
   font-weight: 900;
   color: var(--od-ink);
