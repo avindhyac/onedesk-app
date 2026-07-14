@@ -16,7 +16,7 @@
 .svcp-proof .od-ledger {
   background: var(--od-white);
   border: 1px solid var(--od-line);
-  border-radius: var(--od-radius-xl);
+  border-radius: var(--od-radius-lg);
   box-shadow: var(--od-shadow-sm);
   padding: 30px 32px;
 }

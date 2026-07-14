@@ -100,7 +100,7 @@
   position: relative;
   align-self: start;
   min-width: 0;
-  width: min(880px, 84vw);
+  width: min(64vw, 84vw);
   aspect-ratio: 2 / 1.05;
   margin: clamp(20px, 3vw, 36px) auto 0;
   overflow: hidden;
@@ -115,7 +115,6 @@
   transform: translateX(-50%);
   pointer-events: none;
   user-select: none;
-  padding-right: 15px;
   z-index: 1;
 }
 
@@ -126,7 +125,7 @@
   aspect-ratio: 1 / 1.05;
 }
 .hero__table-seat--left { left: 12%; top: 8%; }
-.hero__table-seat--right { right: 8%; top: 8%; }
+.hero__table-seat--right { right: 12%; top: 8%; }
 
 .hero__table-char {
   position: absolute;
@@ -214,9 +213,9 @@
   .hero__title-break { display: none; }
   .hero__title-tail { white-space: normal; }
   .hero__title {
-    max-width: 320px;
+    max-width: 100vw;
     margin: 0 auto;
-    font-size: clamp(2.7rem, 11.5vw, 3.3rem);
+    font-size: clamp(2.7rem, 4rem, 3.3rem);
     line-height: 1.04;
     letter-spacing: -0.04em;
   }

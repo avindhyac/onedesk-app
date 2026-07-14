@@ -5,8 +5,8 @@
 /* ── Shared gradient background ───────────────────────────── */
 .about-hero,
 .about-story {
-  position: relative;
-  background: linear-gradient(160deg, #fdf9f0 0%, var(--od-white) 45%, #fbf3e9 100%);
+  position:inherit;
+  background: var(--od-white);
   overflow: hidden;
 }
 .about-hero::before,

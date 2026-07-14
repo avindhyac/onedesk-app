@@ -9,7 +9,6 @@ import ContactPage from "./pages/ContactPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import LegalPage from "./pages/LegalPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import HeroAltPreviewPage from "./pages/HeroAltPreviewPage";
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
           <Route path="/marketplace" element={<MarketplacePage />} />
           <Route path="/privacy" element={<LegalPage kind="privacy" />} />
           <Route path="/terms" element={<LegalPage kind="terms" />} />
-          <Route path="/hero-alt" element={<HeroAltPreviewPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

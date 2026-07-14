@@ -4,7 +4,7 @@
   flex-direction: column;
   background: var(--od-white);
   border: 1px solid var(--od-line);
-  border-radius: var(--od-radius-xl);
+  border-radius: var(--od-radius-lg);
   overflow: hidden;
   text-decoration: none;
   box-shadow: var(--od-shadow-xs);

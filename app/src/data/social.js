@@ -4,8 +4,7 @@
    WhatsApp is a placeholder until the Business account exists - swap `href`
    for a wa.me link (e.g. https://wa.me/94770000000) and set external: true.
    =========================================================================== */
-
-export const CONTACT_EMAIL = "hello@onedesk.one";
+const CONTACT_EMAIL = "hello@onedesk.one";
 
 export const SOCIAL = {
   whatsapp: { label: "WhatsApp", href: "#", external: false }, // TODO: set wa.me link

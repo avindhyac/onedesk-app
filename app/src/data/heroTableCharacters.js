@@ -1,9 +1,9 @@
-import secretarial from "../assets/char/Home/OD-Web-33.webp";
-import legal from "../assets/char/Home/OD-Web-34.webp";
-import accounting from "../assets/char/Home/OD-Web-35.webp";
-import marketing from "../assets/char/Home/OD-Web-36.webp";
-import tax from "../assets/char/Home/OD-Web-37.webp";
-import hr from "../assets/char/Home/OD-Web-38.webp";
+import secretarial from "../assets/char/Home/OD-Web-32.webp";
+import legal from "../assets/char/Home/OD-Web-33.webp";
+import accounting from "../assets/char/Home/OD-Web-34.webp";
+import marketing from "../assets/char/Home/OD-Web-35.webp";
+import tax from "../assets/char/Home/OD-Web-36.webp";
+import hr from "../assets/char/Home/OD-Web-37.webp";
 
 // Waist-up illustrations seated at the round table, grouped by which side
 // each character's pose/gesture naturally reaches toward.
