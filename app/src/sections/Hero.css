@@ -102,7 +102,7 @@
   min-width: 0;
   width: min(64vw, 84vw);
   aspect-ratio: 2 / 1.05;
-  margin: clamp(20px, 3vw, 36px) auto 0;
+  margin: 0 auto; 
   overflow: hidden;
   perspective: 900px;
 }
@@ -110,7 +110,7 @@
 .hero__table {
   position: absolute;
   left: 50%;
-  bottom: 4%;
+  bottom: 2%;
   width: 96%;
   transform: translateX(-50%);
   pointer-events: none;

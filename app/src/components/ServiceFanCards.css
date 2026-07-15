@@ -14,7 +14,6 @@
   width: clamp(230px, 24vw, 310px);
   height: clamp(300px, 30vw, 380px);
   border-radius: 28px;
-  box-shadow: 0 18px 40px rgba(29, 33, 45, 0.12);
   overflow: hidden;
   transform-origin: 50% 88%;
   will-change: transform;
@@ -23,8 +22,6 @@
 .service-fan__card--hero {
   z-index: 8;
   display: grid;
-  background: color-mix(in srgb, var(--fan-accent) 12%, #fff);
-  border: 1px solid color-mix(in srgb, var(--fan-accent) 22%, var(--od-line));
   padding: 0;
 }
 
@@ -86,8 +83,6 @@
 .service-fan__card--service {
   z-index: 1;
   display: grid;
-  background: color-mix(in srgb, var(--fan-accent) 13%, #fff);
-  border: 1px solid color-mix(in srgb, var(--fan-accent) 24%, transparent);
   padding: 0;
 }
 
