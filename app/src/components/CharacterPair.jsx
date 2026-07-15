@@ -72,9 +72,9 @@ function CharacterPair({ character, alt = "", className = "", imgClassName = "",
       onBlur={bindHover ? showSeated : undefined}
       onClickCapture={bindHover ? handleClickCapture : undefined}
     >
-      <img src={sit || stand} alt={alt} className={`char-pair__img char-pair__img--sit ${imgClassName}`.trim()} loading={loading} ref={sitRef} />
+      <img src={sit || stand} alt={alt} className={`char-pair__img char-pair__img--sit ${imgClassName}`.trim()} loading={loading} decoding="async" ref={sitRef} />
       {canSwap && (
-        <img src={stand} alt="" className={`char-pair__img char-pair__img--stand ${imgClassName}`.trim()} loading={loading} ref={standRef} aria-hidden="true" />
+        <img src={stand} alt="" className={`char-pair__img char-pair__img--stand ${imgClassName}`.trim()} loading={loading} decoding="async" ref={standRef} aria-hidden="true" />
       )}
     </span>
   );

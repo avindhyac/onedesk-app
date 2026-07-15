@@ -95,8 +95,8 @@ export default function ServiceFanCards({
     >
       <article className="service-fan__card service-fan__card--hero" ref={(el) => { cardsRef.current[0] = el; }}>
         <span className="service-fan__character" aria-hidden="true">
-          <img ref={idleRef} className="service-fan__character-img service-fan__character-img--idle" src={character?.idle} alt="" loading="lazy" />
-          {character?.active && <img ref={activeRef} className="service-fan__character-img service-fan__character-img--active" src={character.active} alt="" loading="lazy" />}
+          <img ref={idleRef} className="service-fan__character-img service-fan__character-img--idle" src={character?.idle} alt="" loading="lazy" decoding="async" />
+          {character?.active && <img ref={activeRef} className="service-fan__character-img service-fan__character-img--active" src={character.active} alt="" loading="lazy" decoding="async" />}
         </span>
       </article>
 
@@ -114,7 +114,7 @@ export default function ServiceFanCards({
           >
             {isServiceCard ? (
               <>
-                <img className="service-fan__service-img" src={supportCharacter} alt="" loading="lazy" aria-hidden="true" />
+                <img className="service-fan__service-img" src={supportCharacter} alt="" loading="lazy" decoding="async" aria-hidden="true" />
               </>
             ) : (
               <>

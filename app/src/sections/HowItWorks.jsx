@@ -47,7 +47,7 @@ export default function HowItWorks() {
                 </h3>
                 <p className="how-it-works__body">{s.body}</p>
               </div>
-              <img className="how-it-works__img" src={s.image} alt="" />
+              <img className="how-it-works__img" src={s.image} alt="" loading="lazy" decoding="async" />
             </div>
           ))}
         </div>

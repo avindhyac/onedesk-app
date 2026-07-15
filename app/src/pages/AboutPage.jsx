@@ -81,7 +81,7 @@ export default function AboutPage() {
           </div>
           <div className="about-hero__desk-scene" ref={heroSceneRef} aria-hidden="true">
             <div className="about-hero__desk-glow" />
-            <img className="about-hero__client" src={aboutClient} alt="" decoding="async" fetchPriority="high" />
+            <img className="about-hero__client" src={aboutClient} alt="" loading="eager" decoding="async" fetchPriority="high" />
             <div className="about-hero__advisor-seat">
               {ABOUT_HERO_ADVISORS.map((advisor, index) => (
                 <img
@@ -90,12 +90,13 @@ export default function AboutPage() {
                   className="about-hero__advisor"
                   src={advisor.src}
                   alt=""
+                  loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "low"}
                 />
               ))}
             </div>
-            <img className="about-hero__desk" src={aboutDesk} alt="" decoding="async" fetchPriority="high" />
+            <img className="about-hero__desk" src={aboutDesk} alt="" loading="eager" decoding="async" fetchPriority="high" />
           </div>
         </div>
       </section>
@@ -118,7 +119,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="about-story__illo" aria-hidden="true">
-            <img src={illoTeam} alt="" />
+            <img src={illoTeam} alt="" loading="lazy" decoding="async" />
           </div>
         </div>
         <div className="about-story__stats-row">
@@ -143,7 +144,7 @@ export default function AboutPage() {
           <div className="about-values__grid">
             {VALUES.map((v) => (
               <div key={v.title} className="about-values__card">
-                <img className="about-values__card-img" src={v.img} alt="" aria-hidden="true" />
+                <img className="about-values__card-img" src={v.img} alt="" loading="lazy" decoding="async" aria-hidden="true" />
                 <div className="about-values__card-body">
                   <h3 className="about-values__card-title">{v.title}</h3>
                   <p className="about-values__card-text">{v.body}</p>

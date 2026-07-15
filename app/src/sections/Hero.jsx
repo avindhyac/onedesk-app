@@ -48,7 +48,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__table-scene" ref={tableSceneRef} aria-hidden="true">
-          <img className="hero__table" src={tableImg} alt="" decoding="async" fetchPriority="high" />
+          <img className="hero__table" src={tableImg} alt="" loading="eager" decoding="async" fetchPriority="high" />
           <div className="hero__table-seat hero__table-seat--left">
             {HERO_TABLE_SEATS.left.map((c, i) => (
               <img
@@ -57,6 +57,7 @@ export default function Hero() {
                 src={c.src}
                 alt=""
                 className="hero__table-char"
+                loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
                 fetchPriority={i === 0 ? "high" : "low"}
               />
@@ -70,6 +71,7 @@ export default function Hero() {
                 src={c.src}
                 alt=""
                 className="hero__table-char"
+                loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
                 fetchPriority={i === 0 ? "high" : "low"}
               />
