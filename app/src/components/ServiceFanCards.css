@@ -109,19 +109,43 @@
   user-select: none;
 }
 
-.service-fan__card--sec { background: var(--od-sec-tint); }
-.service-fan__card--leg { background: var(--od-leg-tint); }
-.service-fan__card--tax { background: var(--od-tax-tint); }
-.service-fan__card--acc { background: var(--od-acc-tint); }
-.service-fan__card--hr { background: var(--od-hr-tint); }
-.service-fan__card--mkt { background: var(--od-mkt-tint); }
+.service-fan__card--sec {
+  background: var(--od-sec-tint);
+}
+.service-fan__card--leg {
+  background: var(--od-leg-tint);
+}
+.service-fan__card--tax {
+  background: var(--od-tax-tint);
+}
+.service-fan__card--acc {
+  background: var(--od-acc-tint);
+}
+.service-fan__card--hr {
+  background: var(--od-hr-tint);
+}
+.service-fan__card--mkt {
+  background: var(--od-mkt-tint);
+}
 
-.service-fan--sec { --fan-accent: var(--od-sec); }
-.service-fan--leg { --fan-accent: var(--od-leg); }
-.service-fan--tax { --fan-accent: var(--od-tax); }
-.service-fan--acc { --fan-accent: var(--od-acc); }
-.service-fan--hr { --fan-accent: var(--od-hr); }
-.service-fan--mkt { --fan-accent: var(--od-mkt); }
+.service-fan--sec {
+  --fan-accent: var(--od-sec);
+}
+.service-fan--leg {
+  --fan-accent: var(--od-leg);
+}
+.service-fan--tax {
+  --fan-accent: var(--od-tax);
+}
+.service-fan--acc {
+  --fan-accent: var(--od-acc);
+}
+.service-fan--hr {
+  --fan-accent: var(--od-hr);
+}
+.service-fan--mkt {
+  --fan-accent: var(--od-mkt);
+}
 
 @media (max-width: 860px) {
   .service-fan {
@@ -133,12 +157,18 @@
     height: clamp(260px, 68vw, 330px);
     border-radius: 24px;
   }
-  .service-fan__card--point { padding: 18px; }
-  .service-fan__point-text { font-size: clamp(1.35rem, 7vw, 2rem); }
+  .service-fan__card--point {
+    padding: 18px;
+  }
+  .service-fan__point-text {
+    font-size: clamp(1.35rem, 7vw, 2rem);
+  }
 }
 
 @media (max-width: 520px) {
-  .service-fan { min-height: 315px; }
+  .service-fan {
+    min-height: 315px;
+  }
   .service-fan__card {
     width: min(220px, 58vw);
     height: 285px;

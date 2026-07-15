@@ -56,7 +56,9 @@ export default function SectionSnap() {
 
       const headerH =
         parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue("--header-h"),
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-h",
+          ),
           10,
         ) || 72;
       const vh = window.innerHeight;

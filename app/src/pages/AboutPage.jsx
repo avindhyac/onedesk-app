@@ -18,11 +18,11 @@ import aboutAdvisor09 from "../assets/char/About/OD_Web_AboutUs-09.webp";
 import aboutAdvisor10 from "../assets/char/About/OD_Web_AboutUs-10.webp";
 import aboutClient from "../assets/char/About/OD_Web_AboutUs-client.webp";
 import aboutDesk from "../assets/char/About/OD_Web_AboutUs-desk.webp";
-import illoTeam   from "../assets/char/About/OD_Web_AboutUs-11.webp";
+import illoTeam from "../assets/char/About/OD_Web_AboutUs-11.webp";
 import illoPeople from "../assets/char/About/OD_Web_AboutUs-12.webp";
 import illoClarity from "../assets/char/About/OD_Web_AboutUs-13.webp";
-import illoTrust  from "../assets/char/About/OD_Web_AboutUs-14.webp";
-import illoDesk   from "../assets/char/About/OD_Web_AboutUs-15.webp";
+import illoTrust from "../assets/char/About/OD_Web_AboutUs-14.webp";
+import illoDesk from "../assets/char/About/OD_Web_AboutUs-15.webp";
 
 import "./AboutPage.css";
 
@@ -36,19 +36,35 @@ const ABOUT_HERO_ADVISORS = [
 ];
 
 const VALUES = [
-  { img: illoPeople,  title: "People over paperwork",  body: "Behind every filing is a founder with better things to do. We exist to give them their time back." },
-  { img: illoClarity, title: "Radical clarity",        body: "No jargon, no hidden fees, no surprise invoices. You always know what we are doing and what it costs." },
-  { img: illoTrust,   title: "Earned trust",           body: "We handle sensitive things — money, contracts, people. We treat that responsibility like it is our own." },
-  { img: illoDesk,    title: "One desk, forever",      body: "As you grow, the desk grows with you. New services slot in without new logins or new headaches." },
+  {
+    img: illoPeople,
+    title: "People over paperwork",
+    body: "Behind every filing is a founder with better things to do. We exist to give them their time back.",
+  },
+  {
+    img: illoClarity,
+    title: "Radical clarity",
+    body: "No jargon, no hidden fees, no surprise invoices. You always know what we are doing and what it costs.",
+  },
+  {
+    img: illoTrust,
+    title: "Earned trust",
+    body: "We handle sensitive things — money, contracts, people. We treat that responsibility like it is our own.",
+  },
+  {
+    img: illoDesk,
+    title: "One desk, forever",
+    body: "As you grow, the desk grows with you. New services slot in without new logins or new headaches.",
+  },
 ];
 
 const TEAM = [
-  { name: "Co-founder & CEO",   service: "sec" },
-  { name: "Co-founder & COO",   service: "acc" },
-  { name: "Head of Legal",      service: "leg" },
-  { name: "Head of Tax",        service: "tax" },
-  { name: "Head of People",     service: "hr"  },
-  { name: "Head of Growth",     service: "mkt" },
+  { name: "Co-founder & CEO", service: "sec" },
+  { name: "Co-founder & COO", service: "acc" },
+  { name: "Head of Legal", service: "leg" },
+  { name: "Head of Tax", service: "tax" },
+  { name: "Head of People", service: "hr" },
+  { name: "Head of Growth", service: "mkt" },
 ];
 
 export default function AboutPage() {
@@ -69,19 +85,37 @@ export default function AboutPage() {
           <div className="about-hero__content">
             <Eyebrow tone="ember">About us</Eyebrow>
             <h1 className="about-hero__title">
-              We started OneDesk because running a company shouldn't mean running six.
+              We started OneDesk because running a company shouldn't mean
+              running six.
             </h1>
             <p className="about-hero__sub">
-              Founders were stitching together an accountant here, a lawyer there, a payroll tool somewhere else. We brought it all onto one desk.
+              Founders were stitching together an accountant here, a lawyer
+              there, a payroll tool somewhere else. We brought it all onto one
+              desk.
             </p>
             <div className="about-hero__ctas">
-              <Button variant="primary" size="lg" as={Link} to="/">Get Started</Button>
-              <Button variant="outline" size="lg" as={Link} to="/pricing">See Pricing</Button>
+              <Button variant="primary" size="lg" as={Link} to="/">
+                Get Started
+              </Button>
+              <Button variant="outline" size="lg" as={Link} to="/pricing">
+                See Pricing
+              </Button>
             </div>
           </div>
-          <div className="about-hero__desk-scene" ref={heroSceneRef} aria-hidden="true">
+          <div
+            className="about-hero__desk-scene"
+            ref={heroSceneRef}
+            aria-hidden="true"
+          >
             <div className="about-hero__desk-glow" />
-            <img className="about-hero__client" src={aboutClient} alt="" loading="eager" decoding="async" fetchPriority="high" />
+            <img
+              className="about-hero__client"
+              src={aboutClient}
+              alt=""
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
             <div className="about-hero__advisor-seat">
               {ABOUT_HERO_ADVISORS.map((advisor, index) => (
                 <img
@@ -96,7 +130,14 @@ export default function AboutPage() {
                 />
               ))}
             </div>
-            <img className="about-hero__desk" src={aboutDesk} alt="" loading="eager" decoding="async" fetchPriority="high" />
+            <img
+              className="about-hero__desk"
+              src={aboutDesk}
+              alt=""
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
           </div>
         </div>
       </section>
@@ -105,12 +146,18 @@ export default function AboutPage() {
       <section className="about-story">
         <div className="about-story__inner">
           <div className="about-story__copy">
-            <h2 className="about-story__heading">From paperwork to peace of mind.</h2>
+            <h2 className="about-story__heading">
+              From paperwork to peace of mind.
+            </h2>
             <p className="about-story__text">
-              Our founders were on their third startup and tired of the same problem: the back office was a patchwork of vendors, spreadsheets and missed deadlines. So they built the thing they wished existed, one team, one dashboard, one bill.
+              Our founders were on their third startup and tired of the same
+              problem: the back office was a patchwork of vendors, spreadsheets
+              and missed deadlines. So they built the thing they wished existed,
+              one team, one dashboard, one bill.
             </p>
             <p className="about-story__text">
-              Today OneDesk supports companies across the country, handling the unglamorous work that keeps a business alive and compliant.
+              Today OneDesk supports companies across the country, handling the
+              unglamorous work that keeps a business alive and compliant.
             </p>
             <div className="about-story__ctas">
               <Button variant="outline" size="md" as={Link} to="/marketplace">
@@ -128,10 +175,20 @@ export default function AboutPage() {
             variant="light"
             className="about-story__ledger"
             items={[
-              { value: "2021", label: "Founded",              accent: "ember" },
-              { to: 8000, suffix: "+", label: "Companies served",     accent: "ember" },
-              { to: 120,  suffix: "+", label: "Specialists on staff", accent: "ember" },
-              { to: 40,               label: "Industries served",    accent: "ember" },
+              { value: "2021", label: "Founded", accent: "ember" },
+              {
+                to: 8000,
+                suffix: "+",
+                label: "Companies served",
+                accent: "ember",
+              },
+              {
+                to: 120,
+                suffix: "+",
+                label: "Specialists on staff",
+                accent: "ember",
+              },
+              { to: 40, label: "Industries served", accent: "ember" },
             ]}
           />
         </div>
@@ -144,7 +201,14 @@ export default function AboutPage() {
           <div className="about-values__grid">
             {VALUES.map((v) => (
               <div key={v.title} className="about-values__card">
-                <img className="about-values__card-img" src={v.img} alt="" loading="lazy" decoding="async" aria-hidden="true" />
+                <img
+                  className="about-values__card-img"
+                  src={v.img}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden="true"
+                />
                 <div className="about-values__card-body">
                   <h3 className="about-values__card-title">{v.title}</h3>
                   <p className="about-values__card-text">{v.body}</p>

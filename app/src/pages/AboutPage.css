@@ -25,20 +25,60 @@
 
 .about-hero::before {
   background:
-    radial-gradient(640px 520px at 96% -10%, rgba(116,169,232,0.48), transparent 64%),
-    radial-gradient(560px 460px at 54%  2%,  rgba(252,215,167,0.46), transparent 62%),
-    radial-gradient(600px 480px at 2%   10%, rgba(219,183,247,0.38), transparent 64%),
-    radial-gradient(620px 500px at -2%  102%, rgba(255,172,131,0.40), transparent 62%),
-    radial-gradient(620px 500px at 102% 102%, rgba(252,206,200,0.42), transparent 62%),
-    radial-gradient(520px 420px at 42%  106%, rgba(200,232,218,0.32), transparent 60%);
+    radial-gradient(
+      640px 520px at 96% -10%,
+      rgba(116, 169, 232, 0.48),
+      transparent 64%
+    ),
+    radial-gradient(
+      560px 460px at 54% 2%,
+      rgba(252, 215, 167, 0.46),
+      transparent 62%
+    ),
+    radial-gradient(
+      600px 480px at 2% 10%,
+      rgba(219, 183, 247, 0.38),
+      transparent 64%
+    ),
+    radial-gradient(
+      620px 500px at -2% 102%,
+      rgba(255, 172, 131, 0.4),
+      transparent 62%
+    ),
+    radial-gradient(
+      620px 500px at 102% 102%,
+      rgba(252, 206, 200, 0.42),
+      transparent 62%
+    ),
+    radial-gradient(
+      520px 420px at 42% 106%,
+      rgba(200, 232, 218, 0.32),
+      transparent 60%
+    );
 }
 
 .about-story::before {
   background:
-    radial-gradient(640px 520px at -4% -8%, rgba(255,172,131,0.32), transparent 64%),
-    radial-gradient(640px 520px at 104% -10%, rgba(252,206,200,0.34), transparent 64%),
-    radial-gradient(560px 440px at 38% -8%, rgba(200,232,218,0.24), transparent 62%),
-    linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(253,249,240,0.40) 100%);
+    radial-gradient(
+      640px 520px at -4% -8%,
+      rgba(255, 172, 131, 0.32),
+      transparent 64%
+    ),
+    radial-gradient(
+      640px 520px at 104% -10%,
+      rgba(252, 206, 200, 0.34),
+      transparent 64%
+    ),
+    radial-gradient(
+      560px 440px at 38% -8%,
+      rgba(200, 232, 218, 0.24),
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(253, 249, 240, 0.4) 100%
+    );
 }
 
 .about-hero::after {
@@ -47,8 +87,12 @@
   width: min(980px, 82vw);
   height: 150px;
   border-radius: 999px;
-  background:
-    radial-gradient(ellipse at center, rgba(25, 33, 48, 0.10) 0%, rgba(25, 33, 48, 0.055) 34%, transparent 72%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(25, 33, 48, 0.1) 0%,
+    rgba(25, 33, 48, 0.055) 34%,
+    transparent 72%
+  );
   filter: blur(10px);
   transform: translateX(-50%);
   z-index: 0;
@@ -60,7 +104,11 @@
   width: min(900px, 78vw);
   height: 130px;
   border-radius: 999px;
-  background: radial-gradient(ellipse at center, rgba(25, 33, 48, 0.045) 0%, transparent 72%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(25, 33, 48, 0.045) 0%,
+    transparent 72%
+  );
   filter: blur(12px);
   transform: translateX(-50%);
   z-index: 0;
@@ -128,8 +176,16 @@
   height: 46%;
   border-radius: 999px;
   background:
-    radial-gradient(circle at 30% 35%, rgba(255, 172, 131, 0.36), transparent 58%),
-    radial-gradient(circle at 76% 38%, rgba(116, 169, 232, 0.30), transparent 60%),
+    radial-gradient(
+      circle at 30% 35%,
+      rgba(255, 172, 131, 0.36),
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 76% 38%,
+      rgba(116, 169, 232, 0.3),
+      transparent 60%
+    ),
     rgba(255, 255, 255, 0.58);
   filter: blur(2px);
   transform: translateX(-50%);
@@ -222,7 +278,9 @@
   color: var(--od-slate);
 }
 
-.about-story__ctas { margin-top: 28px; }
+.about-story__ctas {
+  margin-top: 28px;
+}
 
 .about-story__illo {
   display: flex;
@@ -244,7 +302,9 @@
   border-top: 1px solid var(--od-line);
 }
 
-.about-story__ledger { padding-top: 40px; }
+.about-story__ledger {
+  padding-top: 40px;
+}
 
 /* Round tick override — matches the orange dot style in the design */
 .about-story__ledger .od-ledger__tick {
@@ -254,7 +314,9 @@
 }
 
 /* ── Values ─────────────────────────────────────────────────── */
-.about-values { background: var(--od-white); }
+.about-values {
+  background: var(--od-white);
+}
 .about-values__inner {
   max-width: var(--od-container);
   margin: 0 auto;
@@ -311,7 +373,9 @@
 }
 
 /* ── Team ─────────────────────────────────────────────────── */
-.about-team { background: var(--od-paper); }
+.about-team {
+  background: var(--od-paper);
+}
 .about-team__inner {
   max-width: var(--od-container);
   margin: 0 auto;
@@ -332,13 +396,17 @@
   border-radius: var(--od-radius-lg);
   padding: 22px 24px;
   box-shadow: var(--od-shadow-xs);
-  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease);
+  transition:
+    transform var(--od-dur) var(--od-ease),
+    box-shadow var(--od-dur) var(--od-ease);
 }
 .about-team__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--od-shadow-md);
 }
-.about-team__meta { min-width: 0; }
+.about-team__meta {
+  min-width: 0;
+}
 .about-team__role-title {
   font-family: var(--od-font-display);
   font-weight: 700;
@@ -359,8 +427,12 @@
 /* ── Reduced motion ──────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .about-hero__advisor,
-  .about-team__card { transition: none; }
-  .about-team__card:hover { transform: none; }
+  .about-team__card {
+    transition: none;
+  }
+  .about-team__card:hover {
+    transform: none;
+  }
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -384,7 +456,9 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .about-hero__ctas { justify-content: center; }
+  .about-hero__ctas {
+    justify-content: center;
+  }
   .about-hero__desk-scene {
     justify-self: center;
     width: min(92vw, 520px);
@@ -392,26 +466,40 @@
     margin-bottom: 32px;
   }
 
-  .about-story__inner { grid-template-columns: 1fr; gap: 28px; padding-top: 64px; }
+  .about-story__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 64px;
+  }
   .about-story__copy,
   .about-story__illo {
     grid-column: 1;
     grid-row: auto;
   }
-  .about-story__copy { text-align: center; }
+  .about-story__copy {
+    text-align: center;
+  }
   .about-story__ctas {
     display: flex;
     justify-content: center;
   }
-  .about-story__illo { order: -1; }
-  .about-story__illo img { max-width: 320px; }
+  .about-story__illo {
+    order: -1;
+  }
+  .about-story__illo img {
+    max-width: 320px;
+  }
 
-  .about-values__grid { grid-template-columns: 1fr; }
+  .about-values__grid {
+    grid-template-columns: 1fr;
+  }
   .about-values__card {
     max-width: 620px;
     margin: 0 auto;
   }
-  .about-team__grid   { grid-template-columns: 1fr 1fr; }
+  .about-team__grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 720px) {
@@ -425,13 +513,19 @@
 }
 
 @media (max-width: 600px) {
-  .about-hero::after { bottom: -46px; height: 110px; }
-  .about-story::after { top: -54px; height: 100px; }
+  .about-hero::after {
+    bottom: -46px;
+    height: 110px;
+  }
+  .about-story::after {
+    top: -54px;
+    height: 100px;
+  }
   .about-hero__inner {
     padding-top: 40px;
   }
   .about-hero__inner {
-      justify-content: center;
+    justify-content: center;
   }
   .about-hero__title {
     max-width: 12ch;
@@ -492,7 +586,9 @@
     align-self: center;
     order: -1;
   }
-  .about-team__grid { grid-template-columns: 1fr; }
+  .about-team__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 390px) {

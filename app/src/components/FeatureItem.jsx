@@ -1,6 +1,12 @@
 import "./FeatureItem.css";
 
-export default function FeatureItem({ icon, title, service = "sec", layout = "row", children }) {
+export default function FeatureItem({
+  icon,
+  title,
+  service = "sec",
+  layout = "row",
+  children,
+}) {
   return (
     <div className={`od-feature od-feature--${layout}`}>
       <span className={`od-feature__icon od-feature__icon--${service}`}>

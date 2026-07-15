@@ -8,8 +8,16 @@ const CONTACT_EMAIL = "hello@onedesk.one";
 
 export const SOCIAL = {
   whatsapp: { label: "WhatsApp", href: "#", external: false }, // TODO: set wa.me link
-  instagram: { label: "Instagram", href: "https://www.instagram.com/onedesk.one/", external: true },
-  facebook: { label: "Facebook", href: "https://www.facebook.com/902015689671880", external: true },
+  instagram: {
+    label: "Instagram",
+    href: "https://www.instagram.com/onedesk.one/",
+    external: true,
+  },
+  facebook: {
+    label: "Facebook",
+    href: "https://www.facebook.com/902015689671880",
+    external: true,
+  },
   email: { label: "Email", href: `mailto:${CONTACT_EMAIL}`, external: false },
 };
 

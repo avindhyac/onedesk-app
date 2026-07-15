@@ -26,7 +26,8 @@ export default function Button({
 
   const renderIcon = (src) => {
     if (!src) return null;
-    if (typeof src === "string") return <iconify-icon icon={src} style={{ fontSize: "1.1em" }} />;
+    if (typeof src === "string")
+      return <iconify-icon icon={src} style={{ fontSize: "1.1em" }} />;
     return <span className="od-btn__icon">{src}</span>;
   };
 

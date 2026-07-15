@@ -10,7 +10,8 @@ const CONTENT = {
     title: "Privacy Policy",
     path: "/privacy",
     eyebrow: "Legal",
-    subtitle: "How OneDesk collects, uses, and protects the information you share with us.",
+    subtitle:
+      "How OneDesk collects, uses, and protects the information you share with us.",
     updated: "June 2026",
     sections: [
       {
@@ -39,7 +40,8 @@ const CONTENT = {
     title: "Terms of Service",
     path: "/terms",
     eyebrow: "Legal",
-    subtitle: "The terms that govern your use of the OneDesk website and services.",
+    subtitle:
+      "The terms that govern your use of the OneDesk website and services.",
     updated: "June 2026",
     sections: [
       {

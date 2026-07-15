@@ -1,4 +1,6 @@
-.services-grid { background: var(--od-paper); }
+.services-grid {
+  background: var(--od-paper);
+}
 .services-grid__inner {
   max-width: var(--od-container);
   margin: 0 auto;
@@ -11,8 +13,12 @@
   margin-top: 48px;
 }
 @media (max-width: 860px) {
-  .services-grid__cards { grid-template-columns: repeat(2, 1fr); }
+  .services-grid__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 560px) {
-  .services-grid__cards { grid-template-columns: 1fr; }
+  .services-grid__cards {
+    grid-template-columns: 1fr;
+  }
 }

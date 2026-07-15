@@ -3,13 +3,17 @@ import { SOCIAL, linkAttrs } from "../data/social";
 import "./Footer.css";
 
 const SOCIALS_ICONS = {
-  whatsapp:  "lucide:message-circle",
+  whatsapp: "lucide:message-circle",
   instagram: "lucide:instagram",
-  facebook:  "lucide:facebook",
-  email:     "lucide:mail",
+  facebook: "lucide:facebook",
+  email: "lucide:mail",
 };
 
-const SOCIALS = Object.entries(SOCIAL).map(([key, s]) => ({ ...s, key, icon: SOCIALS_ICONS[key] }));
+const SOCIALS = Object.entries(SOCIAL).map(([key, s]) => ({
+  ...s,
+  key,
+  icon: SOCIALS_ICONS[key],
+}));
 
 const SERVICE_LINKS = [
   { to: "/services", label: "Legal" },
@@ -21,10 +25,10 @@ const SERVICE_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { to: "/about",       label: "About us" },
-  { to: "/pricing",     label: "Pricing" },
+  { to: "/about", label: "About us" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/marketplace", label: "Marketplace" },
-  { to: "/contact",     label: "Contact" },
+  { to: "/contact", label: "Contact" },
 ];
 
 function Wordmark() {
@@ -43,7 +47,9 @@ export default function Footer() {
         <div className="footer__grid">
           <div className="footer__brand-col">
             <Wordmark />
-            <p className="footer__blurb">Your whole back office, on one desk.</p>
+            <p className="footer__blurb">
+              Your whole back office, on one desk.
+            </p>
             <div className="footer__social">
               {SOCIALS.map((s) => (
                 <a
@@ -63,7 +69,11 @@ export default function Footer() {
             <h4 className="footer__col-title">Services</h4>
             <ul className="footer__list">
               {SERVICE_LINKS.map((s) => (
-                <li key={s.label}><Link to={s.to} className="footer__link">{s.label}</Link></li>
+                <li key={s.label}>
+                  <Link to={s.to} className="footer__link">
+                    {s.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -72,7 +82,11 @@ export default function Footer() {
             <h4 className="footer__col-title">Company</h4>
             <ul className="footer__list">
               {COMPANY_LINKS.map((l) => (
-                <li key={l.label}><Link to={l.to} className="footer__link">{l.label}</Link></li>
+                <li key={l.label}>
+                  <Link to={l.to} className="footer__link">
+                    {l.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -80,7 +94,11 @@ export default function Footer() {
           <div>
             <h4 className="footer__col-title">Get in touch</h4>
             <ul className="footer__list footer__contact">
-              <li><a href="mailto:hello@onedesk.one" className="footer__link">hello@onedesk.one</a></li>
+              <li>
+                <a href="mailto:hello@onedesk.one" className="footer__link">
+                  hello@onedesk.one
+                </a>
+              </li>
               <li className="footer__address">Colombo, Sri Lanka</li>
             </ul>
           </div>
@@ -89,8 +107,12 @@ export default function Footer() {
         <div className="footer__bottom">
           <span>© {year} OneDesk, Inc. All rights reserved.</span>
           <span className="footer__legal">
-            <Link to="/privacy" className="footer__legal-link">Privacy</Link>
-            <Link to="/terms"   className="footer__legal-link">Terms</Link>
+            <Link to="/privacy" className="footer__legal-link">
+              Privacy
+            </Link>
+            <Link to="/terms" className="footer__legal-link">
+              Terms
+            </Link>
           </span>
         </div>
       </div>

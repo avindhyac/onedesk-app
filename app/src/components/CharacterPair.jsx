@@ -8,7 +8,17 @@ function getCharacterSrc(character, pose) {
   return character[pose] || character.stand || character.sit || null;
 }
 
-function CharacterPair({ character, alt = "", className = "", imgClassName = "", loading = "lazy", bindHover = true }, ref) {
+function CharacterPair(
+  {
+    character,
+    alt = "",
+    className = "",
+    imgClassName = "",
+    loading = "lazy",
+    bindHover = true,
+  },
+  ref,
+) {
   const rootRef = useRef(null);
   const sitRef = useRef(null);
   const standRef = useRef(null);
@@ -24,9 +34,15 @@ function CharacterPair({ character, alt = "", className = "", imgClassName = "",
     if (!canSwap || activeRef.current) return;
     activeRef.current = true;
     gsap.killTweensOf([sitRef.current, standRef.current]);
-    gsap.timeline({ defaults: { duration: 0.22, ease: "power3.out" } })
+    gsap
+      .timeline({ defaults: { duration: 0.22, ease: "power3.out" } })
       .to(sitRef.current, { autoAlpha: 0, y: 8, scale: 0.98 }, 0)
-      .fromTo(standRef.current, { autoAlpha: 0, y: 14, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1 }, 0.04);
+      .fromTo(
+        standRef.current,
+        { autoAlpha: 0, y: 14, scale: 0.96 },
+        { autoAlpha: 1, y: 0, scale: 1 },
+        0.04,
+      );
   }, [canSwap]);
 
   const showSeated = useCallback(() => {
@@ -34,7 +50,8 @@ function CharacterPair({ character, alt = "", className = "", imgClassName = "",
     activeRef.current = false;
     touchArmedRef.current = false;
     gsap.killTweensOf([sitRef.current, standRef.current]);
-    gsap.timeline({ defaults: { duration: 0.18, ease: "power3.out" } })
+    gsap
+      .timeline({ defaults: { duration: 0.18, ease: "power3.out" } })
       .to(standRef.current, { autoAlpha: 0, y: 10, scale: 0.98 }, 0)
       .to(sitRef.current, { autoAlpha: 1, y: 0, scale: 1 }, 0.03);
   }, [canSwap]);
@@ -43,21 +60,28 @@ function CharacterPair({ character, alt = "", className = "", imgClassName = "",
     lastPointerTypeRef.current = event.pointerType || "mouse";
   }, []);
 
-  const handleClickCapture = useCallback((event) => {
-    if (!canSwap || lastPointerTypeRef.current === "mouse") return;
-    if (!touchArmedRef.current) {
-      event.preventDefault();
-      touchArmedRef.current = true;
-      showStanding();
-    }
-  }, [canSwap, showStanding]);
+  const handleClickCapture = useCallback(
+    (event) => {
+      if (!canSwap || lastPointerTypeRef.current === "mouse") return;
+      if (!touchArmedRef.current) {
+        event.preventDefault();
+        touchArmedRef.current = true;
+        showStanding();
+      }
+    },
+    [canSwap, showStanding],
+  );
 
-  useImperativeHandle(ref, () => ({
-    showStanding,
-    showSeated,
-    handlePointerDown,
-    handleClickCapture,
-  }), [showStanding, showSeated, handlePointerDown, handleClickCapture]);
+  useImperativeHandle(
+    ref,
+    () => ({
+      showStanding,
+      showSeated,
+      handlePointerDown,
+      handleClickCapture,
+    }),
+    [showStanding, showSeated, handlePointerDown, handleClickCapture],
+  );
 
   if (!sit && !stand) return null;
 
@@ -72,9 +96,24 @@ function CharacterPair({ character, alt = "", className = "", imgClassName = "",
       onBlur={bindHover ? showSeated : undefined}
       onClickCapture={bindHover ? handleClickCapture : undefined}
     >
-      <img src={sit || stand} alt={alt} className={`char-pair__img char-pair__img--sit ${imgClassName}`.trim()} loading={loading} decoding="async" ref={sitRef} />
+      <img
+        src={sit || stand}
+        alt={alt}
+        className={`char-pair__img char-pair__img--sit ${imgClassName}`.trim()}
+        loading={loading}
+        decoding="async"
+        ref={sitRef}
+      />
       {canSwap && (
-        <img src={stand} alt="" className={`char-pair__img char-pair__img--stand ${imgClassName}`.trim()} loading={loading} decoding="async" ref={standRef} aria-hidden="true" />
+        <img
+          src={stand}
+          alt=""
+          className={`char-pair__img char-pair__img--stand ${imgClassName}`.trim()}
+          loading={loading}
+          decoding="async"
+          ref={standRef}
+          aria-hidden="true"
+        />
       )}
     </span>
   );

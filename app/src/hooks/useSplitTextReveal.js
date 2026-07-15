@@ -8,7 +8,7 @@ gsap.registerPlugin(SplitText, useGSAP);
 // to right). Skips entirely when the user has requested reduced motion.
 export default function useSplitTextReveal(
   ref,
-  { duration = 0.45, stagger = 0.45, delay = 0.1, ease = "power2.inOut" } = {}
+  { duration = 0.45, stagger = 0.45, delay = 0.1, ease = "power2.inOut" } = {},
 ) {
   useGSAP(
     () => {
@@ -40,7 +40,7 @@ export default function useSplitTextReveal(
               stagger,
               delay,
               ease,
-            }
+            },
           );
         });
 
@@ -52,6 +52,6 @@ export default function useSplitTextReveal(
 
       return () => mm.revert();
     },
-    { scope: ref }
+    { scope: ref },
   );
 }

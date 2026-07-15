@@ -8,11 +8,18 @@ const SERVICE_ICONS = {
   acc: "lucide:calculator",
   leg: "lucide:scale",
   tax: "lucide:percent",
-  hr:  "lucide:users",
+  hr: "lucide:users",
   mkt: "lucide:megaphone",
 };
 
-export default function ServiceCard({ service, title, description, character, to = "/services", onClick }) {
+export default function ServiceCard({
+  service,
+  title,
+  description,
+  character,
+  to = "/services",
+  onClick,
+}) {
   const icon = SERVICE_ICONS[service] || "lucide:briefcase";
   const characterRef = useRef(null);
 
@@ -26,13 +33,21 @@ export default function ServiceCard({ service, title, description, character, to
       onPointerDown={(event) => characterRef.current?.handlePointerDown(event)}
       onFocus={() => characterRef.current?.showStanding()}
       onBlur={() => characterRef.current?.showSeated()}
-      onClickCapture={(event) => characterRef.current?.handleClickCapture(event)}
+      onClickCapture={(event) =>
+        characterRef.current?.handleClickCapture(event)
+      }
     >
       <span className="svc-card__rule" aria-hidden="true" />
       <div className="svc-card__art">
         <div className="svc-card__blob" />
         {character && (
-          <CharacterPair ref={characterRef} character={character} className="svc-card__char" imgClassName="svc-card__char-img" bindHover={false} />
+          <CharacterPair
+            ref={characterRef}
+            character={character}
+            className="svc-card__char"
+            imgClassName="svc-card__char-img"
+            bindHover={false}
+          />
         )}
       </div>
       <div className="svc-card__body">

@@ -20,7 +20,10 @@ const OFFSET_X = 56;
 // slot -- mutating a shared ref array during render (clear-then-push on
 // every render) is unsafe and unreliable, so slots are assigned positionally
 // instead.
-export default function useTableCharacterCycle(scopeRef, { offset = 0, direction = 1 } = {}) {
+export default function useTableCharacterCycle(
+  scopeRef,
+  { offset = 0, direction = 1 } = {},
+) {
   const itemsRef = useRef([]);
 
   const register = (index) => (el) => {
@@ -35,20 +38,40 @@ export default function useTableCharacterCycle(scopeRef, { offset = 0, direction
       const mm = gsap.matchMedia();
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.set(items, { opacity: 0, x: direction * OFFSET_X, rotateY: 0, transformPerspective: 700 });
+        gsap.set(items, {
+          opacity: 0,
+          x: direction * OFFSET_X,
+          rotateY: 0,
+          transformPerspective: 700,
+        });
         gsap.set(items[0], { opacity: 1, x: 0 });
 
         const tl = gsap.timeline({ repeat: -1, delay: 2 + offset });
 
         items.forEach((_, i) => {
           const next = (i + 1) % items.length;
-          tl.to(items[i], { x: direction * OFFSET_X, opacity: 0, duration: EXIT, ease: "power1.in" }, `+=${HOLD}`)
+          tl.to(
+            items[i],
+            {
+              x: direction * OFFSET_X,
+              opacity: 0,
+              duration: EXIT,
+              ease: "power1.in",
+            },
+            `+=${HOLD}`,
+          )
             .set(items[i], { rotateY: 0 })
             .fromTo(
               items[next],
               { opacity: 0, x: direction * OFFSET_X, rotateY: 0 },
-              { opacity: 1, x: 0, duration: ENTER, ease: "power2.out", immediateRender: false },
-              "<"
+              {
+                opacity: 1,
+                x: 0,
+                duration: ENTER,
+                ease: "power2.out",
+                immediateRender: false,
+              },
+              "<",
             );
         });
 
@@ -62,7 +85,7 @@ export default function useTableCharacterCycle(scopeRef, { offset = 0, direction
 
       return () => mm.revert();
     },
-    { scope: scopeRef, dependencies: [offset, direction] }
+    { scope: scopeRef, dependencies: [offset, direction] },
   );
 
   return register;

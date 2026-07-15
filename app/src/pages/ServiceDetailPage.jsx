@@ -27,7 +27,10 @@ export default function ServiceDetailPage() {
       />
 
       <section className={`svcd-hero svcd-hero--${key}`}>
-        <div className={`svcd-hero__blob svcd-hero__blob--${key}`} aria-hidden="true" />
+        <div
+          className={`svcd-hero__blob svcd-hero__blob--${key}`}
+          aria-hidden="true"
+        />
         <div className="svcd-hero__inner">
           <Link to="/services" className="svcd-hero__back">
             <iconify-icon icon="lucide:arrow-left" />
@@ -42,16 +45,28 @@ export default function ServiceDetailPage() {
                 </span>
                 {title}
               </Eyebrow>
-              <h1 className={`svcd-hero__title svcd-hero__title--${key}`}>{tagline}</h1>
+              <h1 className={`svcd-hero__title svcd-hero__title--${key}`}>
+                {tagline}
+              </h1>
               <p className="svcd-hero__intro">{detail.intro}</p>
               <div className="svcd-hero__cta">
-                <Button variant="primary" size="md" iconRight="lucide:arrow-right" as={Link} to="/contact">
+                <Button
+                  variant="primary"
+                  size="md"
+                  iconRight="lucide:arrow-right"
+                  as={Link}
+                  to="/contact"
+                >
                   Talk to {title}
                 </Button>
               </div>
             </div>
             <div className="svcd-hero__art">
-              <CharacterPair character={characters[service.char]} className="svcd-hero__char" imgClassName="svcd-hero__char-img" />
+              <CharacterPair
+                character={characters[service.char]}
+                className="svcd-hero__char"
+                imgClassName="svcd-hero__char-img"
+              />
             </div>
           </div>
         </div>
@@ -71,18 +86,27 @@ export default function ServiceDetailPage() {
               style={{ "--svcd-i": i }}
             >
               <div className="svcd-section__inner">
-                <div className={`svcd-section__media ${flip ? "svcd-section__media--right" : ""} svcd-section__media--${key}`}>
+                <div
+                  className={`svcd-section__media ${flip ? "svcd-section__media--right" : ""} svcd-section__media--${key}`}
+                >
                   <span className="svcd-section__media-icon" aria-hidden="true">
                     <iconify-icon icon="lucide:image" />
                   </span>
-                  <span className="svcd-section__media-caption">Photo &mdash; {sec.heading}</span>
+                  <span className="svcd-section__media-caption">
+                    Photo &mdash; {sec.heading}
+                  </span>
                 </div>
-                <div className={`svcd-section__content ${flip ? "svcd-section__content--left" : ""}`}>
+                <div
+                  className={`svcd-section__content ${flip ? "svcd-section__content--left" : ""}`}
+                >
                   <h2 className="svcd-section__heading">{sec.heading}</h2>
                   <p className="svcd-section__body">{sec.body}</p>
                   <ul className="svcd-section__chips">
                     {sec.points.map((p) => (
-                      <li key={p} className={`svcd-section__chip svcd-section__chip--${key}`}>
+                      <li
+                        key={p}
+                        className={`svcd-section__chip svcd-section__chip--${key}`}
+                      >
                         {p}
                       </li>
                     ))}
@@ -99,7 +123,11 @@ export default function ServiceDetailPage() {
           <p className="svcd-others__label">Handling something else too?</p>
           <div className="svcd-others__grid">
             {others.map((o) => (
-              <Link key={o.slug} to={`/services/${o.slug}`} className={`svcd-others__tile svcd-others__tile--${o.key}`}>
+              <Link
+                key={o.slug}
+                to={`/services/${o.slug}`}
+                className={`svcd-others__tile svcd-others__tile--${o.key}`}
+              >
                 <span className="svcd-others__tile-icon" aria-hidden="true">
                   <iconify-icon icon={o.icon} />
                 </span>

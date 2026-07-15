@@ -1,4 +1,6 @@
-.how-it-works { background: var(--od-white); }
+.how-it-works {
+  background: var(--od-white);
+}
 .how-it-works__inner {
   max-width: var(--od-container);
   margin: 0 auto;
@@ -60,5 +62,7 @@
 }
 
 @media (max-width: 700px) {
-  .how-it-works__steps { grid-template-columns: 1fr; }
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+  }
 }

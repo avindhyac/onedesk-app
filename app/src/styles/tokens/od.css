@@ -4,116 +4,117 @@
    ============================================================ */
 :root {
   /* ---- Brand ---- */
-  --od-orange:        #ee7632;
-  --od-orange-600:    #d75f1d;
-  --od-orange-300:    #f6a877;
-  --od-orange-100:    #fce3d2;
-  --od-orange-tint:   #fdf1e8;
+  --od-orange: #ee7632;
+  --od-orange-600: #d75f1d;
+  --od-orange-300: #f6a877;
+  --od-orange-100: #fce3d2;
+  --od-orange-tint: #fdf1e8;
 
-  --od-teal:          #6f9ca9;
-  --od-teal-600:      #557e8b;
-  --od-teal-300:      #a7c4cd;
-  --od-teal-100:      #dde9ec;
-  --od-teal-tint:     #eef4f5;
+  --od-teal: #6f9ca9;
+  --od-teal-600: #557e8b;
+  --od-teal-300: #a7c4cd;
+  --od-teal-100: #dde9ec;
+  --od-teal-tint: #eef4f5;
 
   /* ---- Ink & warm neutrals ---- */
-  --od-ink:           #1d2330;
-  --od-ink-2:         #3a3f4b;
-  --od-slate:         #5d626d;
-  --od-slate-2:       #868b94;
-  --od-white:         #ffffff;
-  --od-paper:         #faf8f4;
-  --od-paper-2:       #f3f0e9;
-  --od-paper-3:       #ebe7de;
-  --od-line:          #e7e2d8;
-  --od-line-strong:   #d6d0c4;
+  --od-ink: #1d2330;
+  --od-ink-2: #3a3f4b;
+  --od-slate: #5d626d;
+  --od-slate-2: #868b94;
+  --od-white: #ffffff;
+  --od-paper: #faf8f4;
+  --od-paper-2: #f3f0e9;
+  --od-paper-3: #ebe7de;
+  --od-line: #e7e2d8;
+  --od-line-strong: #d6d0c4;
 
   /* ---- Per-service palettes ---- */
-  --od-sec:           #1c314f;
-  --od-sec-accent:    #5f87c1;
-  --od-sec-light:     #74a9e8;
-  --od-sec-tint:      #eaf1fb;
+  --od-sec: #1c314f;
+  --od-sec-accent: #5f87c1;
+  --od-sec-light: #74a9e8;
+  --od-sec-tint: #eaf1fb;
 
-  --od-acc:           #799b91;
-  --od-acc-accent:    #abc9bd;
-  --od-acc-light:     #c8e8da;
-  --od-acc-tint:      #eef6f2;
+  --od-acc: #799b91;
+  --od-acc-accent: #abc9bd;
+  --od-acc-light: #c8e8da;
+  --od-acc-tint: #eef6f2;
 
-  --od-leg:           #584361;
-  --od-leg-accent:    #9b7fad;
-  --od-leg-light:     #dbb7f7;
-  --od-leg-tint:      #f3ecfa;
+  --od-leg: #584361;
+  --od-leg-accent: #9b7fad;
+  --od-leg-light: #dbb7f7;
+  --od-leg-tint: #f3ecfa;
 
-  --od-tax:           #c5652d;
-  --od-tax-accent:    #e8834b;
-  --od-tax-light:     #ffac83;
-  --od-tax-tint:      #fbe9dd;
+  --od-tax: #c5652d;
+  --od-tax-accent: #e8834b;
+  --od-tax-light: #ffac83;
+  --od-tax-tint: #fbe9dd;
 
-  --od-hr:            #ef8270;
-  --od-hr-accent:     #fca495;
-  --od-hr-light:      #fccec8;
-  --od-hr-tint:       #fdeeec;
+  --od-hr: #ef8270;
+  --od-hr-accent: #fca495;
+  --od-hr-light: #fccec8;
+  --od-hr-tint: #fdeeec;
 
-  --od-mkt:           #e4a747;
-  --od-mkt-accent:    #ffc269;
-  --od-mkt-light:     #fcd7a7;
-  --od-mkt-tint:      #fdf2e0;
+  --od-mkt: #e4a747;
+  --od-mkt-accent: #ffc269;
+  --od-mkt-light: #fcd7a7;
+  --od-mkt-tint: #fdf2e0;
 
   /* ---- Readable per-service TEXT shades ----
      Darker step of each service hue, tuned to clear WCAG AA (≥4.5:1 for
      small text) on white and on the pale service tints. Use these for any
      text/icon/link that carries meaning; the base --od-<svc> above stays for
      fills, blobs, and large decorative art. */
-  --od-sec-text:      #1c314f;
-  --od-acc-text:      #46615a;
-  --od-leg-text:      #584361;
-  --od-tax-text:      #9a4f22;
-  --od-hr-text:       #a8402f;
-  --od-mkt-text:      #8a6111;
+  --od-sec-text: #1c314f;
+  --od-acc-text: #46615a;
+  --od-leg-text: #584361;
+  --od-tax-text: #9a4f22;
+  --od-hr-text: #a8402f;
+  --od-mkt-text: #8a6111;
 
   /* Readable brand shades for small text/links/eyebrows on light bg */
-  --od-orange-700:    #b54c18;
-  --od-teal-700:      #3f5f68;
+  --od-orange-700: #b54c18;
+  --od-teal-700: #3f5f68;
 
   /* ---- Status ---- */
-  --od-success:       #3f9d6d;
-  --od-success-tint:  #e7f3ec;
-  --od-warning:       #e4a747;
-  --od-warning-tint:  #fbf0d8;
-  --od-error:         #d8553f;
-  --od-error-tint:    #fbe8e3;
+  --od-success: #3f9d6d;
+  --od-success-tint: #e7f3ec;
+  --od-warning: #e4a747;
+  --od-warning-tint: #fbf0d8;
+  --od-error: #d8553f;
+  --od-error-tint: #fbe8e3;
 
   /* ---- Typography ---- */
-  --od-font-display:  'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --od-font-body:     'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --od-font-display:
+    "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --od-font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --od-display-hero:  clamp(2.75rem, 1.4rem + 4.6vw, 4.5rem);
-  --od-display-1:     clamp(2.25rem, 1.4rem + 2.9vw, 3.25rem);
-  --od-display-2:     clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+  --od-display-hero: clamp(2.75rem, 1.4rem + 4.6vw, 4.5rem);
+  --od-display-1: clamp(2.25rem, 1.4rem + 2.9vw, 3.25rem);
+  --od-display-2: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
 
-  --od-text-xs:   0.8125rem;  /* 13 */
-  --od-text-sm:   0.9375rem;  /* 15 */
-  --od-text-base: 1.0625rem;  /* 17 */
-  --od-text-lg:   1.1875rem;  /* 19 */
-  --od-text-xl:   1.375rem;   /* 22 */
-  --od-text-2xl:  1.75rem;    /* 28 */
-  --od-text-3xl:  2.25rem;    /* 36 */
+  --od-text-xs: 0.8125rem; /* 13 */
+  --od-text-sm: 0.9375rem; /* 15 */
+  --od-text-base: 1.0625rem; /* 17 */
+  --od-text-lg: 1.1875rem; /* 19 */
+  --od-text-xl: 1.375rem; /* 22 */
+  --od-text-2xl: 1.75rem; /* 28 */
+  --od-text-3xl: 2.25rem; /* 36 */
 
   /* ---- Layout ---- */
-  --od-container:        1200px;
-  --od-container-wide:   1320px;
+  --od-container: 1200px;
+  --od-container-wide: 1320px;
   --od-container-narrow: 860px;
-  --od-gutter:           clamp(1.25rem, 5vw, 4rem);
-  --od-section-y:        clamp(3.5rem, 7vw, 7rem);
+  --od-gutter: clamp(1.25rem, 5vw, 4rem);
+  --od-section-y: clamp(3.5rem, 7vw, 7rem);
 
   /* ---- Spacing ---- */
-  --od-space-1:  0.25rem;
-  --od-space-2:  0.5rem;
-  --od-space-3:  0.75rem;
-  --od-space-4:  1rem;
-  --od-space-5:  1.25rem;
-  --od-space-6:  1.5rem;
-  --od-space-8:  2rem;
+  --od-space-1: 0.25rem;
+  --od-space-2: 0.5rem;
+  --od-space-3: 0.75rem;
+  --od-space-4: 1rem;
+  --od-space-5: 1.25rem;
+  --od-space-6: 1.5rem;
+  --od-space-8: 2rem;
   --od-space-10: 2.5rem;
   --od-space-12: 3rem;
   --od-space-16: 4rem;
@@ -122,27 +123,27 @@
   --od-space-32: 8rem;
 
   /* ---- Radii ---- */
-  --od-radius-xs:   6px;
-  --od-radius-sm:   10px;
-  --od-radius-md:   16px;
-  --od-radius-lg:   24px;
-  --od-radius-xl:   32px;
-  --od-radius-2xl:  44px;
+  --od-radius-xs: 6px;
+  --od-radius-sm: 10px;
+  --od-radius-md: 16px;
+  --od-radius-lg: 24px;
+  --od-radius-xl: 32px;
+  --od-radius-2xl: 44px;
   --od-radius-pill: 999px;
 
   /* ---- Shadows ---- */
-  --od-shadow-xs:    0 1px 2px rgba(29,35,48,0.05);
-  --od-shadow-sm:    0 2px 6px rgba(29,35,48,0.06);
-  --od-shadow-md:    0 10px 28px rgba(29,35,48,0.08);
-  --od-shadow-lg:    0 24px 60px rgba(29,35,48,0.12);
-  --od-shadow-xl:    0 40px 90px rgba(29,35,48,0.16);
-  --od-shadow-brand: 0 14px 30px rgba(238,118,50,0.30);
-  --od-shadow-inset: inset 0 0 0 1px rgba(29,35,48,0.05);
+  --od-shadow-xs: 0 1px 2px rgba(29, 35, 48, 0.05);
+  --od-shadow-sm: 0 2px 6px rgba(29, 35, 48, 0.06);
+  --od-shadow-md: 0 10px 28px rgba(29, 35, 48, 0.08);
+  --od-shadow-lg: 0 24px 60px rgba(29, 35, 48, 0.12);
+  --od-shadow-xl: 0 40px 90px rgba(29, 35, 48, 0.16);
+  --od-shadow-brand: 0 14px 30px rgba(238, 118, 50, 0.3);
+  --od-shadow-inset: inset 0 0 0 1px rgba(29, 35, 48, 0.05);
 
   /* ---- Motion ---- */
-  --od-ease:      cubic-bezier(0.22, 1, 0.36, 1);
-  --od-ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
-  --od-dur-fast:  140ms;
-  --od-dur:       220ms;
-  --od-dur-slow:  400ms;
+  --od-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --od-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --od-dur-fast: 140ms;
+  --od-dur: 220ms;
+  --od-dur-slow: 400ms;
 }

@@ -9,7 +9,18 @@
   text-transform: uppercase;
   color: var(--od-orange-700);
 }
-.od-eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.od-eyebrow--harbor { color: var(--od-teal-700); }
-.od-eyebrow--muted { color: var(--od-slate); }
-.od-eyebrow--on-dark { color: var(--od-orange-300); }
+.od-eyebrow__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.od-eyebrow--harbor {
+  color: var(--od-teal-700);
+}
+.od-eyebrow--muted {
+  color: var(--od-slate);
+}
+.od-eyebrow--on-dark {
+  color: var(--od-orange-300);
+}

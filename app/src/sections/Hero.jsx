@@ -18,9 +18,17 @@ export default function Hero() {
   const tableSceneRef = useRef(null);
 
   // useSplitTextReveal(titleRef, { duration: TITLE_REVEAL_DURATION, stagger: 0.12, delay: TITLE_REVEAL_DELAY, ease: "expo.out" });
-  useDropDot(titleRef, { delay: TITLE_REVEAL_DELAY + TITLE_REVEAL_DURATION + 0.05 });
-  const registerLeft = useTableCharacterCycle(tableSceneRef, { offset: 0, direction: -1 });
-  const registerRight = useTableCharacterCycle(tableSceneRef, { offset: 1, direction: 1 });
+  useDropDot(titleRef, {
+    delay: TITLE_REVEAL_DELAY + TITLE_REVEAL_DURATION + 0.05,
+  });
+  const registerLeft = useTableCharacterCycle(tableSceneRef, {
+    offset: 0,
+    direction: -1,
+  });
+  const registerRight = useTableCharacterCycle(tableSceneRef, {
+    offset: 1,
+    direction: 1,
+  });
 
   return (
     <section id="top" className="hero">
@@ -28,17 +36,36 @@ export default function Hero() {
       <div className="hero__inner">
         <div className="hero__content">
           <div className="hero__badge">
-            <Badge tone="orange" icon="lucide:sparkles">Trusted by founders everywhere</Badge>
+            <Badge tone="orange" icon="lucide:sparkles">
+              Trusted by founders everywhere
+            </Badge>
           </div>
           <h1 className="hero__title" ref={titleRef}>
-            Everything your business<br className="hero__title-break" /> <span className="hero__title-tail"> needs, in one place<span className="dot">.<span className="hero__dot-ripple" aria-hidden="true" /></span></span>
+            Everything your business
+            <br className="hero__title-break" />{" "}
+            <span className="hero__title-tail">
+              {" "}
+              needs, in one place
+              <span className="dot">
+                .<span className="hero__dot-ripple" aria-hidden="true" />
+              </span>
+            </span>
           </h1>
           <p className="hero__lede">
-            OneDesk brings <strong>legal, tax, accounting, HR, secretarial and marketing</strong> support
-            together, under one structured, trusted partner.
+            OneDesk brings{" "}
+            <strong>
+              legal, tax, accounting, HR, secretarial and marketing
+            </strong>{" "}
+            support together, under one structured, trusted partner.
           </p>
           <div className="hero__ctas">
-            <Button variant="primary" size="lg" iconRight="lucide:arrow-right" as={Link} to="/contact">
+            <Button
+              variant="primary"
+              size="lg"
+              iconRight="lucide:arrow-right"
+              as={Link}
+              to="/contact"
+            >
               Get started
             </Button>
             <Button variant="outline" size="lg" as={Link} to="/pricing">
@@ -47,8 +74,19 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__table-scene" ref={tableSceneRef} aria-hidden="true">
-          <img className="hero__table" src={tableImg} alt="" loading="eager" decoding="async" fetchPriority="high" />
+        <div
+          className="hero__table-scene"
+          ref={tableSceneRef}
+          aria-hidden="true"
+        >
+          <img
+            className="hero__table"
+            src={tableImg}
+            alt=""
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
           <div className="hero__table-seat hero__table-seat--left">
             {HERO_TABLE_SEATS.left.map((c, i) => (
               <img

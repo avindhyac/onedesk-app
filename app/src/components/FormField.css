@@ -13,9 +13,14 @@
   text-transform: uppercase;
   color: var(--od-ink-2);
 }
-.od-field__req { color: var(--od-orange); margin-left: 2px; }
+.od-field__req {
+  color: var(--od-orange);
+  margin-left: 2px;
+}
 
-.od-field__wrap { position: relative; }
+.od-field__wrap {
+  position: relative;
+}
 
 .od-field__icon {
   position: absolute;
@@ -41,24 +46,38 @@
   outline: none;
   appearance: none;
   -webkit-appearance: none;
-  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s,
+    background 0.18s;
 }
 .od-field__input::placeholder,
-.od-field__textarea::placeholder { color: var(--od-slate); opacity: 0.75; }
+.od-field__textarea::placeholder {
+  color: var(--od-slate);
+  opacity: 0.75;
+}
 .od-field__input:hover,
 .od-field__textarea:hover,
-.od-field__select:hover { border-color: var(--od-teal); }
+.od-field__select:hover {
+  border-color: var(--od-teal);
+}
 .od-field__input:focus,
 .od-field__textarea:focus,
 .od-field__select:focus {
   border-color: var(--od-orange);
   background: var(--od-white);
-  box-shadow: 0 0 0 3.5px rgba(238,118,50,0.15);
+  box-shadow: 0 0 0 3.5px rgba(238, 118, 50, 0.15);
 }
 
-.od-field__input--icon { padding-left: 42px; }
+.od-field__input--icon {
+  padding-left: 42px;
+}
 
-.od-field__textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.od-field__textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
 
 .od-field__select {
   cursor: pointer;
@@ -92,7 +111,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.14s, border-color 0.14s;
+  transition:
+    background 0.14s,
+    border-color 0.14s;
 }
 .od-checkbox__check {
   font-size: 13px;
@@ -104,7 +125,9 @@
   background: var(--od-orange);
   border-color: var(--od-orange);
 }
-.od-checkbox__input:checked + .od-checkbox__box .od-checkbox__check { opacity: 1; }
+.od-checkbox__input:checked + .od-checkbox__box .od-checkbox__check {
+  opacity: 1;
+}
 .od-checkbox__label {
   font-size: var(--od-text-sm);
   color: var(--od-ink-2);

@@ -1,5 +1,5 @@
 .cta-band {
-  background: url('../assets/OD-Footer-Texture.webp') center / cover no-repeat;
+  background: url("../assets/OD-Footer-Texture.webp") center / cover no-repeat;
 }
 .cta-band__inner {
   max-width: var(--od-container);
@@ -32,6 +32,11 @@
     padding: 44px var(--od-gutter);
     gap: 20px;
   }
-  .cta-band__title { font-size: var(--od-display-2); }
-  .cta-band__inner .od-btn { width: 100%; justify-content: center; }
+  .cta-band__title {
+    font-size: var(--od-display-2);
+  }
+  .cta-band__inner .od-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -8,7 +8,10 @@
   overflow: hidden;
   text-decoration: none;
   box-shadow: var(--od-shadow-xs);
-  transition: transform var(--od-dur) var(--od-ease), box-shadow var(--od-dur) var(--od-ease), border-color var(--od-dur) var(--od-ease);
+  transition:
+    transform var(--od-dur) var(--od-ease),
+    box-shadow var(--od-dur) var(--od-ease),
+    border-color var(--od-dur) var(--od-ease);
 }
 .svc-card:hover {
   transform: translateY(-6px);
@@ -29,7 +32,9 @@
   z-index: 1;
 }
 .svc-card:hover .svc-card__rule,
-.svc-card:focus-visible .svc-card__rule { transform: scaleX(1); }
+.svc-card:focus-visible .svc-card__rule {
+  transform: scaleX(1);
+}
 
 /* Art area */
 .svc-card__art {
@@ -47,7 +52,9 @@
   border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
   transition: transform var(--od-dur-slow) var(--od-ease);
 }
-.svc-card:hover .svc-card__blob { transform: scale(1.06); }
+.svc-card:hover .svc-card__blob {
+  transform: scale(1.06);
+}
 .svc-card__char {
   position: relative;
   height: 168px;
@@ -111,64 +118,180 @@
   height: 30px;
   border-radius: 50%;
   font-size: 16px;
-  transition: background var(--od-dur) var(--od-ease), color var(--od-dur) var(--od-ease), transform var(--od-dur) var(--od-ease);
+  transition:
+    background var(--od-dur) var(--od-ease),
+    color var(--od-dur) var(--od-ease),
+    transform var(--od-dur) var(--od-ease);
 }
-.svc-card:hover .svc-card__arrow { transform: translateX(3px); }
+.svc-card:hover .svc-card__arrow {
+  transform: translateX(3px);
+}
 
 @media (max-width: 560px) {
-  .svc-card__art { height: 150px; }
-  .svc-card__char { height: 142px; }
-  .svc-card__char-img { height: 142px; }
-  .svc-card__body { padding: 18px 20px 20px; }
-  .svc-card__title { font-size: 1.375rem; }
+  .svc-card__art {
+    height: 150px;
+  }
+  .svc-card__char {
+    height: 142px;
+  }
+  .svc-card__char-img {
+    height: 142px;
+  }
+  .svc-card__body {
+    padding: 18px 20px 20px;
+  }
+  .svc-card__title {
+    font-size: 1.375rem;
+  }
 }
 
 /* Per-service theming */
-.od-svc--sec .svc-card__blob  { background: var(--od-sec-tint); }
-.od-svc--sec .svc-card__rule  { background: var(--od-sec); }
-.od-svc--sec .svc-card__icon  { background: var(--od-sec-tint); color: var(--od-sec-text); }
-.od-svc--sec .svc-card__cue   { color: var(--od-sec-text); }
-.od-svc--sec .svc-card__arrow { background: var(--od-sec-tint); color: var(--od-sec-text); }
-.od-svc--sec:hover .svc-card__arrow { background: var(--od-sec); color: #fff; }
+.od-svc--sec .svc-card__blob {
+  background: var(--od-sec-tint);
+}
+.od-svc--sec .svc-card__rule {
+  background: var(--od-sec);
+}
+.od-svc--sec .svc-card__icon {
+  background: var(--od-sec-tint);
+  color: var(--od-sec-text);
+}
+.od-svc--sec .svc-card__cue {
+  color: var(--od-sec-text);
+}
+.od-svc--sec .svc-card__arrow {
+  background: var(--od-sec-tint);
+  color: var(--od-sec-text);
+}
+.od-svc--sec:hover .svc-card__arrow {
+  background: var(--od-sec);
+  color: #fff;
+}
 
-.od-svc--acc .svc-card__blob  { background: var(--od-acc-tint); }
-.od-svc--acc .svc-card__rule  { background: var(--od-acc); }
-.od-svc--acc .svc-card__icon  { background: var(--od-acc-tint); color: var(--od-acc-text); }
-.od-svc--acc .svc-card__cue   { color: var(--od-acc-text); }
-.od-svc--acc .svc-card__arrow { background: var(--od-acc-tint); color: var(--od-acc-text); }
-.od-svc--acc:hover .svc-card__arrow { background: var(--od-acc); color: #fff; }
+.od-svc--acc .svc-card__blob {
+  background: var(--od-acc-tint);
+}
+.od-svc--acc .svc-card__rule {
+  background: var(--od-acc);
+}
+.od-svc--acc .svc-card__icon {
+  background: var(--od-acc-tint);
+  color: var(--od-acc-text);
+}
+.od-svc--acc .svc-card__cue {
+  color: var(--od-acc-text);
+}
+.od-svc--acc .svc-card__arrow {
+  background: var(--od-acc-tint);
+  color: var(--od-acc-text);
+}
+.od-svc--acc:hover .svc-card__arrow {
+  background: var(--od-acc);
+  color: #fff;
+}
 
-.od-svc--leg .svc-card__blob  { background: var(--od-leg-tint); }
-.od-svc--leg .svc-card__rule  { background: var(--od-leg); }
-.od-svc--leg .svc-card__icon  { background: var(--od-leg-tint); color: var(--od-leg-text); }
-.od-svc--leg .svc-card__cue   { color: var(--od-leg-text); }
-.od-svc--leg .svc-card__arrow { background: var(--od-leg-tint); color: var(--od-leg-text); }
-.od-svc--leg:hover .svc-card__arrow { background: var(--od-leg); color: #fff; }
+.od-svc--leg .svc-card__blob {
+  background: var(--od-leg-tint);
+}
+.od-svc--leg .svc-card__rule {
+  background: var(--od-leg);
+}
+.od-svc--leg .svc-card__icon {
+  background: var(--od-leg-tint);
+  color: var(--od-leg-text);
+}
+.od-svc--leg .svc-card__cue {
+  color: var(--od-leg-text);
+}
+.od-svc--leg .svc-card__arrow {
+  background: var(--od-leg-tint);
+  color: var(--od-leg-text);
+}
+.od-svc--leg:hover .svc-card__arrow {
+  background: var(--od-leg);
+  color: #fff;
+}
 
-.od-svc--tax .svc-card__blob  { background: var(--od-tax-tint); }
-.od-svc--tax .svc-card__rule  { background: var(--od-tax); }
-.od-svc--tax .svc-card__icon  { background: var(--od-tax-tint); color: var(--od-tax-text); }
-.od-svc--tax .svc-card__cue   { color: var(--od-tax-text); }
-.od-svc--tax .svc-card__arrow { background: var(--od-tax-tint); color: var(--od-tax-text); }
-.od-svc--tax:hover .svc-card__arrow { background: var(--od-tax); color: #fff; }
+.od-svc--tax .svc-card__blob {
+  background: var(--od-tax-tint);
+}
+.od-svc--tax .svc-card__rule {
+  background: var(--od-tax);
+}
+.od-svc--tax .svc-card__icon {
+  background: var(--od-tax-tint);
+  color: var(--od-tax-text);
+}
+.od-svc--tax .svc-card__cue {
+  color: var(--od-tax-text);
+}
+.od-svc--tax .svc-card__arrow {
+  background: var(--od-tax-tint);
+  color: var(--od-tax-text);
+}
+.od-svc--tax:hover .svc-card__arrow {
+  background: var(--od-tax);
+  color: #fff;
+}
 
-.od-svc--hr  .svc-card__blob  { background: var(--od-hr-tint); }
-.od-svc--hr  .svc-card__rule  { background: var(--od-hr); }
-.od-svc--hr  .svc-card__icon  { background: var(--od-hr-tint); color: var(--od-hr-text); }
-.od-svc--hr  .svc-card__cue   { color: var(--od-hr-text); }
-.od-svc--hr  .svc-card__arrow { background: var(--od-hr-tint); color: var(--od-hr-text); }
-.od-svc--hr:hover  .svc-card__arrow { background: var(--od-hr); color: #fff; }
+.od-svc--hr .svc-card__blob {
+  background: var(--od-hr-tint);
+}
+.od-svc--hr .svc-card__rule {
+  background: var(--od-hr);
+}
+.od-svc--hr .svc-card__icon {
+  background: var(--od-hr-tint);
+  color: var(--od-hr-text);
+}
+.od-svc--hr .svc-card__cue {
+  color: var(--od-hr-text);
+}
+.od-svc--hr .svc-card__arrow {
+  background: var(--od-hr-tint);
+  color: var(--od-hr-text);
+}
+.od-svc--hr:hover .svc-card__arrow {
+  background: var(--od-hr);
+  color: #fff;
+}
 
-.od-svc--mkt .svc-card__blob  { background: var(--od-mkt-tint); }
-.od-svc--mkt .svc-card__rule  { background: var(--od-mkt); }
-.od-svc--mkt .svc-card__icon  { background: var(--od-mkt-tint); color: var(--od-mkt-text); }
-.od-svc--mkt .svc-card__cue   { color: var(--od-mkt-text); }
-.od-svc--mkt .svc-card__arrow { background: var(--od-mkt-tint); color: var(--od-mkt-text); }
-.od-svc--mkt:hover .svc-card__arrow { background: var(--od-mkt); color: var(--od-ink); }
+.od-svc--mkt .svc-card__blob {
+  background: var(--od-mkt-tint);
+}
+.od-svc--mkt .svc-card__rule {
+  background: var(--od-mkt);
+}
+.od-svc--mkt .svc-card__icon {
+  background: var(--od-mkt-tint);
+  color: var(--od-mkt-text);
+}
+.od-svc--mkt .svc-card__cue {
+  color: var(--od-mkt-text);
+}
+.od-svc--mkt .svc-card__arrow {
+  background: var(--od-mkt-tint);
+  color: var(--od-mkt-text);
+}
+.od-svc--mkt:hover .svc-card__arrow {
+  background: var(--od-mkt);
+  color: var(--od-ink);
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .svc-card, .svc-card__blob, .svc-card__rule, .svc-card__arrow { transition: none; }
-  .svc-card:hover { transform: none; }
-  .svc-card:hover .svc-card__blob { transform: none; }
-  .svc-card__rule { transform: scaleX(1); }
+  .svc-card,
+  .svc-card__blob,
+  .svc-card__rule,
+  .svc-card__arrow {
+    transition: none;
+  }
+  .svc-card:hover {
+    transform: none;
+  }
+  .svc-card:hover .svc-card__blob {
+    transform: none;
+  }
+  .svc-card__rule {
+    transform: scaleX(1);
+  }
 }

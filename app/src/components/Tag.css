@@ -8,9 +8,27 @@
   font-weight: 700;
   letter-spacing: 0.04em;
 }
-.od-tag--sec { background: var(--od-sec-tint);  color: var(--od-sec-text); }
-.od-tag--acc { background: var(--od-acc-tint);  color: var(--od-acc-text); }
-.od-tag--leg { background: var(--od-leg-tint);  color: var(--od-leg-text); }
-.od-tag--tax { background: var(--od-tax-tint);  color: var(--od-tax-text); }
-.od-tag--hr  { background: var(--od-hr-tint);   color: var(--od-hr-text);  }
-.od-tag--mkt { background: var(--od-mkt-tint);  color: var(--od-mkt-text); }
+.od-tag--sec {
+  background: var(--od-sec-tint);
+  color: var(--od-sec-text);
+}
+.od-tag--acc {
+  background: var(--od-acc-tint);
+  color: var(--od-acc-text);
+}
+.od-tag--leg {
+  background: var(--od-leg-tint);
+  color: var(--od-leg-text);
+}
+.od-tag--tax {
+  background: var(--od-tax-tint);
+  color: var(--od-tax-text);
+}
+.od-tag--hr {
+  background: var(--od-hr-tint);
+  color: var(--od-hr-text);
+}
+.od-tag--mkt {
+  background: var(--od-mkt-tint);
+  color: var(--od-mkt-text);
+}

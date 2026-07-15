@@ -3,9 +3,9 @@ import "./TrustStrip.css";
 
 const STATS = [
   { to: 150, suffix: "+", label: "Businesses supported", accent: "ember" },
-  { to: 6,                label: "Services, one roof",    accent: "teal" },
+  { to: 6, label: "Services, one roof", accent: "teal" },
   { to: 100, suffix: "%", label: "Compliance visibility", accent: "sec" },
-  { to: 1,                label: "Point of contact",      accent: "acc" },
+  { to: 1, label: "Point of contact", accent: "acc" },
 ];
 
 export default function TrustStrip() {

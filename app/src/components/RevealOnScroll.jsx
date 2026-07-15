@@ -5,7 +5,12 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-export default function RevealOnScroll({ children, delay = 0, className, y = 24 }) {
+export default function RevealOnScroll({
+  children,
+  delay = 0,
+  className,
+  y = 24,
+}) {
   const ref = useRef(null);
 
   useGSAP(
@@ -28,13 +33,13 @@ export default function RevealOnScroll({ children, delay = 0, className, y = 24 
               start: "top bottom-=60",
               once: true,
             },
-          }
+          },
         );
       });
 
       return () => mm.revert();
     },
-    { scope: ref, dependencies: [delay, y] }
+    { scope: ref, dependencies: [delay, y] },
   );
 
   return (

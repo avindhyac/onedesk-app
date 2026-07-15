@@ -1,12 +1,32 @@
-.page-hero { background: var(--od-paper-2); border-bottom: 1px solid var(--od-line); }
-.page-hero--seamless { border-bottom: none; }
-.page-hero--dark { background: var(--od-ink); position: relative; overflow: hidden; border-bottom: none; }
+.page-hero {
+  background: var(--od-paper-2);
+  border-bottom: 1px solid var(--od-line);
+}
+.page-hero--seamless {
+  border-bottom: none;
+}
+.page-hero--dark {
+  background: var(--od-ink);
+  position: relative;
+  overflow: hidden;
+  border-bottom: none;
+}
 
 .page-hero__glow {
-  position: absolute; inset: 0; pointer-events: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background:
-    radial-gradient(600px 400px at 80% 0%, rgba(238, 118, 50, 0.18), transparent 60%),
-    radial-gradient(400px 300px at 0% 100%, rgba(111, 156, 169, 0.18), transparent 60%);
+    radial-gradient(
+      600px 400px at 80% 0%,
+      rgba(238, 118, 50, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      400px 300px at 0% 100%,
+      rgba(111, 156, 169, 0.18),
+      transparent 60%
+    );
 }
 
 .page-hero__inner {
@@ -25,8 +45,12 @@
   font-weight: 700;
   color: var(--od-ink);
 }
-.page-hero--dark .page-hero__title { color: #fff; }
-.page-hero__title .dot { color: var(--od-orange); }
+.page-hero--dark .page-hero__title {
+  color: #fff;
+}
+.page-hero__title .dot {
+  color: var(--od-orange);
+}
 
 .page-hero__subtitle {
   margin: 22px auto 0;
@@ -35,4 +59,6 @@
   color: var(--od-slate);
   max-width: 54ch;
 }
-.page-hero--dark .page-hero__subtitle { color: rgba(255, 255, 255, 0.68); }
+.page-hero--dark .page-hero__subtitle {
+  color: rgba(255, 255, 255, 0.68);
+}

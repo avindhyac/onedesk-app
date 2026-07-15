@@ -34,7 +34,7 @@ export default function CountUp({ to, suffix = "" }) {
           requestAnimationFrame(tick);
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     observer.observe(el);
     return () => observer.disconnect();

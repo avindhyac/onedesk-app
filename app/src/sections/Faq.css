@@ -1,7 +1,11 @@
-.faq-section { background: var(--od-white); }
+.faq-section {
+  background: var(--od-white);
+}
 .faq-section__inner {
   max-width: var(--od-container-narrow);
   margin: 0 auto;
   padding: var(--od-section-y) var(--od-gutter);
 }
-.faq-section__list { margin-top: 36px; }
+.faq-section__list {
+  margin-top: 36px;
+}

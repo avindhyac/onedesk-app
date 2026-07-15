@@ -44,7 +44,9 @@ export default function Layout() {
       e.preventDefault();
       const headerH =
         parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue("--header-h"),
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-h",
+          ),
           10,
         ) || 72;
       const smoother = ScrollSmoother.get();

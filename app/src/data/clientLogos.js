@@ -12,5 +12,4 @@ export const CLIENT_LOGOS = [
   { name: "Cobalt & Co" },
   { name: "Meridian" },
   { name: "Northwind" },
-
 ];

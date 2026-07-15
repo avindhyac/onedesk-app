@@ -37,7 +37,10 @@
   color: var(--od-ink);
   transition: background var(--od-dur) var(--od-ease);
 }
-.faq-item--open .faq-item__icon { background: var(--od-orange-100); color: var(--od-orange); }
+.faq-item--open .faq-item__icon {
+  background: var(--od-orange-100);
+  color: var(--od-orange);
+}
 
 .faq-item__body {
   padding: 0 0 20px;

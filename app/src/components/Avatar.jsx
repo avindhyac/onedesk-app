@@ -1,7 +1,12 @@
 import "./Avatar.css";
 
 function initials(name) {
-  return name.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  return name
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
 }
 
 export default function Avatar({ name, service = "sec", size = 48 }) {

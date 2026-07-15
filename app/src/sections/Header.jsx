@@ -4,9 +4,9 @@ import Button from "../components/Button";
 import "./Header.css";
 
 const NAV_LINKS = [
-  { to: "/about",       label: "About us" },
-  { to: "/services",    label: "Services" },
-  { to: "/pricing",     label: "Pricing" },
+  { to: "/about", label: "About us" },
+  { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/marketplace", label: "Marketplace" },
 ];
 
@@ -34,7 +34,9 @@ export default function Header() {
             <NavLink
               key={link.to}
               to={link.to}
-              className={({ isActive }) => `header__link${isActive ? " header__link--active" : ""}`}
+              className={({ isActive }) =>
+                `header__link${isActive ? " header__link--active" : ""}`
+              }
             >
               {link.label}
             </NavLink>
@@ -64,14 +66,23 @@ export default function Header() {
           <NavLink
             key={link.to}
             to={link.to}
-            className={({ isActive }) => `header__sheet-link${isActive ? " header__sheet-link--active" : ""}`}
+            className={({ isActive }) =>
+              `header__sheet-link${isActive ? " header__sheet-link--active" : ""}`
+            }
             onClick={close}
           >
             {link.label}
           </NavLink>
         ))}
         <div className="header__sheet-ctas">
-          <Button variant="primary" size="md" as={Link} to="/contact" block onClick={close}>
+          <Button
+            variant="primary"
+            size="md"
+            as={Link}
+            to="/contact"
+            block
+            onClick={close}
+          >
             Get started
           </Button>
         </div>

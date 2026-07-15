@@ -1,6 +1,11 @@
 import "./Eyebrow.css";
 
-export default function Eyebrow({ children, tone = "ember", className = "", ...rest }) {
+export default function Eyebrow({
+  children,
+  tone = "ember",
+  className = "",
+  ...rest
+}) {
   const cls = [
     "od-eyebrow",
     tone === "harbor" ? "od-eyebrow--harbor" : "",

@@ -8,13 +8,30 @@ function Card({ t }) {
       className="testimonial-card"
       style={{ background: t.bg, borderColor: t.border, borderTopColor: t.top }}
     >
-      <div className="testimonial-card__quote" style={{ color: t.quoteColor }}>&ldquo;</div>
+      <div className="testimonial-card__quote" style={{ color: t.quoteColor }}>
+        &ldquo;
+      </div>
       <p style={{ color: t.text }}>{t.quote}</p>
       <div className="testimonial-card__person">
-        <div className="testimonial-card__avatar" style={{ background: t.avatarBg, color: t.avatarFg }}>{t.initial}</div>
+        <div
+          className="testimonial-card__avatar"
+          style={{ background: t.avatarBg, color: t.avatarFg }}
+        >
+          {t.initial}
+        </div>
         <div>
-          <div className="testimonial-card__name" style={{ color: t.nameColor }}>{t.name}</div>
-          <div className="testimonial-card__role" style={{ color: t.roleColor }}>{t.role}</div>
+          <div
+            className="testimonial-card__name"
+            style={{ color: t.nameColor }}
+          >
+            {t.name}
+          </div>
+          <div
+            className="testimonial-card__role"
+            style={{ color: t.roleColor }}
+          >
+            {t.role}
+          </div>
         </div>
       </div>
     </div>
@@ -25,7 +42,10 @@ function Row({ items, animation, duration }) {
   const doubled = [...items, ...items];
   return (
     <div className="testimonials__carousel">
-      <div className="testimonials__track" style={{ animation: `${animation} ${duration}s linear infinite` }}>
+      <div
+        className="testimonials__track"
+        style={{ animation: `${animation} ${duration}s linear infinite` }}
+      >
         {doubled.map((t, i) => (
           <Card key={`${t.name}-${i}`} t={t} />
         ))}

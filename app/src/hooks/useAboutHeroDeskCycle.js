@@ -42,18 +42,30 @@ export default function useAboutHeroDeskCycle(scopeRef) {
         items.forEach((_, index) => {
           const next = (index + 1) % items.length;
 
-          tl.to(items[index], {
-            autoAlpha: 0,
-            x: -OFFSET_X * 0.55,
-            y: OFFSET_Y,
-            scale: 0.985,
-            duration: EXIT,
-            ease: "power2.inOut",
-          }, `+=${HOLD}`).fromTo(
+          tl.to(
+            items[index],
+            {
+              autoAlpha: 0,
+              x: -OFFSET_X * 0.55,
+              y: OFFSET_Y,
+              scale: 0.985,
+              duration: EXIT,
+              ease: "power2.inOut",
+            },
+            `+=${HOLD}`,
+          ).fromTo(
             items[next],
             { autoAlpha: 0, x: OFFSET_X, y: OFFSET_Y, scale: 0.985 },
-            { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: ENTER, ease: "power3.out", immediateRender: false },
-            "-=0.28"
+            {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              duration: ENTER,
+              ease: "power3.out",
+              immediateRender: false,
+            },
+            "-=0.28",
           );
         });
 
@@ -67,7 +79,7 @@ export default function useAboutHeroDeskCycle(scopeRef) {
 
       return () => mm.revert();
     },
-    { scope: scopeRef }
+    { scope: scopeRef },
   );
 
   return register;

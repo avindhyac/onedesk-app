@@ -7,7 +7,11 @@
   --header-h: 72px;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -36,7 +40,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: var(--od-font-display);
   color: var(--od-ink);
@@ -45,9 +54,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
 }
 
-p { margin: 0; }
+p {
+  margin: 0;
+}
 
-a { color: var(--od-teal-600); text-decoration: none; }
+a {
+  color: var(--od-teal-600);
+  text-decoration: none;
+}
 
 /* Visible keyboard focus for all interactive elements. Mouse clicks don't
    trigger :focus-visible, so this only shows for keyboard/AT users. Low
@@ -58,16 +72,45 @@ a { color: var(--od-teal-600); text-decoration: none; }
   border-radius: 4px;
 }
 
-img { max-width: 100%; }
+img {
+  max-width: 100%;
+}
 
-::selection { background: var(--od-orange-300); color: var(--od-ink); }
+::selection {
+  background: var(--od-orange-300);
+  color: var(--od-ink);
+}
 
-@keyframes odFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-@keyframes odScrollL { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes odScrollR { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes odFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes odScrollL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes odScrollR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

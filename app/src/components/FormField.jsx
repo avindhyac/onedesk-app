@@ -1,10 +1,23 @@
 import "./FormField.css";
 
-export function Input({ label, type = "text", placeholder, required, icon, id, ...rest }) {
+export function Input({
+  label,
+  type = "text",
+  placeholder,
+  required,
+  icon,
+  id,
+  ...rest
+}) {
   const uid = id || label?.toLowerCase().replace(/\s+/g, "-");
   return (
     <div className="od-field">
-      {label && <label className="od-field__label" htmlFor={uid}>{label}{required && <span className="od-field__req">*</span>}</label>}
+      {label && (
+        <label className="od-field__label" htmlFor={uid}>
+          {label}
+          {required && <span className="od-field__req">*</span>}
+        </label>
+      )}
       <div className="od-field__wrap">
         {icon && <iconify-icon icon={icon} className="od-field__icon" />}
         <input
@@ -24,8 +37,18 @@ export function Textarea({ label, rows = 4, placeholder, id, ...rest }) {
   const uid = id || label?.toLowerCase().replace(/\s+/g, "-");
   return (
     <div className="od-field">
-      {label && <label className="od-field__label" htmlFor={uid}>{label}</label>}
-      <textarea id={uid} rows={rows} placeholder={placeholder} className="od-field__textarea" {...rest} />
+      {label && (
+        <label className="od-field__label" htmlFor={uid}>
+          {label}
+        </label>
+      )}
+      <textarea
+        id={uid}
+        rows={rows}
+        placeholder={placeholder}
+        className="od-field__textarea"
+        {...rest}
+      />
     </div>
   );
 }
@@ -34,10 +57,16 @@ export function Select({ label, options = [], id, ...rest }) {
   const uid = id || label?.toLowerCase().replace(/\s+/g, "-");
   return (
     <div className="od-field">
-      {label && <label className="od-field__label" htmlFor={uid}>{label}</label>}
+      {label && (
+        <label className="od-field__label" htmlFor={uid}>
+          {label}
+        </label>
+      )}
       <select id={uid} className="od-field__select" {...rest}>
         {options.map((o) => (
-          <option key={o} value={o}>{o}</option>
+          <option key={o} value={o}>
+            {o}
+          </option>
         ))}
       </select>
     </div>

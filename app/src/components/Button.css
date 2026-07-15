@@ -19,41 +19,117 @@
     background var(--od-dur) var(--od-ease),
     border-color var(--od-dur) var(--od-ease);
 }
-.od-btn:hover:not([disabled]) { transform: translateY(-2px); }
-.od-btn:active:not([disabled]) { transform: translateY(0); }
-.od-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--od-orange) 40%, white); }
-.od-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.od-btn:hover:not([disabled]) {
+  transform: translateY(-2px);
+}
+.od-btn:active:not([disabled]) {
+  transform: translateY(0);
+}
+.od-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--od-orange) 40%, white);
+}
+.od-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
 
 /* Sizes */
-.od-btn--sm { padding: 9px 18px;  font-size: 14px; min-height: 44px; }
-.od-btn--md { padding: 13px 26px; font-size: 16px; min-height: 44px; }
-.od-btn--lg { padding: 17px 34px; font-size: 18px; min-height: 52px; }
-.od-btn--block { display: flex; width: 100%; }
+.od-btn--sm {
+  padding: 9px 18px;
+  font-size: 14px;
+  min-height: 44px;
+}
+.od-btn--md {
+  padding: 13px 26px;
+  font-size: 16px;
+  min-height: 44px;
+}
+.od-btn--lg {
+  padding: 17px 34px;
+  font-size: 18px;
+  min-height: 52px;
+}
+.od-btn--block {
+  display: flex;
+  width: 100%;
+}
 
 /* Variants */
-.od-btn--primary  { background: var(--od-orange); color: var(--od-ink); box-shadow: var(--od-shadow-brand); }
+.od-btn--primary {
+  background: var(--od-orange);
+  color: var(--od-ink);
+  box-shadow: var(--od-shadow-brand);
+}
 /* Keep the bright Ember fill on hover so the dark-ink label stays ≥4.5:1 (AA);
    feedback comes from the lift (base .od-btn:hover) + a stronger glow. */
-.od-btn--primary:hover:not([disabled])  { box-shadow: 0 18px 40px rgba(238,118,50,0.42); }
+.od-btn--primary:hover:not([disabled]) {
+  box-shadow: 0 18px 40px rgba(238, 118, 50, 0.42);
+}
 
 /* Teal is a light fill like Ember, so it carries a dark-ink label (≥4.5:1, AA);
    hover keeps the fill and leans on the lift + shadow rather than darkening. */
-.od-btn--secondary { background: var(--od-teal);  color: var(--od-ink); box-shadow: var(--od-shadow-sm); }
-.od-btn--secondary:hover:not([disabled]) { box-shadow: var(--od-shadow-md); }
+.od-btn--secondary {
+  background: var(--od-teal);
+  color: var(--od-ink);
+  box-shadow: var(--od-shadow-sm);
+}
+.od-btn--secondary:hover:not([disabled]) {
+  box-shadow: var(--od-shadow-md);
+}
 
-.od-btn--dark     { background: var(--od-ink);    color: #fff; box-shadow: var(--od-shadow-sm); }
-.od-btn--dark:hover:not([disabled]) { background: var(--od-ink-2); }
+.od-btn--dark {
+  background: var(--od-ink);
+  color: #fff;
+  box-shadow: var(--od-shadow-sm);
+}
+.od-btn--dark:hover:not([disabled]) {
+  background: var(--od-ink-2);
+}
 
-.od-btn--outline  { background: transparent; color: var(--od-ink); border-color: var(--od-line-strong); }
-.od-btn--outline:hover:not([disabled]) { background: var(--od-paper-2); }
+.od-btn--outline {
+  background: transparent;
+  color: var(--od-ink);
+  border-color: var(--od-line-strong);
+}
+.od-btn--outline:hover:not([disabled]) {
+  background: var(--od-paper-2);
+}
 
-.od-btn--ghost    { background: transparent; color: var(--od-ink); }
-.od-btn--ghost:hover:not([disabled]) { background: var(--od-paper-2); }
+.od-btn--ghost {
+  background: transparent;
+  color: var(--od-ink);
+}
+.od-btn--ghost:hover:not([disabled]) {
+  background: var(--od-paper-2);
+}
 
-.od-btn--on-dark  { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.25); }
-.od-btn--on-dark:hover:not([disabled]) { background: rgba(255,255,255,0.22); }
+.od-btn--on-dark {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.od-btn--on-dark:hover:not([disabled]) {
+  background: rgba(255, 255, 255, 0.22);
+}
 
 /* Dot & icon slots */
-.od-btn__dot  { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.75; flex-shrink: 0; }
-.od-btn__icon { display: inline-flex; align-items: center; justify-content: center; width: 1.15em; height: 1.15em; }
-.od-btn__icon svg { width: 100%; height: 100%; }
+.od-btn__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+.od-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15em;
+  height: 1.15em;
+}
+.od-btn__icon svg {
+  width: 100%;
+  height: 100%;
+}

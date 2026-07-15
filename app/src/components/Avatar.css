@@ -7,9 +7,27 @@
   font-weight: 800;
   flex-shrink: 0;
 }
-.od-avatar--sec { background: var(--od-sec-tint);  color: var(--od-sec-text); }
-.od-avatar--acc { background: var(--od-acc-tint);  color: var(--od-acc-text); }
-.od-avatar--leg { background: var(--od-leg-tint);  color: var(--od-leg-text); }
-.od-avatar--tax { background: var(--od-tax-tint);  color: var(--od-tax-text); }
-.od-avatar--hr  { background: var(--od-hr-tint);   color: var(--od-hr-text);  }
-.od-avatar--mkt { background: var(--od-mkt-tint);  color: var(--od-mkt-text); }
+.od-avatar--sec {
+  background: var(--od-sec-tint);
+  color: var(--od-sec-text);
+}
+.od-avatar--acc {
+  background: var(--od-acc-tint);
+  color: var(--od-acc-text);
+}
+.od-avatar--leg {
+  background: var(--od-leg-tint);
+  color: var(--od-leg-text);
+}
+.od-avatar--tax {
+  background: var(--od-tax-tint);
+  color: var(--od-tax-text);
+}
+.od-avatar--hr {
+  background: var(--od-hr-tint);
+  color: var(--od-hr-text);
+}
+.od-avatar--mkt {
+  background: var(--od-mkt-tint);
+  color: var(--od-mkt-text);
+}

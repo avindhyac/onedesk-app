@@ -29,52 +29,92 @@ export default function EnquiryModal({ firm, open, onClose }) {
       ref={ref}
       className="enquiry"
       onClose={onClose}
-      onClick={(e) => { if (e.target === ref.current) onClose(); }}
+      onClick={(e) => {
+        if (e.target === ref.current) onClose();
+      }}
       aria-labelledby="enquiry-title"
     >
       <div className="enquiry__panel">
-        <button type="button" className="enquiry__close" onClick={onClose} aria-label="Close enquiry">
+        <button
+          type="button"
+          className="enquiry__close"
+          onClick={onClose}
+          aria-label="Close enquiry"
+        >
           <iconify-icon icon="lucide:x" />
         </button>
 
         {sent ? (
           <div className="enquiry__success">
-            <span className="enquiry__success-icon"><iconify-icon icon="lucide:check" /></span>
-            <h2 className="enquiry__title" id="enquiry-title">Enquiry received.</h2>
+            <span className="enquiry__success-icon">
+              <iconify-icon icon="lucide:check" />
+            </span>
+            <h2 className="enquiry__title" id="enquiry-title">
+              Enquiry received.
+            </h2>
             <p className="enquiry__intro">
               {firm
                 ? `A OneDesk specialist will introduce you to ${firm.name} within one business day.`
                 : "A OneDesk specialist will reach out within one business day to match you with the right firm."}
             </p>
-            <Button variant="primary" onClick={onClose}>Done</Button>
+            <Button variant="primary" onClick={onClose}>
+              Done
+            </Button>
           </div>
         ) : (
           <>
             <div className="enquiry__head">
               {firm && (
-                <span className={`enquiry__badge od-tag od-tag--${firm.service}`}>
+                <span
+                  className={`enquiry__badge od-tag od-tag--${firm.service}`}
+                >
                   {firm.loc.split(" · ")[0]}
                 </span>
               )}
-              <h2 className="enquiry__title" id="enquiry-title">{heading}</h2>
+              <h2 className="enquiry__title" id="enquiry-title">
+                {heading}
+              </h2>
               <p className="enquiry__intro">{intro}</p>
             </div>
 
-            <form className="enquiry__form" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+            <form
+              className="enquiry__form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSent(true);
+              }}
+            >
               <div className="enquiry__grid">
                 <Input label="Full name" placeholder="Jordan Rivera" required />
-                <Input label="Work email" type="email" icon="lucide:mail" placeholder="you@company.com" required />
+                <Input
+                  label="Work email"
+                  type="email"
+                  icon="lucide:mail"
+                  placeholder="you@company.com"
+                  required
+                />
               </div>
               <Textarea
-                label={firm ? `What do you need from ${firm.name}?` : "What do you need help with?"}
+                label={
+                  firm
+                    ? `What do you need from ${firm.name}?`
+                    : "What do you need help with?"
+                }
                 rows={3}
                 placeholder="A short description of what you're looking for…"
               />
-              <Button variant="primary" type="submit" size="lg" block iconRight="lucide:arrow-right">
+              <Button
+                variant="primary"
+                type="submit"
+                size="lg"
+                block
+                iconRight="lucide:arrow-right"
+              >
                 {firm ? "Request an intro" : "Request a match"}
               </Button>
               <p className="enquiry__fineprint">
-                <iconify-icon icon="lucide:shield-check" /> No obligation. We only share your details with the firm you choose.
+                <iconify-icon icon="lucide:shield-check" /> No obligation. We
+                only share your details with the firm you choose.
               </p>
             </form>
           </>

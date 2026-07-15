@@ -12,34 +12,28 @@ import charLegalSeated from "../assets/char/legal-seated.webp";
 import charMarketingSeated from "../assets/char/marketing-seated.webp";
 
 export const characters = {
-  secretarial: 
-    {
-      stand: charSecretarial,
-      sit: charSecretarialSeated
-    },
-  tax:
-    {
-      stand: charTax,
-      sit: charTaxSeated
-    },
-  accounting:
-  {
-    stand: charAccounting,
-    sit: charAccountingSeated
+  secretarial: {
+    stand: charSecretarial,
+    sit: charSecretarialSeated,
   },
-  hr: 
-   {
-     stand: charHr,
-     sit: charHrSeated
-   },
-  legal: 
-   {
-     stand: charLegal,
-     sit: charLegalSeated
-   },
-  marketing:
-   {
+  tax: {
+    stand: charTax,
+    sit: charTaxSeated,
+  },
+  accounting: {
+    stand: charAccounting,
+    sit: charAccountingSeated,
+  },
+  hr: {
+    stand: charHr,
+    sit: charHrSeated,
+  },
+  legal: {
+    stand: charLegal,
+    sit: charLegalSeated,
+  },
+  marketing: {
     stand: charMarketing,
-    sit: charMarketingSeated
-   }
+    sit: charMarketingSeated,
+  },
 };

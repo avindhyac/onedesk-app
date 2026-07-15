@@ -36,10 +36,15 @@ export default function ServicesPage() {
             layout="row"
             variant="light"
             items={[
-              { to: 6,                label: "Specialist teams",  accent: "sec" },
-              { to: 50,               label: "Industries served", accent: "acc" },
-              { to: 1,                label: "Monthly bill",      accent: "tax" },
-              { to: 100, suffix: "%", label: "In-house experts",  accent: "mkt" },
+              { to: 6, label: "Specialist teams", accent: "sec" },
+              { to: 50, label: "Industries served", accent: "acc" },
+              { to: 1, label: "Monthly bill", accent: "tax" },
+              {
+                to: 100,
+                suffix: "%",
+                label: "In-house experts",
+                accent: "mkt",
+              },
             ]}
           />
         </div>
@@ -48,9 +53,14 @@ export default function ServicesPage() {
       {SERVICES.map((s, i) => {
         const flip = i % 2 === 1;
         return (
-          <section key={s.key} className={`svcp-row ${flip ? "svcp-row--white" : "svcp-row--paper"}`}>
+          <section
+            key={s.key}
+            className={`svcp-row ${flip ? "svcp-row--white" : "svcp-row--paper"}`}
+          >
             <div className="svcp-row__inner">
-              <div className={`svcp-row__art ${flip ? "svcp-row__art--right" : ""}`}>
+              <div
+                className={`svcp-row__art ${flip ? "svcp-row__art--right" : ""}`}
+              >
                 <ServiceFanCards
                   service={s.key}
                   title={s.title}
@@ -63,15 +73,26 @@ export default function ServicesPage() {
               </div>
               <div className="svcp-row__copy">
                 <Tag service={s.key} />
-                <Link to={`/services/${s.slug}`} className="svcp-row__tagline-link">
-                  <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>{s.tagline}</h2>
+                <Link
+                  to={`/services/${s.slug}`}
+                  className="svcp-row__tagline-link"
+                >
+                  <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>
+                    {s.tagline}
+                  </h2>
                 </Link>
                 <p className="svcp-row__desc">{s.desc}</p>
                 <div className="svcp-row__cta">
-                  <Button variant="primary" size="md" iconRight="lucide:arrow-right" as={Link} to={`/services/${s.slug}`}>
+                  <Button
+                    variant="primary"
+                    size="md"
+                    iconRight="lucide:arrow-right"
+                    as={Link}
+                    to={`/services/${s.slug}`}
+                  >
                     Learn more
                   </Button>
-                  <Button variant="outline" size="md" as={Link} to='/contact'>
+                  <Button variant="outline" size="md" as={Link} to="/contact">
                     Talk to {s.title}
                   </Button>
                 </div>
