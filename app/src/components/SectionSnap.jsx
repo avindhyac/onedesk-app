@@ -7,8 +7,12 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 // native touch scrolling, so mobile stays on plain (smoothed) scrolling.
 const MIN_SNAP_WIDTH = 768;
 
-// How long scrolling must be quiet before we treat it as "stopped".
-const SETTLE_MS = 140;
+// How long scrolling must be quiet before we treat it as "stopped". A slightly
+// longer pause feels less grabby with ScrollSmoother's lerped scroll position.
+const SETTLE_MS = 220;
+
+// Don't snap while the wheel/trackpad still has meaningful momentum.
+const MAX_SETTLE_VELOCITY = 0.1;
 
 /**
  * Gently "frames" the section nearest to where the user stops scrolling: on
@@ -40,6 +44,10 @@ export default function SectionSnap() {
     let rafId;
     let resizeTimer;
     let settleTimer;
+    let lastScrollY = window.scrollY;
+    let lastScrollTime = performance.now();
+    let scrollVelocity = 0;
+    let isSnapping = false;
     const timeouts = [];
 
     const build = () => {
@@ -71,13 +79,26 @@ export default function SectionSnap() {
         targets.push(Math.max(0, Math.round(target)));
       });
 
-      thresholdPx = vh * 0.2;
+      thresholdPx = vh * 0.16;
     };
 
     const onScroll = () => {
+      const now = performance.now();
+      const yNow = window.scrollY;
+      const dt = Math.max(16, now - lastScrollTime);
+      scrollVelocity = Math.abs(yNow - lastScrollY) / dt;
+      lastScrollY = yNow;
+      lastScrollTime = now;
+
+      if (isSnapping) return;
+
       clearTimeout(settleTimer);
       settleTimer = setTimeout(() => {
         if (!targets.length || window.innerWidth < MIN_SNAP_WIDTH) return;
+        if (scrollVelocity > MAX_SETTLE_VELOCITY) {
+          onScroll();
+          return;
+        }
 
         // Native scrollY, not smoother.scrollTop() - the latter reflects the
         // rendered (lerped) position, which can still be catching up to the
@@ -97,9 +118,17 @@ export default function SectionSnap() {
         // Already there (or too far to count as "settled near a boundary").
         if (closestDist <= 1 || closestDist > thresholdPx) return;
 
+        isSnapping = true;
         const smoother = ScrollSmoother.get();
         if (smoother) smoother.scrollTo(closest, true);
         else window.scrollTo({ top: closest, behavior: "smooth" });
+
+        window.setTimeout(() => {
+          isSnapping = false;
+          lastScrollY = window.scrollY;
+          lastScrollTime = performance.now();
+          scrollVelocity = 0;
+        }, 420);
       }, SETTLE_MS);
     };
 
