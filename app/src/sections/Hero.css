@@ -124,8 +124,8 @@
   width: 34%;
   aspect-ratio: 1 / 1.05;
 }
-.hero__table-seat--left { left: 12%; top: 8%; }
-.hero__table-seat--right { right: 12%; top: 8%; }
+.hero__table-seat--left { left: 12%; top: 4%; }
+.hero__table-seat--right { right: 12%; top: 4%; }
 
 .hero__table-char {
   position: absolute;

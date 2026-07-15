@@ -148,7 +148,7 @@
 .about-hero__desk {
   left: 50%;
   bottom: -2%;
-  width: 100%;
+  width: 90%;
   height: auto;
   transform: translateX(-50%);
   z-index: 3;
