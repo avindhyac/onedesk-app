@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./ServiceFanCards.css";
 
@@ -20,13 +20,22 @@ export default function ServiceFanCards({
   const serviceCards = services.filter((item) => item.key !== service).slice(0, 4);
   const supportItems = supportingCards === "services" ? serviceCards : points;
 
-  const showActive = () => {
-    if (!character?.active) return;
+  const addActiveCharacterTransition = useCallback((tl, duration, startAt = 0) => {
+    if (!character?.active || !idleRef.current || !activeRef.current) return;
+
     gsap.killTweensOf([idleRef.current, activeRef.current]);
-    gsap.timeline({ defaults: { duration: 0.2, ease: "power3.out" } })
-      .to(idleRef.current, { autoAlpha: 0, y: 8, scale: 0.98 }, 0)
-      .fromTo(activeRef.current, { autoAlpha: 0, y: 12, scale: 0.97 }, { autoAlpha: 1, y: 0, scale: 1 }, 0.03);
-  };
+    tl.to(idleRef.current, {
+      autoAlpha: 0,
+      y: 8,
+      scale: 0.98,
+      duration,
+      ease: "power2.out",
+    }, startAt).fromTo(activeRef.current,
+      { autoAlpha: 0, y: 12, scale: 0.97 },
+      { autoAlpha: 1, y: 0, scale: 1, duration, ease: "power3.out", immediateRender: false },
+      startAt
+    );
+  }, [character?.active]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -34,26 +43,18 @@ export default function ServiceFanCards({
     if (!root || !cards.length) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fanDuration = reduce ? 0 : 0.5;
+    const fanStagger = reduce ? 0 : 0.035;
     const fanVars = {
       x: (i) => (i - (cards.length - 1) / 2) * 25,
       y: (i) => Math.abs(i - (cards.length - 1) / 2) * 8,
       rotation: (i) => (i - (cards.length - 1) / 2) * 8,
-      duration: reduce ? 0 : 0.5,
+      duration: fanDuration,
       ease: "back.out(1.4)",
-      stagger: reduce ? 0 : 0.035,
-      onComplete: () => {
-        showActive();
-        gsap.to(supportingCards, {
-          filter: "grayscale(1)",
-          opacity: 0.72,
-          duration: reduce ? 0 : 0.35,
-          ease: "power2.out",
-          stagger: reduce ? 0 : 0.025,
-        });
-      },
+      stagger: fanStagger,
     };
 
-    const supportingCards = cards.slice(1);
+    const supportingCardEls = cards.slice(1);
 
     gsap.set(cards, {
       x: (i) => (i - (cards.length - 1) / 2) * 7,
@@ -61,18 +62,30 @@ export default function ServiceFanCards({
       rotation: (i) => (i - (cards.length - 1) / 2) * 1.5,
       transformOrigin: "50% 88%",
     });
-    gsap.set(supportingCards, { filter: "grayscale(0)", opacity: 1 });
+    gsap.set(supportingCardEls, { filter: "grayscale(0)", opacity: 1 });
 
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting || revealedRef.current) return;
       revealedRef.current = true;
-      gsap.to(cards, fanVars);
+
+      const tl = gsap.timeline();
+      tl.to(cards, fanVars, 0)
+        .to(supportingCardEls, {
+          filter: "grayscale(1)",
+          opacity: 0.72,
+          duration: fanDuration,
+          ease: "power2.out",
+          stagger: fanStagger,
+        }, fanStagger);
+
+      addActiveCharacterTransition(tl, fanDuration, 0);
+
       observer.disconnect();
     }, { threshold: 0.35 });
 
     observer.observe(root);
     return () => observer.disconnect();
-  }, [supportItems.length]);
+  }, [supportItems.length, addActiveCharacterTransition]);
 
   return (
     <div

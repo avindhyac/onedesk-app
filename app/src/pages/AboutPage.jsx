@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Avatar from "../components/Avatar";
@@ -7,8 +8,16 @@ import Eyebrow from "../components/Eyebrow";
 import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
 import CtaBand from "../sections/CtaBand";
+import useAboutHeroDeskCycle from "../hooks/useAboutHeroDeskCycle";
 
-import illoHero   from "../assets/char/About/OD_Web_AboutUs-10.webp";
+import aboutAdvisor05 from "../assets/char/About/OD_Web_AboutUs-05.webp";
+import aboutAdvisor06 from "../assets/char/About/OD_Web_AboutUs-06.webp";
+import aboutAdvisor07 from "../assets/char/About/OD_Web_AboutUs-07.webp";
+import aboutAdvisor08 from "../assets/char/About/OD_Web_AboutUs-08.webp";
+import aboutAdvisor09 from "../assets/char/About/OD_Web_AboutUs-09.webp";
+import aboutAdvisor10 from "../assets/char/About/OD_Web_AboutUs-10.webp";
+import aboutClient from "../assets/char/About/OD_Web_AboutUs-client.webp";
+import aboutDesk from "../assets/char/About/OD_Web_AboutUs-desk.webp";
 import illoTeam   from "../assets/char/About/OD_Web_AboutUs-11.webp";
 import illoPeople from "../assets/char/About/OD_Web_AboutUs-12.webp";
 import illoClarity from "../assets/char/About/OD_Web_AboutUs-13.webp";
@@ -16,6 +25,15 @@ import illoTrust  from "../assets/char/About/OD_Web_AboutUs-14.webp";
 import illoDesk   from "../assets/char/About/OD_Web_AboutUs-15.webp";
 
 import "./AboutPage.css";
+
+const ABOUT_HERO_ADVISORS = [
+  { key: "advisor-05", src: aboutAdvisor05 },
+  { key: "advisor-06", src: aboutAdvisor06 },
+  { key: "advisor-07", src: aboutAdvisor07 },
+  { key: "advisor-08", src: aboutAdvisor08 },
+  { key: "advisor-09", src: aboutAdvisor09 },
+  { key: "advisor-10", src: aboutAdvisor10 },
+];
 
 const VALUES = [
   { img: illoPeople,  title: "People over paperwork",  body: "Behind every filing is a founder with better things to do. We exist to give them their time back." },
@@ -34,6 +52,9 @@ const TEAM = [
 ];
 
 export default function AboutPage() {
+  const heroSceneRef = useRef(null);
+  const registerAdvisor = useAboutHeroDeskCycle(heroSceneRef);
+
   return (
     <PageTransition>
       <Seo
@@ -58,8 +79,23 @@ export default function AboutPage() {
               <Button variant="outline" size="lg" as={Link} to="/pricing">See Pricing</Button>
             </div>
           </div>
-          <div className="about-hero__illo" aria-hidden="true">
-            <img src={illoHero} alt="" />
+          <div className="about-hero__desk-scene" ref={heroSceneRef} aria-hidden="true">
+            <div className="about-hero__desk-glow" />
+            <img className="about-hero__client" src={aboutClient} alt="" decoding="async" fetchPriority="high" />
+            <div className="about-hero__advisor-seat">
+              {ABOUT_HERO_ADVISORS.map((advisor, index) => (
+                <img
+                  key={advisor.key}
+                  ref={registerAdvisor(index)}
+                  className="about-hero__advisor"
+                  src={advisor.src}
+                  alt=""
+                  decoding="async"
+                  fetchPriority={index === 0 ? "high" : "low"}
+                />
+              ))}
+            </div>
+            <img className="about-hero__desk" src={aboutDesk} alt="" decoding="async" fetchPriority="high" />
           </div>
         </div>
       </section>

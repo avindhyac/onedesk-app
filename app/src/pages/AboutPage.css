@@ -5,24 +5,65 @@
 /* ── Shared gradient background ───────────────────────────── */
 .about-hero,
 .about-story {
-  position:inherit;
+  position: relative;
   background: var(--od-white);
   overflow: hidden;
 }
 .about-hero::before,
-.about-story::before {
+.about-story::before,
+.about-hero::after,
+.about-story::after {
   content: "";
   position: absolute;
-  inset: 0;
   pointer-events: none;
+}
+
+.about-hero::before,
+.about-story::before {
+  inset: 0;
+}
+
+.about-hero::before {
   background:
     radial-gradient(640px 520px at 96% -10%, rgba(116,169,232,0.48), transparent 64%),
     radial-gradient(560px 460px at 54%  2%,  rgba(252,215,167,0.46), transparent 62%),
     radial-gradient(600px 480px at 2%   10%, rgba(219,183,247,0.38), transparent 64%),
-    radial-gradient(540px 440px at -2%  100%, rgba(255,172,131,0.44), transparent 62%),
-    radial-gradient(540px 440px at 102% 100%, rgba(252,206,200,0.46), transparent 62%),
-    radial-gradient(440px 380px at 34%  102%, rgba(200,232,218,0.36), transparent 60%),
-    radial-gradient(420px 360px at 70%  104%, rgba(116,169,232,0.30), transparent 60%);
+    radial-gradient(620px 500px at -2%  102%, rgba(255,172,131,0.40), transparent 62%),
+    radial-gradient(620px 500px at 102% 102%, rgba(252,206,200,0.42), transparent 62%),
+    radial-gradient(520px 420px at 42%  106%, rgba(200,232,218,0.32), transparent 60%);
+}
+
+.about-story::before {
+  background:
+    radial-gradient(640px 520px at -4% -8%, rgba(255,172,131,0.32), transparent 64%),
+    radial-gradient(640px 520px at 104% -10%, rgba(252,206,200,0.34), transparent 64%),
+    radial-gradient(560px 440px at 38% -8%, rgba(200,232,218,0.24), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(253,249,240,0.40) 100%);
+}
+
+.about-hero::after {
+  left: 50%;
+  bottom: -72px;
+  width: min(980px, 82vw);
+  height: 150px;
+  border-radius: 999px;
+  background:
+    radial-gradient(ellipse at center, rgba(25, 33, 48, 0.10) 0%, rgba(25, 33, 48, 0.055) 34%, transparent 72%);
+  filter: blur(10px);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.about-story::after {
+  left: 50%;
+  top: -78px;
+  width: min(900px, 78vw);
+  height: 130px;
+  border-radius: 999px;
+  background: radial-gradient(ellipse at center, rgba(25, 33, 48, 0.045) 0%, transparent 72%);
+  filter: blur(12px);
+  transform: translateX(-50%);
+  z-index: 0;
 }
 
 /* ── Hero ─────────────────────────────────────────────────── */
@@ -69,15 +110,78 @@
   flex-wrap: wrap;
 }
 
-.about-hero__illo {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+.about-hero__desk-scene {
+  position: relative;
+  justify-self: end;
+  width: min(35vw, 620px);
+  aspect-ratio: 1.54 / 1;
+  overflow: hidden;
+  isolation: isolate;
+  perspective: 900px;
 }
-.about-hero__illo img {
+
+.about-hero__desk-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  width: 78%;
+  height: 46%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255, 172, 131, 0.36), transparent 58%),
+    radial-gradient(circle at 76% 38%, rgba(116, 169, 232, 0.30), transparent 60%),
+    rgba(255, 255, 255, 0.58);
+  filter: blur(2px);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.about-hero__desk,
+.about-hero__client,
+.about-hero__advisor {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.about-hero__desk {
+  left: 50%;
+  bottom: -2%;
   width: 100%;
-  max-width: 520px;
+  height: auto;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.about-hero__client {
+  left: 5%;
+  bottom: 17%;
+  width: 36%;
+  height: auto;
   object-fit: contain;
+  object-position: bottom center;
+  z-index: 2;
+}
+
+.about-hero__advisor-seat {
+  position: absolute;
+  right: 6%;
+  bottom: 17%;
+  width: 36%;
+  aspect-ratio: 2357 / 3304;
+  z-index: 2;
+}
+
+.about-hero__advisor {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  visibility: hidden;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 /* ── Story ─────────────────────────────────────────────────── */
@@ -90,6 +194,16 @@
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
+}
+
+.about-story__copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.about-story__illo {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .about-story__heading {
@@ -244,6 +358,7 @@
 
 /* ── Reduced motion ──────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  .about-hero__advisor,
   .about-team__card { transition: none; }
   .about-team__card:hover { transform: none; }
 }
@@ -252,26 +367,137 @@
 @media (max-width: 900px) {
   .about-hero__inner {
     grid-template-columns: 1fr;
-    padding-bottom: 0;
+    gap: 28px;
+    padding: 56px var(--od-gutter) 0;
   }
-  .about-hero__illo {
-    justify-content: center;
-    padding-bottom: 32px;
+  .about-hero__content {
+    align-items: center;
+    text-align: center;
   }
-  .about-hero__illo img { max-width: 360px; }
+  .about-hero__title {
+    max-width: 11ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-hero__sub {
+    max-width: 38ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-hero__ctas { justify-content: center; }
+  .about-hero__desk-scene {
+    justify-self: center;
+    width: min(92vw, 520px);
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
 
-  .about-story__inner { grid-template-columns: 1fr; gap: 32px; }
+  .about-story__inner { grid-template-columns: 1fr; gap: 28px; padding-top: 64px; }
+  .about-story__copy,
+  .about-story__illo {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .about-story__copy { text-align: center; }
+  .about-story__ctas {
+    display: flex;
+    justify-content: center;
+  }
   .about-story__illo { order: -1; }
   .about-story__illo img { max-width: 320px; }
 
   .about-values__grid { grid-template-columns: 1fr; }
+  .about-values__card {
+    max-width: 620px;
+    margin: 0 auto;
+  }
   .about-team__grid   { grid-template-columns: 1fr 1fr; }
 }
 
+@media (max-width: 720px) {
+  .about-story__stats-row {
+    padding-bottom: 64px;
+  }
+  .about-story__ledger .od-ledger__cell {
+    align-items: center;
+    text-align: center;
+  }
+}
+
 @media (max-width: 600px) {
-  .about-hero__ctas { flex-direction: column; }
-  .about-hero__ctas .od-btn { width: 100%; justify-content: center; }
-  .about-values__card { flex-direction: column; align-items: flex-start; }
-  .about-values__card-img { width: 100px; height: 100px; align-self: flex-start; }
+  .about-hero::after { bottom: -46px; height: 110px; }
+  .about-story::after { top: -54px; height: 100px; }
+  .about-hero__inner {
+    padding-top: 40px;
+  }
+  .about-hero__inner {
+      justify-content: center;
+  }
+  .about-hero__title {
+    max-width: 12ch;
+    font-size: clamp(2.35rem, 12vw, 3.15rem);
+    line-height: 1.02;
+  }
+  .about-hero__sub {
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+  .about-hero__ctas {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .about-hero__desk-scene {
+    width: min(108vw, 430px);
+    transform: translateX(-2%);
+  }
+  .about-hero__client,
+  .about-hero__advisor-seat {
+    width: 38%;
+  }
+  .about-hero__ctas .od-btn {
+    width: min(100%, 320px);
+    justify-content: center;
+  }
+  .about-story__inner {
+    padding-top: 56px;
+    padding-bottom: 34px;
+  }
+  .about-story__heading {
+    font-size: clamp(2rem, 10vw, 2.55rem);
+    line-height: 1.03;
+  }
+  .about-story__ctas .od-btn {
+    width: min(100%, 280px);
+    justify-content: center;
+  }
+  .about-values__inner,
+  .about-team__inner {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .about-values__grid,
+  .about-team__grid {
+    margin-top: 32px;
+  }
+  .about-values__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 26px 22px 28px;
+  }
+  .about-values__card-img {
+    width: 112px;
+    height: 112px;
+    align-self: center;
+    order: -1;
+  }
   .about-team__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 390px) {
+  .about-hero__ctas .od-btn,
+  .about-story__ctas .od-btn {
+    width: 100%;
+  }
 }

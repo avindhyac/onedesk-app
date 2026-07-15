@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "activations": [
+    {
+      "type": "skill",
+      "name": "frontend-design",
+      "target": ".pi\\skills\\frontend-design"
+    }
+  ]
+}
