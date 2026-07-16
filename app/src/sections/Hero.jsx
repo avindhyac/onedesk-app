@@ -21,11 +21,11 @@ export default function Hero() {
   useDropDot(titleRef, {
     delay: TITLE_REVEAL_DELAY + TITLE_REVEAL_DURATION + 0.05,
   });
-  const registerLeft = useTableCharacterCycle(tableSceneRef, {
+  const leftCycle = useTableCharacterCycle(tableSceneRef, {
     offset: 0,
     direction: -1,
   });
-  const registerRight = useTableCharacterCycle(tableSceneRef, {
+  const rightCycle = useTableCharacterCycle(tableSceneRef, {
     offset: 1,
     direction: 1,
   });
@@ -54,9 +54,10 @@ export default function Hero() {
           <p className="hero__lede">
             OneDesk brings{" "}
             <strong>
-              legal, tax, accounting, HR, secretarial and marketing
+              company incorporation and secretarial, legal, tax, accounting, HR
             </strong>{" "}
-            support together, under one structured, trusted partner.
+            and marketing support together, under one structured, trusted
+            partner.
           </p>
           <div className="hero__ctas">
             <Button
@@ -91,7 +92,7 @@ export default function Hero() {
             {HERO_TABLE_SEATS.left.map((c, i) => (
               <img
                 key={c.key}
-                ref={registerLeft(i)}
+                ref={leftCycle.registerCharacter(i)}
                 src={c.src}
                 alt=""
                 className="hero__table-char"
@@ -101,11 +102,22 @@ export default function Hero() {
               />
             ))}
           </div>
+          <div className="hero__service-label hero__service-label--left" aria-live="off">
+            {HERO_TABLE_SEATS.left.map((c, i) => (
+              <span
+                key={c.key}
+                ref={leftCycle.registerLabel(i)}
+                className="hero__service-label-text"
+              >
+                {c.label}
+              </span>
+            ))}
+          </div>
           <div className="hero__table-seat hero__table-seat--right">
             {HERO_TABLE_SEATS.right.map((c, i) => (
               <img
                 key={c.key}
-                ref={registerRight(i)}
+                ref={rightCycle.registerCharacter(i)}
                 src={c.src}
                 alt=""
                 className="hero__table-char"
@@ -113,6 +125,17 @@ export default function Hero() {
                 decoding="async"
                 fetchPriority={i === 0 ? "high" : "low"}
               />
+            ))}
+          </div>
+          <div className="hero__service-label hero__service-label--right" aria-live="off">
+            {HERO_TABLE_SEATS.right.map((c, i) => (
+              <span
+                key={c.key}
+                ref={rightCycle.registerLabel(i)}
+                className="hero__service-label-text"
+              >
+                {c.label}
+              </span>
             ))}
           </div>
         </div>

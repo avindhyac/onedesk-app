@@ -9,13 +9,13 @@ import hr from "../assets/char/Home/OD-Web-37.webp";
 // each character's pose/gesture naturally reaches toward.
 export const HERO_TABLE_SEATS = {
   left: [
-    { key: "accounting", src: accounting },
-    { key: "secretarial", src: secretarial },
-    { key: "tax", src: tax },
+    { key: "accounting", label: "Accounting", src: accounting },
+    { key: "secretarial", label: "Company secretarial", src: secretarial },
+    { key: "tax", label: "Tax", src: tax },
   ],
   right: [
-    { key: "marketing", src: marketing },
-    { key: "legal", src: legal },
-    { key: "hr", src: hr },
+    { key: "marketing", label: "Marketing", src: marketing },
+    { key: "legal", label: "Legal", src: legal },
+    { key: "hr", label: "HR", src: hr },
   ],
 };

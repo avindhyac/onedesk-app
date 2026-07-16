@@ -9,8 +9,8 @@ export const SERVICES = [
     char: "secretarial",
     icon: "lucide:building-2",
     title: "Corporate Secretarial",
-    tagline: "Stay in good standing, effortlessly.",
-    desc: "Formation, registered agent and every state filing kept current, automatically.",
+    tagline: "Set up right. Stay compliant.",
+    desc: "From company incorporation and annual returns to statutory records and resolutions, we keep your corporate obligations in order.",
     points: [
       "Company formation & EIN",
       "Registered agent in all 50 states",
@@ -87,7 +87,7 @@ export const SERVICES = [
     icon: "lucide:scale",
     title: "Legal",
     tagline: "Counsel on call, not on the clock.",
-    desc: "Contracts reviewed, compliance covered and questions answered, without surprise invoices. Your legal team, on a flat subscription.",
+    desc: "Practical legal support for contracts, agreements, compliance and everyday business decisions.",
     points: [
       "Contract drafting & review",
       "Compliance & policies",
@@ -151,7 +151,7 @@ export const SERVICES = [
     icon: "lucide:percent",
     title: "Tax",
     tagline: "Every filing, every deduction.",
-    desc: "Federal, state and sales tax prepared and filed on time, with proactive planning to keep more money in the business.",
+    desc: "Tax registrations, returns and ongoing advisory, helping you meet local obligations, plan ahead and avoid costly surprises.",
     points: [
       "Federal & state returns",
       "Sales tax & nexus",
@@ -214,8 +214,8 @@ export const SERVICES = [
     char: "accounting",
     icon: "lucide:calculator",
     title: "Accounting",
-    tagline: "Books you can actually trust.",
-    desc: "Real accountants keep your books clean and your reports current, so you always know where you stand, and so does your investor.",
+    tagline: "Clear books. Better decisions.",
+    desc: "Accurate bookkeeping, internal audits, and financial reporting that give you a clear view of performance, cash flow and what comes next.",
     points: [
       "Monthly bookkeeping",
       "Payroll & expense management",
@@ -277,8 +277,8 @@ export const SERVICES = [
     char: "hr",
     icon: "lucide:users",
     title: "HR",
-    tagline: "Take care of your team.",
-    desc: "Hiring, onboarding, benefits and policies set up properly from day one, so your people feel supported and you stay compliant.",
+    tagline: "Hire well. Build better teams.",
+    desc: "From recruitment and onboarding to payroll support, policies and employee administration, we help you build a workplace that runs smoothly.",
     points: [
       "Hiring & onboarding",
       "Benefits administration",
@@ -341,8 +341,8 @@ export const SERVICES = [
     char: "marketing",
     icon: "lucide:megaphone",
     title: "Marketing",
-    tagline: "Growth that compounds.",
-    desc: "Brand, content and campaigns run by specialists who treat your numbers like their own. Less guesswork, more pipeline.",
+    tagline: "You’ve built the product. We’ll build the audience",
+    desc: "Strategy, branding, content and campaigns built around clear business goals, helping you reach the right audience and turn attention into growth.",
     points: [
       "Brand & messaging",
       "Content & SEO",

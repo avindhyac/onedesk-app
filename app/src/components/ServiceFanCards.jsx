@@ -62,26 +62,36 @@ export default function ServiceFanCards({
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const fanDuration = reduce ? 0 : 0.5;
-    const fanStagger = reduce ? 0 : 0.035;
+    const fanDuration = reduce ? 0 : 0.65;
+    const fanStagger = reduce ? 0 : 0.045;
+    const supportingCardEls = cards.slice(1);
+    const isCompact = root.clientWidth < 380;
+    const spread = isCompact ? 54 : 78;
+    const lift = isCompact ? 10 : 18;
+    const drop = isCompact ? 28 : 38;
+    const supportSlots = [-2, -1, 1, 2];
+    const slotFor = (i) => supportSlots[i - 1] ?? i;
+
     const fanVars = {
-      x: (i) => (i - (cards.length - 1) / 2) * 25,
-      y: (i) => Math.abs(i - (cards.length - 1) / 2) * 8,
-      rotation: (i) => (i - (cards.length - 1) / 2) * 8,
+      x: (i) => (i === 0 ? 0 : slotFor(i) * spread),
+      y: (i) => (i === 0 ? 0 : Math.abs(slotFor(i)) * drop - lift),
+      rotation: (i) => (i === 0 ? 0 : slotFor(i) * 6),
+      scale: (i) => (i === 0 ? 1 : Math.abs(slotFor(i)) === 1 ? 0.9 : 0.84),
+      zIndex: (i) => (i === 0 ? 10 : 6 - Math.abs(slotFor(i))),
       duration: fanDuration,
-      ease: "back.out(1.4)",
+      ease: "back.out(1.25)",
       stagger: fanStagger,
     };
 
-    const supportingCardEls = cards.slice(1);
-
     gsap.set(cards, {
-      x: (i) => (i - (cards.length - 1) / 2) * 7,
-      y: (i) => i * 5,
-      rotation: (i) => (i - (cards.length - 1) / 2) * 1.5,
-      transformOrigin: "50% 88%",
+      x: 0,
+      y: (i) => (i === 0 ? 0 : 18 + i * 3),
+      rotation: 0,
+      scale: (i) => (i === 0 ? 1 : 0.9),
+      zIndex: (i) => (i === 0 ? 10 : 1),
+      transformOrigin: "50% 92%",
     });
-    gsap.set(supportingCardEls, { filter: "grayscale(0)", opacity: 1 });
+    gsap.set(supportingCardEls, { filter: "grayscale(0)", opacity: 0.98 });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -93,7 +103,7 @@ export default function ServiceFanCards({
           supportingCardEls,
           {
             filter: "grayscale(1)",
-            opacity: 0.72,
+            opacity: 0.48,
             duration: fanDuration,
             ease: "power2.out",
             stagger: fanStagger,

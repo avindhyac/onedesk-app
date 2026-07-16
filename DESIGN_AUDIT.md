@@ -260,8 +260,7 @@ Backend / integrations (for when the form goes live — currently a demo):
 
 - 🔴 Critical for an SPA: add deep-link rewrites or direct hits to /about, /pricing, etc. 404 on refresh. Add a vercel.json rewrite of all paths to /index.html (or rely on the framepreset's SPA handling). Test byafter first deploy.
 - Vercel already serves Vite's hashed /assets with immutable caching — good by default.
-- Ongoing maintenance: enable Vercel Speed Insights + Analytics, turn on preview deployper PR, add robots.txt + sitema/Renovate. Consider Lighthouse CI to catch perf/a11y regressions before merge.
-  ---
+- ## Ongoing maintenance: enable Vercel Speed Insights + Analytics, turn on preview deployper PR, add robots.txt + sitema/Renovate. Consider Lighthouse CI to catch perf/a11y regressions before merge.
 
 7. Mobile (the original focus) — verdict: already strong
    Measured at 390 px across all sll anywhere, every image has alttext, one h1 per page. The header collapses to a clean animated sheet at 860px, the hero card-fan un-rotates and stacks, and every card grid drops to a single column. This is bmobile execution than most prod

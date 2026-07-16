@@ -240,6 +240,58 @@
   backface-visibility: hidden;
 }
 
+.about-hero__service-label {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  /* top: auto; */
+  bottom: 56%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  min-width: clamp(118px, 12vw, 176px);
+  height: clamp(36px, 4vw, 46px);
+  padding: 0 18px;
+  border: 1px solid rgba(20, 32, 51, 0.1);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 249, 239, 0.72)
+    ),
+    radial-gradient(circle at 18% 0%, rgba(252, 137, 67, 0.2), transparent 46%);
+  color: var(--od-ink);
+  font-family: var(--od-font-display);
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%);
+}
+
+.about-hero__service-label::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--od-orange);
+  box-shadow: 0 0 0 5px rgba(252, 137, 67, 0.14);
+  transform: translateY(-50%);
+}
+
+.about-hero__service-label-text {
+  grid-area: 1 / 1;
+  padding-left: 10px;
+  will-change: transform, opacity, filter;
+}
+
 /* ── Story ─────────────────────────────────────────────────── */
 .about-story__inner {
   position: relative;
@@ -465,7 +517,6 @@
     margin-top: 0;
     margin-bottom: 32px;
   }
-
   .about-story__inner {
     grid-template-columns: 1fr;
     gap: 28px;

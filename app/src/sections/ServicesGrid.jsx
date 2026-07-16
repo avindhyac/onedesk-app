@@ -9,9 +9,9 @@ export default function ServicesGrid() {
     <section className="services-grid">
       <div className="services-grid__inner">
         <SectionHeading
-          eyebrow="Everything you need"
+          eyebrow="Everything your business needs"
           title="Six teams. One desk."
-          subtitle="Bundle the back-office functions every company needs - each run by specialists, all coordinated for you."
+          subtitle="You focus on running and growing your business. Our specialist teams take care of everything around it, through one trusted partner."
         />
         <div className="services-grid__cards">
           {SERVICES.map((s) => (

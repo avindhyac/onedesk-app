@@ -25,14 +25,20 @@ export default function useTableCharacterCycle(
   { offset = 0, direction = 1 } = {},
 ) {
   const itemsRef = useRef([]);
+  const labelsRef = useRef([]);
 
-  const register = (index) => (el) => {
+  const registerCharacter = (index) => (el) => {
     itemsRef.current[index] = el;
+  };
+
+  const registerLabel = (index) => (el) => {
+    labelsRef.current[index] = el;
   };
 
   useGSAP(
     () => {
       const items = itemsRef.current.filter(Boolean);
+      const labels = labelsRef.current.filter(Boolean);
       if (items.length < 2) return;
 
       const mm = gsap.matchMedia();
@@ -45,6 +51,12 @@ export default function useTableCharacterCycle(
           transformPerspective: 700,
         });
         gsap.set(items[0], { opacity: 1, x: 0 });
+        gsap.set(labels, {
+          opacity: 0,
+          y: 10,
+          filter: "blur(5px)",
+        });
+        gsap.set(labels[0], { opacity: 1, y: 0, filter: "blur(0px)" });
 
         const tl = gsap.timeline({ repeat: -1, delay: 2 + offset });
 
@@ -60,6 +72,17 @@ export default function useTableCharacterCycle(
             },
             `+=${HOLD}`,
           )
+            .to(
+              labels[i],
+              {
+                y: -8,
+                opacity: 0,
+                filter: "blur(5px)",
+                duration: EXIT * 0.7,
+                ease: "power1.in",
+              },
+              "<",
+            )
             .set(items[i], { rotateY: 0 })
             .fromTo(
               items[next],
@@ -72,6 +95,19 @@ export default function useTableCharacterCycle(
                 immediateRender: false,
               },
               "<",
+            )
+            .fromTo(
+              labels[next],
+              { opacity: 0, y: 10, filter: "blur(5px)" },
+              {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                duration: ENTER * 0.8,
+                ease: "power2.out",
+                immediateRender: false,
+              },
+              "<0.18",
             );
         });
 
@@ -81,6 +117,8 @@ export default function useTableCharacterCycle(
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(items, { opacity: 0 });
         gsap.set(items[0], { opacity: 1 });
+        gsap.set(labels, { opacity: 0 });
+        gsap.set(labels[0], { opacity: 1 });
       });
 
       return () => mm.revert();
@@ -88,5 +126,5 @@ export default function useTableCharacterCycle(
     { scope: scopeRef, dependencies: [offset, direction] },
   );
 
-  return register;
+  return { registerCharacter, registerLabel };
 }

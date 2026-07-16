@@ -134,6 +134,7 @@ The mood is coordinated specialists under one roof: premium, confident, and expe
 This system explicitly rejects the generic-corporate template (stock-photo handshakes, blue-gradient SaaS themes, faceless big-firm blandness), discount-services energy (loud pricing banners, clutter), techy-SaaS costume (dark mode, neon gradients, product jargon), and the stuffy old-fashioned law-firm look (dusty serifs, dense text walls, cold formality). OneDesk has a real identity; nothing here should read as a bought theme.
 
 **Key Characteristics:**
+
 - Six-pillar service palette, unified by one rainbow hairline (the brand signature).
 - Ember orange as the single action color; Harbor teal as the trust/support voice.
 - Warm ivory paper ground — never stark white, never beige-sand default.
@@ -145,13 +146,17 @@ This system explicitly rejects the generic-corporate template (stock-photo hands
 A warm, dual-accent brand palette (Ember + Harbor) laid over ivory paper, extended by a six-color service spectrum that only appears where a specific discipline is being represented.
 
 ### Primary
+
 - **Ember Orange** (`#ee7632`): The single voice of action. Primary CTAs, the wordmark dot, required-field markers, input focus rings, featured-plan accents, and the ember-tinted glow beneath primary buttons. Its darker step, **Ember Deep** (`#d75f1d`), is the hover state.
 
 ### Secondary
+
 - **Harbor Teal** (`#6f9ca9`): The trust and support voice. Secondary buttons, trust-note icons, pricing checkmarks, input hover borders, and inline links. Darker step **Harbor Deep** (`#557e8b`) for hover.
 
 ### Tertiary — The Six-Pillar Service Spectrum
+
 Each of OneDesk's six services owns a color with a base (icon/link/accent) and a pale tint (card blob / soft background). Used **only** to represent that discipline — never decoratively.
+
 - **Secretarial Navy** (`#1c314f`) · tint `#eaf1fb`
 - **Accounting Sage** (`#799b91`) · tint `#eef6f2`
 - **Legal Plum** (`#584361`) · tint `#f3ecfa`
@@ -160,6 +165,7 @@ Each of OneDesk's six services owns a color with a base (icon/link/accent) and a
 - **Marketing Gold** (`#e4a747`) · tint `#fdf2e0`
 
 ### Neutral
+
 - **Ink** (`#1d2330`): Headings and the primary dark surface.
 - **Ink-2** (`#3a3f4b`): Body copy and emphasis; the default text color on paper.
 - **Slate** (`#5d626d`): Muted supporting text, descriptions, nav links at rest.
@@ -170,13 +176,14 @@ Each of OneDesk's six services owns a color with a base (icon/link/accent) and a
 - **Line / Line-strong** (`#e7e2d8` / `#d6d0c4`): Hairline dividers and card borders / input strokes.
 
 ### Named Rules
-**The One Action Rule.** Ember is the only color permitted on a primary call-to-action. If two buttons on a screen are both orange, one of them is wrong. Ember's scarcity is what makes it read as *the* next step.
+
+**The One Action Rule.** Ember is the only color permitted on a primary call-to-action. If two buttons on a screen are both orange, one of them is wrong. Ember's scarcity is what makes it read as _the_ next step.
 
 **The Service-Color Rule.** The six pillar colors are semantic, not decorative. A color from the spectrum appears only when its service is the subject (its card, icon, link, or tint). Never borrow Legal Plum because a section "needs purple."
 
 **The Rainbow Hairline Rule.** The 3px six-color gradient rule belongs at the top of the page, under the header, once. It is the brand signature — do not repeat it as a section divider or scatter it decoratively.
 
-**The Readable-Shade Rule.** The base brand and service colors (Ember, Harbor, and the lighter pillars — sage, rust, coral, gold) are calibrated for *fills, tints, and large art* — they do **not** meet AA as small text on white. Any meaningful text, link, icon, tag, eyebrow, or stat number uses the darker readable shade of the same hue: `--od-orange-700` / `--od-teal-700` and `--od-<svc>-text` (e.g. `--od-mkt-text`, `--od-hr-text`). Ember and Harbor button fills stay bright but carry a dark-ink label. Same hue, readable step — never the raw base as small text.
+**The Readable-Shade Rule.** The base brand and service colors (Ember, Harbor, and the lighter pillars — sage, rust, coral, gold) are calibrated for _fills, tints, and large art_ — they do **not** meet AA as small text on white. Any meaningful text, link, icon, tag, eyebrow, or stat number uses the darker readable shade of the same hue: `--od-orange-700` / `--od-teal-700` and `--od-<svc>-text` (e.g. `--od-mkt-text`, `--od-hr-text`). Ember and Harbor button fills stay bright but carry a dark-ink label. Same hue, readable step — never the raw base as small text.
 
 ## 3. Typography
 
@@ -187,6 +194,7 @@ Each of OneDesk's six services owns a color with a base (icon/link/accent) and a
 **Character:** A geometric display sans paired with a humanist workhorse body — Poppins brings confident, rounded authority to headings; Open Sans keeps long-form copy plain-spoken and highly legible. The contrast is on the weight and humanist/geometric axis, not two look-alike sans.
 
 ### Hierarchy
+
 - **Display** (800, `clamp(2.5rem, 4.4vw, 4rem)`, 1.06, `-0.025em`): Hero headline only. One per page.
 - **Headline** (800, `clamp(2.25rem, 1.4rem + 2.9vw, 3.25rem)`, 1.12, `-0.02em`): Section headings.
 - **Title** (700, `1.375rem`/22px, 1.25, `-0.01em`): Card and pricing-plan titles.
@@ -194,6 +202,7 @@ Each of OneDesk's six services owns a color with a base (icon/link/accent) and a
 - **Label** (700, `0.8125rem`/13px, `0.06em`, UPPERCASE): Field labels and small trust overlines.
 
 ### Named Rules
+
 **The Weight-Over-Size Rule.** Hierarchy is carried by Poppins weight (800 headings vs 400/600 body), not by ever-larger type. The display ceiling is ~4rem; the page states its confidence, it doesn't shout.
 
 **The Plain-Speech Rule.** Body copy is Open Sans at readable size with a 1.65 line-height. Clarity is a premium signal here — never set long copy in the display face or in all-caps.
@@ -203,17 +212,20 @@ Each of OneDesk's six services owns a color with a base (icon/link/accent) and a
 Flat by default, warm by nature. Surfaces rest flat on paper, separated by hairlines (`#e7e2d8`) rather than shadow. Depth is a **response to interaction**, not decoration: cards and buttons lift on hover with a soft `translateY(-2px to -4px)` and a deeper shadow. All shadows are tinted with warm ink (`rgba(29,35,48,…)`) at low opacity and wide spread — never harsh black — and primary CTAs additionally carry an Ember-tinted glow.
 
 ### Shadow Vocabulary
+
 - **Resting card** (`box-shadow: 0 1px 2px rgba(29,35,48,0.05)` / `0 2px 6px rgba(29,35,48,0.06)`): Barely-there seat on the page (xs / sm).
 - **Hover lift** (`box-shadow: 0 24px 60px rgba(29,35,48,0.12)`): The lifted state for interactive cards (lg).
 - **Brand glow** (`box-shadow: 0 14px 30px rgba(238,118,50,0.30)`): Ember-tinted, reserved for primary buttons and featured pricing.
 - **Header blur** (`backdrop-filter: blur(14px)` over `rgba(250,248,244,0.88)`): The sticky header's frosted paper — the one sanctioned use of blur.
 
 ### Named Rules
+
 **The Flat-At-Rest Rule.** A surface earns a shadow only when the user is about to interact with it. Static decorative shadows and glass panels are prohibited; the header blur is the single exception.
 
 ## 5. Components
 
 ### Buttons
+
 - **Shape:** Fully pill (`border-radius: 999px`), 1.5px transparent border, weight 700, min-height 44px at every size (tap-target floor).
 - **Primary:** Ember fill with **dark-ink label** (`#1d2330`, ~5.2:1, AA), Ember glow (`13px 26px` at md). Hover keeps the bright fill and leans on `translateY(-2px)` + a stronger glow (darkening the fill would drop the ink label below AA).
 - **Secondary:** Harbor fill, **dark-ink label** (same reasoning — teal is a light fill), soft shadow. Hover lifts + deepens shadow.
@@ -221,6 +233,7 @@ Flat by default, warm by nature. Surfaces rest flat on paper, separated by hairl
 - **Focus:** `box-shadow: 0 0 0 3px` Ember-at-40% ring (outline suppressed in favor of the ring).
 
 ### Cards
+
 - **Corner Style:** Extra-large (`border-radius: 32px`; service and pricing cards).
 - **Background:** White on paper.
 - **Shadow Strategy:** Flat-at-rest (xs), lift to lg on hover with `translateY(-4px)`. See Elevation.
@@ -228,22 +241,26 @@ Flat by default, warm by nature. Surfaces rest flat on paper, separated by hairl
 - **Internal Padding:** ~20–32px. Service cards carry a per-pillar tinted "blob" behind the illustration and a matching colored "Learn more ›" link whose gap widens on hover.
 
 ### Inputs / Fields
+
 - **Style:** Paper fill (`#faf8f4`), 1.5px `line-strong` border, `border-radius: 16px`, `12px 16px` padding. Uppercase 13px label above, Ember asterisk for required.
 - **Focus:** Border shifts to Ember, background to white, `0 0 0 3.5px rgba(238,118,50,0.15)` ring.
 - **Hover:** Border shifts to Harbor teal.
 - **Checkbox:** 20px, 6px radius; checked fills Ember.
 
 ### Navigation
+
 - **Style:** Sticky frosted-paper header (`blur(14px)`, 88% ivory), 72px tall, with the rainbow hairline beneath. Wordmark is Poppins 800 with an Ember dot.
 - **Links:** Open Sans 600, 15.5px, Slate at rest → Ink on hover; active link gets an Ink label on a `paper-3` pill.
 - **Mobile (≤768px):** Nav collapses to a 44px hamburger; links drop into a paper sheet. Closed sheet must be removed from the tab order.
 
 ### Signature: The Six-Pillar System
+
 The rainbow header hairline, the hero's layered multi-radial glow (all six pillar tints bleeding in from the edges), and the per-service tinted card blobs are the brand's distinctive custom patterns. `src/data/pillars.js` is the single source of pillar order and labels — keep any new per-service surface driven by it.
 
 ## 6. Do's and Don'ts
 
 ### Do:
+
 - **Do** author against the `--od-*` token namespace in `app/src/styles/tokens/od.css` — the single source of truth for color, type, spacing, radii, shadow, and motion. There is no legacy token layer; never introduce a parallel one.
 - **Do** use Ember as the one action color, on ≤1 primary CTA per view (The One Action Rule).
 - **Do** keep the six pillar colors semantic — a service color appears only where that service is the subject (The Service-Color Rule).
@@ -254,6 +271,7 @@ The rainbow header hairline, the hero's layered multi-radial glow (all six pilla
 - **Do** give every interactive control a ≥44px tap target and a visible Ember focus ring.
 
 ### Don't:
+
 - **Don't** ship the **generic-corporate template** — no stock-photo handshakes, no blue-gradient SaaS theme, no faceless big-firm blandness.
 - **Don't** slide into **discount-services** energy — no loud pricing banners, no clutter, no budget-marketplace look.
 - **Don't** adopt **techy-SaaS costume** — no dark-mode-by-default, no neon gradients, no product-feature jargon in the copy.

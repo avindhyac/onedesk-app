@@ -25,7 +25,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Our services"
             title="Six specialist teams, fully coordinated."
-            subtitle="Each service is run by experts and are simply polarizing, so you always know who's doing what."
+            subtitle="Get the expertise of six departments, without the cost of building them."
           />
         </div>
       </section>

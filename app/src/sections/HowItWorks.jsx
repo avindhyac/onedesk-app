@@ -7,20 +7,20 @@ import "./HowItWorks.css";
 const STEPS = [
   {
     step: "01",
-    titleLines: ["Tell us about", "your business."],
-    body: "A 10-minute onboarding. Pick the services you need; skip the ones you don't.",
+    titleLines: ["Tell us what", "you need."],
+    body: "We learn about your business, priorities and the services you need today.",
     image: step1Img,
   },
   {
     step: "02",
-    titleLines: ["Meet", "your team."],
-    body: "We match you with a dedicated pod of experts across each function.",
+    titleLines: ["Meet", "your specialists."],
+    body: "We connect you with experienced in-house experts across the relevant service areas.",
     image: step2Img,
   },
   {
     step: "03",
-    titleLines: ["Get back", "to building."],
-    body: "We handle the filings, books and admin. You get a single dashboard and one bill.",
+    titleLines: ["Focus on", "your business."],
+    body: "Your OneDesk team takes care of the rest, with clear communication and support as your needs grow.",
     image: step3Img,
   },
 ];

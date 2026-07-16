@@ -2,7 +2,7 @@ import StatLedger from "../components/StatLedger";
 import "./TrustStrip.css";
 
 const STATS = [
-  { to: 150, suffix: "+", label: "Businesses supported", accent: "ember" },
+  { to: 30, suffix: "+", label: "years of prior expertise", accent: "ember" },
   { to: 6, label: "Services, one roof", accent: "teal" },
   { to: 100, suffix: "%", label: "Compliance visibility", accent: "sec" },
   { to: 1, label: "Point of contact", accent: "acc" },

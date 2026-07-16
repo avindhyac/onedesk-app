@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Avatar from "../components/Avatar";
 import SectionHeading from "../components/SectionHeading";
-import StatLedger from "../components/StatLedger";
+//
 import Eyebrow from "../components/Eyebrow";
 import PageTransition from "../components/PageTransition";
 import Seo from "../components/Seo";
@@ -27,12 +27,12 @@ import illoDesk from "../assets/char/About/OD_Web_AboutUs-15.webp";
 import "./AboutPage.css";
 
 const ABOUT_HERO_ADVISORS = [
-  { key: "advisor-05", src: aboutAdvisor05 },
-  { key: "advisor-06", src: aboutAdvisor06 },
-  { key: "advisor-07", src: aboutAdvisor07 },
-  { key: "advisor-08", src: aboutAdvisor08 },
-  { key: "advisor-09", src: aboutAdvisor09 },
-  { key: "advisor-10", src: aboutAdvisor10 },
+  { key: "advisor-05", label: "Legal", src: aboutAdvisor05 },
+  { key: "advisor-06", label: "Tax", src: aboutAdvisor06 },
+  { key: "advisor-07", label: "Secretarial", src: aboutAdvisor07 },
+  { key: "advisor-08", label: "Marketing", src: aboutAdvisor08 },
+  { key: "advisor-09", label: "HR", src: aboutAdvisor09 },
+  { key: "advisor-10", label: "Accounting", src: aboutAdvisor10 },
 ];
 
 const VALUES = [
@@ -69,7 +69,7 @@ const TEAM = [
 
 export default function AboutPage() {
   const heroSceneRef = useRef(null);
-  const registerAdvisor = useAboutHeroDeskCycle(heroSceneRef);
+  const advisorCycle = useAboutHeroDeskCycle(heroSceneRef);
 
   return (
     <PageTransition>
@@ -120,7 +120,7 @@ export default function AboutPage() {
               {ABOUT_HERO_ADVISORS.map((advisor, index) => (
                 <img
                   key={advisor.key}
-                  ref={registerAdvisor(index)}
+                  ref={advisorCycle.registerAdvisor(index)}
                   className="about-hero__advisor"
                   src={advisor.src}
                   alt=""
@@ -128,6 +128,17 @@ export default function AboutPage() {
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "low"}
                 />
+              ))}
+            </div>
+            <div className="about-hero__service-label" aria-hidden="true">
+              {ABOUT_HERO_ADVISORS.map((advisor, index) => (
+                <span
+                  key={advisor.key}
+                  ref={advisorCycle.registerLabel(index)}
+                  className="about-hero__service-label-text"
+                >
+                  {advisor.label}
+                </span>
               ))}
             </div>
             <img
@@ -150,14 +161,21 @@ export default function AboutPage() {
               From paperwork to peace of mind.
             </h2>
             <p className="about-story__text">
-              Our founders were on their third startup and tired of the same
-              problem: the back office was a patchwork of vendors, spreadsheets
-              and missed deadlines. So they built the thing they wished existed,
-              one team, one dashboard, one bill.
+              Our founders were building their third startup when they found
+              themselves spending more time chasing accountants, lawyers, HR
+              teams and other essential service providers than focusing on the
+              business itself.
             </p>
             <p className="about-story__text">
-              Today OneDesk supports companies across the country, handling the
-              unglamorous work that keeps a business alive and compliant.
+              So they built the solution they wished they had: one trusted
+              partner bringing every essential business service together, giving
+              founders more time to focus on operations, growth and what they do
+              best.
+            </p>
+            <p className="about-story__text">
+              Today, OneDesk helps businesses across Sri Lanka access the
+              expertise they need, without the complexity of managing multiple
+              providers.
             </p>
             <div className="about-story__ctas">
               <Button variant="outline" size="md" as={Link} to="/marketplace">
@@ -169,7 +187,7 @@ export default function AboutPage() {
             <img src={illoTeam} alt="" loading="lazy" decoding="async" />
           </div>
         </div>
-        <div className="about-story__stats-row">
+        {/* <div className="about-story__stats-row">
           <StatLedger
             layout="row"
             variant="light"
@@ -191,7 +209,7 @@ export default function AboutPage() {
               { to: 40, label: "Industries served", accent: "ember" },
             ]}
           />
-        </div>
+        </div> */}
       </section>
 
       {/* Values */}
@@ -238,8 +256,8 @@ export default function AboutPage() {
       </section>
 
       <CtaBand
-        title="Ready to simplify your operations?"
-        subtitle="Join founders who let OneDesk handle the back office."
+        title="Ready to sit back and focus on operations?"
+        subtitle="Let OneDesk take care of everything else."
       />
     </PageTransition>
   );

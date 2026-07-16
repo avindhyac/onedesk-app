@@ -5,20 +5,20 @@ import "./Faq.css";
 const FAQS = [
   {
     q: "What exactly is OneDesk?",
-    a: "OneDesk is a subscription that bundles your back-office services - corporate secretarial, accounting, legal, tax, HR and marketing - under one team.",
+    a: "OneDesk is a single platform that provides your business with specialist teams across corporate secretarial, legal, tax, accounting, HR and marketing, managed through one point of contact.",
     defaultOpen: true,
   },
   {
     q: "Can I pick only the services I need?",
-    a: "Absolutely. Start with accounting and tax, add legal or HR whenever you're ready. You only pay for what you use.",
+    a: "Absolutely. Start with any service and add more as your needs evolve. The more services you bring under OneDesk, the more you benefit from bundled pricing.",
   },
   {
-    q: "How fast can you form my company?",
-    a: "Most filings go out same-day; states return documents in 2–10 business days depending on jurisdiction.",
+    q: "How long does it take to form my company?",
+    a: "Once we have all the required information and documents, we submit your application through eROC and manage the process through to incorporation. Timelines may vary depending on approvals and document readiness.",
   },
   {
-    q: "Do I get real people or software?",
-    a: "Both. Real specialists do the work; our dashboard keeps everything visible and on schedule.",
+    q: "Who is behind each OneDesk service?",
+    a: "Each service is delivered by experienced in-house specialists, with some bringing over 30 years of expertise to your business.",
   },
 ];
 

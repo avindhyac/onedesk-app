@@ -39,7 +39,7 @@
   padding: var(--od-space-32) var(--od-gutter);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15vh;
+  gap: 20vh;
   align-items: center;
 }
 

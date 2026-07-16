@@ -48,7 +48,9 @@ export default function Footer() {
           <div className="footer__brand-col">
             <Wordmark />
             <p className="footer__blurb">
-              Your whole back office, on one desk.
+              All your business needs,
+              <br />
+              in one place.
             </p>
             <div className="footer__social">
               {SOCIALS.map((s) => (
