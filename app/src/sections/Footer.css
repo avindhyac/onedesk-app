@@ -89,6 +89,27 @@
 .footer__link:hover {
   color: #fff;
 }
+/* "Coming soon" item — visible but not interactive. */
+.footer__link--soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: default;
+}
+.footer__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: var(--od-radius-pill);
+  background: var(--od-orange);
+  color: var(--od-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
 
 .footer__address {
   font-size: 15px;

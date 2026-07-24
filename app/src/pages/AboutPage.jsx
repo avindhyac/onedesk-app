@@ -24,6 +24,9 @@ import illoClarity from "../assets/char/About/OD_Web_AboutUs-13.webp";
 import illoTrust from "../assets/char/About/OD_Web_AboutUs-14.webp";
 import illoDesk from "../assets/char/About/OD_Web_AboutUs-15.webp";
 
+import dhanikaPhoto from "../assets/people/dhanika-headshot.jpg";
+import amritPhoto from "../assets/people/amrit-headhost.jpg";
+
 import "./AboutPage.css";
 
 const ABOUT_HERO_ADVISORS = [
@@ -58,13 +61,32 @@ const VALUES = [
   },
 ];
 
+// To add a team member: add an entry with name, role, photo (import above),
+// and service (pillar color — sets the photo ring + icon-button tint, and is
+// used as a fallback avatar when no photo is set). email + linkedin are
+// optional; each icon link only renders when its value is present.
 const TEAM = [
-  { name: "Co-founder & CEO", service: "sec" },
-  { name: "Co-founder & COO", service: "acc" },
-  { name: "Head of Legal", service: "leg" },
-  { name: "Head of Tax", service: "tax" },
-  { name: "Head of People", service: "hr" },
-  { name: "Head of Growth", service: "mkt" },
+  {
+    name: "Dhanika De Silva",
+    role: "Co-founder / Director",
+    photo: dhanikaPhoto,
+    service: "sec",
+    email: "", // TODO: add email, e.g. "dhanika@onedesk.one"
+    linkedin: "https://www.linkedin.com/in/dhanika-d-6b06765b/", // TODO: add LinkedIn profile URL
+  },
+  {
+    name: "Amrit Edirisooriya",
+    role: "Co-founder / Director",
+    photo: amritPhoto,
+    service: "acc",
+    email: "", // TODO: add email
+    linkedin: "https://www.linkedin.com/in/amritedirisooriya/", // TODO: add LinkedIn profile URL
+  },
+  // Hidden for now — re-enable when these roles are filled:
+  // { name: "Head of Legal", role: "Head of Legal", service: "leg" },
+  // { name: "Head of Tax", role: "Head of Tax", service: "tax" },
+  // { name: "Head of People", role: "Head of People", service: "hr" },
+  // { name: "Head of Growth", role: "Head of Growth", service: "mkt" },
 ];
 
 export default function AboutPage() {
@@ -178,7 +200,7 @@ export default function AboutPage() {
               providers.
             </p>
             <div className="about-story__ctas">
-              <Button variant="outline" size="md" as={Link} to="/marketplace">
+              <Button variant="outline" size="md" as={Link} to="/contact">
                 Partner with us
               </Button>
             </div>
@@ -243,12 +265,44 @@ export default function AboutPage() {
           <SectionHeading eyebrow="The people" title="Leadership" />
           <div className="about-team__grid">
             {TEAM.map((m) => (
-              <div key={m.name} className="about-team__card">
-                <Avatar name={m.name} service={m.service} size={54} />
+              <div
+                key={m.name}
+                className={`about-team__card about-team__card--${m.service}`}
+              >
+                <Avatar
+                  name={m.name}
+                  service={m.service}
+                  photo={m.photo}
+                  size={104}
+                />
                 <div className="about-team__meta">
-                  <div className="about-team__role-title">{m.name}</div>
-                  <div className="about-team__member">Team Member</div>
+                  <div className="about-team__name">{m.name}</div>
+                  <div className="about-team__role">{m.role}</div>
                 </div>
+                {(m.email || m.linkedin) && (
+                  <div className="about-team__socials">
+                    {m.email && (
+                      <a
+                        href={`mailto:${m.email}`}
+                        className="about-team__social"
+                        aria-label={`Email ${m.name}`}
+                      >
+                        <iconify-icon icon="lucide:mail" />
+                      </a>
+                    )}
+                    {m.linkedin && (
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="about-team__social"
+                        aria-label={`${m.name} on LinkedIn`}
+                      >
+                        <iconify-icon icon="lucide:linkedin" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -8,7 +8,7 @@ import StatLedger from "../components/StatLedger";
 import ServiceFanCards from "../components/ServiceFanCards";
 import CtaBand from "../sections/CtaBand";
 import { SERVICE_FAN_CHARACTERS } from "../data/serviceFanCharacters";
-import { SERVICES } from "../data/services";
+import { SERVICES, SERVICE_DETAIL_ENABLED } from "../data/services";
 import "./ServicesPage.css";
 
 export default function ServicesPage() {
@@ -73,26 +73,39 @@ export default function ServicesPage() {
               </div>
               <div className="svcp-row__copy">
                 <Tag service={s.key} />
-                <Link
-                  to={`/services/${s.slug}`}
-                  className="svcp-row__tagline-link"
-                >
+                {SERVICE_DETAIL_ENABLED ? (
+                  <Link
+                    to={`/services/${s.slug}`}
+                    className="svcp-row__tagline-link"
+                  >
+                    <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>
+                      {s.tagline}
+                    </h2>
+                  </Link>
+                ) : (
                   <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>
                     {s.tagline}
                   </h2>
-                </Link>
+                )}
                 <p className="svcp-row__desc">{s.desc}</p>
                 <div className="svcp-row__cta">
+                  {SERVICE_DETAIL_ENABLED && (
+                    <Button
+                      variant="primary"
+                      size="md"
+                      iconRight="lucide:arrow-right"
+                      as={Link}
+                      to={`/services/${s.slug}`}
+                    >
+                      Learn more
+                    </Button>
+                  )}
                   <Button
-                    variant="primary"
+                    variant={SERVICE_DETAIL_ENABLED ? "outline" : "primary"}
                     size="md"
-                    iconRight="lucide:arrow-right"
                     as={Link}
-                    to={`/services/${s.slug}`}
+                    to="/contact"
                   >
-                    Learn more
-                  </Button>
-                  <Button variant="outline" size="md" as={Link} to="/contact">
                     Talk to {s.title}
                   </Button>
                 </div>

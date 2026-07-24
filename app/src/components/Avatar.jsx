@@ -9,7 +9,22 @@ function initials(name) {
     .toUpperCase();
 }
 
-export default function Avatar({ name, service = "sec", size = 48 }) {
+export default function Avatar({ name, service = "sec", size = 48, photo }) {
+  if (photo) {
+    return (
+      <img
+        className="od-avatar od-avatar--photo"
+        src={photo}
+        alt={name}
+        width={size}
+        height={size}
+        style={{ width: size, height: size }}
+        loading="lazy"
+        decoding="async"
+      />
+    );
+  }
+
   return (
     <span
       className={`od-avatar od-avatar--${service}`}

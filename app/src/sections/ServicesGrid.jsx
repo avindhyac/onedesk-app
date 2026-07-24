@@ -1,7 +1,7 @@
 import SectionHeading from "../components/SectionHeading";
 import ServiceCard from "../components/ServiceCard";
 import { characters } from "../data/characters";
-import { SERVICES } from "../data/services";
+import { SERVICES, SERVICE_DETAIL_ENABLED } from "../data/services";
 import "./ServicesGrid.css";
 
 export default function ServicesGrid() {
@@ -21,7 +21,7 @@ export default function ServicesGrid() {
               title={s.title}
               description={s.desc}
               character={characters[s.char]}
-              to={`/services/${s.slug}`}
+              to={SERVICE_DETAIL_ENABLED ? `/services/${s.slug}` : "/services"}
             />
           ))}
         </div>

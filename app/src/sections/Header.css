@@ -80,6 +80,30 @@
   background: var(--od-paper-3);
 }
 
+/* "Coming soon" nav item — visible but not interactive. */
+.header__link--soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--od-slate);
+  opacity: 0.72;
+  cursor: default;
+}
+.header__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: var(--od-radius-pill);
+  background: var(--od-orange);
+  color: var(--od-ink);
+  font-family: var(--od-font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
 .header__actions {
   display: flex;
   align-items: center;
@@ -143,11 +167,42 @@
   color: var(--od-ink);
   font-weight: 700;
 }
+.header__sheet-link--soon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--od-slate);
+  opacity: 0.72;
+  cursor: default;
+}
 .header__sheet-ctas {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-top: 16px;
+}
+
+/* Desktop/tablet: pin the "Soon" badge as an angled tag clipped over the
+   top-right of "Marketplace". On mobile it stays inline (see the sheet link). */
+@media (min-width: 769px) {
+  .header__link--soon {
+    position: relative;
+    overflow: visible;
+    margin-right: 16px;
+    gap: 0;
+  }
+  .header__link--soon .header__badge {
+    position: absolute;
+    top: -2px;
+    right: 4px;
+    transform: rotate(6deg);
+    /* transform-origin: right center; */
+    padding: 1px 6px;
+    font-size: 9px;
+    box-shadow: var(--od-shadow-sm);
+    pointer-events: none;
+    z-index: 2;
+  }
 }
 
 @media (max-width: 768px) {

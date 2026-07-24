@@ -7,7 +7,8 @@ const NAV_LINKS = [
   { to: "/about", label: "About us" },
   { to: "/services", label: "Services" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/marketplace", label: "Marketplace" },
+  // Marketplace is not live yet — shown muted with a "Soon" badge, not linked.
+  { to: "/marketplace", label: "Marketplace", soon: true },
 ];
 
 function Wordmark() {
@@ -30,17 +31,28 @@ export default function Header() {
         </Link>
 
         <nav className="header__nav">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                `header__link${isActive ? " header__link--active" : ""}`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.soon ? (
+              <span
+                key={link.to}
+                className="header__link header__link--soon"
+                aria-disabled="true"
+              >
+                {link.label}
+                <span className="header__badge">WIP</span>
+              </span>
+            ) : (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `header__link${isActive ? " header__link--active" : ""}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ),
+          )}
         </nav>
 
         <div className="header__actions">
@@ -62,18 +74,29 @@ export default function Header() {
       </div>
 
       <div className={`header__sheet ${open ? "is-open" : ""}`} inert={!open}>
-        {NAV_LINKS.map((link) => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            className={({ isActive }) =>
-              `header__sheet-link${isActive ? " header__sheet-link--active" : ""}`
-            }
-            onClick={close}
-          >
-            {link.label}
-          </NavLink>
-        ))}
+        {NAV_LINKS.map((link) =>
+          link.soon ? (
+            <span
+              key={link.to}
+              className="header__sheet-link header__sheet-link--soon"
+              aria-disabled="true"
+            >
+              {link.label}
+              <span className="header__badge">WIP</span>
+            </span>
+          ) : (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `header__sheet-link${isActive ? " header__sheet-link--active" : ""}`
+              }
+              onClick={close}
+            >
+              {link.label}
+            </NavLink>
+          ),
+        )}
         <div className="header__sheet-ctas">
           <Button
             variant="primary"

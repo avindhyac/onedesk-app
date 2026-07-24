@@ -27,7 +27,8 @@ const SERVICE_LINKS = [
 const COMPANY_LINKS = [
   { to: "/about", label: "About us" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/marketplace", label: "Marketplace" },
+  // Marketplace not live yet — shown muted with a "Soon" badge, not linked.
+  { to: "/marketplace", label: "Marketplace", soon: true },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -83,13 +84,25 @@ export default function Footer() {
           <div>
             <h4 className="footer__col-title">Company</h4>
             <ul className="footer__list">
-              {COMPANY_LINKS.map((l) => (
-                <li key={l.label}>
-                  <Link to={l.to} className="footer__link">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+              {COMPANY_LINKS.map((l) =>
+                l.soon ? (
+                  <li key={l.label}>
+                    <span
+                      className="footer__link footer__link--soon"
+                      aria-disabled="true"
+                    >
+                      {l.label}
+                      <span className="footer__badge">WIP</span>
+                    </span>
+                  </li>
+                ) : (
+                  <li key={l.label}>
+                    <Link to={l.to} className="footer__link">
+                      {l.label}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 

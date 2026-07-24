@@ -2,6 +2,11 @@
 // the /services overview, and the /services/:slug detail pages.
 // Detail copy is derived from OneDesk_Services.md (the service-pillar reference doc).
 
+// The /services/:slug detail pages are hidden for now. Flip this to `true` to
+// re-enable them everywhere: the route, the homepage cards, the ServicesPage
+// tagline links, and the "Learn more" buttons all read from this flag.
+export const SERVICE_DETAIL_ENABLED = false;
+
 export const SERVICES = [
   {
     key: "sec",
