@@ -5,7 +5,20 @@
 // The /services/:slug detail pages are hidden for now. Flip this to `true` to
 // re-enable them everywhere: the route, the homepage cards, the ServicesPage
 // tagline links, and the "Learn more" buttons all read from this flag.
-export const SERVICE_DETAIL_ENABLED = false;
+export const SERVICE_DETAIL_ENABLED = true;
+
+// Section artwork lives in src/assets/services/<Folder>/*.webp. Filenames have
+// inconsistent spacing (and one invisible character), so we glob the folder and
+// resolve each image by a unique substring rather than hand-typing import paths.
+const SERVICE_IMAGES = import.meta.glob("../assets/services/**/*.webp", {
+  eager: true,
+  import: "default",
+});
+
+function img(match) {
+  const key = Object.keys(SERVICE_IMAGES).find((k) => k.includes(match));
+  return key ? SERVICE_IMAGES[key] : null;
+}
 
 export const SERVICES = [
   {
@@ -349,66 +362,57 @@ export const SERVICES = [
     tagline: "You’ve built the product. We’ll build the audience",
     desc: "Strategy, branding, content and campaigns built around clear business goals, helping you reach the right audience and turn attention into growth.",
     points: [
-      "Brand & messaging",
-      "Content & SEO",
-      "Paid & email campaigns",
-      "Monthly growth reporting",
+      "Branding & identity",
+      "Web development & SEO",
+      "Content & campaigns",
+      "Performance & ROI reporting",
     ],
     detail: {
       intro:
         "A business is only as strong as its ability to communicate value clearly and consistently. We build brand positioning and market visibility that holds up alongside your governance and compliance discipline.",
       sections: [
         {
-          heading: "Brand Strategy & Positioning",
-          body: "We help you define and articulate a coherent market identity.",
+          heading: "Branding",
+          body: "We define how your business is seen, a coherent identity and positioning that holds up in front of customers, partners and investors alike.",
           points: [
             "Brand positioning & value proposition",
+            "Visual identity & brand guidelines",
+            "Messaging & tone of voice",
             "Audience & market segmentation",
-            "Competitive landscape assessment",
-            "Brand guidelines & visual identity",
-            "Messaging for investors, partners & customers",
+            "Investor & partner-facing narrative",
           ],
         },
         {
-          heading: "Digital Marketing & Campaign Management",
-          body: "Visibility takes structured, measurable execution.",
+          heading: "Web Development",
+          body: "Your website is often the first due-diligence check anyone runs. We build a fast, credible digital presence that turns that first look into confidence.",
           points: [
-            "Website & digital presence strategy",
-            "SEO & content discoverability",
-            "Paid & organic social campaigns",
-            "Email marketing & lead nurturing",
-            "Marketing calendar & campaign coordination",
+            "Website design & build",
+            "Landing & campaign pages",
+            "SEO & technical foundations",
+            "Analytics & tracking setup",
+            "Ongoing maintenance & support",
           ],
         },
         {
-          heading: "Content & Creative Development",
-          body: "Clear communication takes disciplined content production.",
+          heading: "Content Marketing",
+          body: "Consistent, credible content keeps you visible between conversations. We plan and produce the words and assets that carry your positioning to market.",
           points: [
-            "Website & collateral copywriting",
-            "Corporate presentations & pitch materials",
+            "Content strategy & calendar",
+            "Copywriting & editorial",
+            "Social & organic campaigns",
             "Case studies & thought leadership",
-            "Visual & multimedia coordination",
-            "Localization for cross-border messaging",
+            "Email marketing & lead nurturing",
           ],
         },
         {
-          heading: "Marketing Analytics & Performance Reporting",
-          body: "Marketing decisions should be evidence-based.",
+          heading: "Performance Marketing",
+          body: "Visibility should be measurable. We run paid campaigns against clear targets and report on what they return, so every unit of spend stays accountable.",
           points: [
-            "Campaign performance tracking",
-            "Customer acquisition cost & channel analysis",
-            "Marketing dashboards",
-            "ROI assessment on marketing spend",
-          ],
-        },
-        {
-          heading: "Market Entry & Cross-Border Positioning",
-          body: "For businesses expanding abroad, or foreign investors entering Sri Lanka, positioning needs early evaluation.",
-          points: [
-            "Local market perception analysis",
-            "Messaging adapted for new-market audiences",
-            "Coordination with corporate & regulatory milestones",
-            "Governance-aligned public communications",
+            "Paid search & social campaigns",
+            "Audience targeting & retargeting",
+            "Conversion tracking & attribution",
+            "Performance dashboards",
+            "ROI & spend analysis",
           ],
         },
       ],
@@ -417,6 +421,59 @@ export const SERVICES = [
     },
   },
 ];
+
+// Per-section artwork, in the same order as each service's detail.sections.
+// A `null` entry keeps that section's designed "photo coming" placeholder.
+// Tax / Accounting / Legal images are named to match their headings 1:1.
+// HR & Secretarial use generically-named illustrations matched by depiction;
+// Secretarial reuses image 33 for Capital Transactions (only 4 images, 5 sections).
+const SECTION_IMAGES = {
+  sec: [
+    img("AboutUs-33"), // Company Incorporation
+    img("AboutUs-34"), // Corporate Governance & Secretarial Compliance
+    img("AboutUs-33"), // Capital Transactions & Restructuring (reused)
+    img("AboutUs-36"), // Foreign Investor & Cross-Border Entry
+    img("AboutUs-35"), // Banking & Regulatory Liaison
+  ],
+  leg: [
+    img("Commercial Contracting"),
+    img("Regulatory Compliance & Governance"),
+    img("Employment & HR Legal Frameworks"),
+    img("Dispute Strategy & Risk Mitigation"),
+  ],
+  tax: [
+    img("Corporate Tax Structuring"),
+    img("Tax Registrations & Ongoing Compliance"),
+    img("Cross-Border Tax Considerations"),
+    img("Tax Risk Assessment & Advisory"),
+  ],
+  acc: [
+    img("Bookkeeping & Record Maintenance"),
+    img("Financial Statements"),
+    img("Audit Coordination & Regulatory Reporting"),
+    img("Financial Governance & Advisory"),
+  ],
+  hr: [
+    img("AboutUs-32"), // Employment Framework Design
+    img("AboutUs-31"), // Payroll Administration & Statutory Compliance
+    img("AboutUs-29"), // Ongoing HR Compliance
+    img("AboutUs-30"), // Workforce Structuring & Growth
+  ],
+  mkt: [
+    img("Branding"), // Branding
+    img("Web Development"), // Web Development
+    img("Content Marketing"), // Content Marketing
+    img("Performance Marketing"), // Performance Marketing
+  ],
+};
+
+// Attach the resolved artwork onto each section object once, at module load.
+for (const service of SERVICES) {
+  const images = SECTION_IMAGES[service.key] ?? [];
+  service.detail.sections.forEach((section, i) => {
+    section.image = images[i] ?? null;
+  });
+}
 
 export function getServiceBySlug(slug) {
   return SERVICES.find((s) => s.slug === slug);

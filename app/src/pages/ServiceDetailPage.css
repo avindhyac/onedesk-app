@@ -284,6 +284,15 @@
   );
 }
 
+/* Section artwork — illustrations sit on the tinted hatched panel (transparent
+   PNG/webp), so contain + padding rather than cover to avoid cropping. */
+.svcd-section__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10%;
+}
+
 .svcd-section__media-icon {
   display: flex;
   align-items: center;

@@ -52,12 +52,11 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero__lede">
-            OneDesk brings{" "}
+            OneDesk brings company{" "}
             <strong>
-              company incorporation and secretarial, legal, tax, accounting, HR
+              secretarial, legal, tax, accounting, HR and marketing
             </strong>{" "}
-            and marketing support together, under one structured, trusted
-            partner.
+            support together, under one structured, trusted partner.
           </p>
           <div className="hero__ctas">
             <Button
@@ -102,7 +101,10 @@ export default function Hero() {
               />
             ))}
           </div>
-          <div className="hero__service-label hero__service-label--left" aria-live="off">
+          <div
+            className="hero__service-label hero__service-label--left"
+            aria-live="off"
+          >
             {HERO_TABLE_SEATS.left.map((c, i) => (
               <span
                 key={c.key}
@@ -127,7 +129,10 @@ export default function Hero() {
               />
             ))}
           </div>
-          <div className="hero__service-label hero__service-label--right" aria-live="off">
+          <div
+            className="hero__service-label hero__service-label--right"
+            aria-live="off"
+          >
             {HERO_TABLE_SEATS.right.map((c, i) => (
               <span
                 key={c.key}

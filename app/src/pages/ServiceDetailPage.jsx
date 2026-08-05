@@ -89,12 +89,26 @@ export default function ServiceDetailPage() {
                 <div
                   className={`svcd-section__media ${flip ? "svcd-section__media--right" : ""} svcd-section__media--${key}`}
                 >
-                  <span className="svcd-section__media-icon" aria-hidden="true">
-                    <iconify-icon icon="lucide:image" />
-                  </span>
-                  <span className="svcd-section__media-caption">
-                    Photo &mdash; {sec.heading}
-                  </span>
+                  {sec.image ? (
+                    <img
+                      src={sec.image}
+                      alt={sec.heading}
+                      className="svcd-section__media-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <>
+                      <span
+                        className="svcd-section__media-icon"
+                        aria-hidden="true"
+                      >
+                        <iconify-icon icon="lucide:image" />
+                      </span>
+                      <span className="svcd-section__media-caption">
+                        Photo &mdash; {sec.heading}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <div
                   className={`svcd-section__content ${flip ? "svcd-section__content--left" : ""}`}
