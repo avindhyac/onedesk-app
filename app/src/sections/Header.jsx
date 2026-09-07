@@ -6,8 +6,8 @@ import "./Header.css";
 const NAV_LINKS = [
   { to: "/about", label: "About us" },
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Pricing" },
-  // Marketplace is not live yet — shown muted with a "Soon" badge, not linked.
+  // Pricing and Marketplace are not live yet — shown muted with a "WIP" badge, not linked.
+  { to: "/pricing", label: "Pricing", soon: true },
   { to: "/marketplace", label: "Marketplace", soon: true },
 ];
 
