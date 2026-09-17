@@ -1,27 +1,21 @@
 import SectionHeading from "../components/SectionHeading";
-import step1Img from "../assets/char/Home/OD-Web-23.webp";
-import step2Img from "../assets/char/Home/OD-Web-24.webp";
-import step3Img from "../assets/char/Home/OD-Web-25.webp";
 import "./HowItWorks.css";
 
 const STEPS = [
   {
-    step: "01",
-    titleLines: ["Tell us what", "you need."],
-    body: "We learn about your business, priorities and the services you need today.",
-    image: step1Img,
+    step: "1",
+    titleLines: ["Incorporate your", "company."],
+    body: "Name approval, incorporation documents and your certificate, handled end to end. Already incorporated? We take over your existing file instead.",
   },
   {
-    step: "02",
-    titleLines: ["Meet", "your specialists."],
-    body: "We connect you with experienced in-house experts across the relevant service areas.",
-    image: step2Img,
+    step: "2",
+    titleLines: ["Add the services", "you need."],
+    body: "Start with one team, or all five. Tax, Books, Payroll and Legal switch on when you need them, at the same desk.",
   },
   {
-    step: "03",
-    titleLines: ["Focus on", "your business."],
-    body: "Your OneDesk team takes care of the rest, with clear communication and support as your needs grow.",
-    image: step3Img,
+    step: "3",
+    titleLines: ["Focus on", "building yours."],
+    body: "We track the deadlines and file on time. You get one point of contact and a monthly update, not a chase.",
   },
 ];
 
@@ -47,13 +41,9 @@ export default function HowItWorks() {
                 </h3>
                 <p className="how-it-works__body">{s.body}</p>
               </div>
-              <img
-                className="how-it-works__img"
-                src={s.image}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <div className="how-it-works__number" aria-hidden="true">
+                {s.step}
+              </div>
             </div>
           ))}
         </div>

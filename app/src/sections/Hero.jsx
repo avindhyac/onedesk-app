@@ -37,7 +37,7 @@ export default function Hero() {
         <div className="hero__content">
           <div className="hero__badge">
             <Badge tone="orange" icon="lucide:sparkles">
-              Trusted by founders everywhere
+              Built for Sri Lankan Businesses
             </Badge>
           </div>
           <h1 className="hero__title" ref={titleRef}>
@@ -66,10 +66,10 @@ export default function Hero() {
               as={Link}
               to="/contact"
             >
-              Get started
+              Book a 15 min call
             </Button>
-            <Button variant="outline" size="lg" as={Link} to="/pricing">
-              See pricing
+            <Button variant="outline" size="lg" as={Link} to="/services">
+              Services
             </Button>
           </div>
         </div>
@@ -146,6 +146,7 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* COMMENTED OUT THE LOGO STRIP TEMPORARILY 
       <div className="hero__trust">
         <p className="hero__trust-heading">Trusted by great businesses</p>
         <div className="hero__trust-track">
@@ -158,7 +159,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

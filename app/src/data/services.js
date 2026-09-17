@@ -26,7 +26,7 @@ export const SERVICES = [
     slug: "secretarial",
     char: "secretarial",
     icon: "lucide:building-2",
-    title: "Corporate Secretarial",
+    title: "OneDesk Secretarial",
     tagline: "Set up right. Stay compliant.",
     desc: "From company incorporation and annual returns to statutory records and resolutions, we keep your corporate obligations in order.",
     points: [
@@ -103,7 +103,7 @@ export const SERVICES = [
     slug: "legal",
     char: "legal",
     icon: "lucide:scale",
-    title: "Legal",
+    title: "OneDesk Legal",
     tagline: "Counsel on call, not on the clock.",
     desc: "Practical legal support for contracts, agreements, compliance and everyday business decisions.",
     points: [
@@ -167,7 +167,7 @@ export const SERVICES = [
     slug: "tax",
     char: "tax",
     icon: "lucide:percent",
-    title: "Tax",
+    title: "OneDesk Tax",
     tagline: "Every filing, every deduction.",
     desc: "Tax registrations, returns and ongoing advisory, helping you meet local obligations, plan ahead and avoid costly surprises.",
     points: [
@@ -231,7 +231,7 @@ export const SERVICES = [
     slug: "accounting",
     char: "accounting",
     icon: "lucide:calculator",
-    title: "Accounting",
+    title: "OneDesk Books",
     tagline: "Clear books. Better decisions.",
     desc: "Accurate bookkeeping, internal audits, and financial reporting that give you a clear view of performance, cash flow and what comes next.",
     points: [
@@ -294,7 +294,7 @@ export const SERVICES = [
     slug: "hr",
     char: "hr",
     icon: "lucide:users",
-    title: "HR",
+    title: "OneDesk People",
     tagline: "Hire well. Build better teams.",
     desc: "From recruitment and onboarding to payroll support, policies and employee administration, we help you build a workplace that runs smoothly.",
     points: [
@@ -358,7 +358,7 @@ export const SERVICES = [
     slug: "marketing",
     char: "marketing",
     icon: "lucide:megaphone",
-    title: "Marketing",
+    title: "OneDesk Marketing",
     tagline: "You’ve built the product. We’ll build the audience",
     desc: "Strategy, branding, content and campaigns built around clear business goals, helping you reach the right audience and turn attention into growth.",
     points: [

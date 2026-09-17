@@ -5,8 +5,8 @@ import "./CtaBand.css";
 export default function CtaBand({
   title = "Ready to clear your desk?",
   subtitle,
-  ctaLabel = "See pricing",
-  ctaTo = "/pricing",
+  ctaLabel = "Book a Call",
+  ctaTo = "/contact",
 }) {
   return (
     <section className="cta-band">
@@ -16,7 +16,8 @@ export default function CtaBand({
           {subtitle && <p className="cta-band__sub">{subtitle}</p>}
           {!subtitle && (
             <p className="cta-band__sub">
-              Join thousands of founders who let OneDesk handle the rest.
+              Tell us what you're dealing with. We'll tell you what it takes and
+              what it costs, no obligation.
             </p>
           )}
         </div>

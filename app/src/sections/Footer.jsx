@@ -114,6 +114,11 @@ export default function Footer() {
                   hello@onedesk.one
                 </a>
               </li>
+              <li>
+                <a href="tel:+94770000000" className="footer__link">
+                  +94 77 000 0000
+                </a>
+              </li>
               <li className="footer__address">Colombo, Sri Lanka</li>
             </ul>
           </div>
