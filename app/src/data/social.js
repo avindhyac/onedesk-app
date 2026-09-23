@@ -1,13 +1,12 @@
 /* ===========================================================================
    OneDesk · Social + contact links - single source of truth.
    Footer and ContactPage both read from here, so a URL changes in one place.
-   WhatsApp is a placeholder until the Business account exists - swap `href`
-   for a wa.me link (e.g. https://wa.me/94770000000) and set external: true.
+   WhatsApp uses international format for wa.me links.
    =========================================================================== */
 const CONTACT_EMAIL = "hello@onedesk.one";
 
 export const SOCIAL = {
-  whatsapp: { label: "WhatsApp", href: "#", external: false }, // TODO: set wa.me link
+  whatsapp: { label: "WhatsApp", href: "https://wa.me/94775694203", external: true },
   instagram: {
     label: "Instagram",
     href: "https://www.instagram.com/onedesk.one/",

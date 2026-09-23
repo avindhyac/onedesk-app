@@ -575,3 +575,273 @@
 .svcd-others__tile--mkt .svcd-others__tile-label {
   color: var(--od-mkt-text);
 }
+
+/* ── Company Secretarial incorporation process ─────────────── */
+.secretarial-incorp {
+  background: var(--od-white);
+  border-top: 1px solid rgba(20, 32, 51, 0.06);
+}
+
+.secretarial-incorp__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 64px var(--od-gutter) 72px;
+  text-align: center;
+}
+
+.secretarial-incorp__eyebrow {
+  margin: 0;
+  color: var(--od-orange);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.secretarial-incorp__title {
+  margin: 10px 0 0;
+  font-family: var(--od-font-display);
+  font-size: clamp(2rem, 1.25rem + 2.4vw, 3.05rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  color: var(--od-ink);
+}
+
+.secretarial-incorp__intro {
+  max-width: 900px;
+  margin: 18px auto 0;
+  color: var(--od-slate);
+  font-size: var(--od-text-base);
+  line-height: 1.5;
+}
+
+.secretarial-incorp__flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  margin: 30px auto 58px;
+}
+
+.secretarial-incorp__flow-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 22px;
+  border: 1px solid rgba(20, 32, 51, 0.12);
+  border-radius: 999px;
+  background: #fffdf9;
+  color: var(--od-ink);
+  font-size: 0.84rem;
+  font-weight: 800;
+  box-shadow: 0 1px 0 rgba(20, 32, 51, 0.04);
+}
+
+.secretarial-incorp__flow-item:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(20, 32, 51, 0.28);
+  font-weight: 900;
+}
+
+.secretarial-incorp__flow-item--ready {
+  background: var(--od-navy);
+  border-color: var(--od-navy);
+  color: var(--od-white);
+}
+
+.secretarial-incorp__timeline {
+  position: relative;
+  display: grid;
+  gap: 34px;
+  margin: 0 auto;
+}
+
+.secretarial-incorp__timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 66px;
+  width: 1px;
+  background: rgba(20, 32, 51, 0.24);
+  transform: translateX(-50%);
+}
+
+.secretarial-incorp__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+  align-items: center;
+  min-height: 170px;
+  text-align: left;
+}
+
+.secretarial-incorp__media {
+  grid-column: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secretarial-incorp__media img {
+  display: block;
+  width: min(260px, 82%);
+  max-height: 188px;
+  object-fit: contain;
+}
+
+.secretarial-incorp__marker {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(20, 32, 51, 0.2);
+  border-radius: 50%;
+  background: var(--od-white);
+  color: var(--od-orange);
+  font-family: var(--od-font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.secretarial-incorp__copy {
+  grid-column: 3;
+  max-width: 350px;
+}
+
+.secretarial-incorp__step--left .secretarial-incorp__media {
+  grid-column: 3;
+}
+
+.secretarial-incorp__step--left .secretarial-incorp__copy {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  text-align: right;
+}
+
+.secretarial-incorp__step-kicker {
+  margin: 0 0 8px;
+  color: var(--od-orange);
+  font-size: clamp(1rem, 0.88rem + 0.45vw, 1.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.secretarial-incorp__step-title {
+  margin: 0;
+  color: var(--od-ink);
+  font-family: var(--od-font-display);
+  font-size: clamp(1.55rem, 1.12rem + 1.25vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.secretarial-incorp__step-body {
+  margin: 14px 0 0;
+  color: var(--od-slate);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.secretarial-incorp__step--ready .secretarial-incorp__marker {
+  width: 60px;
+  height: 60px;
+  border-color: var(--od-orange);
+  background: var(--od-orange);
+  color: var(--od-white);
+}
+
+.secretarial-incorp__step--ready .secretarial-incorp__step-kicker,
+.secretarial-incorp__step--ready .secretarial-incorp__step-title {
+  color: var(--od-orange);
+}
+
+.secretarial-incorp__closing {
+  margin: 72px auto 0;
+  color: var(--od-orange);
+  font-family: var(--od-font-display);
+  font-size: clamp(1.55rem, 1rem + 1.8vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+@media (max-width: 760px) {
+  .secretarial-incorp__inner {
+    padding-top: 52px;
+  }
+
+  .secretarial-incorp__flow {
+    gap: 10px;
+    margin-bottom: 42px;
+  }
+
+  .secretarial-incorp__flow-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .secretarial-incorp__timeline {
+    gap: 44px;
+  }
+
+  .secretarial-incorp__timeline::before {
+    left: 28px;
+    bottom: 84px;
+  }
+
+  .secretarial-incorp__step,
+  .secretarial-incorp__step--left {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 16px;
+    min-height: 0;
+    text-align: left;
+  }
+
+  .secretarial-incorp__marker,
+  .secretarial-incorp__step--left .secretarial-incorp__marker {
+    grid-column: 1;
+    grid-row: 1;
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .secretarial-incorp__media,
+  .secretarial-incorp__step--left .secretarial-incorp__media {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-start;
+  }
+
+  .secretarial-incorp__media img {
+    width: min(230px, 100%);
+    max-height: 170px;
+  }
+
+  .secretarial-incorp__copy,
+  .secretarial-incorp__step--left .secretarial-incorp__copy {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    max-width: none;
+    text-align: left;
+  }
+
+  .secretarial-incorp__closing {
+    margin-top: 54px;
+  }
+}

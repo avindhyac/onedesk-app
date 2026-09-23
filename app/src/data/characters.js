@@ -4,7 +4,7 @@ import charAccounting from "../assets/char/accounting.webp";
 import charHr from "../assets/char/hr.webp";
 import charLegal from "../assets/char/legal.webp";
 import charMarketing from "../assets/char/marketing.webp";
-import charSecretarialSeated from "../assets/char/secretarial-seeated.webp";
+import charSecretarialSeated from "../assets/char/secretarial-seated.webp";
 import charTaxSeated from "../assets/char/tax-seated.webp";
 import charAccountingSeated from "../assets/char/accounting-seated.webp";
 import charHrSeated from "../assets/char/hr-seated.webp";
