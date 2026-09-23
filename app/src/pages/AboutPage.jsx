@@ -17,11 +17,11 @@ import aboutAdvisor08 from "../assets/char/About/OD_Web_AboutUs-08.webp";
 import aboutAdvisor09 from "../assets/char/About/OD_Web_AboutUs-09.webp";
 import aboutAdvisor10 from "../assets/char/About/OD_Web_AboutUs-10.webp";
 import aboutClientDesk from "../assets/char/About/OD-AboutUs-Client-Desk.webp";
-import illoTeam from "../assets/char/About/OD_Web_AboutUs-11.webp";
-import illoPeople from "../assets/char/About/OD_Web_AboutUs-12.webp";
-import illoClarity from "../assets/char/About/OD_Web_AboutUs-13.webp";
-import illoTrust from "../assets/char/About/OD_Web_AboutUs-14.webp";
-import illoDesk from "../assets/char/About/OD_Web_AboutUs-15.webp";
+import illoTeam from "../assets/char/About/about-story-team.webp";
+import illoPeople from "../assets/char/About/about-people-over-paperwork.webp";
+import illoClarity from "../assets/char/About/about-radical-clarity.webp";
+import illoTrust from "../assets/char/About/about-earned-trust.webp";
+import illoDesk from "../assets/char/About/one-desk-us.webp";
 
 import dhanikaPhoto from "../assets/people/dhanika-headshot.jpg";
 import amritPhoto from "../assets/people/amrit-headhost.jpg";
