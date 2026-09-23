@@ -7,18 +7,9 @@
 // tagline links, and the "Learn more" buttons all read from this flag.
 export const SERVICE_DETAIL_ENABLED = true;
 
-// Section artwork lives in src/assets/services/<Folder>/*.webp. Filenames have
-// inconsistent spacing (and one invisible character), so we glob the folder and
-// resolve each image by a unique substring rather than hand-typing import paths.
-const SERVICE_IMAGES = import.meta.glob("../assets/services/**/*.webp", {
-  eager: true,
-  import: "default",
-});
-
-function img(match) {
-  const key = Object.keys(SERVICE_IMAGES).find((k) => k.includes(match));
-  return key ? SERVICE_IMAGES[key] : null;
-}
+// Section artwork lives in src/assets/services/<Folder>/*.webp.
+// Reference the selected replacement files directly so older images in the same
+// folders are not pulled into the production build by a broad eager glob.
 
 export const SERVICES = [
   {
@@ -423,47 +414,44 @@ export const SERVICES = [
 ];
 
 // Per-section artwork, in the same order as each service's detail.sections.
-// A `null` entry keeps that section's designed "photo coming" placeholder.
-// Tax / Accounting / Legal images are named to match their headings 1:1.
-// HR & Secretarial use generically-named illustrations matched by depiction;
-// Secretarial reuses image 33 for Capital Transactions (only 4 images, 5 sections).
+// Uses the newly added replacement images from each src/assets/services/<Folder>/ folder.
 const SECTION_IMAGES = {
   sec: [
-    img("AboutUs-33"), // Company Incorporation
-    img("AboutUs-34"), // Corporate Governance & Secretarial Compliance
-    img("AboutUs-33"), // Capital Transactions & Restructuring (reused)
-    img("AboutUs-36"), // Foreign Investor & Cross-Border Entry
-    img("AboutUs-35"), // Banking & Regulatory Liaison
+    new URL("../assets/services/Corporate/Asset 20.webp", import.meta.url).href, // Company Incorporation
+    new URL("../assets/services/Corporate/Asset 21.webp", import.meta.url).href, // Corporate Governance & Secretarial Compliance
+    new URL("../assets/services/Corporate/Asset 22.webp", import.meta.url).href, // Capital Transactions & Restructuring
+    new URL("../assets/services/Corporate/Asset 23.webp", import.meta.url).href, // Foreign Investor & Cross-Border Entry
+    new URL("../assets/services/Corporate/Asset 24.webp", import.meta.url).href, // Banking & Regulatory Liaison
   ],
   leg: [
-    img("Commercial Contracting"),
-    img("Regulatory Compliance & Governance"),
-    img("Employment & HR Legal Frameworks"),
-    img("Dispute Strategy & Risk Mitigation"),
+    new URL("../assets/services/Legal/Asset 28.webp", import.meta.url).href, // Commercial Contracting
+    new URL("../assets/services/Legal/Asset 29.webp", import.meta.url).href, // Regulatory Compliance & Governance
+    new URL("../assets/services/Legal/Asset 30.webp", import.meta.url).href, // Employment & HR Legal Frameworks
+    new URL("../assets/services/Legal/Asset 31.webp", import.meta.url).href, // Dispute Strategy & Risk Mitigation
   ],
   tax: [
-    img("Corporate Tax Structuring"),
-    img("Tax Registrations & Ongoing Compliance"),
-    img("Cross-Border Tax Considerations"),
-    img("Tax Risk Assessment & Advisory"),
+    new URL("../assets/services/Tax/tax_character_desk_risk_plan.webp", import.meta.url).href, // Corporate Tax Structuring
+    new URL("../assets/services/Tax/tax_character_clipboard.webp", import.meta.url).href, // Tax Registrations & Ongoing Compliance
+    new URL("../assets/services/Tax/tax_character_presentation.webp", import.meta.url).href, // Cross-Border Tax Considerations
+    new URL("../assets/services/Tax/tax_character_calculator_desk.webp", import.meta.url).href, // Tax Risk Assessment & Advisory
   ],
   acc: [
-    img("Bookkeeping & Record Maintenance"),
-    img("Financial Statements"),
-    img("Audit Coordination & Regulatory Reporting"),
-    img("Financial Governance & Advisory"),
+    new URL("../assets/services/Accounting/Asset 13@4x.webp", import.meta.url).href, // Bookkeeping & Record Maintenance
+    new URL("../assets/services/Accounting/Asset 14@4x.webp", import.meta.url).href, // Financial Statements
+    new URL("../assets/services/Accounting/Asset 15@4x.webp", import.meta.url).href, // Audit Coordination & Regulatory Reporting
+    new URL("../assets/services/Accounting/Asset 21@4x.webp", import.meta.url).href, // Financial Governance & Advisory
   ],
   hr: [
-    img("AboutUs-32"), // Employment Framework Design
-    img("AboutUs-31"), // Payroll Administration & Statutory Compliance
-    img("AboutUs-29"), // Ongoing HR Compliance
-    img("AboutUs-30"), // Workforce Structuring & Growth
+    new URL("../assets/services/HR/OneDesk_HR_01_meeting.webp", import.meta.url).href, // Employment Framework Design
+    new URL("../assets/services/HR/OneDesk_HR_02_filing.webp", import.meta.url).href, // Payroll Administration & Statutory Compliance
+    new URL("../assets/services/HR/OneDesk_HR_03_laptop.webp", import.meta.url).href, // Ongoing HR Compliance
+    new URL("../assets/services/HR/OneDesk_HR_04_org_chart.webp", import.meta.url).href, // Workforce Structuring & Growth
   ],
   mkt: [
-    img("Branding"), // Branding
-    img("Web Development"), // Web Development
-    img("Content Marketing"), // Content Marketing
-    img("Performance Marketing"), // Performance Marketing
+    new URL("../assets/services/Marketing/OneDesk_character_replacement_1 (1).webp", import.meta.url).href, // Branding
+    new URL("../assets/services/Marketing/OneDesk_character_replacement_2 (1).webp", import.meta.url).href, // Web Development
+    new URL("../assets/services/Marketing/Asset 32.webp", import.meta.url).href, // Content Marketing
+    new URL("../assets/services/Marketing/OneDesk_character_replacement_4 (1).webp", import.meta.url).href, // Performance Marketing
   ],
 };
 

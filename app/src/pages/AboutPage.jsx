@@ -16,8 +16,7 @@ import aboutAdvisor07 from "../assets/char/About/OD_Web_AboutUs-07.webp";
 import aboutAdvisor08 from "../assets/char/About/OD_Web_AboutUs-08.webp";
 import aboutAdvisor09 from "../assets/char/About/OD_Web_AboutUs-09.webp";
 import aboutAdvisor10 from "../assets/char/About/OD_Web_AboutUs-10.webp";
-import aboutClient from "../assets/char/About/OD_Web_AboutUs-client.webp";
-import aboutDesk from "../assets/char/About/OD_Web_AboutUs-desk.webp";
+import aboutClientDesk from "../assets/char/About/OD-AboutUs-Client-Desk.webp";
 import illoTeam from "../assets/char/About/OD_Web_AboutUs-11.webp";
 import illoPeople from "../assets/char/About/OD_Web_AboutUs-12.webp";
 import illoClarity from "../assets/char/About/OD_Web_AboutUs-13.webp";
@@ -130,14 +129,6 @@ export default function AboutPage() {
             aria-hidden="true"
           >
             <div className="about-hero__desk-glow" />
-            <img
-              className="about-hero__client"
-              src={aboutClient}
-              alt=""
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
             <div className="about-hero__advisor-seat">
               {ABOUT_HERO_ADVISORS.map((advisor, index) => (
                 <img
@@ -164,8 +155,8 @@ export default function AboutPage() {
               ))}
             </div>
             <img
-              className="about-hero__desk"
-              src={aboutDesk}
+              className="about-hero__client-desk"
+              src={aboutClientDesk}
               alt=""
               loading="eager"
               decoding="async"

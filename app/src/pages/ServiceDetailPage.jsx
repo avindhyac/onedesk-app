@@ -9,6 +9,41 @@ import { characters } from "../data/characters";
 import { SERVICES, getServiceBySlug } from "../data/services";
 import "./ServiceDetailPage.css";
 
+const SECRETARIAL_INCORP_IMAGES = [
+  new URL("../assets/services/Corporate/Asset 16@4x.webp", import.meta.url).href,
+  new URL("../assets/services/Corporate/Asset 15@4x.webp", import.meta.url).href,
+  new URL("../assets/services/Corporate/Asset 13@4x.webp", import.meta.url).href,
+  new URL("../assets/services/Corporate/Asset 14@4x.webp", import.meta.url).href,
+];
+
+const SECRETARIAL_INCORP_STEPS = [
+  {
+    kicker: "Company name",
+    title: "Choose with confidence",
+    body: "You choose your preferred name. We check its availability and guide you on how to submit the name correctly to the Registrar of Companies (ROC), helping reduce the risk of rejection or resubmission. We then manage the name reservation process for you.",
+    image: SECRETARIAL_INCORP_IMAGES[0],
+  },
+  {
+    kicker: "Company structure",
+    title: "Set up your company the right way",
+    body: "We prepare the required incorporation documents and put the right ownership, directors, company secretary and share capital structure in place.",
+    image: SECRETARIAL_INCORP_IMAGES[1],
+  },
+  {
+    kicker: "Register with the Registrar of Companies",
+    title: "Submit & incorporate",
+    body: "We submit the incorporation documents to the Registrar of Companies and complete the required Beneficial Ownership filings and declarations.",
+    image: SECRETARIAL_INCORP_IMAGES[2],
+  },
+  {
+    kicker: "Ready",
+    title: "Receive your legal documents",
+    body: "Once the incorporation is approved, we finalise your corporate records and provide your completed incorporation documents.",
+    image: SECRETARIAL_INCORP_IMAGES[3],
+    ready: true,
+  },
+];
+
 export default function ServiceDetailPage() {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
@@ -75,6 +110,58 @@ export default function ServiceDetailPage() {
       <section className={`svcd-thesis svcd-thesis--${key}`}>
         <p className="svcd-thesis__text">{detail.approach}</p>
       </section>
+
+      {key === "sec" && (
+        <section className="secretarial-incorp" aria-labelledby="secretarial-incorp-title">
+          <div className="secretarial-incorp__inner">
+            <p className="secretarial-incorp__eyebrow">Company Incorporation</p>
+            <h2 id="secretarial-incorp-title" className="secretarial-incorp__title">
+              From name to a company
+            </h2>
+            <p className="secretarial-incorp__intro">
+              Setting up and maintaining a company involves more than registration. From incorporation to statutory compliance to changes in ownership and corporate structure, OneDesk provides the support you need to keep your business properly structured and up to date.
+            </p>
+
+            <div className="secretarial-incorp__flow" aria-label="Company incorporation process">
+              {["Select the name", "Submit for approval", "Apply for incorporation", "Register", "Ready"].map((item, index, arr) => (
+                <span
+                  key={item}
+                  className={`secretarial-incorp__flow-item ${index === arr.length - 1 ? "secretarial-incorp__flow-item--ready" : ""}`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="secretarial-incorp__timeline">
+              {SECRETARIAL_INCORP_STEPS.map((step, index) => {
+                return (
+                  <article
+                    key={step.title}
+                    className={`secretarial-incorp__step ${index % 2 === 1 ? "secretarial-incorp__step--left" : "secretarial-incorp__step--right"} ${step.ready ? "secretarial-incorp__step--ready" : ""}`}
+                  >
+                    <div className="secretarial-incorp__media">
+                      <img src={step.image} alt="" loading="lazy" decoding="async" />
+                    </div>
+                    <div className="secretarial-incorp__marker" aria-hidden="true">
+                      {index + 1}
+                    </div>
+                    <div className="secretarial-incorp__copy">
+                      <p className="secretarial-incorp__step-kicker">{step.kicker}</p>
+                      <h3 className="secretarial-incorp__step-title">{step.title}</h3>
+                      <p className="secretarial-incorp__step-body">{step.body}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <p className="secretarial-incorp__closing">
+              From name to company<br />we handle the details in between
+            </p>
+          </div>
+        </section>
+      )}
 
       <div className="svcd-body">
         {detail.sections.map((sec, i) => {

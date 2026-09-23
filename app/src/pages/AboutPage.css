@@ -192,8 +192,7 @@
   z-index: 0;
 }
 
-.about-hero__desk,
-.about-hero__client,
+.about-hero__client-desk,
 .about-hero__advisor {
   position: absolute;
   display: block;
@@ -201,23 +200,13 @@
   user-select: none;
 }
 
-.about-hero__desk {
+.about-hero__client-desk {
   left: 50%;
-  bottom: -2%;
-  width: 90%;
+  bottom: 0;
+  width: 100%;
   height: auto;
   transform: translateX(-50%);
   z-index: 3;
-}
-
-.about-hero__client {
-  left: 5%;
-  bottom: 17%;
-  width: 36%;
-  height: auto;
-  object-fit: contain;
-  object-position: bottom center;
-  z-index: 2;
 }
 
 .about-hero__advisor-seat {
@@ -656,7 +645,6 @@
     width: min(108vw, 430px);
     transform: translateX(-2%);
   }
-  .about-hero__client,
   .about-hero__advisor-seat {
     width: 38%;
   }
