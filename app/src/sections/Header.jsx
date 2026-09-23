@@ -116,7 +116,7 @@ export default function Header() {
               <iconify-icon icon="lucide:building-2" />
             </span>
             <span>Incorporating a company?</span>
-            <strong>Jump to Company Incorporation</strong>
+            <strong>Start your company today</strong>
             <span className="header__incorp-banner-arrow" aria-hidden="true">
               <iconify-icon icon="lucide:arrow-right" />
             </span>
