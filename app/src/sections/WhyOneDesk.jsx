@@ -1,6 +1,6 @@
-import oneTeamImg from "../assets/char/About/about-story-team.webp";
-import deadlinesImg from "../assets/char/About/about-radical-clarity.webp";
-import inHouseImg from "../assets/char/About/one-desk-us.webp";
+import oneTeamImg from "../assets/char/Home/about-story-team.webp";
+import deadlinesImg from "../assets/char/Home/about-radical-clarity.webp";
+import inHouseImg from "../assets/char/Home/one-desk-us.webp";
 
 export default function WhyOneDesk() {
   return (

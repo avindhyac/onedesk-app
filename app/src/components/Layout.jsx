@@ -8,6 +8,7 @@ import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import ScrollToTop from "./ScrollToTop";
 import SectionSnap from "./SectionSnap";
+import WhatsAppPrompt from "./WhatsAppPrompt";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, useGSAP);
 
@@ -71,6 +72,7 @@ export default function Layout() {
           on an ancestor (which #smooth-content gets) breaks position:sticky
           the same way it breaks position:fixed. */}
       <Header />
+      <WhatsAppPrompt />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <ScrollToTop />
