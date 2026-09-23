@@ -4,7 +4,7 @@
 :root {
   /* Fixed header height — shared by the content top-offset, in-page anchor
      scroll-margin, and section snapping */
-  --header-h: 72px;
+  --header-h: 75px;
 }
 
 *,

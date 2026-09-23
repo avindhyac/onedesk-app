@@ -18,7 +18,7 @@ export const SERVICES = [
     char: "secretarial",
     icon: "lucide:building-2",
     title: "OneDesk Secretarial",
-    tagline: "Set up right. Stay compliant.",
+    tagline: "Structure your business for what’s next. ",
     desc: "From company incorporation and annual returns to statutory records and resolutions, we keep your corporate obligations in order.",
     points: [
       "Company formation & EIN",
@@ -28,60 +28,88 @@ export const SERVICES = [
     ],
     detail: {
       intro:
-        "A sound corporate structure is the foundation of every sustainable business. We handle structured incorporation and ongoing secretarial support, so you stay compliant and transparent from day one through growth.",
+        "Setting up and maintaining a company involves more than registration. From incorporation to statutory compliance to changes in ownership and corporate structure, OneDesk provides the support you need to keep your business properly structured and up to date. ",
+      whyTitle: "Why a Private Limited Company?",
+      whySubtitle: "A structure built for what comes next",
+      whyBody:
+        "A Private Limited Company provides a formal structure for businesses looking to operate, grow and bring in new shareholders or investors.",
+      whyItems: [
+        {
+          title: "Limited liability",
+          body: "The company's liabilities are generally separate from the personal assets of its shareholders, subject to applicable law.",
+        },
+        {
+          title: "Separate legal identity",
+          body: "The company has its own legal identity, separate from its shareholders and directors.",
+        },
+        {
+          title: "Built for growth",
+          body: "A clear shareholding structure provides a framework for bringing in investors, shareholders or strategic partners.",
+        },
+        {
+          title: "Greater credibility",
+          body: "A formal corporate structure can support your relationships with banks, investors, suppliers and other business partners.",
+        },
+      ],
+      whyClosing:
+        "We prepare the required incorporation documents and put the right ownership, directors, company secretary and share capital structure in place.",
       sections: [
         {
           heading: "Company Incorporation",
-          body: "We help you set up the right legal entity in Sri Lanka, including private limited companies, with careful attention to structure and strategy.",
+          body: "From the initial name search to incorporation and post-incorporation requirements.",
           points: [
-            "Shareholding structure",
-            "Director composition",
-            "Capitalization strategy",
-            "Governance requirements",
-            "Regulatory classification",
-            "Foreign investment implications",
+            "Company name search and reservation",
+            "Preparation of incorporation documents",
+            "Registration with the Registrar of Companies",
+            "Appointment of directors and company secretary",
+            "Shareholder and share capital structuring",
+            "Articles of Association",
+            "Certificate of Incorporation",
+            "Post-incorporation compliance guidance",
           ],
         },
         {
           heading: "Corporate Governance & Secretarial Compliance",
-          body: "Once you're incorporated, compliance becomes continuous. We keep it on track with a structured compliance calendar.",
+          body: "Keeping your company's records, filings and governance requirements up to date.",
           points: [
-            "Statutory registers",
-            "Board & shareholder resolutions",
-            "Annual return filings",
-            "Director appointments & resignations",
-            "Share transfers & allotments",
-            "Constitutional amendments",
+            "Maintenance of statutory registers and company records",
+            "Board and shareholder resolutions",
+            "Annual return preparation and filing",
+            "Changes to directors and company secretaries",
+            "Share transfers and allotments",
+            "Changes to registered office and company particulars",
+            "Amendments to Articles of Association",
+            "Board and shareholder meeting minutes",
+            "Corporate changes and related Registrar filings",
           ],
         },
         {
           heading: "Capital Transactions & Restructuring",
-          body: "As your business evolves, we advise on and implement changes to your capital structure, prepared with tax and accounting alignment in mind.",
+          body: "Supporting changes to your ownership, share capital and corporate structure.",
           points: [
-            "Share issuances & transfers",
-            "Capital increases & reorganizations",
-            "Changes in shareholder arrangements",
-            "Entry of strategic or foreign investors",
-          ],
-        },
-        {
-          heading: "Foreign Investor & Cross-Border Entry",
-          body: "For investors entering Sri Lanka, and Sri Lankan companies expanding to the UAE or Singapore, we coordinate with regional partners for seamless structuring.",
-          points: [
-            "Investment vehicles",
-            "Regulatory approvals",
-            "Local compliance obligations",
-            "Cross-jurisdiction coordination",
+            "Share issues and allotments",
+            "Share transfers",
+            "Changes in shareholding",
+            "Increase or reduction of stated capital",
+            "Capital restructuring",
+            "Changes to shareholder rights",
+            "Local and foreign investor entry",
+            "Corporate approvals and documentation",
+            "Statutory and Beneficial Ownership filings",
           ],
         },
         {
           heading: "Banking & Regulatory Liaison",
-          body: "Opening a bank account requires structured documentation and beneficial ownership transparency. We handle the coordination.",
+          body: "Helping you manage the corporate documentation required when dealing with banks and financial institutions.",
           points: [
-            "Board resolutions & certified documentation",
-            "KYC & beneficial ownership compilation",
+            "Bank account opening documentation",
+            "Board resolutions and certified corporate documents",
+            "KYC and Beneficial Ownership documentation",
+            "Authorised signatory changes",
+            "Bank mandate documentation",
             "Liaison with banking institutions",
-            "Capital deposit confirmations",
+            "Capital deposit confirmations, where applicable",
+            "Regulatory and compliance documentation",
           ],
         },
       ],
@@ -420,7 +448,6 @@ const SECTION_IMAGES = {
     new URL("../assets/services/Corporate/Asset 20.webp", import.meta.url).href, // Company Incorporation
     new URL("../assets/services/Corporate/Asset 21.webp", import.meta.url).href, // Corporate Governance & Secretarial Compliance
     new URL("../assets/services/Corporate/Asset 22.webp", import.meta.url).href, // Capital Transactions & Restructuring
-    new URL("../assets/services/Corporate/Asset 23.webp", import.meta.url).href, // Foreign Investor & Cross-Border Entry
     new URL("../assets/services/Corporate/Asset 24.webp", import.meta.url).href, // Banking & Regulatory Liaison
   ],
   leg: [
@@ -430,28 +457,59 @@ const SECTION_IMAGES = {
     new URL("../assets/services/Legal/Asset 31.webp", import.meta.url).href, // Dispute Strategy & Risk Mitigation
   ],
   tax: [
-    new URL("../assets/services/Tax/tax_character_desk_risk_plan.webp", import.meta.url).href, // Corporate Tax Structuring
-    new URL("../assets/services/Tax/tax_character_clipboard.webp", import.meta.url).href, // Tax Registrations & Ongoing Compliance
-    new URL("../assets/services/Tax/tax_character_presentation.webp", import.meta.url).href, // Cross-Border Tax Considerations
-    new URL("../assets/services/Tax/tax_character_calculator_desk.webp", import.meta.url).href, // Tax Risk Assessment & Advisory
+    new URL(
+      "../assets/services/Tax/tax_character_desk_risk_plan.webp",
+      import.meta.url,
+    ).href, // Corporate Tax Structuring
+    new URL(
+      "../assets/services/Tax/tax_character_clipboard.webp",
+      import.meta.url,
+    ).href, // Tax Registrations & Ongoing Compliance
+    new URL(
+      "../assets/services/Tax/tax_character_presentation.webp",
+      import.meta.url,
+    ).href, // Cross-Border Tax Considerations
+    new URL(
+      "../assets/services/Tax/tax_character_calculator_desk.webp",
+      import.meta.url,
+    ).href, // Tax Risk Assessment & Advisory
   ],
   acc: [
-    new URL("../assets/services/Accounting/Asset 13@4x.webp", import.meta.url).href, // Bookkeeping & Record Maintenance
-    new URL("../assets/services/Accounting/Asset 14@4x.webp", import.meta.url).href, // Financial Statements
-    new URL("../assets/services/Accounting/Asset 15@4x.webp", import.meta.url).href, // Audit Coordination & Regulatory Reporting
-    new URL("../assets/services/Accounting/Asset 21@4x.webp", import.meta.url).href, // Financial Governance & Advisory
+    new URL("../assets/services/Accounting/Asset 13@4x.webp", import.meta.url)
+      .href, // Bookkeeping & Record Maintenance
+    new URL("../assets/services/Accounting/Asset 14@4x.webp", import.meta.url)
+      .href, // Financial Statements
+    new URL("../assets/services/Accounting/Asset 15@4x.webp", import.meta.url)
+      .href, // Audit Coordination & Regulatory Reporting
+    new URL("../assets/services/Accounting/Asset 21@4x.webp", import.meta.url)
+      .href, // Financial Governance & Advisory
   ],
   hr: [
-    new URL("../assets/services/HR/OneDesk_HR_01_meeting.webp", import.meta.url).href, // Employment Framework Design
-    new URL("../assets/services/HR/OneDesk_HR_02_filing.webp", import.meta.url).href, // Payroll Administration & Statutory Compliance
-    new URL("../assets/services/HR/OneDesk_HR_03_laptop.webp", import.meta.url).href, // Ongoing HR Compliance
-    new URL("../assets/services/HR/OneDesk_HR_04_org_chart.webp", import.meta.url).href, // Workforce Structuring & Growth
+    new URL("../assets/services/HR/OneDesk_HR_01_meeting.webp", import.meta.url)
+      .href, // Employment Framework Design
+    new URL("../assets/services/HR/OneDesk_HR_02_filing.webp", import.meta.url)
+      .href, // Payroll Administration & Statutory Compliance
+    new URL("../assets/services/HR/OneDesk_HR_03_laptop.webp", import.meta.url)
+      .href, // Ongoing HR Compliance
+    new URL(
+      "../assets/services/HR/OneDesk_HR_04_org_chart.webp",
+      import.meta.url,
+    ).href, // Workforce Structuring & Growth
   ],
   mkt: [
-    new URL("../assets/services/Marketing/OneDesk_character_replacement_1 (1).webp", import.meta.url).href, // Branding
-    new URL("../assets/services/Marketing/OneDesk_character_replacement_2 (1).webp", import.meta.url).href, // Web Development
+    new URL(
+      "../assets/services/Marketing/OneDesk_character_replacement_1 (1).webp",
+      import.meta.url,
+    ).href, // Branding
+    new URL(
+      "../assets/services/Marketing/OneDesk_character_replacement_2 (1).webp",
+      import.meta.url,
+    ).href, // Web Development
     new URL("../assets/services/Marketing/Asset 32.webp", import.meta.url).href, // Content Marketing
-    new URL("../assets/services/Marketing/OneDesk_character_replacement_4 (1).webp", import.meta.url).href, // Performance Marketing
+    new URL(
+      "../assets/services/Marketing/OneDesk_character_replacement_4 (1).webp",
+      import.meta.url,
+    ).href, // Performance Marketing
   ],
 };
 
