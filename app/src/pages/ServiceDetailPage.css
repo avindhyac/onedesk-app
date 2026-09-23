@@ -651,8 +651,8 @@
 }
 
 .secretarial-incorp__flow-item--ready {
-  background: var(--od-navy);
-  border-color: var(--od-navy);
+  background: var(--od-teal-700);
+  border-color: var(--od-teal-700);
   color: var(--od-white);
 }
 
@@ -765,9 +765,22 @@
   color: var(--od-white);
 }
 
-.secretarial-incorp__step--ready .secretarial-incorp__step-kicker,
-.secretarial-incorp__step--ready .secretarial-incorp__step-title {
+.secretarial-incorp__step--ready {
+  align-items: start;
+}
+
+.secretarial-incorp__step--ready .secretarial-incorp__marker {
+  margin-top: 10px;
+}
+
+.secretarial-incorp__step--ready .secretarial-incorp__copy {
+  padding-top: 12px;
+}
+
+.secretarial-incorp__step--ready .secretarial-incorp__step-kicker {
   color: var(--od-orange);
+  font-size: clamp(1.5rem, 1.05rem + 1.4vw, 2.15rem);
+  letter-spacing: -0.035em;
 }
 
 .secretarial-incorp__closing {

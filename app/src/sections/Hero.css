@@ -287,6 +287,15 @@
   border-top: 2px solid rgba(252, 137, 67, 0.24);
 }
 
+.hero__why-card-img {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 18vw, 220px);
+  margin: 0 0 22px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
 .hero__why-card h3 {
   margin: 0;
   font-family: var(--od-font-display);

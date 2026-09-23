@@ -211,9 +211,9 @@
 
 .about-hero__advisor-seat {
   position: absolute;
-  right: 6%;
-  bottom: 17%;
-  width: 36%;
+  right: 1%;
+  bottom: 0;
+  width: 38%;
   aspect-ratio: 2357 / 3304;
   z-index: 2;
 }
