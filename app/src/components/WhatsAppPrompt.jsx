@@ -33,11 +33,6 @@ export default function WhatsAppPrompt() {
             the right service.
           </p>
 
-          <div className="wa-prompt__field" aria-hidden="true">
-            <span className="wa-prompt__field-label">WhatsApp</span>
-            <span className="wa-prompt__field-value">077 569 4203</span>
-          </div>
-
           <a
             className="wa-prompt__cta"
             href={SOCIAL.whatsapp.href}
@@ -54,7 +49,9 @@ export default function WhatsAppPrompt() {
         className="wa-prompt-fab"
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        aria-label={isOpen ? "Minimize WhatsApp prompt" : "Open WhatsApp prompt"}
+        aria-label={
+          isOpen ? "Minimize WhatsApp prompt" : "Open WhatsApp prompt"
+        }
         aria-expanded={isOpen}
       >
         <iconify-icon icon={isOpen ? "lucide:minus" : "ic:baseline-whatsapp"} />
