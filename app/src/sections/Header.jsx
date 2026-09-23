@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Button from "../components/Button";
 import "./Header.css";
@@ -21,7 +21,39 @@ function Wordmark() {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [showIncorpBanner, setShowIncorpBanner] = useState(false);
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("odIncorpBannerClosed") === "true") return;
+
+    const timer = window.setTimeout(() => {
+      setShowIncorpBanner(true);
+    }, 1200);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const setHeaderHeight = () => {
+      const bannerHeight = window.matchMedia("(max-width: 768px)").matches
+        ? 53
+        : 37;
+      document.documentElement.style.setProperty(
+        "--header-h",
+        showIncorpBanner ? `${75 + bannerHeight}px` : "75px",
+      );
+    };
+
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
+    return () => window.removeEventListener("resize", setHeaderHeight);
+  }, [showIncorpBanner]);
+
+  const closeIncorpBanner = () => {
+    sessionStorage.setItem("odIncorpBannerClosed", "true");
+    setShowIncorpBanner(false);
+  };
 
   return (
     <header className="header">
@@ -72,6 +104,33 @@ export default function Header() {
           <span className={`header__bar ${open ? "is-open" : ""}`} />
         </button>
       </div>
+
+      {showIncorpBanner && (
+        <div className="header__incorp-banner-wrap">
+          <Link
+            className="header__incorp-banner"
+            to="/services/secretarial#secretarial-incorp-title"
+            onClick={close}
+          >
+            <span className="header__incorp-banner-icon" aria-hidden="true">
+              <iconify-icon icon="lucide:building-2" />
+            </span>
+            <span>Incorporating a company?</span>
+            <strong>Jump to Company Incorporation</strong>
+            <span className="header__incorp-banner-arrow" aria-hidden="true">
+              <iconify-icon icon="lucide:arrow-right" />
+            </span>
+          </Link>
+          <button
+            type="button"
+            className="header__incorp-banner-close"
+            aria-label="Close incorporation banner"
+            onClick={closeIncorpBanner}
+          >
+            <iconify-icon icon="lucide:x" />
+          </button>
+        </div>
+      )}
 
       <div className={`header__sheet ${open ? "is-open" : ""}`} inert={!open}>
         {NAV_LINKS.map((link) =>

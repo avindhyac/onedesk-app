@@ -142,6 +142,91 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+.header__incorp-banner-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--od-sec-accent) 92%, var(--od-ink)),
+    color-mix(in srgb, var(--od-acc) 86%, var(--od-ink)),
+    color-mix(in srgb, var(--od-leg-accent) 88%, var(--od-ink)),
+    color-mix(in srgb, var(--od-tax) 88%, var(--od-ink)),
+    color-mix(in srgb, var(--od-hr) 88%, var(--od-ink)),
+    color-mix(in srgb, var(--od-mkt) 88%, var(--od-ink))
+  );
+  animation: header-banner-down 520ms var(--od-ease-out) both;
+}
+.header__incorp-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 37px;
+  padding: 7px 14px 7px var(--od-gutter);
+  color: var(--od-white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 10px rgba(20, 32, 51, 0.28);
+  transition: filter var(--od-dur) var(--od-ease);
+}
+.header__incorp-banner:hover {
+  filter: saturate(1.08) brightness(0.96);
+}
+.header__incorp-banner:focus-visible,
+.header__incorp-banner-close:focus-visible {
+  outline: 3px solid var(--od-orange);
+  outline-offset: -3px;
+}
+.header__incorp-banner strong {
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.header__incorp-banner-icon,
+.header__incorp-banner-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  filter: drop-shadow(0 1px 6px rgba(20, 32, 51, 0.22));
+}
+.header__incorp-banner-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  min-height: 37px;
+  border: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(20, 32, 51, 0.12);
+  color: var(--od-white);
+  cursor: pointer;
+  font-size: 17px;
+}
+.header__incorp-banner-close:hover {
+  background: rgba(20, 32, 51, 0.22);
+}
+@keyframes header-banner-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header__incorp-banner-wrap {
+    animation: none;
+  }
+}
+
 .header__sheet {
   display: none;
   flex-direction: column;
@@ -206,6 +291,19 @@
 }
 
 @media (max-width: 768px) {
+  .header__incorp-banner {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    padding-block: 8px;
+    padding-left: var(--od-gutter);
+    font-size: 0.78rem;
+  }
+  .header__incorp-banner-icon {
+    display: none;
+  }
+  .header__incorp-banner-close {
+    width: 38px;
+  }
   .header__nav,
   .header__actions {
     display: none;

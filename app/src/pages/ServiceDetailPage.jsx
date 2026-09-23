@@ -159,11 +159,27 @@ export default function ServiceDetailPage() {
             <p className="secretarial-incorp__closing">
               From name to company<br />we handle the details in between
             </p>
+
+            <div className="secretarial-incorp__divider" aria-hidden="true">
+              <span />
+            </div>
+            <p className="secretarial-incorp__next-label">
+              Ongoing Secretarial Support
+            </p>
           </div>
         </section>
       )}
 
       <div className="svcd-body">
+        {detail.overviewTitle && detail.overviewBody && (
+          <section className={`svcd-overview svcd-overview--${key}`}>
+            <div className="svcd-overview__inner">
+              <h2 className="svcd-overview__title">{detail.overviewTitle}</h2>
+              <p className="svcd-overview__body">{detail.overviewBody}</p>
+            </div>
+          </section>
+        )}
+
         {detail.sections.map((sec, i) => {
           const flip = i % 2 === 1;
           return (
@@ -218,6 +234,33 @@ export default function ServiceDetailPage() {
           );
         })}
       </div>
+
+      {detail.whyTitle && (
+        <section className={`svcd-why svcd-why--${key}`}>
+          <div className="svcd-why__inner">
+            <div className="svcd-why__intro">
+              <p className="svcd-why__eyebrow">Company structure</p>
+              <h2 className="svcd-why__title">{detail.whyTitle}</h2>
+              <p className="svcd-why__subtitle">{detail.whySubtitle}</p>
+              <p className="svcd-why__body">{detail.whyBody}</p>
+            </div>
+
+            <div className="svcd-why__grid">
+              {detail.whyItems.map((item) => (
+                <article key={item.title} className="svcd-why__card">
+                  <span className="svcd-why__icon" aria-hidden="true">
+                    <iconify-icon icon="lucide:check" />
+                  </span>
+                  <h3 className="svcd-why__card-title">{item.title}</h3>
+                  <p className="svcd-why__card-body">{item.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <p className="svcd-why__closing">{detail.whyClosing}</p>
+          </div>
+        </section>
+      )}
 
       <section className="svcd-others">
         <div className="svcd-others__inner">
