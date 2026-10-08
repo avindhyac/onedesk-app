@@ -118,8 +118,8 @@ export default function AboutPage() {
               <Button variant="primary" size="lg" as={Link} to="/">
                 Get Started
               </Button>
-              <Button variant="outline" size="lg" as={Link} to="/pricing">
-                See Pricing
+              <Button variant="outline" size="lg" as={Link} to="/contact">
+                Contact us
               </Button>
             </div>
           </div>

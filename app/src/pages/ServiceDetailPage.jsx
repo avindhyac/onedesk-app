@@ -285,8 +285,8 @@ export default function ServiceDetailPage() {
       <CtaBand
         title={`Ready to hand off ${title.toLowerCase()}?`}
         subtitle="Bundle it with the other five and one team runs your whole back office."
-        ctaLabel="See pricing"
-        ctaTo="/pricing"
+        ctaLabel="Talk to us"
+        ctaTo="/contact"
       />
     </PageTransition>
   );

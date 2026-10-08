@@ -118,8 +118,8 @@ export default function ServicesPage() {
       <CtaBand
         title="Bundle them and save."
         subtitle="Most founders combine three or more services. The more you bundle, the more you save."
-        ctaLabel="See pricing"
-        ctaTo="/pricing"
+        ctaLabel="Talk to us"
+        ctaTo="/contact"
       />
     </PageTransition>
   );

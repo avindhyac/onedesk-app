@@ -7,7 +7,6 @@ const HomePage = lazy(() => import("./pages/HomePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
-const PricingPage = lazy(() => import("./pages/PricingPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 // Marketplace is not live yet — the route redirects home (page kept in
 // pages/MarketplacePage.jsx for when it launches).
@@ -33,7 +32,6 @@ function App() {
                 )
               }
             />
-            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/marketplace" element={<Navigate to="/" replace />} />
             <Route path="/privacy" element={<LegalPage kind="privacy" />} />
