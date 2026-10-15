@@ -16,7 +16,7 @@ const DETAILS = [
   {
     icon: "lucide:phone",
     title: "Call us",
-    body: "+94 77 000 0000",
+    body: "+94 77 569 4203",
     service: "acc",
   },
   {

@@ -114,8 +114,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+94770000000" className="footer__link">
-                  +94 77 000 0000
+                <a href="tel:+94775694203" className="footer__link">
+                  +94 77 569 4203
                 </a>
               </li>
               <li className="footer__address">Colombo, Sri Lanka</li>
