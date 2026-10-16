@@ -112,7 +112,6 @@ export default function IncorporationModal() {
             <Button as={Link} to="/services/secretarial" variant="primary" iconRight="lucide:arrow-right" onClick={close}>
               Start your company today
             </Button>
-            
           </div>
         </div>
       </div>
