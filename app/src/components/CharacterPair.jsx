@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import gsap from "gsap";
+import Image from "./Image";
 import "./CharacterPair.css";
 
 function getCharacterSrc(character, pose) {
@@ -15,6 +16,7 @@ function CharacterPair(
     className = "",
     imgClassName = "",
     loading = "lazy",
+    sizes = "180px",
     bindHover = true,
   },
   ref,
@@ -96,7 +98,8 @@ function CharacterPair(
       onBlur={bindHover ? showSeated : undefined}
       onClickCapture={bindHover ? handleClickCapture : undefined}
     >
-      <img
+      <Image
+        sizes={sizes}
         src={sit || stand}
         alt={alt}
         className={`char-pair__img char-pair__img--sit ${imgClassName}`.trim()}
@@ -105,7 +108,8 @@ function CharacterPair(
         ref={sitRef}
       />
       {canSwap && (
-        <img
+        <Image
+          sizes={sizes}
           src={stand}
           alt=""
           className={`char-pair__img char-pair__img--stand ${imgClassName}`.trim()}

@@ -9,6 +9,7 @@ import Footer from "../sections/Footer";
 import ScrollToTop from "./ScrollToTop";
 import SectionSnap from "./SectionSnap";
 import WhatsAppPrompt from "./WhatsAppPrompt";
+import IncorporationModal from "./IncorporationModal";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, useGSAP);
 
@@ -73,6 +74,7 @@ export default function Layout() {
           the same way it breaks position:fixed. */}
       <Header />
       <WhatsAppPrompt />
+      {location.pathname === "/" && <IncorporationModal />}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <ScrollToTop />

@@ -1,3 +1,4 @@
+import Image from "../components/Image";
 import oneTeamImg from "../assets/char/Home/about-story-team.webp";
 import deadlinesImg from "../assets/char/Home/about-radical-clarity.webp";
 import inHouseImg from "../assets/char/Home/one-desk-us.webp";
@@ -15,7 +16,8 @@ export default function WhyOneDesk() {
       </p>
       <div className="hero__why-grid">
         <article className="hero__why-card">
-          <img
+          <Image
+            sizes="(max-width: 900px) 280px, 30vw"
             className="hero__why-card-img"
             src={oneTeamImg}
             alt="OneDesk advisors working together around one shared file"
@@ -29,7 +31,8 @@ export default function WhyOneDesk() {
           </p>
         </article>
         <article className="hero__why-card">
-          <img
+          <Image
+            sizes="(max-width: 900px) 280px, 30vw"
             className="hero__why-card-img"
             src={deadlinesImg}
             alt="OneDesk team reviewing a clear compliance checklist"
@@ -43,7 +46,8 @@ export default function WhyOneDesk() {
           </p>
         </article>
         <article className="hero__why-card">
-          <img
+          <Image
+            sizes="(max-width: 900px) 280px, 30vw"
             className="hero__why-card-img"
             src={inHouseImg}
             alt="OneDesk specialists working in-house on client records"

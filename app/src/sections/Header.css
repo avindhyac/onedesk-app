@@ -80,6 +80,103 @@
   background: var(--od-paper-3);
 }
 
+.header__services {
+  position: relative;
+}
+/* Keep the pointer inside the dropdown while crossing the visual gap. */
+.header__services:not(.header__services--mobile) {
+  padding-block: 12px;
+  margin-block: -12px;
+}
+.header__services-heading {
+  display: flex;
+  align-items: center;
+}
+.header__services-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.header__services-toggle.header__link--active {
+  background: var(--od-paper-3);
+}
+.header__services-toggle iconify-icon {
+  transition: transform var(--od-dur) var(--od-ease);
+}
+.header__services-toggle[aria-expanded="true"] iconify-icon {
+  transform: rotate(180deg);
+}
+.header__services-panel {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  width: 290px;
+  max-height: calc(100dvh - var(--header-h, 75px) - 24px);
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid var(--od-line);
+  border-radius: var(--od-radius-lg);
+  background: var(--od-paper);
+  box-shadow: var(--od-shadow-md);
+}
+.header__service-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--od-radius-sm);
+  color: var(--od-ink);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.header__service-link:hover,
+.header__service-link[aria-current="page"] {
+  background: var(--service-tint, var(--od-paper-3));
+  color: var(--service-color, var(--od-ink));
+}
+.header__service-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--service-tint);
+  color: var(--service-color);
+  font-size: 18px;
+}
+.header__services-toggle:focus-visible,
+.header__service-link:focus-visible {
+  outline: 2px solid var(--od-orange);
+  outline-offset: 2px;
+}
+.header__services--mobile .header__sheet-link {
+  flex: 1;
+}
+.header__services-expand {
+  flex-shrink: 0;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--od-slate);
+  font-size: 18px;
+}
+.header__services--mobile .header__services-panel {
+  position: static;
+  width: 100%;
+  max-height: none;
+  margin-top: 8px;
+  padding: 4px;
+  border: 0;
+  box-shadow: none;
+}
+
 /* "Coming soon" nav item — visible but not interactive. */
 .header__link--soon {
   display: inline-flex;
@@ -142,91 +239,6 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-.header__incorp-banner-wrap {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--od-sec-accent) 92%, var(--od-ink)),
-    color-mix(in srgb, var(--od-acc) 86%, var(--od-ink)),
-    color-mix(in srgb, var(--od-leg-accent) 88%, var(--od-ink)),
-    color-mix(in srgb, var(--od-tax) 88%, var(--od-ink)),
-    color-mix(in srgb, var(--od-hr) 88%, var(--od-ink)),
-    color-mix(in srgb, var(--od-mkt) 88%, var(--od-ink))
-  );
-  animation: header-banner-down 520ms var(--od-ease-out) both;
-}
-.header__incorp-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 37px;
-  padding: 7px 14px 7px var(--od-gutter);
-  color: var(--od-white);
-  font-size: 0.88rem;
-  font-weight: 700;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 10px rgba(20, 32, 51, 0.28);
-  transition: filter var(--od-dur) var(--od-ease);
-}
-.header__incorp-banner:hover {
-  filter: saturate(1.08) brightness(0.96);
-}
-.header__incorp-banner:focus-visible,
-.header__incorp-banner-close:focus-visible {
-  outline: 3px solid var(--od-orange);
-  outline-offset: -3px;
-}
-.header__incorp-banner strong {
-  font-weight: 900;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-.header__incorp-banner-icon,
-.header__incorp-banner-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  filter: drop-shadow(0 1px 6px rgba(20, 32, 51, 0.22));
-}
-.header__incorp-banner-close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  min-height: 37px;
-  border: 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(20, 32, 51, 0.12);
-  color: var(--od-white);
-  cursor: pointer;
-  font-size: 17px;
-}
-.header__incorp-banner-close:hover {
-  background: rgba(20, 32, 51, 0.22);
-}
-@keyframes header-banner-down {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .header__incorp-banner-wrap {
-    animation: none;
-  }
-}
-
 .header__sheet {
   display: none;
   flex-direction: column;
@@ -234,6 +246,9 @@
   padding: 16px var(--od-gutter) 24px;
   background: var(--od-paper);
   border-top: 1px solid var(--od-line);
+  max-height: calc(100dvh - var(--header-h, 75px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .header__sheet.is-open {
   display: flex;
@@ -270,6 +285,9 @@
 /* Desktop/tablet: pin the "Soon" badge as an angled tag clipped over the
    top-right of "Marketplace". On mobile it stays inline (see the sheet link). */
 @media (min-width: 769px) {
+  .header__sheet.is-open {
+    display: none;
+  }
   .header__link--soon {
     position: relative;
     overflow: visible;
@@ -291,19 +309,6 @@
 }
 
 @media (max-width: 768px) {
-  .header__incorp-banner {
-    flex-wrap: wrap;
-    gap: 4px 8px;
-    padding-block: 8px;
-    padding-left: var(--od-gutter);
-    font-size: 0.78rem;
-  }
-  .header__incorp-banner-icon {
-    display: none;
-  }
-  .header__incorp-banner-close {
-    width: 38px;
-  }
   .header__nav,
   .header__actions {
     display: none;

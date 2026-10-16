@@ -9,6 +9,7 @@ import ServiceFanCards from "../components/ServiceFanCards";
 import CtaBand from "../sections/CtaBand";
 import { SERVICE_FAN_CHARACTERS } from "../data/serviceFanCharacters";
 import { SERVICES, SERVICE_DETAIL_ENABLED } from "../data/services";
+import { SERVICE_OVERVIEW_CONTENT } from "../data/serviceOverviewContent";
 import "./ServicesPage.css";
 
 export default function ServicesPage() {
@@ -37,7 +38,7 @@ export default function ServicesPage() {
             variant="light"
             items={[
               { to: 6, label: "Specialist teams", accent: "sec" },
-              { to: 50, label: "Industries served", accent: "acc" },
+              { to: 15, label: "Industries served", accent: "acc" },
               { to: 1, label: "Monthly bill", accent: "tax" },
               {
                 to: 100,
@@ -52,6 +53,7 @@ export default function ServicesPage() {
 
       {SERVICES.map((s, i) => {
         const flip = i % 2 === 1;
+        const { tagline, desc } = SERVICE_OVERVIEW_CONTENT[s.key] ?? s;
         return (
           <section
             key={s.key}
@@ -72,22 +74,22 @@ export default function ServicesPage() {
                 />
               </div>
               <div className="svcp-row__copy">
-                <Tag service={s.key} />
+                <Tag service={s.key}>{s.title}</Tag>
                 {SERVICE_DETAIL_ENABLED ? (
                   <Link
                     to={`/services/${s.slug}`}
                     className="svcp-row__tagline-link"
                   >
                     <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>
-                      {s.tagline}
+                      {tagline}
                     </h2>
                   </Link>
                 ) : (
                   <h2 className={`svcp-row__tagline svcp-tagline--${s.key}`}>
-                    {s.tagline}
+                    {tagline}
                   </h2>
                 )}
-                <p className="svcp-row__desc">{s.desc}</p>
+                <p className="svcp-row__desc">{desc}</p>
                 <div className="svcp-row__cta">
                   {SERVICE_DETAIL_ENABLED && (
                     <Button

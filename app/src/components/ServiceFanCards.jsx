@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
+import Image from "./Image";
 import "./ServiceFanCards.css";
 
 export default function ServiceFanCards({
@@ -135,7 +136,8 @@ export default function ServiceFanCards({
         }}
       >
         <span className="service-fan__character" aria-hidden="true">
-          <img
+          <Image
+            sizes="(max-width: 860px) 220px, 310px"
             ref={idleRef}
             className="service-fan__character-img service-fan__character-img--idle"
             src={character?.idle}
@@ -144,7 +146,8 @@ export default function ServiceFanCards({
             decoding="async"
           />
           {character?.active && (
-            <img
+            <Image
+              sizes="(max-width: 860px) 220px, 310px"
               ref={activeRef}
               className="service-fan__character-img service-fan__character-img--active"
               src={character.active}
@@ -174,7 +177,8 @@ export default function ServiceFanCards({
           >
             {isServiceCard ? (
               <>
-                <img
+                <Image
+                  sizes="(max-width: 860px) 220px, 310px"
                   className="service-fan__service-img"
                   src={supportCharacter}
                   alt=""

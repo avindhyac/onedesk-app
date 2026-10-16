@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Image from "../components/Image";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Badge from "../components/Badge";
@@ -79,7 +80,8 @@ export default function Hero() {
           ref={tableSceneRef}
           aria-hidden="true"
         >
-          <img
+          <Image
+            sizes="(max-width: 560px) 74vw, (max-width: 900px) 70vw, 48vw"
             className="hero__table"
             src={tableImg}
             alt=""
@@ -89,7 +91,8 @@ export default function Hero() {
           />
           <div className="hero__table-seat hero__table-seat--left">
             {HERO_TABLE_SEATS.left.map((c, i) => (
-              <img
+              <Image
+                sizes="(max-width: 900px) 34vw, 23vw"
                 key={c.key}
                 ref={leftCycle.registerCharacter(i)}
                 src={c.src}
@@ -117,12 +120,14 @@ export default function Hero() {
           </div>
           <div className="hero__table-seat hero__table-seat--right">
             {HERO_TABLE_SEATS.right.map((c, i) => (
-              <img
+              <Image
+                sizes="(max-width: 900px) 34vw, 23vw"
                 key={c.key}
                 ref={rightCycle.registerCharacter(i)}
                 src={c.src}
                 alt=""
-                className="hero__table-char"
+                className={`hero__table-char hero__table-char--${c.key}`}
+                style={{ "--hero-character-anchor-x": `${c.anchorX ?? 50}%` }}
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
                 fetchPriority={i === 0 ? "high" : "low"}

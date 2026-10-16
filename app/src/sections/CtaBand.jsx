@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import Image from "../components/Image";
+import texture from "../assets/OD-Footer-Texture.webp";
 import "./CtaBand.css";
 
 export default function CtaBand({
@@ -10,6 +12,7 @@ export default function CtaBand({
 }) {
   return (
     <section className="cta-band">
+      <Image className="cta-band__texture" src={texture} sizes="100vw" alt="" aria-hidden="true" />
       <div className="cta-band__inner">
         <div>
           <h2 className="cta-band__title">{title}</h2>

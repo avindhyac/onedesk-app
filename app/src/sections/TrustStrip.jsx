@@ -2,7 +2,7 @@ import StatLedger from "../components/StatLedger";
 import "./TrustStrip.css";
 
 const STATS = [
-  { to: 48, suffix: "hrs", label: "Company Incorporation", accent: "ember" },
+  { to: 24, suffix: "hrs", label: "ROC filing for reservations & incorporations ", accent: "ember" },
   { to: 1, label: "Point of contact across every service", accent: "teal" },
   { to: 5, label: "In-house specialist teams", accent: "sec" },
   {

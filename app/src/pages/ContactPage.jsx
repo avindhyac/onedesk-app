@@ -134,7 +134,7 @@ export default function ContactPage() {
             <SectionHeading
               eyebrow="Contact"
               title="Let's get your desk set up."
-              subtitle="Tell us what you need handled. A real person replies within one business day — no bots, no phone trees."
+              subtitle="Tell us what you need handled. A real person replies within one business day , no bots, no phone trees."
               align="left"
             />
           </div>
