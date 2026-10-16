@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Image from "../components/Image";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Avatar from "../components/Avatar";
@@ -16,10 +17,11 @@ import aboutAdvisor07 from "../assets/char/About/OD_Web_AboutUs-07.webp";
 import aboutAdvisor08 from "../assets/char/About/OD_Web_AboutUs-08.webp";
 import aboutAdvisor09 from "../assets/char/About/OD_Web_AboutUs-09.webp";
 import aboutAdvisor10 from "../assets/char/About/OD_Web_AboutUs-10.webp";
-import aboutClientDesk from "../assets/char/About/OD-AboutUs-Client-Desk.webp";
-import illoTeam from "../assets/char/Home/about-story-team.webp";
-import illoPeople from "../assets/char/About/Asset 20@4x.webp";
-import illoClarity from "../assets/char/About/Asset 22@4x.webp";
+import aboutClient from "../assets/char/About/OD-AboutUs-Client-Desk.webp";
+import aboutDesk from "../assets/char/About/OD_Web_AboutUs-desk.webp";
+import illoTeam from "../assets/char/About/about-story-team.webp";
+import illoPeople from "../assets/char/About/People-over-paperwork.webp";
+import illoClarity from "../assets/char/About/Radical-clarity.webp";
 import illoTrust from "../assets/char/About/Asset 19@4x.webp";
 import illoDesk from "../assets/char/About/Asset 21@4x.webp";
 
@@ -51,7 +53,7 @@ const VALUES = [
   {
     img: illoTrust,
     title: "Earned trust",
-    body: "We handle sensitive things — money, contracts, people. We treat that responsibility like it is our own.",
+    body: "We handle sensitive things, money, contracts, people. We treat that responsibility like it is our own.",
   },
   {
     img: illoDesk,
@@ -131,7 +133,8 @@ export default function AboutPage() {
             <div className="about-hero__desk-glow" />
             <div className="about-hero__advisor-seat">
               {ABOUT_HERO_ADVISORS.map((advisor, index) => (
-                <img
+                <Image
+                  sizes="(max-width: 600px) 160px, (max-width: 980px) 195px, 14vw"
                   key={advisor.key}
                   ref={advisorCycle.registerAdvisor(index)}
                   className="about-hero__advisor"
@@ -154,9 +157,19 @@ export default function AboutPage() {
                 </span>
               ))}
             </div>
-            <img
+            <Image
+              sizes="(max-width: 600px) 160px, (max-width: 980px) 195px, 14vw"
               className="about-hero__client-desk"
-              src={aboutClientDesk}
+              src={aboutClient}
+              alt=""
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+            <Image
+              sizes="(max-width: 600px) 370px, (max-width: 980px) 450px, 30vw"
+              className="about-hero__desk"
+              src={aboutDesk}
               alt=""
               loading="eager"
               decoding="async"
@@ -197,7 +210,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="about-story__illo" aria-hidden="true">
-            <img src={illoTeam} alt="" loading="lazy" decoding="async" />
+            <Image src={illoTeam} sizes="(max-width: 980px) 320px, 460px" alt="" />
           </div>
         </div>
         {/* <div className="about-story__stats-row">
@@ -232,7 +245,8 @@ export default function AboutPage() {
           <div className="about-values__grid">
             {VALUES.map((v) => (
               <div key={v.title} className="about-values__card">
-                <img
+                <Image
+                  sizes="(max-width: 600px) 112px, 130px"
                   className="about-values__card-img"
                   src={v.img}
                   alt=""

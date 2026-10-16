@@ -192,12 +192,10 @@
   font-size: var(--od-display-2);
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--od-ink);
-}
-.svcd-overview--sec .svcd-overview__title {
-  color: var(--od-sec-text);
+  color: var(--svcd-color);
 }
 .svcd-overview__body {
+  white-space: pre-line;
   margin: 18px 0 0;
   max-width: 72ch;
   font-size: var(--od-text-lg);
@@ -467,7 +465,7 @@
 .svcd-why {
   padding: clamp(4rem, 8vw, 6.5rem) var(--od-gutter);
   background:
-    radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--od-sec-tint) 72%, transparent), transparent 32%),
+    radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--svcd-tint) 72%, transparent), transparent 32%),
     var(--od-paper);
   border-top: 1px solid var(--od-line);
 }
@@ -480,7 +478,7 @@
 }
 .svcd-why__eyebrow {
   margin: 0 0 14px;
-  color: var(--od-sec-text);
+  color: var(--svcd-color);
   font-size: var(--od-text-xs);
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -492,7 +490,7 @@
   font-size: var(--od-display-2);
   line-height: 1.12;
   letter-spacing: -0.02em;
-  color: var(--od-sec-text);
+  color: var(--svcd-color);
 }
 .svcd-why__subtitle {
   margin: 12px 0 0;
@@ -528,8 +526,8 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--od-sec-tint);
-  color: var(--od-sec-text);
+  background: var(--svcd-tint);
+  color: var(--svcd-color);
   font-size: 18px;
 }
 .svcd-why__card-title {
@@ -537,7 +535,7 @@
   font-family: var(--od-font-display);
   font-size: 1.2rem;
   line-height: 1.2;
-  color: var(--od-sec-text);
+  color: var(--svcd-color);
 }
 .svcd-why__card-body {
   margin: 10px 0 0;
@@ -549,11 +547,18 @@
   max-width: 900px;
   padding: 26px 30px;
   border-radius: var(--od-radius-lg);
-  background: var(--od-sec-text);
+  background: var(--svcd-color);
   color: var(--od-white);
   font-size: var(--od-text-lg);
   font-weight: 700;
   line-height: 1.55;
+}
+.svcd-why__disclaimer {
+  margin: 24px 0 0;
+  max-width: 80ch;
+  color: var(--od-ink-2);
+  font-size: var(--od-text-sm);
+  line-height: 1.65;
 }
 @media (max-width: 980px) {
   .svcd-why__grid {
@@ -712,7 +717,7 @@
   color: var(--od-mkt-text);
 }
 
-/* ── Company Secretarial incorporation process ─────────────── */
+/* Shared service timeline (legacy secretarial class prefix) ── */
 .secretarial-incorp {
   background: var(--od-white);
   border-top: 1px solid rgba(20, 32, 51, 0.06);
@@ -758,6 +763,8 @@
   flex-wrap: wrap;
   gap: 12px 26px;
   margin: 30px auto 58px;
+  padding: 0;
+  list-style: none;
 }
 
 .secretarial-incorp__flow-item {
@@ -793,21 +800,34 @@
 }
 
 .secretarial-incorp__timeline {
+  --timeline-gap: 34px;
   position: relative;
   display: grid;
-  gap: 34px;
-  margin: 0 auto;
+  gap: var(--timeline-gap);
+  margin: 32px auto 0;
+  padding: 0;
+  list-style: none;
 }
 
-.secretarial-incorp__timeline::before {
+/* Each row draws its own connector, so any count and copy height work. */
+.secretarial-incorp__step::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 0;
-  bottom: 66px;
+  bottom: calc(-1 * var(--timeline-gap));
   width: 1px;
   background: rgba(20, 32, 51, 0.24);
   transform: translateX(-50%);
+}
+.secretarial-incorp__step:first-child::before {
+  top: var(--marker-y, 50%);
+}
+.secretarial-incorp__step:last-child::before {
+  bottom: calc(100% - var(--marker-y, 50%));
+}
+.secretarial-incorp__step:only-child::before {
+  display: none;
 }
 
 .secretarial-incorp__step {
@@ -820,6 +840,7 @@
 }
 
 .secretarial-incorp__media {
+  grid-row: 1;
   grid-column: 1;
   display: flex;
   justify-content: center;
@@ -834,6 +855,7 @@
 }
 
 .secretarial-incorp__marker {
+  grid-row: 1;
   grid-column: 2;
   position: relative;
   z-index: 1;
@@ -852,6 +874,7 @@
 }
 
 .secretarial-incorp__copy {
+  grid-row: 1;
   grid-column: 3;
   max-width: 350px;
 }
@@ -867,8 +890,20 @@
   text-align: right;
 }
 
+.secretarial-incorp__step-labels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.secretarial-incorp__step--left .secretarial-incorp__step-labels {
+  justify-content: flex-end;
+}
+
 .secretarial-incorp__step-kicker {
-  margin: 0 0 8px;
+  margin: 0;
   color: var(--od-orange);
   font-size: clamp(1rem, 0.88rem + 0.45vw, 1.2rem);
   font-weight: 900;
@@ -902,6 +937,7 @@
 }
 
 .secretarial-incorp__step--ready {
+  --marker-y: 40px;
   align-items: start;
 }
 
@@ -913,13 +949,22 @@
   padding-top: 12px;
 }
 
-.secretarial-incorp__step--ready .secretarial-incorp__step-kicker {
-  color: var(--od-orange);
-  font-size: clamp(1.5rem, 1.05rem + 1.4vw, 2.15rem);
-  letter-spacing: -0.035em;
+.secretarial-incorp__step-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--od-radius-pill);
+  background: var(--od-orange);
+  color: var(--od-white);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .secretarial-incorp__closing {
+  white-space: pre-line;
   margin: 72px auto 0;
   color: var(--od-orange);
   font-family: var(--od-font-display);
@@ -946,14 +991,14 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--od-sec-text) 22%, transparent)
+    color-mix(in srgb, var(--svcd-color) 22%, transparent)
   );
 }
 
 .secretarial-incorp__divider::after {
   background: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--od-sec-text) 22%, transparent),
+    color-mix(in srgb, var(--svcd-color) 22%, transparent),
     transparent
   );
 }
@@ -968,7 +1013,7 @@
 
 .secretarial-incorp__next-label {
   margin: 20px 0 0;
-  color: var(--od-sec-text);
+  color: var(--svcd-color);
   font-size: 0.74rem;
   font-weight: 900;
   letter-spacing: 0.22em;
@@ -990,16 +1035,16 @@
   }
 
   .secretarial-incorp__timeline {
-    gap: 44px;
+    --timeline-gap: 44px;
   }
 
-  .secretarial-incorp__timeline::before {
+  .secretarial-incorp__step::before {
     left: 28px;
-    bottom: 84px;
   }
 
   .secretarial-incorp__step,
   .secretarial-incorp__step--left {
+    --marker-y: 25px;
     grid-template-columns: 56px minmax(0, 1fr);
     gap: 16px;
     min-height: 0;
@@ -1012,6 +1057,8 @@
     grid-row: 1;
     width: 50px;
     height: 50px;
+    margin-top: 0;
+    align-self: start;
     font-size: 1.25rem;
   }
 
@@ -1034,6 +1081,10 @@
     justify-self: start;
     max-width: none;
     text-align: left;
+  }
+
+  .secretarial-incorp__step--left .secretarial-incorp__step-labels {
+    justify-content: flex-start;
   }
 
   .secretarial-incorp__closing {

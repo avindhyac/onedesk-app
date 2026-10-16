@@ -1,0 +1,6 @@
+/* Intrinsic attributes reserve the aspect ratio; component-specific CSS may
+   still supply fixed-size contain/cover boxes for illustrations and avatars. */
+:where(.od-image) {
+  max-width: 100%;
+  height: auto;
+}

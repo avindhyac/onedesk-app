@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { useEffect, useId, useRef, useState } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import Button from "../components/Button";
+import { SERVICES, SERVICE_DETAIL_ENABLED } from "../data/services";
 import "./Header.css";
 
 const NAV_LINKS = [
@@ -9,6 +10,109 @@ const NAV_LINKS = [
   // Marketplace is not live yet — shown muted with a "WIP" badge, not linked.
   { to: "/marketplace", label: "Marketplace", soon: true },
 ];
+
+function ServicesDropdown({ mobile = false, onNavigate }) {
+  const [open, setOpen] = useState(false);
+  const container = useRef(null);
+  const trigger = useRef(null);
+  const panelId = useId();
+  const { pathname } = useLocation();
+  const active = pathname === "/services" || pathname.startsWith("/services/");
+  const linkClass = mobile ? "header__sheet-link" : "header__link";
+
+  useEffect(() => {
+    if (!open) return;
+    const dismiss = (event) => {
+      if (!container.current?.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
+  }, [open]);
+
+  const close = () => {
+    setOpen(false);
+    onNavigate?.();
+  };
+
+  if (!SERVICE_DETAIL_ENABLED) {
+    return <NavLink to="/services" className={linkClass} onClick={onNavigate}>Services</NavLink>;
+  }
+
+  return (
+    <div
+      ref={container}
+      className={`header__services${mobile ? " header__services--mobile" : ""}`}
+      onPointerEnter={(event) => {
+        if (!mobile && event.pointerType !== "touch") setOpen(true);
+      }}
+      onPointerLeave={() => {
+        if (!mobile) setOpen(false);
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && open) {
+          event.stopPropagation();
+          trigger.current?.focus();
+          setOpen(false);
+        }
+      }}
+    >
+      <div className="header__services-heading">
+        <NavLink
+          ref={trigger}
+          to="/services"
+          className={`${linkClass} header__services-toggle${active ? ` ${linkClass}--active` : ""}`}
+          aria-expanded={mobile ? undefined : open}
+          aria-controls={mobile ? undefined : panelId}
+          onClick={close}
+          onFocus={() => {
+            if (!mobile) setOpen(true);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              setOpen(true);
+              requestAnimationFrame(() => {
+                container.current?.querySelector(".header__service-link")?.focus();
+              });
+            }
+          }}
+        >
+          Services
+          {!mobile && <iconify-icon icon="lucide:chevron-down" aria-hidden="true" />}
+        </NavLink>
+        {mobile && (
+          <button
+            type="button"
+            className="header__services-toggle header__services-expand"
+            aria-label={`${open ? "Collapse" : "Expand"} services`}
+            aria-expanded={open}
+            aria-controls={panelId}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <iconify-icon icon="lucide:chevron-down" aria-hidden="true" />
+          </button>
+        )}
+      </div>
+      <div id={panelId} className="header__services-panel" hidden={!open}>
+        {SERVICES.map((service) => (
+          <NavLink
+            key={service.slug}
+            to={`/services/${service.slug}`}
+            className="header__service-link"
+            style={{ "--service-color": `var(--od-${service.key}-text)`, "--service-tint": `var(--od-${service.key}-tint)` }}
+            onClick={close}
+          >
+            <span className="header__service-icon" aria-hidden="true"><iconify-icon icon={service.icon} /></span>
+            {service.title}
+          </NavLink>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Wordmark() {
   return (
@@ -20,39 +124,7 @@ function Wordmark() {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [showIncorpBanner, setShowIncorpBanner] = useState(false);
   const close = () => setOpen(false);
-
-  useEffect(() => {
-    if (sessionStorage.getItem("odIncorpBannerClosed") === "true") return;
-
-    const timer = window.setTimeout(() => {
-      setShowIncorpBanner(true);
-    }, 1200);
-
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const setHeaderHeight = () => {
-      const bannerHeight = window.matchMedia("(max-width: 768px)").matches
-        ? 53
-        : 37;
-      document.documentElement.style.setProperty(
-        "--header-h",
-        showIncorpBanner ? `${75 + bannerHeight}px` : "75px",
-      );
-    };
-
-    setHeaderHeight();
-    window.addEventListener("resize", setHeaderHeight);
-    return () => window.removeEventListener("resize", setHeaderHeight);
-  }, [showIncorpBanner]);
-
-  const closeIncorpBanner = () => {
-    sessionStorage.setItem("odIncorpBannerClosed", "true");
-    setShowIncorpBanner(false);
-  };
 
   return (
     <header className="header">
@@ -63,7 +135,9 @@ export default function Header() {
 
         <nav className="header__nav">
           {NAV_LINKS.map((link) =>
-            link.soon ? (
+            link.to === "/services" ? (
+              <ServicesDropdown key={link.to} />
+            ) : link.soon ? (
               <span
                 key={link.to}
                 className="header__link header__link--soon"
@@ -87,7 +161,7 @@ export default function Header() {
         </nav>
 
         <div className="header__actions">
-          <Button variant="primary" size="sm" as={Link} to="/contact">
+          <Button variant="primary" size="sm" as={Link} to="/contact" onClick={close}>
             Get started
           </Button>
         </div>
@@ -104,36 +178,11 @@ export default function Header() {
         </button>
       </div>
 
-      {showIncorpBanner && (
-        <div className="header__incorp-banner-wrap">
-          <Link
-            className="header__incorp-banner"
-            to="/services/secretarial#secretarial-incorp-title"
-            onClick={close}
-          >
-            <span className="header__incorp-banner-icon" aria-hidden="true">
-              <iconify-icon icon="lucide:building-2" />
-            </span>
-            <span>Incorporating a company?</span>
-            <strong>Start your company today</strong>
-            <span className="header__incorp-banner-arrow" aria-hidden="true">
-              <iconify-icon icon="lucide:arrow-right" />
-            </span>
-          </Link>
-          <button
-            type="button"
-            className="header__incorp-banner-close"
-            aria-label="Close incorporation banner"
-            onClick={closeIncorpBanner}
-          >
-            <iconify-icon icon="lucide:x" />
-          </button>
-        </div>
-      )}
-
       <div className={`header__sheet ${open ? "is-open" : ""}`} inert={!open}>
         {NAV_LINKS.map((link) =>
-          link.soon ? (
+          link.to === "/services" ? (
+            <ServicesDropdown key={`${link.to}-${open}`} mobile onNavigate={close} />
+          ) : link.soon ? (
             <span
               key={link.to}
               className="header__sheet-link header__sheet-link--soon"

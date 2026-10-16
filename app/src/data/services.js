@@ -1,15 +1,9 @@
-// Canonical service data — single source of truth for the homepage grid,
-// the /services overview, and the /services/:slug detail pages.
-// Detail copy is derived from OneDesk_Services.md (the service-pillar reference doc).
+import { SERVICE_PAGE_CONTENT } from "./servicePageContent";
 
-// The /services/:slug detail pages are hidden for now. Flip this to `true` to
-// re-enable them everywhere: the route, the homepage cards, the ServicesPage
-// tagline links, and the "Learn more" buttons all read from this flag.
+// Canonical service metadata for cards/navigation and /services/:slug pages.
+// Secretarial copy is maintained below; other detail copy comes from
+// services-sections.md, transcribed in servicePageContent.js.
 export const SERVICE_DETAIL_ENABLED = true;
-
-// Section artwork lives in src/assets/services/<Folder>/*.webp.
-// Reference the selected replacement files directly so older images in the same
-// folders are not pulled into the production build by a broad eager glob.
 
 export const SERVICES = [
   {
@@ -29,6 +23,40 @@ export const SERVICES = [
     detail: {
       intro:
         "Setting up and maintaining a company involves more than registration. From incorporation to statutory compliance to changes in ownership and corporate structure, OneDesk provides the support you need to keep your business properly structured and up to date. ",
+      timeline: {
+        eyebrow: "Company Incorporation",
+        title: "From name to a company",
+        intro: "Setting up and maintaining a company involves more than registration. From incorporation to statutory compliance to changes in ownership and corporate structure, OneDesk provides the support you need to keep your business properly structured and up to date.",
+        flow: ["Select the name", "Submit for approval", "Apply for incorporation", "Register", "Ready"],
+        steps: [
+          {
+            kicker: "Company name",
+            title: "Choose with confidence",
+            body: "You choose your preferred name. We check its availability and guide you on how to submit the name correctly to the Registrar of Companies (ROC), helping reduce the risk of rejection or resubmission. We then manage the name reservation process for you.",
+            image: new URL("../assets/services/Corporate/Asset 16@4x.webp", import.meta.url).href,
+          },
+          {
+            kicker: "Company structure",
+            title: "Set up your company the right way",
+            body: "We prepare the required incorporation documents and put the right ownership, directors, company secretary and share capital structure in place.",
+            image: new URL("../assets/services/Corporate/Asset 15@4x.webp", import.meta.url).href,
+          },
+          {
+            kicker: "Register with the Registrar of Companies",
+            title: "Submit & incorporate",
+            body: "We submit the incorporation documents to the Registrar of Companies and complete the required Beneficial Ownership filings and declarations.",
+            image: new URL("../assets/services/Corporate/Asset 13@4x.webp", import.meta.url).href,
+          },
+          {
+            title: "Receive your legal documents",
+            body: "Once the incorporation is approved, we finalise your corporate records and provide your completed incorporation documents.",
+            image: new URL("../assets/services/Corporate/Asset 14@4x.webp", import.meta.url).href,
+          },
+        ],
+        closing: "From name to company\nwe handle the details in between",
+        nextLabel: "Ongoing Secretarial Support",
+      },
+      whyEyebrow: "Company structure",
       whyTitle: "Why a Private Limited Company?",
       whySubtitle: "A structure built for what comes next",
       whyBody:
@@ -131,55 +159,7 @@ export const SERVICES = [
       "Trademark & IP basics",
       "On-demand legal Q&A",
     ],
-    detail: {
-      intro:
-        "Contracts, governance and regulatory obligations shape more than compliance, they shape commercial stability. We advise across your lifecycle, from incorporation through expansion and, where needed, dispute management.",
-      sections: [
-        {
-          heading: "Commercial Contracting",
-          body: "We draft, review and negotiate the agreements your business runs on, prioritizing clear risk allocation and enforceability.",
-          points: [
-            "Shareholder agreements",
-            "Joint venture arrangements",
-            "Supply & distribution agreements",
-            "Service & consultancy contracts",
-            "NDAs & confidentiality agreements",
-          ],
-        },
-        {
-          heading: "Regulatory Compliance & Governance",
-          body: "We provide structured advisory across the layered regulatory environments businesses operate in.",
-          points: [
-            "Corporate law compliance",
-            "Licensing & regulatory approvals",
-            "Director duties & governance obligations",
-            "Board advisory support",
-          ],
-        },
-        {
-          heading: "Employment & HR Legal Frameworks",
-          body: "Employment relationships carry legal weight. We help you get the documentation right, aligned with payroll and tax.",
-          points: [
-            "Employment contracts",
-            "HR policies & internal regulations",
-            "Incentive & retention structures",
-            "Disciplinary & termination processes",
-          ],
-        },
-        {
-          heading: "Dispute Strategy & Risk Mitigation",
-          body: "When conflicts do arise, we bring cross-jurisdictional experience to bear.",
-          points: [
-            "Pre-dispute risk assessments",
-            "Settlement strategy advisory",
-            "Coordination with litigation & arbitration counsel",
-            "Evidentiary documentation review",
-          ],
-        },
-      ],
-      approach:
-        "The strongest businesses document decisions before disputes force them to. That's the discipline we bring to every contract and compliance call.",
-    },
+    detail: SERVICE_PAGE_CONTENT.leg,
   },
   {
     key: "tax",
@@ -195,55 +175,7 @@ export const SERVICES = [
       "Quarterly estimates",
       "Year-round tax planning",
     ],
-    detail: {
-      intro:
-        "Tax is a structural part of corporate planning, capital allocation and cross-border strategy. We bring the same discipline to tax that governs our legal and corporate work.",
-      sections: [
-        {
-          heading: "Corporate Tax Structuring",
-          body: "We advise on structuring your operations for clarity and predictability, especially for growing businesses and foreign investors.",
-          points: [
-            "Entity selection & tax implications",
-            "Capital structuring",
-            "Dividend planning & profit distributions",
-            "Withholding tax exposure",
-            "Cross-border transaction analysis",
-          ],
-        },
-        {
-          heading: "Tax Registrations & Ongoing Compliance",
-          body: "We keep your statutory obligations addressed consistently, with a compliance calendar that reduces exposure to penalties.",
-          points: [
-            "Tax registrations & statutory enrolments",
-            "Corporate income tax filing coordination",
-            "Withholding tax reporting",
-            "Statutory payment timelines",
-          ],
-        },
-        {
-          heading: "Cross-Border Tax Considerations",
-          body: "For Sri Lankan businesses expanding abroad, and foreign investors entering Sri Lanka, we evaluate exposure early through our regional partner network.",
-          points: [
-            "Cross-border tax exposure",
-            "Double taxation implications",
-            "Structuring aligned with expansion strategy",
-            "Documentation & reporting expectations",
-          ],
-        },
-        {
-          heading: "Tax Risk Assessment & Advisory",
-          body: "We evaluate exposure before it becomes a liability.",
-          points: [
-            "Contractual arrangements",
-            "Capital reorganizations",
-            "Employment & compensation structures",
-            "Related-party transactions",
-          ],
-        },
-      ],
-      approach:
-        "Tax works best woven into how you run the business, not bolted on at filing time. That's the discipline we bring to every return and structure.",
-    },
+    detail: SERVICE_PAGE_CONTENT.tax,
   },
   {
     key: "acc",
@@ -259,54 +191,7 @@ export const SERVICES = [
       "Investor-ready financials",
       "Dedicated accountant",
     ],
-    detail: {
-      intro:
-        "Financial clarity is the backbone of sound governance. We provide structured accounting and reporting designed for transparency, accuracy and regulatory alignment.",
-      sections: [
-        {
-          heading: "Bookkeeping & Record Maintenance",
-          body: "Your transactions, recorded systematically and to standard.",
-          points: [
-            "Monthly bookkeeping & ledger maintenance",
-            "Bank & account reconciliation",
-            "Accounts payable & receivable tracking",
-            "Expense categorization",
-          ],
-        },
-        {
-          heading: "Financial Statements",
-          body: "We coordinate the preparation of the reports you and your stakeholders rely on.",
-          points: [
-            "Profit & loss statements",
-            "Balance sheets",
-            "Cash flow statements",
-            "Management accounts",
-          ],
-        },
-        {
-          heading: "Audit Coordination & Regulatory Reporting",
-          body: "For entities subject to audit, we keep everything aligned and ready.",
-          points: [
-            "Documentation for auditors",
-            "Coordination with external audit firms",
-            "Statutory filing alignment",
-            "Consistency between records and reporting",
-          ],
-        },
-        {
-          heading: "Financial Governance & Advisory",
-          body: "Beyond reporting, we help you build the systems around it.",
-          points: [
-            "Internal financial controls",
-            "Reporting frameworks",
-            "Governance-aligned financial practices",
-            "Documentation for investors or lenders",
-          ],
-        },
-      ],
-      approach:
-        "Clear numbers make every other decision easier. We treat your books as a governance tool, not a monthly chore.",
-    },
+    detail: SERVICE_PAGE_CONTENT.acc,
   },
   {
     key: "hr",
@@ -322,55 +207,7 @@ export const SERVICES = [
       "Handbooks & policies",
       "PTO & compliance",
     ],
-    detail: {
-      intro:
-        "Human capital drives growth, but employment relationships carry layered statutory obligations. We provide disciplined HR and payroll administration built for compliance and continuity.",
-      sections: [
-        {
-          heading: "Employment Framework Design",
-          body: "We help you build compliant, commercially sound employment structures.",
-          points: [
-            "End-to-end recruitment",
-            "Employment agreements",
-            "HR policies & internal regulations",
-            "Compensation & benefit frameworks",
-            "Confidentiality & non-compete protections",
-          ],
-        },
-        {
-          heading: "Payroll Administration & Statutory Compliance",
-          body: "Payroll is both a financial and regulatory function, we run it as both.",
-          points: [
-            "Salary processing & payroll management",
-            "Statutory contribution calculations",
-            "Withholding & remittance coordination",
-            "Record maintenance & reporting",
-          ],
-        },
-        {
-          heading: "Ongoing HR Compliance",
-          body: "Employment obligations don't end at onboarding.",
-          points: [
-            "Probation & confirmation processes",
-            "Disciplinary procedures",
-            "Termination & separation documentation",
-            "Statutory employee record-keeping",
-          ],
-        },
-        {
-          heading: "Workforce Structuring & Growth",
-          body: "As you scale, workforce strategy has to scale with you.",
-          points: [
-            "Workforce planning",
-            "Restructuring advisory",
-            "Coordination with tax & accounting on compensation",
-            "Investor due-diligence documentation",
-          ],
-        },
-      ],
-      approach:
-        "Your team runs on the same discipline as the rest of your back office: compliant, continuous, and never an afterthought.",
-    },
+    detail: SERVICE_PAGE_CONTENT.hr,
   },
   {
     key: "mkt",
@@ -386,138 +223,95 @@ export const SERVICES = [
       "Content & campaigns",
       "Performance & ROI reporting",
     ],
-    detail: {
-      intro:
-        "A business is only as strong as its ability to communicate value clearly and consistently. We build brand positioning and market visibility that holds up alongside your governance and compliance discipline.",
-      sections: [
-        {
-          heading: "Branding",
-          body: "We define how your business is seen, a coherent identity and positioning that holds up in front of customers, partners and investors alike.",
-          points: [
-            "Brand positioning & value proposition",
-            "Visual identity & brand guidelines",
-            "Messaging & tone of voice",
-            "Audience & market segmentation",
-            "Investor & partner-facing narrative",
-          ],
-        },
-        {
-          heading: "Web Development",
-          body: "Your website is often the first due-diligence check anyone runs. We build a fast, credible digital presence that turns that first look into confidence.",
-          points: [
-            "Website design & build",
-            "Landing & campaign pages",
-            "SEO & technical foundations",
-            "Analytics & tracking setup",
-            "Ongoing maintenance & support",
-          ],
-        },
-        {
-          heading: "Content Marketing",
-          body: "Consistent, credible content keeps you visible between conversations. We plan and produce the words and assets that carry your positioning to market.",
-          points: [
-            "Content strategy & calendar",
-            "Copywriting & editorial",
-            "Social & organic campaigns",
-            "Case studies & thought leadership",
-            "Email marketing & lead nurturing",
-          ],
-        },
-        {
-          heading: "Performance Marketing",
-          body: "Visibility should be measurable. We run paid campaigns against clear targets and report on what they return, so every unit of spend stays accountable.",
-          points: [
-            "Paid search & social campaigns",
-            "Audience targeting & retargeting",
-            "Conversion tracking & attribution",
-            "Performance dashboards",
-            "ROI & spend analysis",
-          ],
-        },
-      ],
-      approach:
-        "Brand isn't separate from governance, it's the story your numbers back up. We keep that story consistent everywhere it's told.",
-    },
+    detail: SERVICE_PAGE_CONTENT.mkt,
   },
 ];
 
-// Per-section artwork, in the same order as each service's detail.sections.
-// Uses the newly added replacement images from each src/assets/services/<Folder>/ folder.
+// Existing per-pillar illustrations, ordered to match the current service rows.
+// Explicit URLs keep unused/older artwork out of the production build.
 const SECTION_IMAGES = {
   sec: [
-    new URL("../assets/services/Corporate/Asset 20.webp", import.meta.url).href, // Company Incorporation
-    new URL("../assets/services/Corporate/Asset 21.webp", import.meta.url).href, // Corporate Governance & Secretarial Compliance
-    new URL("../assets/services/Corporate/Asset 22.webp", import.meta.url).href, // Capital Transactions & Restructuring
-    new URL("../assets/services/Corporate/Asset 24.webp", import.meta.url).href, // Banking & Regulatory Liaison
+    new URL("../assets/services/Corporate/Asset 20.webp", import.meta.url).href,
+    new URL("../assets/services/Corporate/Asset 21.webp", import.meta.url).href,
+    new URL("../assets/services/Corporate/Asset 22.webp", import.meta.url).href,
+    new URL("../assets/services/Corporate/Asset 24.webp", import.meta.url).href,
   ],
   leg: [
-    new URL("../assets/services/Legal/Asset 28.webp", import.meta.url).href, // Commercial Contracting
-    new URL("../assets/services/Legal/Asset 29.webp", import.meta.url).href, // Regulatory Compliance & Governance
-    new URL("../assets/services/Legal/Asset 30.webp", import.meta.url).href, // Employment & HR Legal Frameworks
-    new URL("../assets/services/Legal/Asset 31.webp", import.meta.url).href, // Dispute Strategy & Risk Mitigation
+    new URL("../assets/services/Legal/Asset 28.webp", import.meta.url).href,
+    new URL("../assets/services/Legal/Asset 30.webp", import.meta.url).href,
+    new URL("../assets/services/Legal/Asset 29.webp", import.meta.url).href,
+    new URL("../assets/services/Legal/Asset 31.webp", import.meta.url).href,
   ],
   tax: [
-    new URL(
-      "../assets/services/Tax/tax_character_desk_risk_plan.webp",
-      import.meta.url,
-    ).href, // Corporate Tax Structuring
-    new URL(
-      "../assets/services/Tax/tax_character_clipboard.webp",
-      import.meta.url,
-    ).href, // Tax Registrations & Ongoing Compliance
-    new URL(
-      "../assets/services/Tax/tax_character_presentation.webp",
-      import.meta.url,
-    ).href, // Cross-Border Tax Considerations
-    new URL(
-      "../assets/services/Tax/tax_character_calculator_desk.webp",
-      import.meta.url,
-    ).href, // Tax Risk Assessment & Advisory
+    new URL("../assets/services/Tax/tax_character_clipboard.webp", import.meta.url).href,
+    new URL("../assets/services/Tax/tax_character_calculator_desk.webp", import.meta.url).href,
+    new URL("../assets/services/Tax/tax_character_desk_risk_plan.webp", import.meta.url).href,
+    new URL("../assets/services/Tax/tax_character_presentation.webp", import.meta.url).href,
   ],
   acc: [
-    new URL("../assets/services/Accounting/Asset 13@4x.webp", import.meta.url)
-      .href, // Bookkeeping & Record Maintenance
-    new URL("../assets/services/Accounting/Asset 14@4x.webp", import.meta.url)
-      .href, // Financial Statements
-    new URL("../assets/services/Accounting/Asset 15@4x.webp", import.meta.url)
-      .href, // Audit Coordination & Regulatory Reporting
-    new URL("../assets/services/Accounting/Asset 21@4x.webp", import.meta.url)
-      .href, // Financial Governance & Advisory
+    new URL("../assets/services/Accounting/Asset 13@4x.webp", import.meta.url).href,
+    new URL("../assets/services/Accounting/Asset 14@4x.webp", import.meta.url).href,
+    new URL("../assets/services/Accounting/Asset 15@4x.webp", import.meta.url).href,
+    new URL("../assets/services/Accounting/Asset 21@4x.webp", import.meta.url).href,
   ],
   hr: [
-    new URL("../assets/services/HR/OneDesk_HR_01_meeting.webp", import.meta.url)
-      .href, // Employment Framework Design
-    new URL("../assets/services/HR/OneDesk_HR_02_filing.webp", import.meta.url)
-      .href, // Payroll Administration & Statutory Compliance
-    new URL("../assets/services/HR/OneDesk_HR_03_laptop.webp", import.meta.url)
-      .href, // Ongoing HR Compliance
-    new URL(
-      "../assets/services/HR/OneDesk_HR_04_org_chart.webp",
-      import.meta.url,
-    ).href, // Workforce Structuring & Growth
+    new URL("../assets/services/HR/OneDesk_HR_01_meeting.webp", import.meta.url).href,
+    new URL("../assets/services/HR/OneDesk_HR_02_filing.webp", import.meta.url).href,
+    new URL("../assets/services/HR/OneDesk_HR_03_laptop.webp", import.meta.url).href,
+    new URL("../assets/services/HR/OneDesk_HR_04_org_chart.webp", import.meta.url).href,
   ],
   mkt: [
-    new URL(
-      "../assets/services/Marketing/OneDesk_character_replacement_1 (1).webp",
-      import.meta.url,
-    ).href, // Branding
-    new URL(
-      "../assets/services/Marketing/OneDesk_character_replacement_2 (1).webp",
-      import.meta.url,
-    ).href, // Web Development
-    new URL("../assets/services/Marketing/Asset 32.webp", import.meta.url).href, // Content Marketing
-    new URL(
-      "../assets/services/Marketing/OneDesk_character_replacement_4 (1).webp",
-      import.meta.url,
-    ).href, // Performance Marketing
+    new URL("../assets/services/Marketing/OneDesk_character_replacement_1 (1).webp", import.meta.url).href,
+    new URL("../assets/services/Marketing/OneDesk_character_replacement_4 (1).webp", import.meta.url).href,
+    new URL("../assets/services/Marketing/Asset 32.webp", import.meta.url).href,
+    new URL("../assets/services/Marketing/OneDesk_character_replacement_2 (1).webp", import.meta.url).href,
   ],
 };
 
-// Attach the resolved artwork onto each section object once, at module load.
+// October artwork separates onboarding/timeline illustrations from service rows.
+// Keep the replaced basenames, scoped under timeline/ when they previously shared a file.
+const TIMELINE_IMAGES = {
+  acc: [
+    new URL("../assets/services/Accounting/timeline/Asset 13@4x.webp", import.meta.url).href,
+    new URL("../assets/services/Accounting/timeline/Asset 14@4x.webp", import.meta.url).href,
+    new URL("../assets/services/Accounting/timeline/Asset 15@4x.webp", import.meta.url).href,
+    new URL("../assets/services/Accounting/timeline/Asset 21@4x.webp", import.meta.url).href,
+  ],
+  leg: [
+    new URL("../assets/services/Legal/timeline/Asset 28.webp", import.meta.url).href,
+    new URL("../assets/services/Legal/timeline/Asset 30.webp", import.meta.url).href,
+    new URL("../assets/services/Legal/timeline/Asset 29.webp", import.meta.url).href,
+    new URL("../assets/services/Legal/timeline/Asset 31.webp", import.meta.url).href,
+  ],
+  tax: [
+    new URL("../assets/services/Tax/timeline/tax_character_clipboard.webp", import.meta.url).href,
+    new URL("../assets/services/Tax/timeline/tax_character_calculator_desk.webp", import.meta.url).href,
+    new URL("../assets/services/Tax/timeline/tax_character_desk_risk_plan.webp", import.meta.url).href,
+    new URL("../assets/services/Tax/timeline/tax_character_presentation.webp", import.meta.url).href,
+  ],
+  hr: [
+    new URL("../assets/services/HR/timeline/OneDesk_HR_01_meeting.webp", import.meta.url).href,
+    new URL("../assets/services/HR/timeline/OneDesk_HR_02_filing.webp", import.meta.url).href,
+    new URL("../assets/services/HR/timeline/OneDesk_HR_03_laptop.webp", import.meta.url).href,
+    new URL("../assets/services/HR/timeline/OneDesk_HR_04_org_chart.webp", import.meta.url).href,
+  ],
+  mkt: [
+    new URL("../assets/services/Marketing/timeline/OneDesk_character_replacement_1 (1).webp", import.meta.url).href,
+    new URL("../assets/services/Marketing/timeline/OneDesk_character_replacement_4 (1).webp", import.meta.url).href,
+    new URL("../assets/services/Marketing/timeline/Asset 32.webp", import.meta.url).href,
+    new URL("../assets/services/Marketing/timeline/OneDesk_character_replacement_2 (1).webp", import.meta.url).href,
+  ],
+};
+
+// Map over supplied content rather than imposing a fixed section/step count.
 for (const service of SERVICES) {
   const images = SECTION_IMAGES[service.key] ?? [];
+  const timelineImages = TIMELINE_IMAGES[service.key] ?? [];
   service.detail.sections.forEach((section, i) => {
     section.image = images[i] ?? null;
+  });
+  service.detail.timeline?.steps.forEach((step, i) => {
+    step.image ??= timelineImages[i] ?? null;
   });
 }
 

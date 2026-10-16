@@ -15,7 +15,8 @@ export const HERO_TABLE_SEATS = {
   ],
   right: [
     { key: "marketing", label: "Marketing", src: marketing },
-    { key: "legal", label: "Legal", src: legal },
+    // Anchor the torso, not the bounding box widened by her extended hand.
+    { key: "legal", label: "Legal", src: legal, anchorX: 38 },
     { key: "hr", label: "HR", src: hr },
   ],
 };

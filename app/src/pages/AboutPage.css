@@ -193,6 +193,7 @@
 }
 
 .about-hero__client-desk,
+.about-hero__desk,
 .about-hero__advisor {
   position: absolute;
   display: block;
@@ -201,20 +202,30 @@
 }
 
 .about-hero__client-desk {
-  left: 50%;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  transform: translateX(-50%);
+  left: 3%;
+  bottom: 2%;
+  width: 38%;
+  height: 74%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 2;
+}
+
+.about-hero__desk {
+  left: 7%;
+  bottom: 2%;
+  width: 86%;
+  height: 40%;
+  object-fit: fill;
   z-index: 3;
 }
 
 .about-hero__advisor-seat {
   position: absolute;
   right: 1%;
-  bottom: 0;
+  bottom: 2%;
   width: 38%;
-  aspect-ratio: 2357 / 3304;
+  height: 74%;
   z-index: 2;
 }
 

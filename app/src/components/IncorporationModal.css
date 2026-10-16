@@ -1,0 +1,198 @@
+.incorporation-modal {
+  width: min(860px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 12px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  border-radius: 32px;
+  background: var(--od-paper);
+  color: var(--od-ink);
+  box-shadow: 0 28px 100px rgba(20, 32, 51, 0.24);
+}
+.incorporation-modal::backdrop {
+  background: rgba(20, 32, 51, 0.48);
+  backdrop-filter: blur(5px);
+}
+.incorporation-modal[open] {
+  animation: incorporation-modal-enter 220ms var(--od-ease-out) both;
+}
+.incorporation-modal__layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.incorporation-modal__art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 36px 24px;
+  border-radius: 24px;
+  background: var(--od-sec-tint);
+  color: var(--od-sec-text);
+  text-align: center;
+}
+.incorporation-modal__art-label {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.incorporation-modal__illustration {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: 230px;
+  object-fit: contain;
+}
+.incorporation-modal__art-caption {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+.incorporation-modal__content {
+  align-self: center;
+  padding: 48px 32px;
+}
+.incorporation-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--od-paper);
+  color: var(--od-ink);
+  font-size: 22px;
+  cursor: pointer;
+}
+.incorporation-modal__close:hover {
+  background: var(--od-sec-tint);
+}
+.incorporation-modal__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: var(--od-orange);
+  font-size: var(--od-text-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.incorporation-modal__eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+.incorporation-modal__title {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--od-sec-text);
+  text-wrap: balance;
+}
+.incorporation-modal__description {
+  margin: 20px 0 0;
+  font-size: var(--od-text-base);
+  line-height: 1.65;
+  color: var(--od-ink-2);
+}
+.incorporation-modal__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 28px;
+}
+.incorporation-modal__actions .od-btn {
+  max-width: 100%;
+  text-align: center;
+}
+.incorporation-modal__later {
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--od-text-sm);
+  font-weight: 700;
+  color: var(--od-slate);
+  cursor: pointer;
+}
+.incorporation-modal__later:hover {
+  color: var(--od-ink);
+}
+.incorporation-modal__close:focus-visible,
+.incorporation-modal__later:focus-visible {
+  outline: 2px solid var(--od-orange);
+  outline-offset: 2px;
+}
+@keyframes incorporation-modal-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 640px) {
+  .incorporation-modal {
+    width: min(430px, calc(100% - 24px));
+    max-height: calc(100dvh - 24px);
+    padding: 8px;
+    border-radius: 28px;
+  }
+  .incorporation-modal__layout {
+    grid-template-columns: 1fr;
+  }
+  .incorporation-modal__art {
+    padding: 24px 20px 16px;
+    gap: 12px;
+    border-radius: 20px;
+  }
+  .incorporation-modal__illustration {
+    max-width: 220px;
+    height: 145px;
+  }
+  .incorporation-modal__art-caption {
+    font-size: 1.3rem;
+  }
+  .incorporation-modal__art-caption br {
+    display: none;
+  }
+  .incorporation-modal__content {
+    padding: 28px 20px 12px;
+  }
+  .incorporation-modal__eyebrow {
+    margin-bottom: 12px;
+  }
+  .incorporation-modal__description {
+    margin-top: 16px;
+  }
+  .incorporation-modal__actions {
+    align-items: stretch;
+    margin-top: 22px;
+  }
+  .incorporation-modal__actions .od-btn {
+    width: 100%;
+  }
+  .incorporation-modal__later {
+    text-align: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .incorporation-modal[open] { animation: none; }
+}

@@ -1,3 +1,4 @@
+import Image from "./Image";
 import "./Avatar.css";
 
 function initials(name) {
@@ -12,7 +13,8 @@ function initials(name) {
 export default function Avatar({ name, service = "sec", size = 48, photo }) {
   if (photo) {
     return (
-      <img
+      <Image
+        sizes={`${size}px`}
         className="od-avatar od-avatar--photo"
         src={photo}
         alt={name}
